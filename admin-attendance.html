@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | Stackly Education</title>
+
+    <meta name="description"
+          content="Manage students, staff, courses, and academic activities from the Stackly Education Admin Dashboard.">
+
+    <link rel="icon" type="image/webp" href="Stackly-logo-Blue.webp">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <!-- Admin Dashboard CSS -->
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body class="stackly-admin-body">
+
+    <!-- Mobile Sidebar Overlay -->
+    <div class="stackly-admin-overlay"
+         id="stacklyAdminOverlay"
+         aria-hidden="true"></div>
+
+    <!-- ==========================================
+         SIDEBAR
+    =========================================== -->
+    <aside class="stackly-admin-sidebar" id="stacklyAdminSidebar">
+
+        <!-- Sidebar Header -->
+        <div class="stackly-admin-sidebar-header">
+
+            <a href="admin.html"
+               class="stackly-admin-logo"
+               aria-label="Stackly Education Home">
+
+                <img src="Stackly-logo-Blue.webp"
+                     alt="Stackly Education Logo">
+            </a>
+
+            <!-- Mobile Exit Button -->
+            <button class="stackly-admin-sidebar-close"
+                    id="stacklyAdminSidebarClose"
+                    type="button"
+                    aria-label="Close navigation menu">
+
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+        <!-- Sidebar Navigation -->
+        <nav class="stackly-admin-navigation"
+             aria-label="Admin navigation">
+
+            <p class="stackly-admin-nav-label">MAIN MENU</p>
+
+            <a href="admin.html"
+               class="stackly-admin-nav-link active"
+               aria-current="page">
+
+                <i class="fa-solid fa-chart-pie"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="admin-students.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-user-graduate"></i>
+                <span>Students</span>
+            </a>
+
+            <a href="admin-staff.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-chalkboard-user"></i>
+                <span>Staff Members</span>
+            </a>
+
+
+            <a href="admin-classes.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-school"></i>
+                <span>Classes</span>
+            </a>
+
+            <a href="admin-attendance.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>Attendance</span>
+            </a>
+
+            <a href="admin-examinations.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-file-circle-check"></i>
+                <span>Examinations</span>
+            </a>
+
+
+            <p class="stackly-admin-nav-label stackly-admin-nav-spaced">
+                MANAGEMENT
+            </p>
+
+            <a href="admin-announcements.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-bullhorn"></i>
+                <span>Announcements</span>
+            </a>
+
+            <a href="admin-messages.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-envelope"></i>
+                <span>Messages</span>
+            </a>
+
+        </nav>
+
+        <!-- Sidebar Bottom -->
+        <div class="stackly-admin-sidebar-bottom">
+
+            <div class="stackly-admin-sidebar-help">
+                <div class="stackly-admin-help-icon">
+                    <i class="fa-solid fa-headset"></i>
+                </div>
+
+                <div class="stackly-admin-help-text">
+                    <h4>Need Help?</h4>
+                    <p>Contact support</p>
+                </div>
+
+                <a href="404-admin.html"
+                   class="stackly-admin-help-link"
+                   aria-label="Contact support">
+
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+            <a href="index.html"
+               class="stackly-admin-nav-link stackly-admin-logout-link">
+
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <span>Logout</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+    <!-- ==========================================
+         MAIN CONTENT AREA
+    =========================================== -->
+    <main class="stackly-admin-main">
+
+        <!-- Top Header -->
+        <header class="stackly-admin-topbar">
+
+            <div class="stackly-admin-topbar-left">
+
+                <!-- Mobile Hamburger -->
+                <button class="stackly-admin-menu-toggle"
+                        id="stacklyAdminMenuToggle"
+                        type="button"
+                        aria-label="Open navigation menu"
+                        aria-controls="stacklyAdminSidebar"
+                        aria-expanded="false">
+
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="stackly-admin-page-heading">
+                    <span class="stackly-admin-breadcrumb">
+                        Stackly Education / Admin
+                    </span>
+
+                    <h1>Admin Dashboard</h1>
+                </div>
+
+            </div>
+
+            <!-- Top Right Actions -->
+            <div class="stackly-admin-topbar-right">
+
+                <a href="404-admin.html"><button class="stackly-admin-icon-button"
+                        type="button"
+                        aria-label="Notifications">
+
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="stackly-admin-notification-dot"></span>
+                </button></a>
+
+                <div class="stackly-admin-header-divider"></div>
+
+                <!-- Admin Email -->
+                <div class="stackly-admin-account">
+
+                    <div class="stackly-admin-avatar">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+
+                    <div class="stackly-admin-account-info">
+                        <span class="stackly-admin-account-name">
+                            Administrator
+                        </span>
+
+                        <span class="stackly-admin-account-email"
+                              id="stacklyAdminEmail">
+                            admin@stacklyeducation.com
+                        </span>
+                    </div>
+
+                    <button class="stackly-admin-account-menu"
+                            id="stacklyAdminAccountMenu"
+                            type="button"
+                            aria-label="Account options">
+
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+<!-- ==========================================
+     STACKLY EDUCATION - ADMIN ATTENDANCE PAGE
+     Modern Attendance Management Dashboard
+========================================== -->
+
+<div class="stackly-attendance-page">
+
+    <!-- ATTENDANCE HERO -->
+    <section class="stackly-attendance-hero" data-aos="fade-up">
+
+        <div class="stackly-attendance-hero-content">
+            <span class="stackly-attendance-eyebrow">
+                <i class="fa-solid fa-calendar-check"></i>
+                ATTENDANCE MANAGEMENT
+            </span>
+
+            <h2>
+                Every Presence
+                <span>Builds Progress.</span>
+            </h2>
+
+            <p>
+                Monitor daily student attendance, review classroom
+                participation, identify attendance patterns, and help
+                every learner stay on track.
+            </p>
+
+            <div class="stackly-attendance-hero-actions">
+                <a href="404-admin.html" class="stackly-attendance-btn-primary">
+                    <i class="fa-solid fa-clipboard-check"></i>
+                    Mark Attendance
+                </a>
+
+                <a href="404-admin.html" class="stackly-attendance-btn-secondary">
+                    <i class="fa-solid fa-file-export"></i>
+                    Attendance Reports
+                </a>
+            </div>
+
+            <div class="stackly-attendance-hero-note">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Consistent attendance supports stronger learning outcomes.</span>
+            </div>
+        </div>
+
+        <div class="stackly-attendance-hero-visual">
+
+            <div class="stackly-attendance-orbit attendance-orbit-one"></div>
+            <div class="stackly-attendance-orbit attendance-orbit-two"></div>
+
+            <div class="stackly-attendance-hero-icon">
+                <i class="fa-solid fa-calendar-check"></i>
+            </div>
+
+            <div class="stackly-attendance-floating-card attendance-float-top">
+                <div class="stackly-attendance-float-icon">
+                    <i class="fa-solid fa-user-check"></i>
+                </div>
+                <div>
+                    <strong>Attendance Recorded</strong>
+                    <span>Daily classroom tracking</span>
+                </div>
+            </div>
+
+            <div class="stackly-attendance-floating-card attendance-float-bottom">
+                <div class="stackly-attendance-float-icon green">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <div>
+                    <strong>94.6% Attendance</strong>
+                    <span>Illustrative overall rate</span>
+                </div>
+            </div>
+
+            <div class="stackly-attendance-decoration attendance-decoration-one">
+                <i class="fa-solid fa-clock"></i>
+            </div>
+
+            <div class="stackly-attendance-decoration attendance-decoration-two">
+                <i class="fa-solid fa-star"></i>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ATTENDANCE STATISTICS -->
+    <section class="stackly-attendance-stats" data-aos="fade-up">
+
+        <article class="stackly-attendance-stat-card">
+            <div class="stackly-attendance-stat-top">
+                <span>Total Students</span>
+                <div class="stackly-attendance-stat-icon orange">
+                    <i class="fa-solid fa-user-graduate"></i>
+                </div>
+            </div>
+
+            <h3>1,248</h3>
+            <p><i class="fa-solid fa-users"></i> Registered learners</p>
+
+            <div class="stackly-attendance-progress">
+                <span style="width: 85%"></span>
+            </div>
+        </article>
+
+        <article class="stackly-attendance-stat-card">
+            <div class="stackly-attendance-stat-top">
+                <span>Present Today</span>
+                <div class="stackly-attendance-stat-icon green">
+                    <i class="fa-solid fa-user-check"></i>
+                </div>
+            </div>
+
+            <h3>1,181</h3>
+            <p><i class="fa-solid fa-circle-check"></i> 94.6% of students</p>
+
+            <div class="stackly-attendance-progress green-bar">
+                <span style="width: 94.6%"></span>
+            </div>
+        </article>
+
+        <article class="stackly-attendance-stat-card">
+            <div class="stackly-attendance-stat-top">
+                <span>Absent Today</span>
+                <div class="stackly-attendance-stat-icon red">
+                    <i class="fa-solid fa-user-xmark"></i>
+                </div>
+            </div>
+
+            <h3>42</h3>
+            <p><i class="fa-solid fa-circle-exclamation"></i> 3.4% of students</p>
+
+            <div class="stackly-attendance-progress red-bar">
+                <span style="width: 25%"></span>
+            </div>
+        </article>
+
+        <article class="stackly-attendance-stat-card">
+            <div class="stackly-attendance-stat-top">
+                <span>Late Arrivals</span>
+                <div class="stackly-attendance-stat-icon purple">
+                    <i class="fa-solid fa-clock"></i>
+                </div>
+            </div>
+
+            <h3>25</h3>
+            <p><i class="fa-solid fa-stopwatch"></i> Arrival follow-up</p>
+
+            <div class="stackly-attendance-progress purple-bar">
+                <span style="width: 18%"></span>
+            </div>
+        </article>
+
+    </section>
+
+
+    <!-- TODAY'S ATTENDANCE OVERVIEW -->
+    <section class="stackly-attendance-overview" data-aos="fade-up">
+
+        <div class="stackly-attendance-section-heading">
+            <div>
+                <span class="stackly-attendance-section-label">
+                    DAILY OVERVIEW
+                </span>
+                <h2>Today's Attendance</h2>
+                <p>A snapshot of attendance across the school.</p>
+            </div>
+
+            <a href="404-admin.html" class="stackly-attendance-text-link">
+                View Full Report
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="stackly-attendance-overview-grid">
+
+            <!-- ATTENDANCE RATE -->
+            <article class="stackly-attendance-rate-card">
+
+                <div class="stackly-attendance-rate-header">
+                    <div>
+                        <span>Overall Attendance</span>
+                        <h3>94.6%</h3>
+                    </div>
+
+                    <div class="stackly-attendance-rate-icon">
+                        <i class="fa-solid fa-chart-pie"></i>
+                    </div>
+                </div>
+
+                <div class="stackly-attendance-donut">
+                    <div class="stackly-attendance-donut-inner">
+                        <strong>94.6%</strong>
+                        <span>Present</span>
+                    </div>
+                </div>
+
+                <div class="stackly-attendance-legend">
+                    <div>
+                        <span class="attendance-legend-dot present-dot"></span>
+                        <span>Present</span>
+                        <strong>1,181</strong>
+                    </div>
+
+                    <div>
+                        <span class="attendance-legend-dot absent-dot"></span>
+                        <span>Absent</span>
+                        <strong>42</strong>
+                    </div>
+
+                    <div>
+                        <span class="attendance-legend-dot late-dot"></span>
+                        <span>Late</span>
+                        <strong>25</strong>
+                    </div>
+                </div>
+
+            </article>
+
+            <!-- ATTENDANCE INSIGHT -->
+            <article class="stackly-attendance-insight-card">
+
+                <div class="stackly-attendance-insight-heading">
+                    <div class="stackly-attendance-insight-icon">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+
+                    <span>ADMIN INSIGHT</span>
+                </div>
+
+                <h3>Build a Culture of Consistent Attendance</h3>
+
+                <p>
+                    Regular monitoring helps identify attendance concerns
+                    early and encourages students to participate in
+                    classroom learning.
+                </p>
+
+                <div class="stackly-attendance-insight-points">
+                    <div>
+                        <i class="fa-solid fa-check"></i>
+                        <span>Review unexplained absences</span>
+                    </div>
+
+                    <div>
+                        <i class="fa-solid fa-check"></i>
+                        <span>Follow up on repeated late arrivals</span>
+                    </div>
+
+                    <div>
+                        <i class="fa-solid fa-check"></i>
+                        <span>Recognize consistent attendance</span>
+                    </div>
+                </div>
+
+                <a href="404-admin.html" class="stackly-attendance-insight-link">
+                    Explore Attendance Insights
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </article>
+
+        </div>
+    </section>
+
+
+    <!-- CLASS-WISE ATTENDANCE -->
+    <section class="stackly-attendance-classes" data-aos="fade-up">
+
+        <div class="stackly-attendance-section-heading">
+            <div>
+                <span class="stackly-attendance-section-label">
+                    CLASSROOM PERFORMANCE
+                </span>
+                <h2>Class-wise Attendance</h2>
+                <p>Compare attendance rates and identify classes that need attention.</p>
+            </div>
+
+            <a href="404-admin.html" class="stackly-attendance-text-link">
+                View Classes
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="stackly-attendance-class-grid">
+
+            <!-- CLASS ONE -->
+            <article class="stackly-attendance-class-card" data-aos="fade-up">
+                <div class="stackly-attendance-class-top">
+                    <div class="stackly-attendance-class-icon orange">
+                        <i class="fa-solid fa-atom"></i>
+                    </div>
+                    <span class="stackly-attendance-class-status status-good">
+                        <i class="fa-solid fa-circle"></i> Good
+                    </span>
+                </div>
+
+                <span class="stackly-attendance-class-grade">GRADE 10</span>
+                <h3>Class X - A</h3>
+
+                <div class="stackly-attendance-class-rate">
+                    <strong>97.6%</strong>
+                    <span>Attendance rate</span>
+                </div>
+
+                <div class="stackly-attendance-class-bar">
+                    <span style="width: 97.6%"></span>
+                </div>
+
+                <div class="stackly-attendance-class-footer">
+                    <span><i class="fa-solid fa-user-check"></i> 41 Present</span>
+                    <span>1 Absent</span>
+                </div>
+            </article>
+
+            <!-- CLASS TWO -->
+            <article class="stackly-attendance-class-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="stackly-attendance-class-top">
+                    <div class="stackly-attendance-class-icon green">
+                        <i class="fa-solid fa-flask"></i>
+                    </div>
+                    <span class="stackly-attendance-class-status status-good">
+                        <i class="fa-solid fa-circle"></i> Good
+                    </span>
+                </div>
+
+                <span class="stackly-attendance-class-grade">GRADE 9</span>
+                <h3>Class IX - B</h3>
+
+                <div class="stackly-attendance-class-rate">
+                    <strong>94.7%</strong>
+                    <span>Attendance rate</span>
+                </div>
+
+                <div class="stackly-attendance-class-bar green-bar">
+                    <span style="width: 94.7%"></span>
+                </div>
+
+                <div class="stackly-attendance-class-footer">
+                    <span><i class="fa-solid fa-user-check"></i> 36 Present</span>
+                    <span>2 Absent</span>
+                </div>
+            </article>
+
+            <!-- CLASS THREE -->
+            <article class="stackly-attendance-class-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="stackly-attendance-class-top">
+                    <div class="stackly-attendance-class-icon purple">
+                        <i class="fa-solid fa-calculator"></i>
+                    </div>
+                    <span class="stackly-attendance-class-status status-review">
+                        <i class="fa-solid fa-circle"></i> Review
+                    </span>
+                </div>
+
+                <span class="stackly-attendance-class-grade">GRADE 8</span>
+                <h3>Class VIII - A</h3>
+
+                <div class="stackly-attendance-class-rate">
+                    <strong>87.5%</strong>
+                    <span>Attendance rate</span>
+                </div>
+
+                <div class="stackly-attendance-class-bar purple-bar">
+                    <span style="width: 87.5%"></span>
+                </div>
+
+                <div class="stackly-attendance-class-footer">
+                    <span><i class="fa-solid fa-user-check"></i> 35 Present</span>
+                    <span>5 Absent</span>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+
+    <!-- ATTENDANCE ACTIVITY + ACTIONS -->
+    <section class="stackly-attendance-bottom-grid" data-aos="fade-up">
+
+        <!-- RECENT ATTENDANCE ACTIVITY -->
+        <div class="stackly-attendance-panel">
+
+            <div class="stackly-attendance-panel-heading">
+                <div>
+                    <span class="stackly-attendance-section-label">
+                        LATEST UPDATES
+                    </span>
+                    <h2>Recent Activity</h2>
+                </div>
+
+                <a href="404-admin.html" aria-label="View all attendance activity">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+            <div class="stackly-attendance-activity-list">
+
+                <article class="stackly-attendance-activity-item">
+                    <div class="stackly-attendance-activity-icon green">
+                        <i class="fa-solid fa-user-check"></i>
+                    </div>
+
+                    <div class="stackly-attendance-activity-content">
+                        <h3>Class X - A attendance recorded</h3>
+                        <p>Attendance submitted for the classroom.</p>
+                        <span>Sample activity · 09:15 AM</span>
+                    </div>
+
+                    <span class="stackly-attendance-activity-tag tag-green">
+                        Completed
+                    </span>
+                </article>
+
+                <article class="stackly-attendance-activity-item">
+                    <div class="stackly-attendance-activity-icon orange">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+
+                    <div class="stackly-attendance-activity-content">
+                        <h3>Late arrivals need review</h3>
+                        <p>Check recorded arrival times for accuracy.</p>
+                        <span>Sample activity · 09:30 AM</span>
+                    </div>
+
+                    <span class="stackly-attendance-activity-tag tag-orange">
+                        Review
+                    </span>
+                </article>
+
+                <article class="stackly-attendance-activity-item">
+                    <div class="stackly-attendance-activity-icon purple">
+                        <i class="fa-solid fa-file-lines"></i>
+                    </div>
+
+                    <div class="stackly-attendance-activity-content">
+                        <h3>Monthly report ready to review</h3>
+                        <p>Check attendance summaries for the period.</p>
+                        <span>Sample activity · 10:00 AM</span>
+                    </div>
+
+                    <span class="stackly-attendance-activity-tag tag-purple">
+                        Report
+                    </span>
+                </article>
+
+            </div>
+        </div>
+
+
+        <!-- QUICK ACTIONS -->
+        <div class="stackly-attendance-panel stackly-attendance-actions-panel">
+
+            <div class="stackly-attendance-panel-heading">
+                <div>
+                    <span class="stackly-attendance-section-label">
+                        QUICK ACCESS
+                    </span>
+                    <h2>Attendance Tools</h2>
+                </div>
+
+                <div class="stackly-attendance-panel-bolt">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+            </div>
+
+            <div class="stackly-attendance-quick-actions">
+
+                <a href="404-admin.html" class="stackly-attendance-quick-action">
+                    <div class="stackly-attendance-quick-icon orange">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                    </div>
+                    <div>
+                        <strong>Mark Attendance</strong>
+                        <span>Record student presence</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-right quick-action-arrow"></i>
+                </a>
+
+                <a href="404-admin.html" class="stackly-attendance-quick-action">
+                    <div class="stackly-attendance-quick-icon green">
+                        <i class="fa-solid fa-user-clock"></i>
+                    </div>
+                    <div>
+                        <strong>Review Absences</strong>
+                        <span>Check missing attendance</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-right quick-action-arrow"></i>
+                </a>
+
+                <a href="404-admin.html" class="stackly-attendance-quick-action">
+                    <div class="stackly-attendance-quick-icon purple">
+                        <i class="fa-solid fa-chart-column"></i>
+                    </div>
+                    <div>
+                        <strong>Attendance Reports</strong>
+                        <span>Review class summaries</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-right quick-action-arrow"></i>
+                </a>
+
+                <a href="404-admin.html" class="stackly-attendance-quick-action">
+                    <div class="stackly-attendance-quick-icon blue">
+                        <i class="fa-solid fa-calendar-days"></i>
+                    </div>
+                    <div>
+                        <strong>Manage Calendar</strong>
+                        <span>Review school attendance dates</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-right quick-action-arrow"></i>
+                </a>
+
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- ATTENDANCE REMINDER BANNER -->
+    <section class="stackly-attendance-reminder" data-aos="fade-up">
+
+        <div class="stackly-attendance-reminder-icon">
+            <i class="fa-solid fa-bell"></i>
+        </div>
+
+        <div class="stackly-attendance-reminder-content">
+            <span>STAY ON TRACK</span>
+            <h2>Make Every School Day Count.</h2>
+            <p>
+                Review attendance records regularly and follow up on
+                unexplained absences to keep student records up to date.
+            </p>
+        </div>
+
+        <a href="404-admin.html" class="stackly-attendance-reminder-btn">
+            Review Records
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+    </section>
+
+</div>
+
+</main>
+
+    <!-- AOS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <!-- Admin Dashboard JavaScript -->
+    <script src="admin.js"></script>
+
+</body>
+</html>

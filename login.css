@@ -1,0 +1,1405 @@
+
+/* ==========================================
+   STACKLY EDUCATION
+   LOGIN + SIGN UP PAGE
+   Professional UI + Responsive Design
+========================================== */
+
+.stackly-auth-page,
+.stackly-auth-page * {
+    box-sizing: border-box;
+}
+
+.stackly-auth-page {
+    --auth-orange: #ff9f16;
+    --auth-orange-dark: #ed8500;
+    --auth-green: #08786c;
+    --auth-green-dark: #075e55;
+    --auth-heading: #202d3c;
+    --auth-text: #586575;
+    --auth-border: #e5eaf0;
+
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow: hidden;
+    background: #f5f8fc;
+    color: var(--auth-heading);
+    font-family: "DM Sans", sans-serif;
+}
+
+.stackly-auth-page button,
+.stackly-auth-page input {
+    font: inherit;
+}
+
+.stackly-auth-page button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.stackly-auth-decoration {
+    position: absolute;
+    z-index: -1;
+    width: 390px;
+    height: 390px;
+    border-radius: 50%;
+    filter: blur(2px);
+    pointer-events: none;
+}
+
+.stackly-auth-decoration-one {
+    top: 120px;
+    left: -250px;
+    background: rgba(255, 159, 22, 0.10);
+}
+
+.stackly-auth-decoration-two {
+    right: -240px;
+    bottom: -140px;
+    background: rgba(8, 120, 108, 0.10);
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.stackly-auth-header {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    min-height: 88px;
+    padding: 15px 6%;
+    border-bottom: 1px solid rgba(32, 45, 60, 0.07);
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.stackly-auth-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+    color: var(--auth-heading);
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.stackly-auth-logo:hover {
+    transform: translateY(-2px);
+}
+
+.stackly-auth-logo img {
+    display: block;
+    width: 170px;
+    height: 54px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    filter:
+        brightness(0)
+        saturate(100%)
+        invert(66%)
+        sepia(91%)
+        saturate(1655%)
+        hue-rotate(347deg)
+        brightness(101%)
+        contrast(102%);
+}
+
+.stackly-auth-logo:hover img {
+    transform: scale(1.07);
+}
+
+.stackly-auth-logo > span {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 27px;
+    font-weight: 700;
+    letter-spacing: -0.8px;
+}
+
+.stackly-auth-logo-accent {
+    color: var(--auth-orange);
+}
+
+.stackly-auth-home-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 45px;
+    padding: 11px 18px;
+    border: 1px solid var(--auth-border);
+    border-radius: 10px;
+    background: #ffffff;
+    color: var(--auth-heading);
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.stackly-auth-home-link:hover {
+    transform: translateY(-3px);
+    border-color: var(--auth-orange);
+    background: var(--auth-orange);
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(255, 159, 22, 0.2);
+}
+
+.stackly-auth-home-link i {
+    transition: transform 0.3s ease;
+}
+
+.stackly-auth-home-link:hover i {
+    transform: translateX(-3px);
+}
+
+/* ==========================================
+   MAIN LAYOUT
+========================================== */
+
+.stackly-auth-main {
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    align-items: stretch;
+    gap: 55px;
+    width: 100%;
+    max-width: 1420px;
+    margin: auto;
+    padding: 55px 5%;
+}
+
+/* ==========================================
+   WELCOME PANEL
+========================================== */
+
+.stackly-auth-welcome {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 0;
+    min-height: 650px;
+    padding: 52px 42px 30px;
+    overflow: hidden;
+    border-radius: 26px;
+    background:
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(255, 255, 255, 0.16),
+            transparent 35%
+        ),
+        linear-gradient(145deg, #08786c 0%, #075e55 100%);
+    color: #ffffff;
+    box-shadow: 0 24px 65px rgba(7, 94, 85, 0.17);
+    animation: stacklyAuthWelcomeIn 0.8s ease both;
+}
+
+.stackly-auth-welcome::before,
+.stackly-auth-welcome::after {
+    position: absolute;
+    z-index: 0;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+    content: "";
+    pointer-events: none;
+}
+
+.stackly-auth-welcome::before {
+    top: -120px;
+    right: -140px;
+    width: 360px;
+    height: 360px;
+}
+
+.stackly-auth-welcome::after {
+    right: -65px;
+    bottom: 45px;
+    width: 230px;
+    height: 230px;
+}
+
+.stackly-auth-welcome-content,
+.stackly-auth-welcome-footer {
+    position: relative;
+    z-index: 1;
+}
+
+.stackly-auth-welcome-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.10);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+    line-height: 1.5;
+}
+
+.stackly-auth-welcome-badge i {
+    color: #ffd18a;
+    font-size: 15px;
+}
+
+.stackly-auth-welcome h1 {
+    max-width: 500px;
+    margin: 30px 0 20px;
+    color: #ffffff;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(38px, 3.4vw, 52px);
+    font-weight: 700;
+    line-height: 1.16;
+    letter-spacing: -1.6px;
+}
+
+.stackly-auth-welcome h1 span {
+    display: block;
+    margin-top: 7px;
+    color: #ffc66d;
+}
+
+.stackly-auth-welcome-content > p {
+    max-width: 440px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.83);
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+/* Welcome benefits */
+
+.stackly-auth-benefits {
+    display: grid;
+    gap: 22px;
+    margin-top: 43px;
+}
+
+.stackly-auth-benefit {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px;
+    border: 1px solid transparent;
+    border-radius: 15px;
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.stackly-auth-benefit:hover {
+    transform: translateX(5px);
+    border-color: rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.stackly-auth-benefit-icon {
+    display: flex;
+    flex: 0 0 48px;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 13px;
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffd18a;
+    font-size: 20px;
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+.stackly-auth-benefit:hover .stackly-auth-benefit-icon {
+    transform: rotate(-5deg) scale(1.06);
+    background: rgba(255, 255, 255, 0.20);
+}
+
+.stackly-auth-benefit h3 {
+    margin: 0 0 5px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.5;
+}
+
+.stackly-auth-benefit p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.74);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.stackly-auth-welcome-footer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 35px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255, 255, 255, 0.17);
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.stackly-auth-welcome-footer i {
+    color: #ffc66d;
+}
+
+/* ==========================================
+   FORM PANEL
+========================================== */
+
+.stackly-auth-form-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    animation: stacklyAuthFormIn 0.8s ease both;
+}
+
+.stackly-auth-card {
+    width: 100%;
+    max-width: 530px;
+    padding: 35px 34px;
+    border: 1px solid rgba(32, 45, 60, 0.07);
+    border-radius: 23px;
+    background: #ffffff;
+    box-shadow:
+        0 20px 60px rgba(32, 45, 60, 0.08),
+        0 3px 12px rgba(32, 45, 60, 0.03);
+}
+
+/* ==========================================
+   LOGIN / SIGN UP TABS
+========================================== */
+
+.stackly-auth-tabs {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    margin-bottom: 28px;
+    padding: 5px;
+    border-radius: 12px;
+    background: #f1f4f8;
+}
+
+.stackly-auth-tab {
+    position: relative;
+    z-index: 1;
+    min-height: 45px;
+    padding: 10px;
+    border: 0;
+    border-radius: 9px;
+    background: transparent;
+    color: #758091;
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.stackly-auth-tab.is-active {
+    color: #ffffff;
+}
+
+.stackly-auth-tab-indicator {
+    position: absolute;
+    top: 5px;
+    bottom: 5px;
+    left: 5px;
+    width: calc(50% - 7.5px);
+    border-radius: 9px;
+    background: var(--auth-green);
+    box-shadow: 0 4px 12px rgba(8, 120, 108, 0.18);
+    transition: transform 0.35s ease;
+}
+
+.stackly-auth-tabs.signup-active .stackly-auth-tab-indicator {
+    transform: translateX(calc(100% + 5px));
+}
+
+/* ==========================================
+   FORM HEADING
+========================================== */
+
+.stackly-auth-form-heading {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.stackly-auth-form-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 16px;
+    border-radius: 17px;
+    background: rgba(255, 159, 22, 0.12);
+    color: var(--auth-orange-dark);
+    font-size: 23px;
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+.stackly-auth-form-heading:hover .stackly-auth-form-icon {
+    transform: translateY(-3px) rotate(-4deg);
+    background: rgba(255, 159, 22, 0.19);
+}
+
+.stackly-auth-form-heading h2 {
+    margin: 0 0 9px;
+    color: var(--auth-heading);
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.7px;
+}
+
+.stackly-auth-form-heading p {
+    margin: 0;
+    color: var(--auth-text);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* ==========================================
+   INPUT FIELDS
+========================================== */
+
+.stackly-auth-form {
+    width: 100%;
+}
+
+.stackly-auth-form[hidden],
+.stackly-auth-dropdown[hidden],
+.stackly-auth-message[hidden] {
+    display: none !important;
+}
+
+.stackly-auth-form.is-active {
+    animation: stacklyAuthFieldsIn 0.35s ease both;
+}
+
+.stackly-auth-field {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.stackly-auth-field > label,
+.stackly-auth-label-row > label {
+    display: block;
+    margin-bottom: 9px;
+    color: var(--auth-heading);
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.5;
+}
+
+.stackly-auth-field label > span {
+    color: #e44f4f;
+}
+
+.stackly-auth-label-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 9px;
+}
+
+.stackly-auth-label-row > label {
+    margin-bottom: 0;
+}
+
+.stackly-auth-input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 54px;
+    border: 1px solid #e1e7ee;
+    border-radius: 11px;
+    background: #ffffff;
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+.stackly-auth-input-wrap:focus-within {
+    border-color: var(--auth-green);
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(8, 120, 108, 0.09);
+}
+
+.stackly-auth-input-icon {
+    flex: 0 0 44px;
+    padding-left: 16px;
+    color: #8994a3;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.stackly-auth-input-wrap:focus-within .stackly-auth-input-icon {
+    color: var(--auth-green);
+}
+
+.stackly-auth-input-wrap input {
+    width: 100%;
+    min-width: 0;
+    height: 52px;
+    padding: 12px 13px 12px 0;
+    border: 0;
+    outline: 0;
+    border-radius: 11px;
+    background: transparent;
+    color: var(--auth-heading);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.stackly-auth-input-wrap input::placeholder {
+    color: #a1aab7;
+    opacity: 1;
+}
+
+.stackly-auth-input-wrap input:focus-visible {
+    outline: none;
+}
+
+.stackly-auth-input-wrap input:-webkit-autofill,
+.stackly-auth-input-wrap input:-webkit-autofill:hover,
+.stackly-auth-input-wrap input:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--auth-heading);
+    transition: background-color 9999s ease-out;
+}
+
+/* ==========================================
+   PASSWORD EYE ICON
+========================================== */
+
+.stackly-auth-eye {
+    display: flex;
+    flex: 0 0 46px;
+    align-items: center;
+    justify-content: center;
+    align-self: stretch;
+    border: 0;
+    border-radius: 0 11px 11px 0;
+    background: transparent;
+    color: #8994a3;
+    font-size: 16px;
+    cursor: pointer;
+    transition:
+        color 0.3s ease,
+        background 0.3s ease;
+}
+
+.stackly-auth-eye:hover {
+    background: #f1f8f6;
+    color: var(--auth-green);
+}
+
+.stackly-auth-eye:focus-visible {
+    outline: 2px solid var(--auth-green);
+    outline-offset: -4px;
+}
+
+/* ==========================================
+   CUSTOM ROLE DROPDOWN
+========================================== */
+
+.stackly-auth-select-wrap {
+    position: relative;
+    width: 100%;
+}
+
+.stackly-auth-select {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    min-height: 54px;
+    padding: 13px 16px;
+    border: 1px solid #e1e7ee;
+    border-radius: 11px;
+    background: #ffffff;
+    color: var(--auth-heading);
+    text-align: left;
+    cursor: pointer;
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+.stackly-auth-select:hover {
+    border-color: #b6d9d2;
+    background: #fcfefd;
+}
+
+.stackly-auth-select[aria-expanded="true"] {
+    border-color: var(--auth-green);
+    border-radius: 11px 11px 0 0;
+    box-shadow: 0 0 0 4px rgba(8, 120, 108, 0.07);
+}
+
+.stackly-auth-select-value {
+    overflow: hidden;
+    color: #8b96a4;
+    font-size: 14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.stackly-auth-select-value.has-value {
+    color: var(--auth-heading);
+    font-weight: 600;
+}
+
+.stackly-auth-select > i {
+    flex: 0 0 auto;
+    color: #8994a3;
+    font-size: 13px;
+    transition: transform 0.3s ease;
+}
+
+.stackly-auth-select[aria-expanded="true"] > i {
+    transform: rotate(180deg);
+    color: var(--auth-green);
+}
+
+.stackly-auth-dropdown {
+    position: absolute;
+    z-index: 30;
+    top: calc(100% - 1px);
+    right: 0;
+    left: 0;
+    padding: 6px;
+    border: 1px solid var(--auth-green);
+    border-top: 1px solid #e8eeef;
+    border-radius: 0 0 12px 12px;
+    background: #ffffff;
+    box-shadow: 0 15px 28px rgba(32, 45, 60, 0.13);
+    animation: stacklyAuthDropdownIn 0.2s ease both;
+}
+
+.stackly-auth-dropdown > button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-height: 46px;
+    padding: 11px 12px;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--auth-text);
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        padding 0.2s ease;
+}
+
+.stackly-auth-dropdown > button > i:first-child {
+    width: 20px;
+    color: var(--auth-green);
+    text-align: center;
+}
+
+.stackly-auth-dropdown > button:hover,
+.stackly-auth-dropdown > button:focus-visible {
+    padding-left: 16px;
+    outline: none;
+    background: #eef8f5;
+    color: var(--auth-green-dark);
+}
+
+.stackly-auth-dropdown > button.is-selected {
+    background: #f1f8f6;
+    color: var(--auth-green-dark);
+}
+
+.stackly-auth-option-check {
+    margin-left: auto;
+    color: var(--auth-green);
+    opacity: 0;
+}
+
+.stackly-auth-dropdown > button.is-selected .stackly-auth-option-check {
+    opacity: 1;
+}
+
+/* ==========================================
+   FORGOT PASSWORD + REMEMBER ME
+========================================== */
+
+.stackly-auth-forgot {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--auth-green);
+    font-size: 12px;
+    font-weight: 800;
+    text-align: right;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.stackly-auth-forgot:hover {
+    color: var(--auth-orange-dark);
+    text-decoration: underline;
+}
+
+.stackly-auth-options {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 2px 0 23px;
+}
+
+.stackly-auth-checkbox {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: var(--auth-text);
+    font-size: 13px;
+    line-height: 1.7;
+    cursor: pointer;
+}
+
+.stackly-auth-checkbox input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.stackly-auth-checkmark {
+    display: flex;
+    flex: 0 0 19px;
+    align-items: center;
+    justify-content: center;
+    width: 19px;
+    height: 19px;
+    margin-top: 1px;
+    border: 1px solid #cbd4df;
+    border-radius: 5px;
+    background: #ffffff;
+    color: #ffffff;
+    font-size: 10px;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.stackly-auth-checkbox input:checked + .stackly-auth-checkmark {
+    border-color: var(--auth-green);
+    background: var(--auth-green);
+}
+
+.stackly-auth-checkbox input:focus-visible + .stackly-auth-checkmark {
+    outline: 3px solid rgba(8, 120, 108, 0.2);
+    outline-offset: 2px;
+}
+
+.stackly-auth-terms {
+    margin: 0 0 22px;
+}
+
+/* ==========================================
+   SUBMIT BUTTON
+========================================== */
+
+.stackly-auth-submit {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    min-height: 56px;
+    padding: 15px 20px;
+    overflow: hidden;
+    border: 1px solid var(--auth-green);
+    border-radius: 11px;
+    background: var(--auth-green);
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(8, 120, 108, 0.16);
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.stackly-auth-submit::before {
+    position: absolute;
+    inset: 0;
+    background: var(--auth-orange);
+    content: "";
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+}
+
+.stackly-auth-submit > span,
+.stackly-auth-submit > i {
+    position: relative;
+    z-index: 1;
+}
+
+.stackly-auth-submit:hover {
+    transform: translateY(-3px);
+    border-color: var(--auth-orange);
+    box-shadow: 0 13px 27px rgba(8, 120, 108, 0.19);
+}
+
+.stackly-auth-submit:hover::before {
+    transform: scaleX(1);
+}
+
+.stackly-auth-submit > i {
+    transition: transform 0.3s ease;
+}
+
+.stackly-auth-submit:hover > i {
+    transform: translateX(4px);
+}
+
+.stackly-auth-submit:focus-visible,
+.stackly-auth-home-link:focus-visible,
+.stackly-auth-tab:focus-visible,
+.stackly-auth-switch button:focus-visible,
+.stackly-auth-forgot:focus-visible {
+    outline: 3px solid rgba(255, 159, 22, 0.5);
+    outline-offset: 3px;
+}
+
+/* ==========================================
+   SWITCH ACCOUNT LINKS
+========================================== */
+
+.stackly-auth-switch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin: 23px 0 0;
+    color: var(--auth-text);
+    font-size: 13px;
+    line-height: 1.8;
+    text-align: center;
+}
+
+.stackly-auth-switch button {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--auth-green);
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.stackly-auth-switch button:hover {
+    color: var(--auth-orange-dark);
+    text-decoration: underline;
+}
+
+/* ==========================================
+   STATUS MESSAGE
+========================================== */
+
+.stackly-auth-message {
+    margin-bottom: 20px;
+    padding: 13px 15px;
+    border: 1px solid #cce8dd;
+    border-radius: 10px;
+    background: #eff9f4;
+    color: #176b50;
+    font-size: 13px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.stackly-auth-message.is-error {
+    border-color: #f1cece;
+    background: #fff3f3;
+    color: #a63232;
+}
+
+.stackly-auth-message.is-info {
+    border-color: #d5e3f6;
+    background: #f1f6ff;
+    color: #315b92;
+}
+
+/* ==========================================
+   COPYRIGHT
+========================================== */
+
+.stackly-auth-copyright {
+    margin: 22px 0 0;
+    color: #8792a1;
+    font-size: 12px;
+    line-height: 1.8;
+    text-align: center;
+}
+
+/* ==========================================
+   ANIMATIONS
+========================================== */
+
+@keyframes stacklyAuthWelcomeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-22px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes stacklyAuthFormIn {
+    from {
+        opacity: 0;
+        transform: translateX(22px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes stacklyAuthFieldsIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes stacklyAuthDropdownIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 1100px) {
+    .stackly-auth-main {
+        grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+        gap: 28px;
+        padding: 40px 3%;
+    }
+
+    .stackly-auth-welcome {
+        min-height: 620px;
+        padding: 38px 27px 25px;
+    }
+
+    .stackly-auth-welcome h1 {
+        font-size: 39px;
+    }
+
+    .stackly-auth-card {
+        padding: 30px 25px;
+    }
+}
+
+/* ==========================================
+   SMALL TABLETS
+========================================== */
+
+@media (max-width: 850px) {
+    .stackly-auth-main {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        max-width: 650px;
+        padding: 35px 22px;
+    }
+
+    .stackly-auth-welcome {
+        min-height: auto;
+        padding: 35px 30px 25px;
+        border-radius: 22px;
+    }
+
+    .stackly-auth-welcome h1 {
+        max-width: 520px;
+        font-size: clamp(34px, 6vw, 46px);
+    }
+
+    .stackly-auth-welcome-content > p {
+        max-width: 560px;
+    }
+
+    .stackly-auth-benefits {
+        gap: 10px;
+        margin-top: 25px;
+    }
+
+    .stackly-auth-welcome-footer {
+        margin-top: 22px;
+    }
+
+    .stackly-auth-form-panel {
+        width: 100%;
+    }
+
+    .stackly-auth-card {
+        max-width: none;
+    }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 576px) {
+    .stackly-auth-header {
+        min-height: 72px;
+        padding: 11px 16px;
+    }
+
+    .stackly-auth-logo {
+        gap: 8px;
+    }
+
+    .stackly-auth-logo img {
+        width: 43px;
+        height: 43px;
+    }
+
+    .stackly-auth-logo > span {
+        font-size: 22px;
+    }
+
+    .stackly-auth-home-link {
+        min-height: 40px;
+        gap: 7px;
+        padding: 9px 11px;
+        font-size: 12px;
+    }
+
+    .stackly-auth-main {
+        gap: 23px;
+        padding: 22px 14px 30px;
+    }
+
+    .stackly-auth-welcome {
+        padding: 27px 21px 22px;
+        border-radius: 19px;
+    }
+
+    .stackly-auth-welcome-badge {
+        gap: 7px;
+        padding: 9px 11px;
+        font-size: 10px;
+        letter-spacing: 0.9px;
+    }
+
+    .stackly-auth-welcome h1 {
+        margin: 23px 0 15px;
+        font-size: clamp(31px, 8vw, 39px);
+        line-height: 1.2;
+        letter-spacing: -1px;
+    }
+
+    .stackly-auth-welcome-content > p {
+        font-size: 14px;
+        line-height: 1.85;
+    }
+
+    .stackly-auth-benefits {
+        gap: 8px;
+        margin-top: 22px;
+    }
+
+    .stackly-auth-benefit {
+        gap: 12px;
+        padding: 10px 7px;
+    }
+
+    .stackly-auth-benefit-icon {
+        flex-basis: 42px;
+        width: 42px;
+        height: 42px;
+        border-radius: 11px;
+        font-size: 17px;
+    }
+
+    .stackly-auth-benefit h3 {
+        font-size: 14px;
+    }
+
+    .stackly-auth-benefit p {
+        font-size: 12px;
+    }
+
+    .stackly-auth-welcome-footer {
+        gap: 8px;
+        margin-top: 18px;
+        padding-top: 17px;
+        font-size: 12px;
+    }
+
+    .stackly-auth-card {
+        padding: 24px 18px;
+        border-radius: 19px;
+    }
+
+    .stackly-auth-tabs {
+        margin-bottom: 24px;
+    }
+
+    .stackly-auth-tab {
+        min-height: 43px;
+        font-size: 14px;
+    }
+
+    .stackly-auth-form-heading {
+        margin-bottom: 22px;
+    }
+
+    .stackly-auth-form-icon {
+        width: 51px;
+        height: 51px;
+        margin-bottom: 13px;
+        border-radius: 14px;
+        font-size: 20px;
+    }
+
+    .stackly-auth-form-heading h2 {
+        font-size: 27px;
+    }
+
+    .stackly-auth-form-heading p {
+        font-size: 13px;
+    }
+
+    .stackly-auth-field {
+        margin-bottom: 18px;
+    }
+
+    .stackly-auth-field > label,
+    .stackly-auth-label-row > label {
+        font-size: 13px;
+    }
+
+    .stackly-auth-input-wrap,
+    .stackly-auth-select {
+        min-height: 51px;
+    }
+
+    .stackly-auth-input-wrap input {
+        height: 49px;
+        font-size: 13px;
+    }
+
+    .stackly-auth-input-icon {
+        flex-basis: 40px;
+        padding-left: 13px;
+        font-size: 14px;
+    }
+
+    .stackly-auth-select {
+        padding: 12px;
+    }
+
+    .stackly-auth-select-value {
+        font-size: 13px;
+    }
+
+    .stackly-auth-dropdown > button {
+        min-height: 45px;
+        font-size: 13px;
+    }
+
+    .stackly-auth-forgot {
+        font-size: 11px;
+    }
+
+    .stackly-auth-options {
+        margin-bottom: 20px;
+    }
+
+    .stackly-auth-checkbox {
+        font-size: 12px;
+    }
+
+    .stackly-auth-submit {
+        min-height: 53px;
+        padding: 14px 16px;
+        font-size: 14px;
+    }
+
+    .stackly-auth-switch {
+        gap: 4px;
+        margin-top: 19px;
+        font-size: 12px;
+    }
+
+    .stackly-auth-switch button {
+        font-size: 12px;
+    }
+
+    .stackly-auth-copyright {
+        margin-top: 18px;
+        font-size: 11px;
+    }
+}
+
+/* ==========================================
+   EXTRA SMALL MOBILE
+========================================== */
+
+@media (max-width: 360px) {
+    .stackly-auth-header {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .stackly-auth-logo {
+        gap: 5px;
+    }
+
+    .stackly-auth-logo img {
+        width: 36px;
+        height: 36px;
+    }
+
+    .stackly-auth-logo > span {
+        font-size: 19px;
+    }
+
+    .stackly-auth-home-link {
+        gap: 5px;
+        padding: 8px;
+        font-size: 11px;
+    }
+
+    .stackly-auth-main {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .stackly-auth-welcome {
+        padding: 23px 15px 20px;
+    }
+
+    .stackly-auth-card {
+        padding: 22px 13px;
+    }
+
+    .stackly-auth-welcome h1 {
+        font-size: 30px;
+    }
+
+    .stackly-auth-label-row {
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .stackly-auth-forgot {
+        max-width: 125px;
+    }
+}
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .stackly-auth-page *,
+    .stackly-auth-page *::before,
+    .stackly-auth-page *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+.stackly-auth-form-message {
+    margin-top: 16px;
+    padding: 12px 15px;
+    border-radius: 10px;
+    font-size: 14px;
+    line-height: 1.6;
+    font-weight: 600;
+}
+
+.stackly-auth-form-message[hidden],
+.stackly-auth-page form[hidden],
+.stackly-auth-tabs[hidden] {
+    display: none !important;
+}
+
+.stackly-auth-form-message.is-error {
+    color: #b42318;
+    background: #fff0ef;
+    border: 1px solid #ffd0cc;
+}
+
+.stackly-auth-form-message.is-success {
+    color: #08786c;
+    background: #eaf8f3;
+    border: 1px solid #b8e6d6;
+}
+
+.stackly-auth-form-message.is-info {
+    color: #805000;
+    background: #fff6e5;
+    border: 1px solid #ffe0a3;
+}

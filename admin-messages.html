@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | Stackly Education</title>
+
+    <meta name="description"
+          content="Manage students, staff, courses, and academic activities from the Stackly Education Admin Dashboard.">
+
+    <link rel="icon" type="image/webp" href="Stackly-logo-Blue.webp">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <!-- Admin Dashboard CSS -->
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body class="stackly-admin-body">
+
+    <!-- Mobile Sidebar Overlay -->
+    <div class="stackly-admin-overlay"
+         id="stacklyAdminOverlay"
+         aria-hidden="true"></div>
+
+    <!-- ==========================================
+         SIDEBAR
+    =========================================== -->
+    <aside class="stackly-admin-sidebar" id="stacklyAdminSidebar">
+
+        <!-- Sidebar Header -->
+        <div class="stackly-admin-sidebar-header">
+
+            <a href="admin.html"
+               class="stackly-admin-logo"
+               aria-label="Stackly Education Home">
+
+                <img src="Stackly-logo-Blue.webp"
+                     alt="Stackly Education Logo">
+            </a>
+
+            <!-- Mobile Exit Button -->
+            <button class="stackly-admin-sidebar-close"
+                    id="stacklyAdminSidebarClose"
+                    type="button"
+                    aria-label="Close navigation menu">
+
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+        <!-- Sidebar Navigation -->
+        <nav class="stackly-admin-navigation"
+             aria-label="Admin navigation">
+
+            <p class="stackly-admin-nav-label">MAIN MENU</p>
+
+            <a href="admin.html"
+               class="stackly-admin-nav-link active"
+               aria-current="page">
+
+                <i class="fa-solid fa-chart-pie"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="admin-students.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-user-graduate"></i>
+                <span>Students</span>
+            </a>
+
+            <a href="admin-staff.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-chalkboard-user"></i>
+                <span>Staff Members</span>
+            </a>
+
+
+            <a href="admin-classes.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-school"></i>
+                <span>Classes</span>
+            </a>
+
+            <a href="admin-attendance.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>Attendance</span>
+            </a>
+
+            <a href="admin-examinations.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-file-circle-check"></i>
+                <span>Examinations</span>
+            </a>
+
+
+            <p class="stackly-admin-nav-label stackly-admin-nav-spaced">
+                MANAGEMENT
+            </p>
+
+            <a href="admin-announcements.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-bullhorn"></i>
+                <span>Announcements</span>
+            </a>
+
+            <a href="admin-messages.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-envelope"></i>
+                <span>Messages</span>
+            </a>
+
+        </nav>
+
+        <!-- Sidebar Bottom -->
+        <div class="stackly-admin-sidebar-bottom">
+
+            <div class="stackly-admin-sidebar-help">
+                <div class="stackly-admin-help-icon">
+                    <i class="fa-solid fa-headset"></i>
+                </div>
+
+                <div class="stackly-admin-help-text">
+                    <h4>Need Help?</h4>
+                    <p>Contact support</p>
+                </div>
+
+                <a href="404-admin.html"
+                   class="stackly-admin-help-link"
+                   aria-label="Contact support">
+
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+            <a href="index.html"
+               class="stackly-admin-nav-link stackly-admin-logout-link">
+
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <span>Logout</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+    <!-- ==========================================
+         MAIN CONTENT AREA
+    =========================================== -->
+    <main class="stackly-admin-main">
+
+        <!-- Top Header -->
+        <header class="stackly-admin-topbar">
+
+            <div class="stackly-admin-topbar-left">
+
+                <!-- Mobile Hamburger -->
+                <button class="stackly-admin-menu-toggle"
+                        id="stacklyAdminMenuToggle"
+                        type="button"
+                        aria-label="Open navigation menu"
+                        aria-controls="stacklyAdminSidebar"
+                        aria-expanded="false">
+
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="stackly-admin-page-heading">
+                    <span class="stackly-admin-breadcrumb">
+                        Stackly Education / Admin
+                    </span>
+
+                    <h1>Admin Dashboard</h1>
+                </div>
+
+            </div>
+
+            <!-- Top Right Actions -->
+            <div class="stackly-admin-topbar-right">
+
+                <a href="404-admin.html"><button class="stackly-admin-icon-button"
+                        type="button"
+                        aria-label="Notifications">
+
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="stackly-admin-notification-dot"></span>
+                </button></a>
+
+                <div class="stackly-admin-header-divider"></div>
+
+                <!-- Admin Email -->
+                <div class="stackly-admin-account">
+
+                    <div class="stackly-admin-avatar">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+
+                    <div class="stackly-admin-account-info">
+                        <span class="stackly-admin-account-name">
+                            Administrator
+                        </span>
+
+                        <span class="stackly-admin-account-email"
+                              id="stacklyAdminEmail">
+                            admin@stacklyeducation.com
+                        </span>
+                    </div>
+
+                    <button class="stackly-admin-account-menu"
+                            id="stacklyAdminAccountMenu"
+                            type="button"
+                            aria-label="Account options">
+
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        
+<!-- ==========================================
+     STACKLY EDUCATION
+     ADMIN MESSAGES PAGE - EXTRA SECTIONS
+========================================== -->
+
+<div class="stackly-msg-page">
+
+    <!-- PAGE INTRODUCTION -->
+    <section class="stackly-msg-welcome" data-aos="fade-up">
+        <div class="stackly-msg-welcome-content">
+            <span class="stackly-msg-eyebrow">
+                <i class="fa-solid fa-comments"></i>
+                COMMUNICATION CENTER
+            </span>
+
+            <h2>Messages & Communication</h2>
+
+            <p>
+                Stay connected with students, teachers, parents, and
+                staff through one organized communication workspace.
+            </p>
+        </div>
+
+        <div class="stackly-msg-welcome-actions">
+            <a href="404-admin.html" class="stackly-msg-primary-btn">
+                <i class="fa-solid fa-pen-to-square"></i>
+                Compose Message
+            </a>
+
+            <a href="404-admin.html" class="stackly-msg-secondary-btn">
+                <i class="fa-solid fa-inbox"></i>
+                View Inbox
+            </a>
+        </div>
+    </section>
+
+
+    <!-- MESSAGE STATISTICS -->
+    <section class="stackly-msg-stats" data-aos="fade-up"
+             data-aos-delay="100">
+
+        <article class="stackly-msg-stat-card">
+            <div class="stackly-msg-stat-top">
+                <span>Total Messages</span>
+                <div class="stackly-msg-stat-icon stackly-msg-icon-orange">
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+            </div>
+
+            <h3>1,284</h3>
+            <p><i class="fa-solid fa-arrow-trend-up"></i> 12.8% this month</p>
+        </article>
+
+        <article class="stackly-msg-stat-card">
+            <div class="stackly-msg-stat-top">
+                <span>Unread Messages</span>
+                <div class="stackly-msg-stat-icon stackly-msg-icon-blue">
+                    <i class="fa-solid fa-envelope-open-text"></i>
+                </div>
+            </div>
+
+            <h3>24</h3>
+            <p>Requires your attention</p>
+        </article>
+
+        <article class="stackly-msg-stat-card">
+            <div class="stackly-msg-stat-top">
+                <span>Sent Messages</span>
+                <div class="stackly-msg-stat-icon stackly-msg-icon-green">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </div>
+            </div>
+
+            <h3>856</h3>
+            <p>Successfully sent</p>
+        </article>
+
+        <article class="stackly-msg-stat-card">
+            <div class="stackly-msg-stat-top">
+                <span>Pending Replies</span>
+                <div class="stackly-msg-stat-icon stackly-msg-icon-purple">
+                    <i class="fa-solid fa-clock"></i>
+                </div>
+            </div>
+
+            <h3>12</h3>
+            <p>Awaiting a response</p>
+        </article>
+
+    </section>
+
+
+    <!-- QUICK COMMUNICATION CHANNELS -->
+    <section class="stackly-msg-channels" data-aos="fade-up">
+
+        <div class="stackly-msg-section-heading">
+            <div>
+                <span class="stackly-msg-section-label">QUICK ACCESS</span>
+                <h2>Communication Channels</h2>
+                <p>Choose a group to organize your next conversation.</p>
+            </div>
+        </div>
+
+        <div class="stackly-msg-channel-grid">
+
+            <a href="404-admin.html"
+               class="stackly-msg-channel-card">
+                <div class="stackly-msg-channel-icon stackly-msg-channel-orange">
+                    <i class="fa-solid fa-user-graduate"></i>
+                </div>
+
+                <div class="stackly-msg-channel-info">
+                    <h3>Students</h3>
+                    <p>Academic updates and student queries</p>
+                </div>
+
+                <i class="fa-solid fa-arrow-up-right-from-square
+                          stackly-msg-channel-arrow"></i>
+            </a>
+
+            <a href="404-admin.html"
+               class="stackly-msg-channel-card">
+                <div class="stackly-msg-channel-icon stackly-msg-channel-green">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                </div>
+
+                <div class="stackly-msg-channel-info">
+                    <h3>Teachers & Staff</h3>
+                    <p>Internal updates and staff coordination</p>
+                </div>
+
+                <i class="fa-solid fa-arrow-up-right-from-square
+                          stackly-msg-channel-arrow"></i>
+            </a>
+
+            <a href="404-admin.html"
+               class="stackly-msg-channel-card">
+                <div class="stackly-msg-channel-icon stackly-msg-channel-blue">
+                    <i class="fa-solid fa-people-roof"></i>
+                </div>
+
+                <div class="stackly-msg-channel-info">
+                    <h3>Parents</h3>
+                    <p>Parent communication and notifications</p>
+                </div>
+
+                <i class="fa-solid fa-arrow-up-right-from-square
+                          stackly-msg-channel-arrow"></i>
+            </a>
+
+        </div>
+    </section>
+
+
+    <!-- MESSAGE WORKSPACE -->
+    <section class="stackly-msg-workspace" data-aos="fade-up">
+
+        <!-- INBOX -->
+        <div class="stackly-msg-inbox-panel" id="stacklyMsgInbox">
+
+            <div class="stackly-msg-panel-heading">
+                <div>
+                    <span class="stackly-msg-section-label">YOUR INBOX</span>
+                    <h2>Recent Conversations</h2>
+                </div>
+
+                <span class="stackly-msg-unread-badge">24 Unread</span>
+            </div>
+
+            <div class="stackly-msg-inbox-filters">
+                <button type="button" class="stackly-msg-filter active">
+                    All Messages
+                </button>
+
+                 
+            </div>
+
+            <div class="stackly-msg-conversation-list">
+
+                <article class="stackly-msg-conversation">
+                    <div class="stackly-msg-person-avatar stackly-msg-avatar-orange">
+                        AS
+                    </div>
+
+                    <div class="stackly-msg-conversation-content">
+                        <div class="stackly-msg-conversation-top">
+                            <h3>Arun Sharma</h3>
+                            <span>09:42 AM</span>
+                        </div>
+
+                        <p class="stackly-msg-person-role">Student · Grade 10</p>
+
+                        <p class="stackly-msg-preview">
+                            I have a question about the upcoming examination...
+                        </p>
+
+                        <div class="stackly-msg-conversation-tags">
+                            <span class="stackly-msg-tag-unread">Unread</span>
+                            <span class="stackly-msg-tag-academic">Academic</span>
+                        </div>
+                    </div>
+
+                    <button type="button"
+                            class="stackly-msg-conversation-more"
+                            aria-label="More options for Arun Sharma">
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </button>
+                </article>
+
+
+                <article class="stackly-msg-conversation">
+                    <div class="stackly-msg-person-avatar stackly-msg-avatar-green">
+                        PW
+                    </div>
+
+                    <div class="stackly-msg-conversation-content">
+                        <div class="stackly-msg-conversation-top">
+                            <h3>Priya Wilson</h3>
+                            <span>Yesterday</span>
+                        </div>
+
+                        <p class="stackly-msg-person-role">Teacher · Mathematics</p>
+
+                        <p class="stackly-msg-preview">
+                            The updated classroom schedule is ready for review.
+                        </p>
+
+                        <div class="stackly-msg-conversation-tags">
+                            <span class="stackly-msg-tag-staff">Staff Update</span>
+                        </div>
+                    </div>
+
+                    <button type="button"
+                            class="stackly-msg-conversation-more"
+                            aria-label="More options for Priya Wilson">
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </button>
+                </article>
+
+
+                <article class="stackly-msg-conversation">
+                    <div class="stackly-msg-person-avatar stackly-msg-avatar-blue">
+                        RM
+                    </div>
+
+                    <div class="stackly-msg-conversation-content">
+                        <div class="stackly-msg-conversation-top">
+                            <h3>Rahul Mehta</h3>
+                            <span>Yesterday</span>
+                        </div>
+
+                        <p class="stackly-msg-person-role">Parent · Grade 8</p>
+
+                        <p class="stackly-msg-preview">
+                            Thank you for sharing the monthly progress report.
+                        </p>
+
+                        <div class="stackly-msg-conversation-tags">
+                            <span class="stackly-msg-tag-resolved">Resolved</span>
+                        </div>
+                    </div>
+
+                    <button type="button"
+                            class="stackly-msg-conversation-more"
+                            aria-label="More options for Rahul Mehta">
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </button>
+                </article>
+
+
+                <article class="stackly-msg-conversation">
+                    <div class="stackly-msg-person-avatar stackly-msg-avatar-purple">
+                        DK
+                    </div>
+
+                    <div class="stackly-msg-conversation-content">
+                        <div class="stackly-msg-conversation-top">
+                            <h3>Divya Kumar</h3>
+                            <span>Oct 25</span>
+                        </div>
+
+                        <p class="stackly-msg-person-role">Office Staff</p>
+
+                        <p class="stackly-msg-preview">
+                            Please confirm the arrangements for the school event.
+                        </p>
+
+                        <div class="stackly-msg-conversation-tags">
+                            <span class="stackly-msg-tag-important">Important</span>
+                        </div>
+                    </div>
+
+                    <button type="button"
+                            class="stackly-msg-conversation-more"
+                            aria-label="More options for Divya Kumar">
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </button>
+                </article>
+
+            </div>
+
+            <a href="404-admin.html" class="stackly-msg-view-all">
+                View all conversations
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+
+        <!-- COMPOSE MESSAGE -->
+        <div class="stackly-msg-compose-panel"
+             id="stacklyMsgCompose"
+             data-aos="fade-up"
+             data-aos-delay="100">
+
+            <div class="stackly-msg-panel-heading">
+                <div>
+                    <span class="stackly-msg-section-label">NEW MESSAGE</span>
+                    <h2>Compose Message</h2>
+                </div>
+
+                <div class="stackly-msg-compose-heading-icon">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </div>
+            </div>
+
+            <form class="stackly-msg-compose-form"
+                  id="stacklyMsgComposeForm">
+
+                <div class="stackly-msg-form-group">
+                    <label for="stacklyMsgRecipient">Recipient Group</label>
+
+                    <select id="stacklyMsgRecipient"
+                            name="recipient"
+                            required>
+                        <option value="">Select recipient group</option>
+                        <option value="students">Students</option>
+                        <option value="teachers">Teachers & Staff</option>
+                        <option value="parents">Parents</option>
+                        <option value="all">All School Community</option>
+                    </select>
+                </div>
+
+                <div class="stackly-msg-form-group">
+                    <label for="stacklyMsgSubject">Subject</label>
+
+                    <input type="text"
+                           id="stacklyMsgSubject"
+                           name="subject"
+                           placeholder="Enter message subject"
+                           required>
+                </div>
+
+                <div class="stackly-msg-form-group">
+                    <label for="stacklyMsgPriority">Priority</label>
+
+                    <select id="stacklyMsgPriority"
+                            name="priority">
+                        <option value="normal">Normal</option>
+                        <option value="important">Important</option>
+                        <option value="urgent">Urgent</option>
+                    </select>
+                </div>
+
+                <div class="stackly-msg-form-group">
+                    <label for="stacklyMsgBody">Your Message</label>
+
+                    <textarea id="stacklyMsgBody"
+                              name="message"
+                              rows="5"
+                              placeholder="Write your message here..."
+                              required></textarea>
+                </div>
+
+                <label class="stackly-msg-schedule-option">
+                    <input type="checkbox" name="sendCopy">
+                    <span>Keep a copy in sent messages</span>
+                </label>
+
+                <div class="stackly-msg-compose-actions">
+                    <button type="reset"
+                            class="stackly-msg-reset-btn">
+                        <i class="fa-solid fa-rotate-left"></i>
+                        Clear
+                    </button>
+
+                    <button type="submit"
+                            class="stackly-msg-send-btn">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Send Message
+                    </button>
+                </div>
+
+                <p class="stackly-msg-form-note">
+                    <i class="fa-solid fa-circle-info"></i>
+                    Review your recipient group before sending.
+                </p>
+
+            </form>
+        </div>
+
+    </section>
+
+
+    <!-- MESSAGE DELIVERY INSIGHTS -->
+    <section class="stackly-msg-insights" data-aos="fade-up">
+
+        <div class="stackly-msg-section-heading">
+            <div>
+                <span class="stackly-msg-section-label">MESSAGE ANALYTICS</span>
+                <h2>Communication Insights</h2>
+                <p>A quick overview of your messaging activity.</p>
+            </div>
+
+            <span class="stackly-msg-insights-period">
+                <i class="fa-regular fa-calendar"></i>
+                This Month
+            </span>
+        </div>
+
+        <div class="stackly-msg-insights-grid">
+
+            <article class="stackly-msg-insight-card">
+                <div class="stackly-msg-insight-title">
+                    <span>Messages Delivered</span>
+                    <i class="fa-solid fa-check-double"></i>
+                </div>
+
+                <h3>96.8%</h3>
+
+                <div class="stackly-msg-progress">
+                    <span style="width: 96.8%;"></span>
+                </div>
+
+                <p>Delivery rate</p>
+            </article>
+
+            <article class="stackly-msg-insight-card">
+                <div class="stackly-msg-insight-title">
+                    <span>Response Rate</span>
+                    <i class="fa-solid fa-reply"></i>
+                </div>
+
+                <h3>84.2%</h3>
+
+                <div class="stackly-msg-progress">
+                    <span style="width: 84.2%;"></span>
+                </div>
+
+                <p>Messages receiving replies</p>
+            </article>
+
+            <article class="stackly-msg-insight-card">
+                <div class="stackly-msg-insight-title">
+                    <span>Average Response</span>
+                    <i class="fa-solid fa-stopwatch"></i>
+                </div>
+
+                <h3>2.4 hrs</h3>
+
+                <div class="stackly-msg-progress">
+                    <span style="width: 72%;"></span>
+                </div>
+
+                <p>Average reply time</p>
+            </article>
+
+        </div>
+    </section>
+
+
+    <!-- COMMUNICATION ACTIVITY TIMELINE -->
+    <section class="stackly-msg-activity" data-aos="fade-up">
+
+        <div class="stackly-msg-section-heading">
+            <div>
+                <span class="stackly-msg-section-label">LATEST UPDATES</span>
+                <h2>Communication Activity</h2>
+                <p>Follow recent actions across your message center.</p>
+            </div>
+        </div>
+
+        <div class="stackly-msg-timeline">
+
+            <article class="stackly-msg-timeline-item">
+                <div class="stackly-msg-timeline-icon stackly-msg-timeline-green">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+
+                <div class="stackly-msg-timeline-content">
+                    <h3>Announcement delivered successfully</h3>
+                    <p>The weekly academic update was sent to Grade 10 students.</p>
+                    <span>Today · 09:30 AM</span>
+                </div>
+            </article>
+
+            <article class="stackly-msg-timeline-item">
+                <div class="stackly-msg-timeline-icon stackly-msg-timeline-orange">
+                    <i class="fa-solid fa-reply"></i>
+                </div>
+
+                <div class="stackly-msg-timeline-content">
+                    <h3>New response received</h3>
+                    <p>A parent replied to the monthly progress report.</p>
+                    <span>Today · 08:45 AM</span>
+                </div>
+            </article>
+
+            <article class="stackly-msg-timeline-item">
+                <div class="stackly-msg-timeline-icon stackly-msg-timeline-blue">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </div>
+
+                <div class="stackly-msg-timeline-content">
+                    <h3>Staff communication sent</h3>
+                    <p>The revised meeting schedule was shared with teachers.</p>
+                    <span>Yesterday · 03:15 PM</span>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+
+    <!-- MESSAGE CENTER FOOTER -->
+    <section class="stackly-msg-footer-banner" data-aos="zoom-in">
+
+        <div class="stackly-msg-footer-icon">
+            <i class="fa-solid fa-headset"></i>
+        </div>
+
+        <div class="stackly-msg-footer-content">
+            <h2>Need help managing communication?</h2>
+            <p>
+                Keep school conversations clear, organized, and easy to follow.
+                Review your messages regularly and respond to important queries.
+            </p>
+        </div>
+
+        <a href="404-admin.html" class="stackly-msg-footer-btn">
+            Contact Support
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+    </section>
+
+</div>
+
+</main>
+
+    <!-- AOS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <!-- Admin Dashboard JavaScript -->
+    <script src="admin.js"></script>
+
+</body>
+</html>

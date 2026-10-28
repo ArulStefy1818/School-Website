@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | Stackly Education</title>
+
+    <meta name="description"
+          content="Manage students, staff, courses, and academic activities from the Stackly Education Admin Dashboard.">
+
+    <link rel="icon" type="image/webp" href="Stackly-logo-Blue.webp">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <!-- Admin Dashboard CSS -->
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body class="stackly-admin-body">
+
+    <!-- Mobile Sidebar Overlay -->
+    <div class="stackly-admin-overlay"
+         id="stacklyAdminOverlay"
+         aria-hidden="true"></div>
+
+    <!-- ==========================================
+         SIDEBAR
+    =========================================== -->
+    <aside class="stackly-admin-sidebar" id="stacklyAdminSidebar">
+
+        <!-- Sidebar Header -->
+        <div class="stackly-admin-sidebar-header">
+
+            <a href="admin.html"
+               class="stackly-admin-logo"
+               aria-label="Stackly Education Home">
+
+                <img src="Stackly-logo-Blue.webp"
+                     alt="Stackly Education Logo">
+            </a>
+
+            <!-- Mobile Exit Button -->
+            <button class="stackly-admin-sidebar-close"
+                    id="stacklyAdminSidebarClose"
+                    type="button"
+                    aria-label="Close navigation menu">
+
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+        <!-- Sidebar Navigation -->
+        <nav class="stackly-admin-navigation"
+             aria-label="Admin navigation">
+
+            <p class="stackly-admin-nav-label">MAIN MENU</p>
+
+            <a href="admin.html"
+               class="stackly-admin-nav-link active"
+               aria-current="page">
+
+                <i class="fa-solid fa-chart-pie"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="admin-students.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-user-graduate"></i>
+                <span>Students</span>
+            </a>
+
+            <a href="admin-staff.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-chalkboard-user"></i>
+                <span>Staff Members</span>
+            </a>
+
+
+            <a href="admin-classes.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-school"></i>
+                <span>Classes</span>
+            </a>
+
+            <a href="admin-attendance.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>Attendance</span>
+            </a>
+
+            <a href="admin-examinations.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-file-circle-check"></i>
+                <span>Examinations</span>
+            </a>
+
+
+            <p class="stackly-admin-nav-label stackly-admin-nav-spaced">
+                MANAGEMENT
+            </p>
+
+            <a href="admin-announcements.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-bullhorn"></i>
+                <span>Announcements</span>
+            </a>
+
+            <a href="admin-messages.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-envelope"></i>
+                <span>Messages</span>
+            </a>
+
+        </nav>
+
+        <!-- Sidebar Bottom -->
+        <div class="stackly-admin-sidebar-bottom">
+
+            <div class="stackly-admin-sidebar-help">
+                <div class="stackly-admin-help-icon">
+                    <i class="fa-solid fa-headset"></i>
+                </div>
+
+                <div class="stackly-admin-help-text">
+                    <h4>Need Help?</h4>
+                    <p>Contact support</p>
+                </div>
+
+                <a href="404-admin.html"
+                   class="stackly-admin-help-link"
+                   aria-label="Contact support">
+
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+            <a href="index.html"
+               class="stackly-admin-nav-link stackly-admin-logout-link">
+
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <span>Logout</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+    <!-- ==========================================
+         MAIN CONTENT AREA
+    =========================================== -->
+    <main class="stackly-admin-main">
+
+        <!-- Top Header -->
+        <header class="stackly-admin-topbar">
+
+            <div class="stackly-admin-topbar-left">
+
+                <!-- Mobile Hamburger -->
+                <button class="stackly-admin-menu-toggle"
+                        id="stacklyAdminMenuToggle"
+                        type="button"
+                        aria-label="Open navigation menu"
+                        aria-controls="stacklyAdminSidebar"
+                        aria-expanded="false">
+
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="stackly-admin-page-heading">
+                    <span class="stackly-admin-breadcrumb">
+                        Stackly Education / Admin
+                    </span>
+
+                    <h1>Admin Dashboard</h1>
+                </div>
+
+            </div>
+
+            <!-- Top Right Actions -->
+            <div class="stackly-admin-topbar-right">
+
+                <a href="404-admin.html"><button class="stackly-admin-icon-button"
+                        type="button"
+                        aria-label="Notifications">
+
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="stackly-admin-notification-dot"></span>
+                </button></a>
+
+                <div class="stackly-admin-header-divider"></div>
+
+                <!-- Admin Email -->
+                <div class="stackly-admin-account">
+
+                    <div class="stackly-admin-avatar">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+
+                    <div class="stackly-admin-account-info">
+                        <span class="stackly-admin-account-name">
+                            Administrator
+                        </span>
+
+                        <span class="stackly-admin-account-email"
+                              id="stacklyAdminEmail">
+                            admin@stacklyeducation.com
+                        </span>
+                    </div>
+
+                    <button class="stackly-admin-account-menu"
+                            id="stacklyAdminAccountMenu"
+                            type="button"
+                            aria-label="Account options">
+
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        
+<!-- ==========================================
+     STACKLY EDUCATION
+     ADMIN ANNOUNCEMENTS PAGE
+========================================== -->
+
+
+<div class="stackly-ann-page">
+
+    <!-- ANNOUNCEMENTS HERO -->
+    <section class="stackly-ann-hero" data-aos="fade-up">
+        <div class="stackly-ann-hero-content">
+            <span class="stackly-ann-eyebrow">
+                <i class="fa-solid fa-bullhorn"></i>
+                COMMUNICATION CENTER
+            </span>
+
+            <h2>Keep Everyone <span>Informed.</span></h2>
+
+            <p>
+                Share important school updates, celebrate achievements,
+                and keep students, teachers, and parents connected.
+            </p>
+
+            <div class="stackly-ann-hero-actions">
+                <a href="404-admin.html" class="stackly-ann-primary-btn">
+                    <i class="fa-solid fa-plus"></i>
+                    Create Announcement
+                </a>
+
+                <a href="404-admin.html" class="stacly-ann-outline-btn">
+                    Explore Updates
+                    <i class="fa-solid fa-arrow-down"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="stackly-ann-hero-art" aria-hidden="true">
+            <div class="stackly-ann-orbit stackly-ann-orbit-one"></div>
+            <div class="stackly-ann-orbit stackly-ann-orbit-two"></div>
+
+            <div class="stackly-ann-mega-icon">
+                <i class="fa-solid fa-bullhorn"></i>
+            </div>
+
+            <span class="stackly-ann-floating-icon stackly-ann-float-one">
+                <i class="fa-solid fa-envelope-open-text"></i>
+            </span>
+
+            <span class="stackly-ann-floating-icon stackly-ann-float-two">
+                <i class="fa-solid fa-bell"></i>
+            </span>
+
+            <span class="stackly-ann-floating-icon stackly-ann-float-three">
+                <i class="fa-solid fa-users"></i>
+            </span>
+        </div>
+    </section>
+
+
+    <!-- ANNOUNCEMENT STATISTICS -->
+    <section class="stackly-ann-stats" aria-label="Announcement statistics">
+
+        <article class="stackly-ann-stat-card" data-aos="fade-up">
+            <div class="stackly-ann-stat-top">
+                <span>Total Announcements</span>
+                <span class="stackly-ann-stat-icon ann-stat-orange">
+                    <i class="fa-solid fa-bullhorn"></i>
+                </span>
+            </div>
+            <h3>128</h3>
+            <p><i class="fa-solid fa-arrow-trend-up"></i> School-wide updates</p>
+        </article>
+
+        <article class="stackly-ann-stat-card" data-aos="fade-up" data-aos-delay="80">
+            <div class="stackly-ann-stat-top">
+                <span>Published</span>
+                <span class="stackly-ann-stat-icon ann-stat-green">
+                    <i class="fa-solid fa-circle-check"></i>
+                </span>
+            </div>
+            <h3>96</h3>
+            <p>Currently available to readers</p>
+        </article>
+
+        <article class="stackly-ann-stat-card" data-aos="fade-up" data-aos-delay="160">
+            <div class="stackly-ann-stat-top">
+                <span>Scheduled</span>
+                <span class="stackly-ann-stat-icon ann-stat-purple">
+                    <i class="fa-solid fa-calendar-days"></i>
+                </span>
+            </div>
+            <h3>12</h3>
+            <p>Ready for future publication</p>
+        </article>
+
+        <article class="stackly-ann-stat-card" data-aos="fade-up" data-aos-delay="240">
+            <div class="stackly-ann-stat-top">
+                <span>Audience Reached</span>
+                <span class="stackly-ann-stat-icon ann-stat-blue">
+                    <i class="fa-solid fa-users"></i>
+                </span>
+            </div>
+            <h3>2,450</h3>
+            <p>Across the school community</p>
+        </article>
+
+    </section>
+
+
+    <!-- FEATURED ANNOUNCEMENT -->
+    <section class="stackly-ann-featured" data-aos="fade-up">
+
+        <div class="stackly-ann-featured-content">
+            <div class="stackly-ann-featured-label">
+                <i class="fa-solid fa-star"></i>
+                FEATURED ANNOUNCEMENT
+            </div>
+
+            <span class="stackly-ann-category">Academic News</span>
+
+            <h2>Annual Science & Innovation Fair 2026</h2>
+
+            <p>
+                Students are invited to showcase creative projects,
+                scientific discoveries, and innovative ideas at our
+                upcoming school science fair.
+            </p>
+
+            <div class="stackly-ann-featured-meta">
+                <span><i class="fa-regular fa-calendar"></i> November 18, 2026</span>
+                <span><i class="fa-solid fa-users"></i> Students & Teachers</span>
+            </div>
+
+            <a href="404-admin.html" class="stackly-ann-read-btn">
+                Read Full Announcement
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="stackly-ann-featured-visual" aria-hidden="true">
+            <div class="stackly-ann-featured-circle">
+                <i class="fa-solid fa-flask"></i>
+                <i class="fa-solid fa-atom"></i>
+                <i class="fa-solid fa-lightbulb"></i>
+            </div>
+            <span class="stackly-ann-featured-badge">
+                <i class="fa-solid fa-sparkles"></i>
+                Discover. Create. Inspire.
+            </span>
+        </div>
+
+    </section>
+
+
+    <!-- ANNOUNCEMENTS LIST -->
+    <section class="stackly-ann-list-section" id="stacklyAnnList">
+
+        <div class="stackly-ann-section-heading" data-aos="fade-up">
+            <div>
+                <span class="stackly-ann-section-kicker">STAY UP TO DATE</span>
+                <h2>Latest Announcements</h2>
+                <p>Important updates from across our school community.</p>
+            </div>
+
+            <a href="404-admin.html" class="stackly-ann-view-all">
+                View All <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <!-- CATEGORY FILTERS -->
+        <div class="stackly-ann-filters" data-aos="fade-up">
+            <button type="button" class="stackly-ann-filter active"
+                    data-ann-filter="all" aria-pressed="true">All Updates</button>
+            <button type="button" class="stackly-ann-filter"
+                    data-ann-filter="academic" aria-pressed="false">Academic</button>
+            <button type="button" class="stackly-ann-filter"
+                    data-ann-filter="events" aria-pressed="false">Events</button>
+            <button type="button" class="stackly-ann-filter"
+                    data-ann-filter="general" aria-pressed="false">General</button>
+            <button type="button" class="stackly-ann-filter"
+                    data-ann-filter="urgent" aria-pressed="false">Urgent</button>
+        </div>
+
+        <div class="stackly-ann-grid">
+
+            <!-- ANNOUNCEMENT 1 -->
+            <article class="stackly-ann-card" data-ann-category="academic"
+                     data-aos="fade-up">
+                <div class="stackly-ann-card-top">
+                    <span class="stackly-ann-card-icon ann-card-academic">
+                        <i class="fa-solid fa-book-open"></i>
+                    </span>
+                    <span class="stackly-ann-status ann-status-published">
+                        Published
+                    </span>
+                </div>
+
+                <span class="stackly-ann-card-category">Academic</span>
+                <h3>Mid-Term Examination Schedule Released</h3>
+                <p>
+                    The examination timetable is now available. Students
+                    should review their subjects and prepare accordingly.
+                </p>
+
+                <div class="stackly-ann-card-footer">
+                    <span><i class="fa-regular fa-calendar"></i> Oct 28, 2026</span>
+                    <a href="404-admin.html" aria-label="Read examination announcement">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </article>
+
+            <!-- ANNOUNCEMENT 2 -->
+            <article class="stackly-ann-card" data-ann-category="events"
+                     data-aos="fade-up" data-aos-delay="80">
+                <div class="stackly-ann-card-top">
+                    <span class="stackly-ann-card-icon ann-card-events">
+                        <i class="fa-solid fa-calendar-star"></i>
+                    </span>
+                    <span class="stackly-ann-status ann-status-scheduled">
+                        Scheduled
+                    </span>
+                </div>
+
+                <span class="stackly-ann-card-category">School Events</span>
+                <h3>Annual Cultural Fest Registration</h3>
+                <p>
+                    Registration is open for music, dance, drama, and
+                    creative performances. Join us and share your talent.
+                </p>
+
+                <div class="stackly-ann-card-footer">
+                    <span><i class="fa-regular fa-calendar"></i> Nov 02, 2026</span>
+                    <a href="404-admin.html" aria-label="Read cultural fest announcement">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </article>
+
+            <!-- ANNOUNCEMENT 3 -->
+            <article class="stackly-ann-card" data-ann-category="urgent"
+                     data-aos="fade-up" data-aos-delay="160">
+                <div class="stackly-ann-card-top">
+                    <span class="stackly-ann-card-icon ann-card-urgent">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </span>
+                    <span class="stackly-ann-status ann-status-urgent">
+                        Important
+                    </span>
+                </div>
+
+                <span class="stackly-ann-card-category">Urgent Notice</span>
+                <h3>Parent-Teacher Meeting Reminder</h3>
+                <p>
+                    Parents are requested to attend the scheduled meeting
+                    to discuss student progress and academic goals.
+                </p>
+
+                <div class="stackly-ann-card-footer">
+                    <span><i class="fa-regular fa-calendar"></i> Nov 05, 2026</span>
+                    <a href="404-admin.html" aria-label="Read parent meeting announcement">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </article>
+
+            <!-- ANNOUNCEMENT 4 -->
+            <article class="stackly-ann-card" data-ann-category="general"
+                     data-aos="fade-up">
+                <div class="stackly-ann-card-top">
+                    <span class="stackly-ann-card-icon ann-card-general">
+                        <i class="fa-solid fa-heart"></i>
+                    </span>
+                    <span class="stackly-ann-status ann-status-published">
+                        Published
+                    </span>
+                </div>
+
+                <span class="stackly-ann-card-category">General</span>
+                <h3>Congratulations to Our Young Achievers</h3>
+                <p>
+                    We celebrate our students for their outstanding
+                    performance in recent inter-school competitions.
+                </p>
+
+                <div class="stackly-ann-card-footer">
+                    <span><i class="fa-regular fa-calendar"></i> Oct 26, 2026</span>
+                    <a href="404-admin.html" aria-label="Read student achievements announcement">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </article>
+
+            <!-- ANNOUNCEMENT 5 -->
+            <article class="stackly-ann-card" data-ann-category="academic"
+                     data-aos="fade-up" data-aos-delay="80">
+                <div class="stackly-ann-card-top">
+                    <span class="stackly-ann-card-icon ann-card-academic">
+                        <i class="fa-solid fa-laptop"></i>
+                    </span>
+                    <span class="stackly-ann-status ann-status-published">
+                        Published
+                    </span>
+                </div>
+
+                <span class="stackly-ann-card-category">Learning</span>
+                <h3>Digital Learning Resources Updated</h3>
+                <p>
+                    New learning materials and revision resources have
+                    been added to support independent student learning.
+                </p>
+
+                <div class="stackly-ann-card-footer">
+                    <span><i class="fa-regular fa-calendar"></i> Oct 24, 2026</span>
+                    <a href="404-admin.html" aria-label="Read digital learning announcement">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </article>
+
+            <!-- ANNOUNCEMENT 6 -->
+            <article class="stackly-ann-card" data-ann-category="events"
+                     data-aos="fade-up" data-aos-delay="160">
+                <div class="stackly-ann-card-top">
+                    <span class="stackly-ann-card-icon ann-card-events">
+                        <i class="fa-solid fa-people-group"></i>
+                    </span>
+                    <span class="stackly-ann-status ann-status-scheduled">
+                        Scheduled
+                    </span>
+                </div>
+
+                <span class="stackly-ann-card-category">Community</span>
+                <h3>School Campus Clean-Up Drive</h3>
+                <p>
+                    Join our school community initiative to create a
+                    cleaner campus and encourage environmental awareness.
+                </p>
+
+                <div class="stackly-ann-card-footer">
+                    <span><i class="fa-regular fa-calendar"></i> Nov 10, 2026</span>
+                    <a href="404-admin.html" aria-label="Read campus clean-up announcement">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </article>
+
+        </div>
+
+        <p class="stackly-ann-empty" hidden>
+            <i class="fa-regular fa-folder-open"></i>
+            No announcements found in this category.
+        </p>
+
+    </section>
+
+
+    <!-- UPCOMING SCHOOL EVENTS -->
+    <section class="stackly-ann-events" data-aos="fade-up">
+
+        <div class="stackly-ann-section-heading">
+            <div>
+                <span class="stackly-ann-section-kicker">SAVE THE DATE</span>
+                <h2>Upcoming School Events</h2>
+                <p>Keep track of important dates on the school calendar.</p>
+            </div>
+        </div>
+
+        <div class="stackly-ann-event-list">
+
+            <article class="stackly-ann-event-item">
+                <div class="stackly-ann-event-date">
+                    <span>NOV</span>
+                    <strong>02</strong>
+                </div>
+                <div class="stackly-ann-event-info">
+                    <h3>Annual Cultural Fest</h3>
+                    <p><i class="fa-regular fa-clock"></i> 9:00 AM onwards</p>
+                </div>
+                <span class="stackly-ann-event-tag">School Event</span>
+            </article>
+
+            <article class="stackly-ann-event-item">
+                <div class="stackly-ann-event-date">
+                    <span>NOV</span>
+                    <strong>05</strong>
+                </div>
+                <div class="stackly-ann-event-info">
+                    <h3>Parent-Teacher Meeting</h3>
+                    <p><i class="fa-regular fa-clock"></i> 10:00 AM onwards</p>
+                </div>
+                <span class="stackly-ann-event-tag">Meeting</span>
+            </article>
+
+            <article class="stackly-ann-event-item">
+                <div class="stackly-ann-event-date">
+                    <span>NOV</span>
+                    <strong>18</strong>
+                </div>
+                <div class="stackly-ann-event-info">
+                    <h3>Science & Innovation Fair</h3>
+                    <p><i class="fa-regular fa-clock"></i> 9:30 AM onwards</p>
+                </div>
+                <span class="stackly-ann-event-tag">Academic</span>
+            </article>
+
+        </div>
+    </section>
+
+
+    <!-- PUBLISHING CTA -->
+    <section class="stackly-ann-publish-cta" data-aos="zoom-in">
+        <div class="stackly-ann-cta-icon">
+            <i class="fa-solid fa-paper-plane"></i>
+        </div>
+
+        <div class="stackly-ann-cta-content">
+            <span>YOUR NEXT UPDATE STARTS HERE</span>
+            <h2>Have Something Important to Share?</h2>
+            <p>
+                Create a clear announcement and help keep the entire
+                school community informed and connected.
+            </p>
+        </div>
+
+        <a href="404-admin.html" class="stackly-ann-cta-btn">
+            Publish an Update
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+    </section>
+
+</div>
+
+
+</main>
+
+    <!-- AOS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <!-- Admin Dashboard JavaScript -->
+    <script src="admin.js"></script>
+
+</body>
+</html>

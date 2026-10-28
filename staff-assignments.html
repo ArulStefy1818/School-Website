@@ -1,0 +1,837 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Staff Dashboard | Stackly Education</title>
+
+    <meta name="description" content="Stackly Education Staff Dashboard for managing students, classes, attendance, assignments, and teaching schedules.">
+    <meta name="theme-color" content="#ff9f16">
+
+    <link rel="icon" href="Stackly-logo-Blue.webp" type="image/webp">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <!-- Staff Dashboard CSS -->
+    <link rel="stylesheet" href="staff.css">
+</head>
+
+<body>
+
+    <!-- ==========================================
+         MOBILE SIDEBAR OVERLAY
+    ========================================== -->
+
+    <div
+        class="stackly-admin-overlay"
+        id="stacklyAdminOverlay"
+        aria-hidden="true"
+        hidden
+    ></div>
+
+    <!-- ==========================================
+         STAFF SIDEBAR
+    ========================================== -->
+
+    <aside
+        class="stackly-admin-sidebar"
+        id="stacklyAdminSidebar"
+        aria-label="Staff dashboard navigation"
+        aria-hidden="false"
+    >
+
+        <!-- Logo and Mobile Close Button -->
+        <div class="stackly-admin-logo">
+
+            <a href="staff.html" aria-label="Stackly Education home">
+                <img
+                    src="Stackly-logo-Blue.webp"
+                    alt="Stackly Education logo"
+                    width="165"
+                    height="58"
+                >
+            </a>
+
+            <button
+                type="button"
+                class="stackly-staff-sidebar-exit"
+                id="stacklyAdminSidebarClose"
+                aria-label="Close navigation menu"
+                aria-controls="stacklyAdminSidebar"
+            >
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+
+        </div>
+
+        <!-- Main Navigation -->
+        <div class="stackly-admin-sidebar-heading">
+            <span>Staff Workspace</span>
+        </div>
+
+        <nav class="stackly-admin-sidebar-nav" aria-label="Main navigation">
+
+            <a
+                href="staff.html"
+                class="stackly-admin-nav-link active"
+                aria-current="page"
+            >
+                <i class="fa-solid fa-chart-pie" aria-hidden="true"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="staff-students.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-user-graduate" aria-hidden="true"></i>
+                <span>My Students</span>
+            </a>
+
+            <a href="staff-classes.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i>
+                <span>My Classes</span>
+            </a>
+
+            <a href="staff-attendance.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+                <span>Attendance</span>
+            </a>
+
+            <a href="staff-assignments.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+                <span>Assignments</span>
+            </a>
+
+            <a href="staff-schedule.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+                <span>My Schedule</span>
+            </a>
+
+            <a href="staff-resources.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-folder-open" aria-hidden="true"></i>
+                <span>Learning Resources</span>
+            </a>
+
+        </nav>
+
+        <!-- Account Navigation -->
+        <div class="stackly-admin-sidebar-divider"></div>
+
+        <div class="stackly-admin-sidebar-heading">
+            <span>Account</span>
+        </div>
+
+        <nav class="stackly-admin-sidebar-nav" aria-label="Account navigation">
+
+            <a href="staff-profile.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-user" aria-hidden="true"></i>
+                <span>My Profile</span>
+            </a>
+
+            <a href="index.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
+                <span>Logout</span>
+            </a>
+
+        </nav>
+
+        <!-- Sidebar Support Card -->
+        <div class="stackly-admin-sidebar-bottom">
+
+            <div class="stackly-admin-sidebar-help-icon">
+                <i class="fa-solid fa-headset" aria-hidden="true"></i>
+            </div>
+
+            <div class="stackly-admin-sidebar-help-content">
+                <h4>Need assistance?</h4>
+
+                <p>We're here to help you with your work.</p>
+
+                <a href="404-staff.html">
+                    Get Support
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+            </div>
+
+        </div>
+
+    </aside>
+
+    <!-- ==========================================
+         MAIN DASHBOARD AREA
+    ========================================== -->
+
+    <div class="stackly-admin-main">
+
+        <!-- ======================================
+             TOP HEADER
+        ======================================= -->
+
+        <header class="stackly-admin-header stackly-staff-topbar">
+
+            <div class="stackly-staff-topbar-left">
+
+                <!-- Mobile Hamburger -->
+                <button
+                    type="button"
+                    class="stackly-staff-mobile-toggle stackly-admin-icon-button"
+                    id="stacklyAdminMenuToggle"
+                    aria-label="Open navigation menu"
+                    aria-controls="stacklyAdminSidebar"
+                    aria-expanded="false"
+                >
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                </button>
+
+                <div class="stackly-staff-page-label">
+                    <h1>Staff Dashboard</h1>
+                    <p>Welcome to your teaching workspace.</p>
+                </div>
+
+            </div>
+
+            <!-- Right Side Header -->
+            <div class="stackly-staff-header-right">
+
+                <!-- Staff Email -->
+                <div class="stackly-staff-header-email">
+
+                    <div class="stackly-staff-email-icon">
+                        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="stackly-staff-email-details">
+    <span class="stackly-staff-email-label">
+        Staff Account
+    </span>
+
+    <span
+        class="stackly-staff-email-address"
+        id="stacklyStaffEmailAddress"
+    >
+        Loading email...
+    </span>
+</div>
+
+                </div>
+
+                <!-- Account Button -->
+                <button
+                    type="button"
+                    class="stackly-staff-account-button stackly-admin-icon-button"
+                    id="stacklyAdminAccountMenu"
+                    aria-label="Staff account"
+                    title="Staff account"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                >
+                    <i class="fa-solid fa-user" aria-hidden="true"></i>
+                </button>
+
+            </div>
+
+        </header>
+
+
+<!-- ==========================================
+     STACKLY EDUCATION - STAFF ASSIGNMENTS PAGE
+========================================== -->
+
+<main class="stackly-staff-assignment-page">
+
+    <!-- ASSIGNMENT PAGE INTRO -->
+    <section class="stackly-staff-assignment-hero" data-aos="fade-up">
+
+        <div class="stackly-staff-assignment-hero-content">
+            <span class="stackly-staff-assignment-eyebrow">
+                <i class="fa-solid fa-book-open"></i>
+                TEACHING WORKSPACE
+            </span>
+
+            <h2>Assignments & Assessments</h2>
+
+            <p>
+                Create meaningful learning tasks, review student work,
+                and keep every class on track.
+            </p>
+
+            <div class="stackly-staff-assignment-hero-actions">
+                <a href="404-staff.html"
+                   class="stackly-staff-assignment-primary-btn">
+                    <i class="fa-solid fa-plus"></i>
+                    Create Assignment
+                </a>
+
+                <a href="404-staff.html"
+                   class="stackly-staff-assignment-secondary-btn">
+                    <i class="fa-solid fa-list-check"></i>
+                    Review Submissions
+                </a>
+            </div>
+        </div>
+
+        <div class="stackly-staff-assignment-hero-art">
+            <div class="stackly-staff-assignment-art-circle"></div>
+
+            <div class="stackly-staff-assignment-floating-card assignment-float-one">
+                <i class="fa-solid fa-file-circle-check"></i>
+                <div>
+                    <strong>24</strong>
+                    <span>Reviewed</span>
+                </div>
+            </div>
+
+            <div class="stackly-staff-assignment-document">
+                <div class="stackly-staff-assignment-document-icon">
+                    <i class="fa-solid fa-file-lines"></i>
+                </div>
+                <span class="stackly-staff-assignment-document-line"></span>
+                <span class="stackly-staff-assignment-document-line short"></span>
+                <span class="stackly-staff-assignment-document-line"></span>
+
+                <div class="stackly-staff-assignment-document-check">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+            </div>
+
+            <div class="stackly-staff-assignment-floating-card assignment-float-two">
+                <i class="fa-solid fa-clock"></i>
+                <div>
+                    <strong>03</strong>
+                    <span>Due Soon</span>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- ASSIGNMENT OVERVIEW STATS -->
+    <section class="stackly-staff-assignment-stats"
+             aria-label="Assignment overview">
+
+        <article class="stackly-staff-assignment-stat-card"
+                 data-aos="fade-up" data-aos-delay="50">
+            <div class="stackly-staff-assignment-stat-top">
+                <span class="stackly-staff-assignment-stat-icon orange">
+                    <i class="fa-solid fa-file-pen"></i>
+                </span>
+                <span class="stackly-staff-assignment-stat-badge">
+                    This term
+                </span>
+            </div>
+            <h3>18</h3>
+            <p>Total Assignments</p>
+            <div class="stackly-staff-assignment-stat-footer">
+                <span>Across all classes</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </div>
+        </article>
+
+        <article class="stackly-staff-assignment-stat-card"
+                 data-aos="fade-up" data-aos-delay="100">
+            <div class="stackly-staff-assignment-stat-top">
+                <span class="stackly-staff-assignment-stat-icon green">
+                    <i class="fa-solid fa-check-double"></i>
+                </span>
+                <span class="stackly-staff-assignment-stat-badge green-badge">
+                    Completed
+                </span>
+            </div>
+            <h3>126</h3>
+            <p>Reviewed Submissions</p>
+            <div class="stackly-staff-assignment-stat-footer">
+                <span>Student work evaluated</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </div>
+        </article>
+
+        <article class="stackly-staff-assignment-stat-card"
+                 data-aos="fade-up" data-aos-delay="150">
+            <div class="stackly-staff-assignment-stat-top">
+                <span class="stackly-staff-assignment-stat-icon blue">
+                    <i class="fa-solid fa-inbox"></i>
+                </span>
+                <span class="stackly-staff-assignment-stat-badge blue-badge">
+                    To review
+                </span>
+            </div>
+            <h3>14</h3>
+            <p>Pending Reviews</p>
+            <div class="stackly-staff-assignment-stat-footer">
+                <span>Awaiting your feedback</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </div>
+        </article>
+
+        <article class="stackly-staff-assignment-stat-card"
+                 data-aos="fade-up" data-aos-delay="200">
+            <div class="stackly-staff-assignment-stat-top">
+                <span class="stackly-staff-assignment-stat-icon purple">
+                    <i class="fa-solid fa-calendar-day"></i>
+                </span>
+                <span class="stackly-staff-assignment-stat-badge purple-badge">
+                    Upcoming
+                </span>
+            </div>
+            <h3>03</h3>
+            <p>Upcoming Deadlines</p>
+            <div class="stackly-staff-assignment-stat-footer">
+                <span>Due within 7 days</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </div>
+        </article>
+
+    </section>
+
+
+    <!-- FEATURED ASSIGNMENT + DEADLINES -->
+    <section class="stackly-staff-assignment-feature-grid">
+
+        <!-- FEATURED ASSIGNMENT -->
+        <article class="stackly-staff-assignment-featured"
+                 data-aos="fade-right">
+
+            <div class="stackly-staff-assignment-section-heading">
+                <div>
+                    <span class="stackly-staff-assignment-section-label">
+                        FEATURED TASK
+                    </span>
+                    <h3>Assignment Spotlight</h3>
+                </div>
+
+                <span class="stackly-staff-assignment-active-pill">
+                    <span></span> Active
+                </span>
+            </div>
+
+            <div class="stackly-staff-assignment-feature-banner">
+                <div class="stackly-staff-assignment-feature-symbol">
+                    <i class="fa-solid fa-flask"></i>
+                </div>
+
+                <div>
+                    <span>SCIENCE · GRADE 10</span>
+                    <h4>Explore the World of Science</h4>
+                    <p>
+                        Prepare a report explaining a scientific concept
+                        with examples and illustrations.
+                    </p>
+                </div>
+            </div>
+
+            <div class="stackly-staff-assignment-feature-meta">
+                <div>
+                    <i class="fa-solid fa-users"></i>
+                    <span>32 Students</span>
+                </div>
+                <div>
+                    <i class="fa-solid fa-calendar"></i>
+                    <span>Due Oct 30</span>
+                </div>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <span>20 Marks</span>
+                </div>
+            </div>
+
+            <div class="stackly-staff-assignment-progress-heading">
+                <span>Submission Progress</span>
+                <strong>24 / 32</strong>
+            </div>
+
+            <div class="stackly-staff-assignment-progress-track">
+                <span style="width: 75%;"></span>
+            </div>
+
+            <div class="stackly-staff-assignment-progress-caption">
+                <span>75% submitted</span>
+                <span>8 students remaining</span>
+            </div>
+
+            <a href="404-staff.html"
+               class="stackly-staff-assignment-feature-link">
+                View Assignment Details
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </article>
+
+
+        <!-- UPCOMING DEADLINES -->
+        <article class="stackly-staff-assignment-deadlines"
+                 data-aos="fade-left">
+
+            <div class="stackly-staff-assignment-section-heading">
+                <div>
+                    <span class="stackly-staff-assignment-section-label">
+                        STAY ON TRACK
+                    </span>
+                    <h3>Upcoming Deadlines</h3>
+                </div>
+
+                <i class="fa-regular fa-calendar-check
+                          stackly-staff-assignment-heading-icon"></i>
+            </div>
+
+            <div class="stackly-staff-assignment-deadline-list">
+
+                <div class="stackly-staff-assignment-deadline-item">
+                    <div class="stackly-staff-assignment-date-box urgent">
+                        <strong>28</strong>
+                        <span>OCT</span>
+                    </div>
+
+                    <div class="stackly-staff-assignment-deadline-info">
+                        <h4>Algebra Practice</h4>
+                        <p>Grade 9 · Mathematics</p>
+                        <span class="stackly-staff-assignment-deadline-tag urgent-tag">
+                            Due Tomorrow
+                        </span>
+                    </div>
+
+                    <a href="404-staff.html"><i class="fa-solid fa-chevron-right"></i></a>
+                </div>
+
+                <div class="stackly-staff-assignment-deadline-item">
+                    <div class="stackly-staff-assignment-date-box">
+                        <strong>30</strong>
+                        <span>OCT</span>
+                    </div>
+
+                    <div class="stackly-staff-assignment-deadline-info">
+                        <h4>Science Project</h4>
+                        <p>Grade 10 · Science</p>
+                        <span class="stackly-staff-assignment-deadline-tag">
+                            In 3 Days
+                        </span>
+                    </div>
+
+                    <a href="404-staff.html"><i class="fa-solid fa-chevron-right"></i></a>
+                </div>
+
+                <div class="stackly-staff-assignment-deadline-item">
+                    <div class="stackly-staff-assignment-date-box">
+                        <strong>02</strong>
+                        <span>NOV</span>
+                    </div>
+
+                    <div class="stackly-staff-assignment-deadline-info">
+                        <h4>Essay Writing</h4>
+                        <p>Grade 8 · English</p>
+                        <span class="stackly-staff-assignment-deadline-tag">
+                            In 6 Days
+                        </span>
+                    </div>
+
+                    <a href="404-staff.html"><i class="fa-solid fa-chevron-right"></i></a>
+                </div>
+
+            </div>
+
+            <a href="404-staff.html"
+               class="stackly-staff-assignment-all-deadlines">
+                View Teaching Schedule
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </article>
+
+    </section>
+
+
+    <!-- SUBMISSION TRACKER -->
+    <section class="stackly-staff-assignment-submissions"
+             id="stacklyAssignmentSubmissions"
+             data-aos="fade-up">
+
+        <div class="stackly-staff-assignment-section-heading">
+            <div>
+                <span class="stackly-staff-assignment-section-label">
+                    CLASSROOM OVERVIEW
+                </span>
+                <h3>Submission Tracker</h3>
+                <p>Track student progress across your assigned classes.</p>
+            </div>
+
+            <a href="404-staff.html"
+               class="stackly-staff-assignment-outline-btn">
+                <i class="fa-solid fa-chalkboard"></i>
+                View Classes
+            </a>
+        </div>
+
+        <div class="stackly-staff-assignment-table-wrap">
+            <table class="stackly-staff-assignment-table">
+
+                <thead>
+                    <tr>
+                        <th>Assignment</th>
+                        <th>Class</th>
+                        <th>Submitted</th>
+                        <th>Pending</th>
+                        <th>Progress</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>
+                            <div class="stackly-staff-assignment-table-title">
+                                <span class="assignment-table-icon orange">
+                                    <i class="fa-solid fa-flask"></i>
+                                </span>
+                                <div>
+                                    <strong>Science Project</strong>
+                                    <small>20 marks</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Grade 10-A</td>
+                        <td><span class="assignment-count submitted">24</span></td>
+                        <td><span class="assignment-count pending">8</span></td>
+                        <td>
+                            <div class="stackly-staff-assignment-mini-progress">
+                                <span>75%</span>
+                                <div><span style="width:75%"></span></div>
+                            </div>
+                        </td>
+                        <td><span class="stackly-staff-assignment-status in-progress">In Progress</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="stackly-staff-assignment-table-title">
+                                <span class="assignment-table-icon blue">
+                                    <i class="fa-solid fa-calculator"></i>
+                                </span>
+                                <div>
+                                    <strong>Algebra Practice</strong>
+                                    <small>15 marks</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Grade 9-B</td>
+                        <td><span class="assignment-count submitted">27</span></td>
+                        <td><span class="assignment-count pending">3</span></td>
+                        <td>
+                            <div class="stackly-staff-assignment-mini-progress">
+                                <span>90%</span>
+                                <div><span style="width:90%"></span></div>
+                            </div>
+                        </td>
+                        <td><span class="stackly-staff-assignment-status near-complete">Nearly Done</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="stackly-staff-assignment-table-title">
+                                <span class="assignment-table-icon purple">
+                                    <i class="fa-solid fa-pen-nib"></i>
+                                </span>
+                                <div>
+                                    <strong>Essay Writing</strong>
+                                    <small>25 marks</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Grade 8-A</td>
+                        <td><span class="assignment-count submitted">18</span></td>
+                        <td><span class="assignment-count pending">12</span></td>
+                        <td>
+                            <div class="stackly-staff-assignment-mini-progress">
+                                <span>60%</span>
+                                <div><span style="width:60%"></span></div>
+                            </div>
+                        </td>
+                        <td><span class="stackly-staff-assignment-status in-progress">In Progress</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="stackly-staff-assignment-table-title">
+                                <span class="assignment-table-icon green">
+                                    <i class="fa-solid fa-book-open"></i>
+                                </span>
+                                <div>
+                                    <strong>Reading Review</strong>
+                                    <small>10 marks</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Grade 7-C</td>
+                        <td><span class="assignment-count submitted">28</span></td>
+                        <td><span class="assignment-count pending">0</span></td>
+                        <td>
+                            <div class="stackly-staff-assignment-mini-progress">
+                                <span>100%</span>
+                                <div><span style="width:100%"></span></div>
+                            </div>
+                        </td>
+                        <td><span class="stackly-staff-assignment-status completed">Completed</span></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+
+    <!-- RECENT STUDENT SUBMISSIONS -->
+    <section class="stackly-staff-assignment-recent"
+             data-aos="fade-up">
+
+        <div class="stackly-staff-assignment-section-heading">
+            <div>
+                <span class="stackly-staff-assignment-section-label">
+                    STUDENT ACTIVITY
+                </span>
+                <h3>Recent Submissions</h3>
+                <p>Keep feedback timely and help students improve.</p>
+            </div>
+
+            <a href="404-staff.html"
+               class="stackly-staff-assignment-text-link">
+                View All
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="stackly-staff-assignment-recent-grid">
+
+            <article class="stackly-staff-assignment-student-card">
+                <div class="stackly-staff-assignment-student-top">
+                    <div class="stackly-staff-assignment-student-avatar avatar-orange">
+                        AM
+                    </div>
+                    <span class="stackly-staff-assignment-new-tag">New</span>
+                </div>
+
+                <h4>Arun Kumar</h4>
+                <p>Science Project · Grade 10-A</p>
+
+                <div class="stackly-staff-assignment-submitted-time">
+                    <i class="fa-regular fa-clock"></i>
+                    Submitted 20 minutes ago
+                </div>
+
+                <div class="stackly-staff-assignment-review-footer">
+                    <span>Awaiting review</span>
+                    <a href="404-staff.html"
+                       aria-label="Review Arun Kumar's submission">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+
+            <article class="stackly-staff-assignment-student-card">
+                <div class="stackly-staff-assignment-student-top">
+                    <div class="stackly-staff-assignment-student-avatar avatar-blue">
+                        SP
+                    </div>
+                    <span class="stackly-staff-assignment-new-tag">New</span>
+                </div>
+
+                <h4>Sneha Priya</h4>
+                <p>Algebra Practice · Grade 9-B</p>
+
+                <div class="stackly-staff-assignment-submitted-time">
+                    <i class="fa-regular fa-clock"></i>
+                    Submitted 1 hour ago
+                </div>
+
+                <div class="stackly-staff-assignment-review-footer">
+                    <span>Awaiting review</span>
+                    <a href="404-staff.html"
+                       aria-label="Review Sneha Priya's submission">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+
+            <article class="stackly-staff-assignment-student-card">
+                <div class="stackly-staff-assignment-student-top">
+                    <div class="stackly-staff-assignment-student-avatar avatar-purple">
+                        RK
+                    </div>
+                    <span class="stackly-staff-assignment-reviewed-tag">
+                        Reviewed
+                    </span>
+                </div>
+
+                <h4>Rahul Kumar</h4>
+                <p>Reading Review · Grade 7-C</p>
+
+                <div class="stackly-staff-assignment-submitted-time">
+                    <i class="fa-regular fa-clock"></i>
+                    Submitted Yesterday
+                </div>
+
+                <div class="stackly-staff-assignment-review-footer">
+                    <span class="reviewed-label">
+                        <i class="fa-solid fa-circle-check"></i>
+                        Feedback given
+                    </span>
+                    <span class="stackly-staff-assignment-score">9/10</span>
+                </div>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- QUICK CREATE ASSIGNMENT -->
+    <section class="stackly-staff-assignment-create"
+             id="stacklyAssignmentCreate"
+             data-aos="fade-up">
+
+        <div class="stackly-staff-assignment-create-icon">
+            <i class="fa-solid fa-lightbulb"></i>
+        </div>
+
+        <div class="stackly-staff-assignment-create-content">
+            <span>PLAN YOUR NEXT LESSON</span>
+            <h3>Ready to create a new assignment?</h3>
+            <p>
+                Give students a clear goal, encourage curiosity,
+                and make learning more engaging.
+            </p>
+        </div>
+
+        <a href="404-staff.html"
+           class="stackly-staff-assignment-create-btn">
+            <i class="fa-solid fa-plus"></i>
+            Create New Task
+        </a>
+
+    </section>
+
+</main>
+
+    </div>
+
+    <!-- ==========================================
+         SCRIPTS
+    ========================================== -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="staff.js"></script>
+
+    <!-- Dashboard functionality -->
+    
+
+</body>
+</html>s

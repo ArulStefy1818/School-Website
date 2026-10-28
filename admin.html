@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | Stackly Education</title>
+
+    <meta name="description"
+          content="Manage students, staff, courses, and academic activities from the Stackly Education Admin Dashboard.">
+
+    <link rel="icon" type="image/webp" href="Stackly-logo-Blue.webp">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <!-- Admin Dashboard CSS -->
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body class="stackly-admin-body">
+
+    <!-- Mobile Sidebar Overlay -->
+    <div class="stackly-admin-overlay"
+         id="stacklyAdminOverlay"
+         aria-hidden="true"></div>
+
+    <!-- ==========================================
+         SIDEBAR
+    =========================================== -->
+    <aside class="stackly-admin-sidebar" id="stacklyAdminSidebar">
+
+        <!-- Sidebar Header -->
+        <div class="stackly-admin-sidebar-header">
+
+            <a href="admin.html"
+               class="stackly-admin-logo"
+               aria-label="Stackly Education Home">
+
+                <img src="Stackly-logo-Blue.webp"
+                     alt="Stackly Education Logo">
+            </a>
+
+            <!-- Mobile Exit Button -->
+            <button class="stackly-admin-sidebar-close"
+                    id="stacklyAdminSidebarClose"
+                    type="button"
+                    aria-label="Close navigation menu">
+
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+        <!-- Sidebar Navigation -->
+        <nav class="stackly-admin-navigation"
+             aria-label="Admin navigation">
+
+            <p class="stackly-admin-nav-label">MAIN MENU</p>
+
+            <a href="admin.html"
+               class="stackly-admin-nav-link active"
+               aria-current="page">
+
+                <i class="fa-solid fa-chart-pie"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="admin-students.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-user-graduate"></i>
+                <span>Students</span>
+            </a>
+
+            <a href="admin-staff.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-chalkboard-user"></i>
+                <span>Staff Members</span>
+            </a>
+
+
+            <a href="admin-classes.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-school"></i>
+                <span>Classes</span>
+            </a>
+
+            <a href="admin-attendance.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>Attendance</span>
+            </a>
+
+            <a href="admin-examinations.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-file-circle-check"></i>
+                <span>Examinations</span>
+            </a>
+
+
+            <p class="stackly-admin-nav-label stackly-admin-nav-spaced">
+                MANAGEMENT
+            </p>
+
+            <a href="admin-announcements.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-bullhorn"></i>
+                <span>Announcements</span>
+            </a>
+
+            <a href="admin-messages.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-envelope"></i>
+                <span>Messages</span>
+            </a>
+
+        </nav>
+
+        <!-- Sidebar Bottom -->
+        <div class="stackly-admin-sidebar-bottom">
+
+            <div class="stackly-admin-sidebar-help">
+                <div class="stackly-admin-help-icon">
+                    <i class="fa-solid fa-headset"></i>
+                </div>
+
+                <div class="stackly-admin-help-text">
+                    <h4>Need Help?</h4>
+                    <p>Contact support</p>
+                </div>
+
+                <a href="404-admin.html"
+                   class="stackly-admin-help-link"
+                   aria-label="Contact support">
+
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+            <a href="index.html"
+               class="stackly-admin-nav-link stackly-admin-logout-link">
+
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <span>Logout</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+    <!-- ==========================================
+         MAIN CONTENT AREA
+    =========================================== -->
+    <main class="stackly-admin-main">
+
+        <!-- Top Header -->
+        <header class="stackly-admin-topbar">
+
+            <div class="stackly-admin-topbar-left">
+
+                <!-- Mobile Hamburger -->
+                <button class="stackly-admin-menu-toggle"
+                        id="stacklyAdminMenuToggle"
+                        type="button"
+                        aria-label="Open navigation menu"
+                        aria-controls="stacklyAdminSidebar"
+                        aria-expanded="false">
+
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="stackly-admin-page-heading">
+                    <span class="stackly-admin-breadcrumb">
+                        Stackly Education / Admin
+                    </span>
+
+                    <h1>Admin Dashboard</h1>
+                </div>
+
+            </div>
+
+            <!-- Top Right Actions -->
+            <div class="stackly-admin-topbar-right">
+
+                <a href="404-admin.html"><button class="stackly-admin-icon-button"
+                        type="button"
+                        aria-label="Notifications">
+
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="stackly-admin-notification-dot"></span>
+                </button></a>
+
+                <div class="stackly-admin-header-divider"></div>
+
+                <!-- Admin Email -->
+                <div class="stackly-admin-account">
+
+                    <div class="stackly-admin-avatar">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+
+                    <div class="stackly-admin-account-info">
+                        <span class="stackly-admin-account-name">
+                            Administrator
+                        </span>
+
+                        <span class="stackly-admin-account-email"
+                              id="stacklyAdminEmail">
+                            admin@stacklyeducation.com
+                        </span>
+                    </div>
+
+                    <button class="stackly-admin-account-menu"
+                            id="stacklyAdminAccountMenu"
+                            type="button"
+                            aria-label="Account options">
+
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- Dashboard Content -->
+        <div class="stackly-admin-content">
+
+            <!-- Welcome Section -->
+            <section class="stackly-admin-welcome" data-aos="fade-up">
+
+                <div class="stackly-admin-welcome-text">
+                    <span class="stackly-admin-eyebrow">
+                        <i class="fa-solid fa-sparkles"></i>
+                        ADMINISTRATION OVERVIEW
+                    </span>
+
+                    <h2>Welcome Back, <span id="stacklyAdminWelcomeName">Admin</span>!</h2>
+
+                    <p>
+                        Here's what's happening across your institution.
+                        Manage academic activities and track your school's
+                        performance in one place.
+                    </p>
+                </div>
+
+                <div class="stackly-admin-welcome-actions">
+
+                    <a href="404-admin.html"
+                       class="stackly-admin-button stackly-admin-button-light">
+
+                        <i class="fa-solid fa-chart-column"></i>
+                        View Reports
+                    </a>
+
+                    <a href="404-admin.html"
+                       class="stackly-admin-button stackly-admin-button-primary">
+
+                        <i class="fa-solid fa-plus"></i>
+                        Add Student
+                    </a>
+
+                </div>
+
+            </section>
+
+            <!-- Statistics -->
+            <section class="stackly-admin-stats"
+                     aria-label="Institution statistics">
+
+                <article class="stackly-admin-stat-card"
+                         data-aos="fade-up"
+                         data-aos-delay="50">
+
+                    <div class="stackly-admin-stat-top">
+                        <div class="stackly-admin-stat-icon stat-orange">
+                            <i class="fa-solid fa-user-graduate"></i>
+                        </div>
+
+                        <span class="stackly-admin-stat-trend">
+                            <i class="fa-solid fa-arrow-trend-up"></i>
+                            8.5%
+                        </span>
+                    </div>
+
+                    <p>Total Students</p>
+                    <h3>1,248</h3>
+                    <span class="stackly-admin-stat-caption">
+                        Compared with last term
+                    </span>
+
+                </article>
+
+                <article class="stackly-admin-stat-card"
+                         data-aos="fade-up"
+                         data-aos-delay="100">
+
+                    <div class="stackly-admin-stat-top">
+                        <div class="stackly-admin-stat-icon stat-green">
+                            <i class="fa-solid fa-chalkboard-user"></i>
+                        </div>
+
+                        <span class="stackly-admin-stat-trend">
+                            <i class="fa-solid fa-arrow-trend-up"></i>
+                            4.2%
+                        </span>
+                    </div>
+
+                    <p>Total Staff</p>
+                    <h3>86</h3>
+                    <span class="stackly-admin-stat-caption">
+                        Teaching and support staff
+                    </span>
+
+                </article>
+
+                <article class="stackly-admin-stat-card"
+                         data-aos="fade-up"
+                         data-aos-delay="150">
+
+                    <div class="stackly-admin-stat-top">
+                        <div class="stackly-admin-stat-icon stat-blue">
+                            <i class="fa-solid fa-book-open"></i>
+                        </div>
+
+                        <span class="stackly-admin-stat-trend">
+                            <i class="fa-solid fa-check"></i>
+                            Active
+                        </span>
+                    </div>
+
+                    <p>Active Courses</p>
+                    <h3>32</h3>
+                    <span class="stackly-admin-stat-caption">
+                        Courses available this term
+                    </span>
+
+                </article>
+
+                <article class="stackly-admin-stat-card"
+                         data-aos="fade-up"
+                         data-aos-delay="200">
+
+                    <div class="stackly-admin-stat-top">
+                        <div class="stackly-admin-stat-icon stat-purple">
+                            <i class="fa-solid fa-calendar-check"></i>
+                        </div>
+
+                        <span class="stackly-admin-stat-trend">
+                            <i class="fa-solid fa-arrow-trend-up"></i>
+                            2.1%
+                        </span>
+                    </div>
+
+                    <p>Attendance Rate</p>
+                    <h3>94.6%</h3>
+                    <span class="stackly-admin-stat-caption">
+                        Overall attendance this week
+                    </span>
+
+                </article>
+
+            </section>
+
+            <!-- Main Dashboard Grid -->
+            <section class="stackly-admin-dashboard-grid">
+
+                <!-- Enrollment Overview -->
+                <article class="stackly-admin-panel stackly-admin-enrollment-panel"
+                         data-aos="fade-up">
+
+                    <div class="stackly-admin-panel-header">
+
+                        <div>
+                            <h3>Enrollment Overview</h3>
+                            <p>Student enrollment performance</p>
+                        </div>
+
+                        <!-- Custom Enrollment Period Dropdown -->
+<div class="stackly-admin-dropdown" id="stacklyAdminEnrollmentDropdown">
+
+    <button type="button"
+            class="stackly-admin-dropdown-trigger"
+            id="stacklyAdminEnrollmentTrigger"
+            aria-haspopup="listbox"
+            aria-expanded="false">
+
+        <span id="stacklyAdminEnrollmentSelected">This Year</span>
+        <i class="fa-solid fa-chevron-down"></i>
+    </button>
+
+    <div class="stackly-admin-dropdown-menu"
+         id="stacklyAdminEnrollmentMenu"
+         role="listbox"
+         aria-label="Enrollment period">
+
+        <button type="button"
+                class="stackly-admin-dropdown-option active"
+                role="option"
+                aria-selected="true"
+                data-value="year">
+            This Year
+        </button>
+
+        <button type="button"
+                class="stackly-admin-dropdown-option"
+                role="option"
+                aria-selected="false"
+                data-value="month">
+            This Month
+        </button>
+
+        <button type="button"
+                class="stackly-admin-dropdown-option"
+                role="option"
+                aria-selected="false"
+                data-value="week">
+            This Week
+        </button>
+
+    </div>
+
+    <input type="hidden"
+           id="stacklyAdminEnrollmentPeriod"
+           value="year">
+</div>
+
+                    </div>
+
+                    <div class="stackly-admin-chart-summary">
+                        <div>
+                            <span>Total Enrollments</span>
+                            <h2>1,248 <small>students</small></h2>
+                        </div>
+
+                        <span class="stackly-admin-chart-growth">
+                            <i class="fa-solid fa-arrow-up"></i>
+                            12.8%
+                        </span>
+                    </div>
+
+                    <div class="stackly-admin-chart"
+                         role="img"
+                         aria-label="Illustrative monthly student enrollment chart">
+
+                        <div class="stackly-admin-chart-y-labels">
+                            <span>1,500</span>
+                            <span>1,000</span>
+                            <span>500</span>
+                            <span>0</span>
+                        </div>
+
+                        <div class="stackly-admin-chart-plot">
+
+                            <div class="stackly-admin-chart-gridlines">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+
+                            <div class="stackly-admin-chart-bars">
+                                <div class="stackly-admin-chart-bar-wrap">
+                                    <div class="stackly-admin-chart-bar"
+                                         style="height: 42%;"></div>
+                                    <span>Jan</span>
+                                </div>
+
+                                <div class="stackly-admin-chart-bar-wrap">
+                                    <div class="stackly-admin-chart-bar"
+                                         style="height: 53%;"></div>
+                                    <span>Feb</span>
+                                </div>
+
+                                <div class="stackly-admin-chart-bar-wrap">
+                                    <div class="stackly-admin-chart-bar"
+                                         style="height: 47%;"></div>
+                                    <span>Mar</span>
+                                </div>
+
+                                <div class="stackly-admin-chart-bar-wrap">
+                                    <div class="stackly-admin-chart-bar"
+                                         style="height: 66%;"></div>
+                                    <span>Apr</span>
+                                </div>
+
+                                <div class="stackly-admin-chart-bar-wrap">
+                                    <div class="stackly-admin-chart-bar"
+                                         style="height: 58%;"></div>
+                                    <span>May</span>
+                                </div>
+
+                                <div class="stackly-admin-chart-bar-wrap">
+                                    <div class="stackly-admin-chart-bar"
+                                         style="height: 76%;"></div>
+                                    <span>Jun</span>
+                                </div>
+
+                                <div class="stackly-admin-chart-bar-wrap">
+                                    <div class="stackly-admin-chart-bar"
+                                         style="height: 68%;"></div>
+                                    <span>Jul</span>
+                                </div>
+
+                                <div class="stackly-admin-chart-bar-wrap">
+                                    <div class="stackly-admin-chart-bar"
+                                         style="height: 88%;"></div>
+                                    <span>Aug</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+                <!-- Quick Actions -->
+                <article class="stackly-admin-panel stackly-admin-quick-panel"
+                         data-aos="fade-up"
+                         data-aos-delay="100">
+
+                    <div class="stackly-admin-panel-header">
+                        <div>
+                            <h3>Quick Actions</h3>
+                            <p>Manage your institution</p>
+                        </div>
+                    </div>
+
+                    <div class="stackly-admin-quick-actions">
+
+                        <a href="404-admin.html"
+                           class="stackly-admin-quick-action">
+
+                            <span class="stackly-admin-quick-icon quick-orange">
+                                <i class="fa-solid fa-user-plus"></i>
+                            </span>
+
+                            <span>
+                                <strong>Add Student</strong>
+                                <small>Register a new student</small>
+                            </span>
+
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </a>
+
+                        <a href="404-admin.html"
+                           class="stackly-admin-quick-action">
+
+                            <span class="stackly-admin-quick-icon quick-green">
+                                <i class="fa-solid fa-user-tie"></i>
+                            </span>
+
+                            <span>
+                                <strong>Manage Staff</strong>
+                                <small>View staff information</small>
+                            </span>
+
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </a>
+
+                        <a href="404-admin.html"
+                           class="stackly-admin-quick-action">
+
+                            <span class="stackly-admin-quick-icon quick-blue">
+                                <i class="fa-solid fa-book"></i>
+                            </span>
+
+                            <span>
+                                <strong>Manage Courses</strong>
+                                <small>Update academic programs</small>
+                            </span>
+
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </a>
+
+                        <a href="404-admin.html"
+                           class="stackly-admin-quick-action">
+
+                            <span class="stackly-admin-quick-icon quick-purple">
+                                <i class="fa-solid fa-bullhorn"></i>
+                            </span>
+
+                            <span>
+                                <strong>Announcement</strong>
+                                <small>Share important updates</small>
+                            </span>
+
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+            <!-- Recent Students -->
+            <section class="stackly-admin-panel stackly-admin-recent-panel"
+                     data-aos="fade-up">
+
+                <div class="stackly-admin-panel-header">
+
+                    <div>
+                        <h3>Recent Students</h3>
+                        <p>Recently registered students</p>
+                    </div>
+
+                    <a href="404-admin.html"
+                       class="stackly-admin-view-all">
+
+                        View All
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+                <div class="stackly-admin-table-wrapper">
+
+                    <table class="stackly-admin-table">
+
+                        <thead>
+                            <tr>
+                                <th>Student</th>
+                                <th>Student ID</th>
+                                <th>Course</th>
+                                <th>Joined Date</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>
+                                    <div class="stackly-admin-student-cell">
+                                        <div class="stackly-admin-student-avatar student-avatar-orange">
+                                            AS
+                                        </div>
+
+                                        <div>
+                                            <strong>Arun Sharma</strong>
+                                            <small>arun@example.com</small>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td>STU-1024</td>
+                                <td>Computer Science</td>
+                                <td>Oct 25, 2026</td>
+
+                                <td>
+                                    <span class="stackly-admin-status status-active">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <a href="404-admin.html"
+                                       class="stackly-admin-table-action"
+                                       aria-label="View Arun Sharma">
+
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    </a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="stackly-admin-student-cell">
+                                        <div class="stackly-admin-student-avatar student-avatar-green">
+                                            PK
+                                        </div>
+
+                                        <div>
+                                            <strong>Priya Kumar</strong>
+                                            <small>priya@example.com</small>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td>STU-1023</td>
+                                <td>Business Studies</td>
+                                <td>Oct 24, 2026</td>
+
+                                <td>
+                                    <span class="stackly-admin-status status-active">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <a href="404-admin.html"
+                                       class="stackly-admin-table-action"
+                                       aria-label="View Priya Kumar">
+
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    </a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="stackly-admin-student-cell">
+                                        <div class="stackly-admin-student-avatar student-avatar-blue">
+                                            RV
+                                        </div>
+
+                                        <div>
+                                            <strong>Rahul Verma</strong>
+                                            <small>rahul@example.com</small>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td>STU-1022</td>
+                                <td>Mathematics</td>
+                                <td>Oct 23, 2026</td>
+
+                                <td>
+                                    <span class="stackly-admin-status status-pending">
+                                        Pending
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <a href="404-admin.html"
+                                       class="stackly-admin-table-action"
+                                       aria-label="View Rahul Verma">
+
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    </a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="stackly-admin-student-cell">
+                                        <div class="stackly-admin-student-avatar student-avatar-purple">
+                                            NS
+                                        </div>
+
+                                        <div>
+                                            <strong>Neha Singh</strong>
+                                            <small>neha@example.com</small>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td>STU-1021</td>
+                                <td>Physics</td>
+                                <td>Oct 22, 2026</td>
+
+                                <td>
+                                    <span class="stackly-admin-status status-active">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <a href="404-admin.html"
+                                       class="stackly-admin-table-action"
+                                       aria-label="View Neha Singh">
+
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    </a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+            <!-- Bottom Dashboard Grid -->
+            <section class="stackly-admin-bottom-grid">
+
+                <!-- Announcements -->
+                <article class="stackly-admin-panel"
+                         data-aos="fade-up">
+
+                    <div class="stackly-admin-panel-header">
+
+                        <div>
+                            <h3>Recent Announcements</h3>
+                            <p>Latest institution updates</p>
+                        </div>
+
+                        <a href="404-admin.html"
+                           class="stackly-admin-view-all">
+
+                            View All
+                        </a>
+
+                    </div>
+
+                    <div class="stackly-admin-announcement-list">
+
+                        <div class="stackly-admin-announcement">
+
+                            <span class="stackly-admin-announcement-icon announcement-orange">
+                                <i class="fa-solid fa-calendar-days"></i>
+                            </span>
+
+                            <div class="stackly-admin-announcement-content">
+                                <h4>Examination Schedule</h4>
+                                <p>Updated examination timetable is available.</p>
+                                <span>Oct 26, 2026</span>
+                            </div>
+
+                        </div>
+
+                        <div class="stackly-admin-announcement">
+
+                            <span class="stackly-admin-announcement-icon announcement-green">
+                                <i class="fa-solid fa-users"></i>
+                            </span>
+
+                            <div class="stackly-admin-announcement-content">
+                                <h4>Parent-Teacher Meeting</h4>
+                                <p>Meeting details are available for review.</p>
+                                <span>Oct 24, 2026</span>
+                            </div>
+
+                        </div>
+
+                        <div class="stackly-admin-announcement">
+
+                            <span class="stackly-admin-announcement-icon announcement-blue">
+                                <i class="fa-solid fa-book"></i>
+                            </span>
+
+                            <div class="stackly-admin-announcement-content">
+                                <h4>Academic Resources</h4>
+                                <p>New learning resources have been added.</p>
+                                <span>Oct 22, 2026</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+                <!-- Attendance Summary -->
+                <article class="stackly-admin-panel stackly-admin-attendance-panel"
+                         data-aos="fade-up"
+                         data-aos-delay="100">
+
+                    <div class="stackly-admin-panel-header">
+
+                        <div>
+                            <h3>Attendance Summary</h3>
+                            <p>Today's attendance overview</p>
+                        </div>
+
+                        <span class="stackly-admin-live-label">
+                            <span></span>
+                            Today
+                        </span>
+
+                    </div>
+
+                    <div class="stackly-admin-attendance-number">
+                        <h2>94.6%</h2>
+                        <span>Overall attendance</span>
+                    </div>
+
+                    <div class="stackly-admin-attendance-progress">
+                        <div style="width: 94.6%;"></div>
+                    </div>
+
+                    <div class="stackly-admin-attendance-detail">
+                        <span>
+                            <i class="fa-solid fa-circle attendance-present"></i>
+                            Present
+                        </span>
+
+                        <strong>1,180</strong>
+                    </div>
+
+                    <div class="stackly-admin-attendance-detail">
+                        <span>
+                            <i class="fa-solid fa-circle attendance-absent"></i>
+                            Absent
+                        </span>
+
+                        <strong>68</strong>
+                    </div>
+
+                    <a href="404-admin.html"
+                       class="stackly-admin-button stackly-admin-button-outline">
+
+                        View Attendance
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </article>
+
+            </section>
+
+             
+
+        </div>
+
+    </main>
+
+    <!-- AOS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <!-- Admin Dashboard JavaScript -->
+    <script src="admin.js"></script>
+
+</body>
+</html>

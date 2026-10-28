@@ -1,0 +1,1139 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Staff Dashboard | Stackly Education</title>
+
+    <meta name="description" content="Stackly Education Staff Dashboard for managing students, classes, attendance, assignments, and teaching schedules.">
+    <meta name="theme-color" content="#ff9f16">
+
+    <link rel="icon" href="Stackly-logo-Blue.webp" type="image/webp">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <!-- Staff Dashboard CSS -->
+    <link rel="stylesheet" href="staff.css">
+</head>
+
+<body>
+
+    <!-- ==========================================
+         MOBILE SIDEBAR OVERLAY
+    ========================================== -->
+
+    <div
+        class="stackly-admin-overlay"
+        id="stacklyAdminOverlay"
+        aria-hidden="true"
+        hidden
+    ></div>
+
+    <!-- ==========================================
+         STAFF SIDEBAR
+    ========================================== -->
+
+    <aside
+        class="stackly-admin-sidebar"
+        id="stacklyAdminSidebar"
+        aria-label="Staff dashboard navigation"
+        aria-hidden="false"
+    >
+
+        <!-- Logo and Mobile Close Button -->
+        <div class="stackly-admin-logo">
+
+            <a href="staff.html" aria-label="Stackly Education home">
+                <img
+                    src="Stackly-logo-Blue.webp"
+                    alt="Stackly Education logo"
+                    width="165"
+                    height="58"
+                >
+            </a>
+
+            <button
+                type="button"
+                class="stackly-staff-sidebar-exit"
+                id="stacklyAdminSidebarClose"
+                aria-label="Close navigation menu"
+                aria-controls="stacklyAdminSidebar"
+            >
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+
+        </div>
+
+        <!-- Main Navigation -->
+        <div class="stackly-admin-sidebar-heading">
+            <span>Staff Workspace</span>
+        </div>
+
+        <nav class="stackly-admin-sidebar-nav" aria-label="Main navigation">
+
+            <a
+                href="staff.html"
+                class="stackly-admin-nav-link active"
+                aria-current="page"
+            >
+                <i class="fa-solid fa-chart-pie" aria-hidden="true"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="staff-students.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-user-graduate" aria-hidden="true"></i>
+                <span>My Students</span>
+            </a>
+
+            <a href="staff-classes.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i>
+                <span>My Classes</span>
+            </a>
+
+            <a href="staff-attendance.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+                <span>Attendance</span>
+            </a>
+
+            <a href="staff-assignments.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+                <span>Assignments</span>
+            </a>
+
+            <a href="staff-schedule.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+                <span>My Schedule</span>
+            </a>
+
+            <a href="staff-resources.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-folder-open" aria-hidden="true"></i>
+                <span>Learning Resources</span>
+            </a>
+
+        </nav>
+
+        <!-- Account Navigation -->
+        <div class="stackly-admin-sidebar-divider"></div>
+
+        <div class="stackly-admin-sidebar-heading">
+            <span>Account</span>
+        </div>
+
+        <nav class="stackly-admin-sidebar-nav" aria-label="Account navigation">
+
+            <a href="staff-profile.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-user" aria-hidden="true"></i>
+                <span>My Profile</span>
+            </a>
+
+            <a href="index.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
+                <span>Logout</span>
+            </a>
+
+        </nav>
+
+        <!-- Sidebar Support Card -->
+        <div class="stackly-admin-sidebar-bottom">
+
+            <div class="stackly-admin-sidebar-help-icon">
+                <i class="fa-solid fa-headset" aria-hidden="true"></i>
+            </div>
+
+            <div class="stackly-admin-sidebar-help-content">
+                <h4>Need assistance?</h4>
+
+                <p>We're here to help you with your work.</p>
+
+                <a href="404-staff.html">
+                    Get Support
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+            </div>
+
+        </div>
+
+    </aside>
+
+    <!-- ==========================================
+         MAIN DASHBOARD AREA
+    ========================================== -->
+
+    <div class="stackly-admin-main">
+
+        <!-- ======================================
+             TOP HEADER
+        ======================================= -->
+
+        <header class="stackly-admin-header stackly-staff-topbar">
+
+            <div class="stackly-staff-topbar-left">
+
+                <!-- Mobile Hamburger -->
+                <button
+                    type="button"
+                    class="stackly-staff-mobile-toggle stackly-admin-icon-button"
+                    id="stacklyAdminMenuToggle"
+                    aria-label="Open navigation menu"
+                    aria-controls="stacklyAdminSidebar"
+                    aria-expanded="false"
+                >
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                </button>
+
+                <div class="stackly-staff-page-label">
+                    <h1>Staff Dashboard</h1>
+                    <p>Welcome to your teaching workspace.</p>
+                </div>
+
+            </div>
+
+            <!-- Right Side Header -->
+            <div class="stackly-staff-header-right">
+
+                <!-- Staff Email -->
+                <div class="stackly-staff-header-email">
+
+                    <div class="stackly-staff-email-icon">
+                        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="stackly-staff-email-details">
+    <span class="stackly-staff-email-label">
+        Staff Account
+    </span>
+
+    <span
+        class="stackly-staff-email-address"
+        id="stacklyStaffEmailAddress"
+    >
+        Loading email...
+    </span>
+</div>
+
+                </div>
+
+                <!-- Account Button -->
+                <button
+                    type="button"
+                    class="stackly-staff-account-button stackly-admin-icon-button"
+                    id="stacklyAdminAccountMenu"
+                    aria-label="Staff account"
+                    title="Staff account"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                >
+                    <i class="fa-solid fa-user" aria-hidden="true"></i>
+                </button>
+
+            </div>
+
+        </header>
+
+
+<!-- ==========================================
+     STACKLY EDUCATION
+     STAFF LEARNING RESOURCES PAGE
+========================================== -->
+
+<main class="stackly-staff-resources-page">
+
+    <!-- ======================================
+         01. RESOURCE HERO
+    ======================================= -->
+
+    <section class="stackly-resources-hero" data-aos="fade-up">
+
+        <div class="stackly-resources-hero-content">
+
+            <span class="stackly-resources-eyebrow">
+                <i class="fa-solid fa-lightbulb"></i>
+                YOUR TEACHING RESOURCE HUB
+            </span>
+
+            <h2>
+                Learn More.
+                <span>Teach Better.</span>
+            </h2>
+
+            <p>
+                Discover teaching materials, explore new learning methods,
+                and find everything you need to create meaningful classroom
+                experiences.
+            </p>
+
+            <div class="stackly-resources-hero-actions">
+                <a href="#stacklyResourceLibrary"
+                   class="stackly-resources-primary-btn">
+                    <i class="fa-solid fa-folder-open"></i>
+                    Explore Resources
+                </a>
+
+                <a href="#stacklyFeaturedResources"
+                   class="stackly-resources-secondary-btn">
+                    <i class="fa-solid fa-star"></i>
+                    Featured Materials
+                </a>
+            </div>
+
+            <div class="stackly-resources-hero-trust">
+                <span><i class="fa-solid fa-circle-check"></i> Classroom Ready</span>
+                <span><i class="fa-solid fa-book-open"></i> Teacher Focused</span>
+            </div>
+
+        </div>
+
+        <div class="stackly-resources-hero-visual">
+
+            <div class="stackly-resources-orbit orbit-one"></div>
+            <div class="stackly-resources-orbit orbit-two"></div>
+
+            <div class="stackly-resources-hero-book">
+                <div class="stackly-resources-book-icon">
+                    <i class="fa-solid fa-book-open-reader"></i>
+                </div>
+
+                <span>THE TEACHER'S TOOLKIT</span>
+
+                <h3>Ideas That Inspire Learning</h3>
+
+                <p>
+                    Plan creatively. Teach confidently. Help students grow.
+                </p>
+
+                <div class="stackly-resources-book-footer">
+                    <span><i class="fa-solid fa-book"></i> Lesson Guides</span>
+                    <span><i class="fa-solid fa-atom"></i> Activities</span>
+                </div>
+            </div>
+
+            <div class="stackly-resources-floating-icon resource-float-book">
+                <i class="fa-solid fa-book"></i>
+            </div>
+
+            <div class="stackly-resources-floating-icon resource-float-bulb">
+                <i class="fa-solid fa-lightbulb"></i>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+         02. RESOURCE OVERVIEW
+    ======================================= -->
+
+    <section class="stackly-resources-overview"
+             aria-label="Resource overview">
+
+        <article class="stackly-resources-overview-card"
+                 data-aos="fade-up"
+                 data-aos-delay="50">
+
+            <div class="stackly-resources-overview-icon orange">
+                <i class="fa-solid fa-book-open"></i>
+            </div>
+
+            <div>
+                <h3>120+</h3>
+                <p>Learning Materials</p>
+                <span>Resources to explore</span>
+            </div>
+
+        </article>
+
+        <article class="stackly-resources-overview-card"
+                 data-aos="fade-up"
+                 data-aos-delay="100">
+
+            <div class="stackly-resources-overview-icon green">
+                <i class="fa-solid fa-file-lines"></i>
+            </div>
+
+            <div>
+                <h3>35+</h3>
+                <p>Lesson Guides</p>
+                <span>Support your planning</span>
+            </div>
+
+        </article>
+
+        <article class="stackly-resources-overview-card"
+                 data-aos="fade-up"
+                 data-aos-delay="150">
+
+            <div class="stackly-resources-overview-icon blue">
+                <i class="fa-solid fa-flask"></i>
+            </div>
+
+            <div>
+                <h3>18+</h3>
+                <p>Practical Activities</p>
+                <span>Encourage exploration</span>
+            </div>
+
+        </article>
+
+        <article class="stackly-resources-overview-card"
+                 data-aos="fade-up"
+                 data-aos-delay="200">
+
+            <div class="stackly-resources-overview-icon purple">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+
+            <div>
+                <h3>12+</h3>
+                <p>Teacher Guides</p>
+                <span>Build teaching skills</span>
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <!-- ======================================
+         03. RESOURCE CATEGORY EXPLORER
+    ======================================= -->
+
+    <section class="stackly-resources-categories"
+             data-aos="fade-up">
+
+        <div class="stackly-resources-section-heading">
+
+            <div>
+                <span class="stackly-resources-section-label">
+                    BROWSE BY INTEREST
+                </span>
+
+                <h3>Find Your Teaching Resources</h3>
+
+                <p>
+                    Explore useful materials organized around your
+                    everyday classroom needs.
+                </p>
+            </div>
+
+            <span class="stackly-resources-heading-icon">
+                <i class="fa-solid fa-layer-group"></i>
+            </span>
+
+        </div>
+
+        <div class="stackly-resources-category-grid">
+
+            <a href="404-staff.html"
+               class="stackly-resources-category-card category-orange">
+
+                <span class="stackly-resources-category-icon">
+                    <i class="fa-solid fa-chalkboard"></i>
+                </span>
+
+                <h4>Lesson Plans</h4>
+
+                <p>
+                    Organize classroom objectives, lesson activities, 
+                    and learning outcomes for effective teaching.
+                </p>
+
+                <span class="stackly-resources-category-link">
+                    Explore lesson plans
+                    <i class="fa-solid fa-arrow-right"></i>
+                </span>
+
+            </a>
+
+            <a href="404-staff.html"
+               class="stackly-resources-category-card category-green">
+
+                <span class="stackly-resources-category-icon">
+                    <i class="fa-solid fa-flask"></i>
+                </span>
+
+                <h4>Practical Activities</h4>
+
+                <p>
+                    Find experiments, demonstrations, and hands-on
+                    classroom activities.
+                </p>
+
+                <span class="stackly-resources-category-link">
+                    Explore activities
+                    <i class="fa-solid fa-arrow-right"></i>
+                </span>
+
+            </a>
+
+            <a href="404-staff.html"
+               class="stackly-resources-category-card category-blue">
+
+                <span class="stackly-resources-category-icon">
+                    <i class="fa-solid fa-file-circle-check"></i>
+                </span>
+
+                <h4>Worksheets</h4>
+
+                <p>
+                    Support student practice with revision sheets,
+                    exercises, and question sets.
+                </p>
+
+                <span class="stackly-resources-category-link">
+                    Explore worksheets
+                    <i class="fa-solid fa-arrow-right"></i>
+                </span>
+
+            </a>
+
+            <a href="404-staff.html"
+               class="stackly-resources-category-card category-purple">
+
+                <span class="stackly-resources-category-icon">
+                    <i class="fa-solid fa-chart-line"></i>
+                </span>
+
+                <h4>Teaching Strategies</h4>
+
+                <p>
+                    Discover classroom techniques that encourage
+                    participation and understanding.
+                </p>
+
+                <span class="stackly-resources-category-link">
+                    Explore strategies
+                    <i class="fa-solid fa-arrow-right"></i>
+                </span>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+         04. FEATURED RESOURCES
+    ======================================= -->
+
+    <section class="stackly-resources-featured"
+             id="stacklyFeaturedResources"
+             data-aos="fade-up">
+
+        <div class="stackly-resources-section-heading">
+
+            <div>
+                <span class="stackly-resources-section-label">
+                    HANDPICKED FOR EDUCATORS
+                </span>
+
+                <h3>Featured Learning Materials</h3>
+
+                <p>
+                    Discover sample resources to help you plan lessons
+                    and create engaging learning experiences.
+                </p>
+            </div>
+
+            <a href="404-staff.html"
+               class="stackly-resources-text-link">
+                View Library
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+        <div class="stackly-resources-featured-grid">
+
+            <!-- Featured Resource 1 -->
+
+            <article class="stackly-resources-feature-card">
+
+                <div class="stackly-resources-feature-cover cover-orange">
+                    <span class="stackly-resources-cover-tag">
+                        LESSON GUIDE
+                    </span>
+
+                    <i class="fa-solid fa-atom"></i>
+
+                    <span class="stackly-resources-cover-number">01</span>
+                </div>
+
+                <div class="stackly-resources-feature-body">
+
+                    <div class="stackly-resources-feature-meta">
+                        <span><i class="fa-solid fa-book"></i> Physics</span>
+                        <span>Grade 10</span>
+                    </div>
+
+                    <h4>Understanding Motion and Force</h4>
+
+                    <p>
+                        A teaching guide covering core concepts, 
+                        classroom explanations, and practice activities.
+                    </p>
+
+                    <div class="stackly-resources-feature-footer">
+                        <span>
+                            <i class="fa-regular fa-file-lines"></i>
+                            Lesson guide
+                        </span>
+
+                        <a href="404-staff.html"
+                           aria-label="Open Motion and Force teaching guide">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- Featured Resource 2 -->
+
+            <article class="stackly-resources-feature-card">
+
+                <div class="stackly-resources-feature-cover cover-green">
+                    <span class="stackly-resources-cover-tag">
+                        ACTIVITY
+                    </span>
+
+                    <i class="fa-solid fa-flask"></i>
+
+                    <span class="stackly-resources-cover-number">02</span>
+                </div>
+
+                <div class="stackly-resources-feature-body">
+
+                    <div class="stackly-resources-feature-meta">
+                        <span><i class="fa-solid fa-leaf"></i> Science</span>
+                        <span>Grade 9</span>
+                    </div>
+
+                    <h4>Discover Science Through Experiments</h4>
+
+                    <p>
+                        A sample activity collection for introducing
+                        scientific observation and practical learning.
+                    </p>
+
+                    <div class="stackly-resources-feature-footer">
+                        <span>
+                            <i class="fa-solid fa-vials"></i>
+                            Lab activities
+                        </span>
+
+                        <a href="404-staff.html"
+                           aria-label="Open science experiment activities">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- Featured Resource 3 -->
+
+            <article class="stackly-resources-feature-card">
+
+                <div class="stackly-resources-feature-cover cover-blue">
+                    <span class="stackly-resources-cover-tag">
+                        WORKSHEET
+                    </span>
+
+                    <i class="fa-solid fa-file-lines"></i>
+
+                    <span class="stackly-resources-cover-number">03</span>
+                </div>
+
+                <div class="stackly-resources-feature-body">
+
+                    <div class="stackly-resources-feature-meta">
+                        <span><i class="fa-solid fa-pen"></i> Assessment</span>
+                        <span>Grades 9–10</span>
+                    </div>
+
+                    <h4>Classroom Practice and Revision</h4>
+
+                    <p>
+                        A sample worksheet collection for reviewing
+                        important topics and reinforcing understanding.
+                    </p>
+
+                    <div class="stackly-resources-feature-footer">
+                        <span>
+                            <i class="fa-regular fa-file-pdf"></i>
+                            Practice sheets
+                        </span>
+
+                        <a href="404-staff.html"
+                           aria-label="Open classroom revision worksheets">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+         05. RESOURCE LIBRARY
+    ======================================= -->
+
+    <section class="stackly-resources-library"
+             id="stacklyResourceLibrary"
+             data-aos="fade-up">
+
+        <div class="stackly-resources-section-heading">
+
+            <div>
+                <span class="stackly-resources-section-label">
+                    YOUR RESOURCE COLLECTION
+                </span>
+
+                <h3>Explore the Resource Library</h3>
+
+                <p>
+                    Find sample teaching materials by topic, resource
+                    type, and classroom purpose.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Search and Filters -->
+
+        <div class="stackly-resources-library-toolbar">
+
+            <label class="stackly-resources-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="search"
+                    id="stacklyResourceSearch"
+                    placeholder="Search learning materials..."
+                    aria-label="Search learning materials"
+                >
+            </label>
+
+            <label class="stackly-resources-filter">
+                <span class="stackly-resources-sr-only">
+                    Filter resources by type
+                </span>
+
+                
+<div class="stackly-resources-filter" id="stacklyResourceCustomFilter">
+
+    <button
+        type="button"
+        class="stackly-resources-filter-trigger"
+        id="stacklyResourceFilterTrigger"
+        aria-haspopup="listbox"
+        aria-expanded="false"
+    >
+        <span class="stackly-resources-filter-current">
+            <i class="fa-solid fa-layer-group"></i>
+            <span id="stacklyResourceFilterLabel">All Resources</span>
+        </span>
+
+        <i class="fa-solid fa-chevron-down stackly-resources-filter-arrow"></i>
+    </button>
+
+    <div
+        class="stackly-resources-filter-menu"
+        id="stacklyResourceFilterMenu"
+        role="listbox"
+        aria-label="Filter resources by type"
+        hidden
+    >
+        <button type="button" class="stackly-resources-filter-option is-selected"
+            role="option" aria-selected="true" data-value="all">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>All Resources</span>
+            <i class="fa-solid fa-check stackly-resources-filter-check"></i>
+        </button>
+
+        <button type="button" class="stackly-resources-filter-option"
+            role="option" aria-selected="false" data-value="lesson">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Lesson Plans</span>
+            <i class="fa-solid fa-check stackly-resources-filter-check"></i>
+        </button>
+
+        <button type="button" class="stackly-resources-filter-option"
+            role="option" aria-selected="false" data-value="activity">
+            <i class="fa-solid fa-flask"></i>
+            <span>Activities</span>
+            <i class="fa-solid fa-check stackly-resources-filter-check"></i>
+        </button>
+
+        <button type="button" class="stackly-resources-filter-option"
+            role="option" aria-selected="false" data-value="worksheet">
+            <i class="fa-solid fa-file-lines"></i>
+            <span>Worksheets</span>
+            <i class="fa-solid fa-check stackly-resources-filter-check"></i>
+        </button>
+
+        <button type="button" class="stackly-resources-filter-option"
+            role="option" aria-selected="false" data-value="guide">
+            <i class="fa-solid fa-chalkboard-user"></i>
+            <span>Teacher Guides</span>
+            <i class="fa-solid fa-check stackly-resources-filter-check"></i>
+        </button>
+    </div>
+
+    <!-- Keeps the selected value available to JavaScript -->
+    <input type="hidden" id="stacklyResourceFilter" value="all">
+
+</div>
+
+            </label>
+
+        </div>
+
+        <div class="stackly-resources-library-grid"
+             id="stacklyResourceGrid">
+
+            <article class="stackly-resources-library-item"
+                     data-resource-type="lesson"
+                     data-resource-name="physics lesson plans motion force">
+
+                <span class="stackly-resources-library-file orange">
+                    <i class="fa-solid fa-book-open"></i>
+                </span>
+
+                <div class="stackly-resources-library-info">
+                    <span class="stackly-resources-library-type">
+                        LESSON PLAN
+                    </span>
+
+                    <h4>Physics Lesson Planner</h4>
+
+                    <p>
+                        Sample lesson structure for physics topics
+                        and classroom discussions.
+                    </p>
+
+                    <span class="stackly-resources-library-subject">
+                        <i class="fa-solid fa-atom"></i>
+                        Physics · Grade 10
+                    </span>
+                </div>
+
+                <a href="404-staff.html"
+                   class="stackly-resources-library-action"
+                   aria-label="Open Physics Lesson Planner">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+
+            </article>
+
+
+            <article class="stackly-resources-library-item"
+                     data-resource-type="activity"
+                     data-resource-name="science experiments laboratory practical">
+
+                <span class="stackly-resources-library-file green">
+                    <i class="fa-solid fa-flask"></i>
+                </span>
+
+                <div class="stackly-resources-library-info">
+                    <span class="stackly-resources-library-type">
+                        ACTIVITY
+                    </span>
+
+                    <h4>Science Experiment Ideas</h4>
+
+                    <p>
+                        Sample practical activities for interactive
+                        science learning.
+                    </p>
+
+                    <span class="stackly-resources-library-subject">
+                        <i class="fa-solid fa-vials"></i>
+                        Science · Grade 9
+                    </span>
+                </div>
+
+                <a href="404-staff.html"
+                   class="stackly-resources-library-action"
+                   aria-label="Open Science Experiment Ideas">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+
+            </article>
+
+
+            <article class="stackly-resources-library-item"
+                     data-resource-type="worksheet"
+                     data-resource-name="revision worksheet questions practice">
+
+                <span class="stackly-resources-library-file blue">
+                    <i class="fa-solid fa-file-lines"></i>
+                </span>
+
+                <div class="stackly-resources-library-info">
+                    <span class="stackly-resources-library-type">
+                        WORKSHEET
+                    </span>
+
+                    <h4>Revision Practice Sheets</h4>
+
+                    <p>
+                        Sample question sets for practice,
+                        revision, and topic reinforcement.
+                    </p>
+
+                    <span class="stackly-resources-library-subject">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        Assessment · Grades 9–10
+                    </span>
+                </div>
+
+                <a href="404-staff.html"
+                   class="stackly-resources-library-action"
+                   aria-label="Open Revision Practice Sheets">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+
+            </article>
+
+
+            <article class="stackly-resources-library-item"
+                     data-resource-type="guide"
+                     data-resource-name="classroom management teacher guide">
+
+                <span class="stackly-resources-library-file purple">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                </span>
+
+                <div class="stackly-resources-library-info">
+                    <span class="stackly-resources-library-type">
+                        TEACHER GUIDE
+                    </span>
+
+                    <h4>Classroom Engagement Guide</h4>
+
+                    <p>
+                        Sample ideas for encouraging participation
+                        and productive classroom discussions.
+                    </p>
+
+                    <span class="stackly-resources-library-subject">
+                        <i class="fa-solid fa-users"></i>
+                        Teaching Skills
+                    </span>
+                </div>
+
+                <a href="404-staff.html"
+                   class="stackly-resources-library-action"
+                   aria-label="Open Classroom Engagement Guide">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+
+            </article>
+
+        </div>
+
+        <p class="stackly-resources-no-results"
+           id="stacklyResourceNoResults"
+           hidden>
+            <i class="fa-solid fa-folder-open"></i>
+            No matching resources found. Try another search or category.
+        </p>
+
+    </section>
+
+
+    <!-- ======================================
+         06. TEACHING INSPIRATION BANNER
+    ======================================= -->
+
+    <section class="stackly-resources-inspiration"
+             data-aos="fade-up">
+
+        <div class="stackly-resources-inspiration-icon">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+        </div>
+
+        <div class="stackly-resources-inspiration-content">
+
+            <span>TEACHING TIP OF THE DAY</span>
+
+            <h3>Make every lesson an opportunity to discover.</h3>
+
+            <p>
+                Combine clear explanations, thoughtful questions,
+                and practical examples to help students connect
+                classroom concepts with the world around them.
+            </p>
+
+        </div>
+
+        <div class="stackly-resources-inspiration-decoration">
+            <i class="fa-solid fa-lightbulb"></i>
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+         07. PROFESSIONAL GROWTH
+    ======================================= -->
+
+    <section class="stackly-resources-growth"
+             data-aos="fade-up">
+
+        <div class="stackly-resources-section-heading">
+
+            <div>
+                <span class="stackly-resources-section-label">
+                    KEEP DEVELOPING
+                </span>
+
+                <h3>Grow Your Teaching Skills</h3>
+
+                <p>
+                    Explore ideas that can support your classroom practice
+                    and professional development.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="stackly-resources-growth-grid">
+
+            <article class="stackly-resources-growth-card">
+
+                <div class="stackly-resources-growth-icon orange">
+                    <i class="fa-solid fa-brain"></i>
+                </div>
+
+                <h4>Creative Teaching</h4>
+
+                <p>
+                    Explore new ways to explain challenging topics
+                    and spark student curiosity.
+                </p>
+
+                <a href="404-staff.html">
+                    Explore Ideas
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </article>
+
+            <article class="stackly-resources-growth-card">
+
+                <div class="stackly-resources-growth-icon green">
+                    <i class="fa-solid fa-people-group"></i>
+                </div>
+
+                <h4>Student Engagement</h4>
+
+                <p>
+                    Discover discussion prompts, collaborative
+                    exercises, and participation ideas.
+                </p>
+
+                <a href="404-staff.html">
+                    Explore Ideas
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </article>
+
+            <article class="stackly-resources-growth-card">
+
+                <div class="stackly-resources-growth-icon blue">
+                    <i class="fa-solid fa-chart-simple"></i>
+                </div>
+
+                <h4>Learning Assessment</h4>
+
+                <p>
+                    Find sample approaches to check understanding,
+                    review progress, and guide improvement.
+                </p>
+
+                <a href="404-staff.html">
+                    Explore Ideas
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+         08. RESOURCE SUPPORT CTA
+    ======================================= -->
+
+    <section class="stackly-resources-support"
+             data-aos="fade-up">
+
+        <div class="stackly-resources-support-icon">
+            <i class="fa-solid fa-headset"></i>
+        </div>
+
+        <div class="stackly-resources-support-content">
+
+            <span>HERE TO HELP</span>
+
+            <h3>Looking for a specific teaching resource?</h3>
+
+            <p>
+                Get support finding materials for your next lesson
+                or planning your classroom activities.
+            </p>
+
+        </div>
+
+        <a href="404-staff.html"
+           class="stackly-resources-support-btn">
+            Contact Support
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+    </section>
+
+</main>
+
+
+    </div>
+
+    <!-- ==========================================
+         SCRIPTS
+    ========================================== -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="staff.js"></script>
+
+    <!-- Dashboard functionality -->
+    
+
+</body>
+</html>

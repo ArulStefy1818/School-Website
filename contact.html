@@ -1,0 +1,928 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Stackly | Education & Learning</title>
+
+    <meta name="description"
+        content="Stackly Education provides quality learning, expert teachers, modern facilities, and opportunities for a brighter future.">
+
+    <link rel="icon" href="Stackly-logo-Blue.webp">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="index.css">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- =========================================
+         HEADER
+    ========================================= -->
+
+    <header class="stackly-edu-header">
+
+        <div class="stackly-edu-header-inner">
+
+            <!-- Logo links to home -->
+            <a href="index.html"
+                class="stackly-edu-logo"
+                aria-label="Stackly Education Home">
+
+                <img src="Stackly-logo-Blue.webp"
+                    alt="Stackly School Logo">
+
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="stackly-edu-nav"
+                aria-label="Main navigation">
+
+                <a href="index.html"
+                    class="stackly-edu-active">
+                    Home
+                    
+                </a>
+
+                <a href="about.html">
+                    About
+                </a>
+                <a href="courses.html">
+                    Courses
+                     
+                </a>
+
+                <a href="academics.html">
+                    Academics
+                     
+                </a>
+
+                     
+                <a href="admissions.html">
+                    Admissions
+                     
+                </a>
+
+                <a href="blog.html">Blog</a>
+
+                <a href="contact.html">Contact Us</a>
+
+                 
+
+                <a href="login.html" class="stackly-edu-apply">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    Login
+                </a>
+
+            </nav>
+
+            <!-- Mobile Hamburger -->
+            <button class="stackly-edu-menu-toggle"
+                id="stacklyEduMenuButton"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-controls="stacklyEduMobileMenu"
+                aria-expanded="false">
+
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+        </div>
+    </header>
+
+
+    <!-- =========================================
+         MOBILE MENU OVERLAY
+    ========================================= -->
+
+    <div class="stackly-edu-overlay"
+        id="stacklyEduOverlay"
+        aria-hidden="true"></div>
+
+
+    <!-- =========================================
+         MOBILE SLIDE-IN MENU
+    ========================================= -->
+
+    <aside class="stackly-edu-mobile-menu"
+        id="stacklyEduMobileMenu"
+        aria-label="Mobile navigation"
+        aria-hidden="true"
+        inert>
+
+        <div class="stackly-edu-mobile-top">
+
+            <a href="index.html"
+                class="stackly-edu-logo">
+
+                <img src="Stackly-logo-Blue.webp"
+                    alt="Stackly Logo">
+
+                 
+            </a>
+
+            <!-- Exit / Close Button -->
+            <button class="stackly-edu-menu-close"
+                id="stacklyEduMenuClose"
+                type="button"
+                aria-label="Close navigation menu">
+
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+        <nav class="stackly-edu-mobile-links"
+            aria-label="Mobile navigation links">
+
+            <a href="index.html">
+                Home
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <a href="about.html">
+                About
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <a href="courses.html">
+                Courses
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <a href="academics.html">
+                Academics
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+
+            <a href="admissions.html">
+                Admissions
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <a href="blog.html">
+                Blog
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <a href="contact.html">
+                Contact Us
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <a href="login.html"
+                class="stackly-edu-mobile-apply">
+
+                <i class="fa-solid fa-right-to-bracket"></i>
+                Login
+            </a>
+
+        </nav>
+
+        <div class="stackly-edu-mobile-bottom">
+            <p>Learn Today. Lead Tomorrow.</p>
+            <p>© 2026 Stackly Education.</p>
+        </div>
+
+    </aside>
+
+    
+<!-- ==========================================
+     STACKLY EDUCATION - CONTACT PAGE HERO
+========================================== -->
+
+<section class="stackly-edu-contact-hero" id="contact-home">
+
+    <!-- Background Overlay -->
+    <div class="stackly-edu-contact-hero-overlay"></div>
+
+    <!-- Hero Content -->
+    <div class="stackly-edu-contact-hero-content">
+
+        <span class="stackly-edu-contact-eyebrow">
+            <i class="fa-solid fa-comments"></i>
+            WE'RE HERE FOR YOU
+        </span>
+
+        <h1>
+            Let's Start a
+            <span>Meaningful Conversation.</span>
+        </h1>
+
+        <p>
+            Every great educational journey begins with a conversation.
+            Connect with our team to discover learning opportunities,
+            get your questions answered, and find the right path
+            toward your future.
+        </p>
+
+        <!-- Contact Highlights -->
+        <div class="stackly-edu-contact-highlights">
+
+            <span>
+                <i class="fa-solid fa-headset"></i>
+                Friendly Support
+            </span>
+
+            <span>
+                <i class="fa-solid fa-envelope-open-text"></i>
+                Quick Enquiries
+            </span>
+
+            <span>
+                <i class="fa-solid fa-graduation-cap"></i>
+                Education Guidance
+            </span>
+
+        </div>
+
+        <!-- Breadcrumb Navigation -->
+        <div class="stackly-edu-contact-breadcrumb">
+
+            <a href="index.html">
+                <i class="fa-solid fa-house"></i>
+                Home
+            </a>
+
+            <i class="fa-solid fa-chevron-right"></i>
+
+            <span>Contact Us</span>
+
+        </div>
+
+    </div>
+
+    <!-- Decorative Floating Icons -->
+    <div class="stackly-edu-contact-decoration stackly-edu-contact-decoration-one">
+        <i class="fa-solid fa-envelope"></i>
+    </div>
+
+    <div class="stackly-edu-contact-decoration stackly-edu-contact-decoration-two">
+        <i class="fa-solid fa-comments"></i>
+    </div>
+
+    <div class="stackly-edu-contact-decoration stackly-edu-contact-decoration-three">
+        <i class="fa-solid fa-paper-plane"></i>
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     STACKLY EDUCATION
+     SCHOOL CONTACT INFORMATION SECTION
+     Four Cards + Different AOS Animations
+========================================== -->
+
+<section class="stackly-edu-contact-info" id="school-contact-info">
+
+    <div class="stackly-edu-contact-info-container">
+
+        <!-- ADDRESS CARD -->
+        <div class="stackly-edu-contact-info-card"
+             data-aos="fade-right"
+             data-aos-duration="900"
+             data-aos-delay="100">
+
+            <div class="stackly-edu-contact-info-icon">
+                <i class="fa-solid fa-school"></i>
+            </div>
+
+            <h3>School Address</h3>
+
+            <p>
+                25/B Education Avenue,<br>
+                Chennai, Tamil Nadu, India
+            </p>
+
+            <a href="404.html"
+               rel="noopener noreferrer"
+               class="stackly-edu-contact-info-link">
+                Get Directions
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+        <!-- PHONE CARD -->
+        <div class="stackly-edu-contact-info-card"
+             data-aos="fade-up"
+             data-aos-duration="900"
+             data-aos-delay="200">
+
+            <div class="stackly-edu-contact-info-icon">
+                <i class="fa-solid fa-phone-volume"></i>
+            </div>
+
+            <h3>Call Our School</h3>
+
+            <p>
+                Speak with our admissions team<br>
+                +91 98765 43210
+            </p>
+
+            <a href="404.html"
+               class="stackly-edu-contact-info-link">
+                Call Now
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+        <!-- EMAIL CARD -->
+        <div class="stackly-edu-contact-info-card"
+             data-aos="zoom-in"
+             data-aos-duration="1000"
+             data-aos-delay="300">
+
+            <div class="stackly-edu-contact-info-icon">
+                <i class="fa-solid fa-envelope-open-text"></i>
+            </div>
+
+            <h3>Email Our Team</h3>
+
+            <p>
+                Questions about admissions?<br>
+                info@stacklyeducation.com
+            </p>
+
+            <a href="404.html"
+               class="stackly-edu-contact-info-link">
+                Send an Email
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+        <!-- OFFICE HOURS CARD -->
+        <div class="stackly-edu-contact-info-card"
+             data-aos="fade-left"
+             data-aos-duration="900"
+             data-aos-delay="400">
+
+            <div class="stackly-edu-contact-info-icon">
+                <i class="fa-solid fa-clock"></i>
+            </div>
+
+            <h3>School Office Hours</h3>
+
+            <p>
+                Monday – Saturday<br>
+                9:00 AM – 5:00 PM
+            </p>
+
+            <a href="404.html"
+               class="stackly-edu-contact-info-link">
+                Contact Us
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     STACKLY EDUCATION
+     GET IN TOUCH SECTION
+     Student Image + Contact Form + AOS
+========================================== -->
+
+<section class="stackly-edu-getintouch" id="get-in-touch">
+
+    <div class="stackly-edu-getintouch-container">
+
+        <!-- LEFT: STUDENT IMAGE -->
+        <div class="stackly-edu-getintouch-image"
+             data-aos="fade-right"
+             data-aos-duration="1000"
+             data-aos-delay="100">
+
+            <img
+                src="student-contact.webp"
+                alt="Students walking together on their school campus"
+                loading="lazy"
+            >
+
+            <div class="stackly-edu-getintouch-image-accent"></div>
+
+        </div>
+
+        <!-- RIGHT: CONTACT FORM -->
+        <div class="stackly-edu-getintouch-content"
+             data-aos="fade-left"
+             data-aos-duration="1000"
+             data-aos-delay="200">
+
+            <span class="stackly-edu-getintouch-eyebrow"
+                  data-aos="fade-down"
+                  data-aos-duration="800"
+                  data-aos-delay="300">
+                <i class="fa-solid fa-paper-plane"></i>
+                WE'RE HERE TO HELP
+            </span>
+
+            <h2 data-aos="fade-up"
+                data-aos-duration="900"
+                data-aos-delay="350">
+                Get in <span>Touch</span>
+            </h2>
+
+            <p class="stackly-edu-getintouch-description"
+               data-aos="fade-up"
+               data-aos-duration="900"
+               data-aos-delay="400">
+                Have questions about admissions, academic programs, or
+                school activities? Send us a message and our team will
+                be happy to assist you.
+            </p>
+
+            <!-- CONTACT FORM -->
+            <form class="stackly-edu-getintouch-form"
+                  action="#"
+                  method="post">
+
+                <div class="stackly-edu-getintouch-fields">
+
+                    <!-- NAME -->
+                    <div class="stackly-edu-getintouch-field"
+                         data-aos="fade-up"
+                         data-aos-duration="800"
+                         data-aos-delay="450">
+
+                        <label for="stacklyEduContactName">
+                            Your Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="stacklyEduContactName"
+                            name="name"
+                            placeholder="Your Name"
+                            autocomplete="name"
+                            required
+                        >
+
+                    </div>
+
+                    <!-- EMAIL -->
+                    <div class="stackly-edu-getintouch-field"
+                         data-aos="fade-up"
+                         data-aos-duration="800"
+                         data-aos-delay="500">
+
+                        <label for="stacklyEduContactEmail">
+                            Your Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="stacklyEduContactEmail"
+                            name="email"
+                            placeholder="Your Email"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+                    <!-- SUBJECT -->
+                    <div class="stackly-edu-getintouch-field stackly-edu-getintouch-full"
+                         data-aos="fade-up"
+                         data-aos-duration="800"
+                         data-aos-delay="550">
+
+                        <label for="stacklyEduContactSubject">
+                            Subject
+                        </label>
+
+                        <input
+                            type="text"
+                            id="stacklyEduContactSubject"
+                            name="subject"
+                            placeholder="Your Subject"
+                            required
+                        >
+
+                    </div>
+
+                    <!-- MESSAGE -->
+                    <div class="stackly-edu-getintouch-field stackly-edu-getintouch-full"
+                         data-aos="fade-up"
+                         data-aos-duration="800"
+                         data-aos-delay="600">
+
+                        <label for="stacklyEduContactMessage">
+                            Your Message
+                        </label>
+
+                        <textarea
+                            id="stacklyEduContactMessage"
+                            name="message"
+                            rows="4"
+                            placeholder="Write Your Message"
+                            required
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+                <!-- SUBMIT BUTTON -->
+                <button
+                    type="submit"
+                    class="stackly-edu-getintouch-submit"
+                    data-aos="zoom-in"
+                    data-aos-duration="800"
+                    data-aos-delay="650">
+
+                    Send Message
+                    <i class="fa-solid fa-paper-plane"></i>
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     STACKLY EDUCATION
+     SCHOOL LOCATION MAP SECTION
+========================================== -->
+
+<section class="stackly-edu-map" id="school-location">
+
+    <div class="stackly-edu-map-container">
+
+        <!-- SECTION HEADING -->
+        <div class="stackly-edu-map-heading"
+             data-aos="fade-up"
+             data-aos-duration="900">
+
+            <span class="stackly-edu-map-eyebrow">
+                <i class="fa-solid fa-location-dot"></i>
+                FIND OUR CAMPUS
+            </span>
+
+            <h2>
+                Our School <span>Location</span>
+            </h2>
+
+            <p>
+                Find Stackly Education on the map and explore our
+                campus location in Anna Salai, Chennai, Tamil Nadu.
+            </p>
+
+        </div>
+
+        <!-- MAP -->
+        <div class="stackly-edu-map-frame"
+             data-aos="zoom-in"
+             data-aos-duration="1000"
+             data-aos-delay="150">
+
+            <iframe
+                title="Stackly Education Location - Anna Salai, Chennai"
+                src="https://maps.google.com/maps?q=Anna%20Salai%2C%20Chennai%2C%20Tamil%20Nadu%2C%20India&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen>
+            </iframe>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     STACKLY EDUCATION - PROFESSIONAL FOOTER
+========================================== -->
+
+<footer class="stackly-edu-footer" id="contact">
+
+    <!-- FOOTER NEWSLETTER -->
+    <div class="stackly-edu-footer-newsletter">
+        <div class="stackly-edu-footer-newsletter-content">
+            <span class="stackly-edu-footer-eyebrow">
+                <i class="fa-solid fa-envelope-open-text"></i>
+                STAY CONNECTED
+            </span>
+
+            <h2>Inspiring Minds, Shaping Futures.</h2>
+
+            <p>
+                Stay informed about school news, learning opportunities,
+                upcoming events, and educational updates.
+            </p>
+        </div>
+
+        <form class="stackly-edu-footer-newsletter-form"
+              id="stacklyEduNewsletterForm">
+
+            <label class="stackly-edu-footer-sr-only"
+                   for="stacklyEduNewsletterEmail">
+                Your email address
+            </label>
+
+            <input
+                type="email"
+                id="stacklyEduNewsletterEmail"
+                placeholder="Enter your email address"
+                autocomplete="email"
+                required>
+
+            <button type="submit">
+                Subscribe
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+            <p class="stackly-edu-footer-newsletter-message"
+               id="stacklyEduNewsletterMessage"
+               aria-live="polite"></p>
+        </form>
+    </div>
+
+    <!-- FOOTER MAIN CONTENT -->
+    <div class="stackly-edu-footer-main">
+
+        <div class="stackly-edu-footer-grid">
+
+            <!-- SCHOOL BRAND -->
+            <div class="stackly-edu-footer-brand">
+
+                <a href="index.html"
+                   class="stackly-edu-footer-logo"
+                   aria-label="Stackly Education Home">
+
+                    <img src="Stackly-logo-Blue.webp"
+                         alt="Stackly Education Logo">
+                </a>
+
+                <h3>Stackly Education</h3>
+
+                <p class="stackly-edu-footer-brand-description">
+                    Empowering students through quality education,
+                    dedicated teachers, and meaningful learning
+                    experiences for a brighter tomorrow.
+                </p>
+
+                <div class="stackly-edu-footer-socials">
+                    <a href="404.html"
+                       aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <a href="404.html"
+                       aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="404.html"
+                       aria-label="LinkedIn">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+
+                    <a href="404.html"
+                       aria-label="YouTube">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- QUICK LINKS -->
+            <div class="stackly-edu-footer-column">
+                <h3>Quick Links</h3>
+
+                <ul>
+                    <li>
+                        <a href="index.html">
+                            <i class="fa-solid fa-angle-right"></i>
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="about.html">
+                            <i class="fa-solid fa-angle-right"></i>
+                            About Us
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="courses.html">
+                            <i class="fa-solid fa-angle-right"></i>
+                            Our Courses
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="academics.html">
+                            <i class="fa-solid fa-angle-right"></i>
+                            Academics
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="admissions.html">
+                            <i class="fa-solid fa-angle-right"></i>
+                            Admissions
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="blog.html">
+                            <i class="fa-solid fa-angle-right"></i>
+                            Blog
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contact.html">
+                            <i class="fa-solid fa-angle-right"></i>
+                            contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- LEARNING -->
+            <div class="stackly-edu-footer-column">
+                <h3>Learning</h3>
+
+                <ul>
+                    <li>
+                        <a href="404.html">
+                            <i class="fa-solid fa-angle-right"></i>
+                            Campus Life
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="404.html">
+                            <i class="fa-solid fa-angle-right"></i>
+                            Study Programs
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="404.html">
+                            <i class="fa-solid fa-angle-right"></i>
+                            Expert Teachers
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="404.html">
+                            <i class="fa-solid fa-angle-right"></i>
+                            Student Achievements
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="404.html">
+                            <i class="fa-solid fa-angle-right"></i>
+                            Upcoming Events
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="404.html">
+                            <i class="fa-solid fa-angle-right"></i>
+                            School Gallery
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="404.html">
+                            <i class="fa-solid fa-angle-right"></i>
+                            School Facilities
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <!-- CONTACT INFORMATION -->
+            <div class="stackly-edu-footer-column stackly-edu-footer-contact">
+                <h3>Get In Touch</h3>
+
+                <p class="stackly-edu-footer-contact-intro">
+                    Have questions about our school or learning programs?
+                    We are happy to help.
+                </p>
+
+                <div class="stackly-edu-footer-contact-item">
+                    <span class="stackly-edu-footer-contact-icon">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </span>
+
+                    <div>
+                        <strong>Our Location</strong>
+                        <p>Anna Salai, Chennai, Tamil Nadu, India</p>
+                    </div>
+                </div>
+
+                <div class="stackly-edu-footer-contact-item">
+                    <span class="stackly-edu-footer-contact-icon">
+                        <i class="fa-solid fa-phone"></i>
+                    </span>
+
+                    <div>
+                        <strong>Call Us</strong>
+                        <a href="tel:+911234567890">
+                            +91 12345 67890
+                        </a>
+                    </div>
+                </div>
+
+                <div class="stackly-edu-footer-contact-item">
+                    <span class="stackly-edu-footer-contact-icon">
+                        <i class="fa-solid fa-envelope"></i>
+                    </span>
+
+                    <div>
+                        <strong>Email Us</strong>
+                        <a href="mailto:info@stacklyeducation.com">
+                            info@stacklyeducation.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER BOTTOM BAR -->
+    <div class="stackly-edu-footer-bottom">
+        <div class="stackly-edu-footer-bottom-inner">
+
+            <p>
+                &copy; <span id="stacklyEduFooterYear">2026</span>
+                Stackly Education. All rights reserved.
+            </p>
+
+            <div class="stackly-edu-footer-bottom-links">
+                <a href="404.html">Privacy Policy</a>
+                <span class="stackly-edu-footer-bottom-divider"></span>
+                <a href="404.html">Terms &amp; Conditions</a>
+            </div>
+
+            <a href="#home"
+               class="stackly-edu-footer-back-top"
+               aria-label="Back to top">
+                <i class="fa-solid fa-arrow-up"></i>
+            </a>
+
+        </div>
+    </div>
+
+</footer>
+
+
+    <!-- ==========================================
+         AOS ANIMATION SCRIPT
+    =========================================== -->
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js">
+    </script>
+
+     
+
+    <!-- =========================================
+         JAVASCRIPT
+         MOBILE MENU + VIDEO SLIDER
+    ========================================= -->
+
+    <script src="index.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>404 Page Not Found | Stackly Education</title>
+
+    <meta name="description"
+          content="The page you are looking for could not be found. Return to Stackly Education and continue your learning journey.">
+
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="Stackly-logo-Blue.webp" type="image/webp">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- AOS Animation CSS -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <!-- Page CSS -->
+    <link rel="stylesheet" href="404.css">
+</head>
+
+<body>
+
+    <!-- ==========================================
+         STACKLY EDUCATION - 404 ERROR PAGE
+    =========================================== -->
+
+    <main class="stackly-edu-error-page">
+
+        <div class="stackly-edu-error-container">
+
+            <!-- ERROR ILLUSTRATION -->
+            <div class="stackly-edu-error-visual"
+                 data-aos="zoom-in"
+                 data-aos-duration="900">
+
+                <div class="stackly-edu-error-decoration stackly-edu-error-decoration-one"
+                     aria-hidden="true">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+
+                <div class="stackly-edu-error-decoration stackly-edu-error-decoration-two"
+                     aria-hidden="true">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+
+                <div class="stackly-edu-error-number" aria-label="Error 404">
+                    4<span>0</span>4
+                </div>
+
+                <div class="stackly-edu-error-book" aria-hidden="true">
+                    <i class="fa-solid fa-book-open-reader"></i>
+                </div>
+
+            </div>
+
+            <!-- ERROR CONTENT -->
+            <section class="stackly-edu-error-content"
+                     aria-labelledby="stacklyEduErrorTitle"
+                     data-aos="fade-up"
+                     data-aos-delay="200">
+
+                <span class="stackly-edu-error-label">
+                    <i class="fa-solid fa-circle-exclamation"
+                       aria-hidden="true"></i>
+                    Oops! Page Not Found
+                </span>
+
+                <h1 id="stacklyEduErrorTitle">
+                    Looks Like This Page
+                    <span>Skipped School!</span>
+                </h1>
+
+                <p class="stackly-edu-error-description">
+                    The page you are looking for may have moved,
+                    been removed, or is temporarily unavailable.
+                    Don't worry — your learning journey can continue
+                    right here with us.
+                </p>
+
+                <!-- PROFESSIONAL ACTION BUTTONS -->
+                <div class="stackly-edu-error-actions">
+
+                    <!-- GO HOME -->
+                    <a href="admin.html"
+                       class="stackly-edu-error-btn stackly-edu-home-btn">
+
+                        <i class="fa-solid fa-house"
+                           aria-hidden="true"></i>
+
+                        <span>Go Dashboard</span>
+
+                        <i class="fa-solid fa-arrow-right stackly-edu-btn-arrow"
+                           aria-hidden="true"></i>
+                    </a>
+
+                    <!-- GO BACK -->
+                    <button type="button"
+                            class="stackly-edu-error-btn stackly-edu-back-btn"
+                            id="stacklyEduGoBack">
+
+                        <i class="fa-solid fa-arrow-left"
+                           aria-hidden="true"></i>
+
+                        <span>Go Back</span>
+                    </button>
+
+                </div>
+
+                <!-- HELPFUL MESSAGE -->
+                <div class="stackly-edu-error-help">
+                    <i class="fa-solid fa-lightbulb"
+                       aria-hidden="true"></i>
+
+                    <p>
+                        Every great learner finds their way.
+                        Let's get you back on track!
+                    </p>
+                </div>
+
+            </section>
+
+        </div>
+
+        <!-- DECORATIVE BACKGROUND SHAPES -->
+        <div class="stackly-edu-error-bg-shape stackly-edu-error-bg-shape-one"
+             aria-hidden="true"></div>
+
+        <div class="stackly-edu-error-bg-shape stackly-edu-error-bg-shape-two"
+             aria-hidden="true"></div>
+
+    </main>
+
+    <!-- AOS JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <!-- ==========================================
+         STACKLY EDUCATION - 404 PAGE JAVASCRIPT
+    =========================================== -->
+
+    
+ 
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    "use strict";
+
+    /* ==========================================
+       INITIALIZE AOS ANIMATIONS
+    ========================================== */
+
+    if (typeof AOS !== "undefined") {
+        AOS.init({
+            duration: 850,
+            once: true,
+            offset: 50,
+            easing: "ease-out-cubic"
+        });
+    }
+
+    /* ==========================================
+       GO BACK BUTTON
+       RESTORE PREVIOUS PAGE SCROLL POSITION
+    ========================================== */
+
+    const backButton = document.getElementById("stacklyEduGoBack");
+
+    if (!backButton) {
+        return;
+    }
+
+    backButton.addEventListener("click", function () {
+
+        const savedPage = sessionStorage.getItem("stacklyEduPreviousPage");
+        const savedScroll = sessionStorage.getItem("stacklyEduPreviousScroll");
+
+        /*
+         * Restore the saved page and its scroll position.
+         */
+        if (savedPage && savedPage !== window.location.href) {
+
+            try {
+                const previousURL = new URL(savedPage);
+
+                if (previousURL.origin === window.location.origin) {
+
+                    // Keep the saved values available until restoration.
+                    window.location.href = previousURL.href;
+                    return;
+                }
+
+            } catch (error) {
+                console.warn("Unable to restore previous page.", error);
+            }
+        }
+
+        /*
+         * Fallback: use browser history if available.
+         */
+        if (window.history.length > 1) {
+            window.history.back();
+        } else {
+            window.location.href = "index.html";
+        }
+
+    });
+
+});
+</script>
+
+</body>
+</html>

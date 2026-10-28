@@ -1,0 +1,908 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Dashboard | Stackly Education</title>
+
+    <meta name="description" content="Stackly Education Student Dashboard to manage courses, assignments, attendance, grades, and class schedules.">
+    <meta name="theme-color" content="#ff9f16">
+
+    <!-- Favicon -->
+    <link rel="icon" href="Stackly-logo-Blue.webp" type="image/webp">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <!-- Student Dashboard CSS -->
+    <link rel="stylesheet" href="student.css">
+</head>
+
+<body>
+
+    <!-- ==========================================
+         MOBILE SIDEBAR OVERLAY
+    ========================================== -->
+
+    <div
+        class="stackly-student-overlay"
+        id="stacklyStudentOverlay"
+        aria-hidden="true"
+        hidden
+    ></div>
+
+    <!-- ==========================================
+         STUDENT SIDEBAR
+    ========================================== -->
+
+    <aside
+        class="stackly-student-sidebar"
+        id="stacklyStudentSidebar"
+        aria-label="Student dashboard navigation"
+        aria-hidden="false"
+    >
+
+        <!-- Logo -->
+        <div class="stackly-student-logo">
+
+            <a href="student.html" aria-label="Stackly Education student home">
+                <img
+                    src="Stackly-logo-Blue.webp"
+                    alt="Stackly Education logo"
+                    width="165"
+                    height="58"
+                >
+            </a>
+
+            <!-- Mobile Exit Button -->
+            <button
+                type="button"
+                class="stackly-student-sidebar-exit"
+                id="stacklyStudentSidebarClose"
+                aria-label="Close navigation menu"
+                aria-controls="stacklyStudentSidebar"
+            >
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+
+        </div>
+
+        <!-- Main Navigation -->
+        <div class="stackly-student-sidebar-heading">
+            <span>Student Workspace</span>
+        </div>
+
+        <nav class="stackly-student-sidebar-nav"
+             aria-label="Main navigation">
+
+            <a href="student.html"
+               class="stackly-student-nav-link active"
+               aria-current="page">
+                <i class="fa-solid fa-chart-pie" aria-hidden="true"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="student-courses.html" class="stackly-student-nav-link">
+                <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+                <span>My Courses</span>
+            </a>
+
+            <a href="student-assignments.html" class="stackly-student-nav-link">
+                <i class="fa-solid fa-file-pen" aria-hidden="true"></i>
+                <span>Assignments</span>
+            </a>
+
+            <a href="student-attendance.html" class="stackly-student-nav-link">
+                <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+                <span>My Attendance</span>
+            </a>
+
+            <a href="student-grades.html" class="stackly-student-nav-link">
+                <i class="fa-solid fa-chart-column" aria-hidden="true"></i>
+                <span>Grades & Results</span>
+            </a>
+
+            <a href="student-schedule.html" class="stackly-student-nav-link">
+                <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+                <span>Class Schedule</span>
+            </a>
+
+            <a href="student-resources.html" class="stackly-student-nav-link">
+                <i class="fa-solid fa-folder-open" aria-hidden="true"></i>
+                <span>Learning Resources</span>
+            </a>
+
+        </nav>
+
+        <!-- Account Navigation -->
+        <div class="stackly-student-sidebar-divider"></div>
+
+        <div class="stackly-student-sidebar-heading">
+            <span>My Account</span>
+        </div>
+
+        <nav class="stackly-student-sidebar-nav"
+             aria-label="Account navigation">
+
+            <a href="student-profile.html" class="stackly-student-nav-link">
+                <i class="fa-solid fa-user" aria-hidden="true"></i>
+                <span>My Profile</span>
+            </a>
+
+            <a href="index.html"
+               class="stackly-student-nav-link"
+               id="stacklyStudentLogout">
+                <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
+                <span>Logout</span>
+            </a>
+
+        </nav>
+
+        <!-- Sidebar Support Card -->
+        <div class="stackly-student-sidebar-bottom">
+
+            <div class="stackly-student-help-icon">
+                <i class="fa-solid fa-headset" aria-hidden="true"></i>
+            </div>
+
+            <div class="stackly-student-help-content">
+                <h4>Need some help?</h4>
+
+                <p>We're here to support your learning journey.</p>
+
+                <a href="404-student.html">
+                    Get Support
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+            </div>
+
+        </div>
+
+    </aside>
+
+    <!-- ==========================================
+         MAIN DASHBOARD AREA
+    ========================================== -->
+
+    <div class="stackly-student-main">
+
+        <!-- TOP HEADER -->
+        <header class="stackly-student-header">
+
+            <div class="stackly-student-header-left">
+
+                <!-- Mobile Hamburger -->
+                <button
+                    type="button"
+                    class="stackly-student-mobile-toggle"
+                    id="stacklyStudentMenuToggle"
+                    aria-label="Open navigation menu"
+                    aria-controls="stacklyStudentSidebar"
+                    aria-expanded="false"
+                >
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                </button>
+
+                <div class="stackly-student-page-label">
+                    <h1>Student Dashboard</h1>
+                    <p>Welcome back! Ready to learn something new?</p>
+                </div>
+
+            </div>
+
+            <!-- Header Right -->
+            <div class="stackly-student-header-right">
+
+                <!-- Notifications -->
+                <a
+                    href="404-student.html"
+                    class="stackly-student-header-icon"
+                    aria-label="Notifications"
+                    title="Notifications"
+                >
+                    <i class="fa-regular fa-bell" aria-hidden="true"></i>
+                    <span class="stackly-student-notification-dot"></span>
+                </a>
+
+                <!-- Student Email -->
+                <div class="stackly-student-header-email">
+
+                    <div class="stackly-student-email-icon">
+                        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="stackly-student-email-details">
+                        <span class="stackly-student-email-label">
+                            Student Account
+                        </span>
+
+                        <span
+                            class="stackly-student-email-address"
+                            id="stacklyStudentEmailAddress"
+                            title="Student email address"
+                        >
+                            Loading email...
+                        </span>
+                    </div>
+
+                </div>
+
+                <!-- Account Button -->
+                <a
+                    href="404-student.html"
+                    class="stackly-student-account-button"
+                    aria-label="My profile"
+                    title="My profile"
+                >
+                    <i class="fa-solid fa-user" aria-hidden="true"></i>
+                </a>
+
+            </div>
+
+        </header>
+
+        
+<!-- ==========================================
+     STACKLY EDUCATION - GRADES & RESULTS
+     Modern Student Academic Performance Page
+========================================== -->
+<main class="stackly-student-content">
+
+<!-- GRADES HERO -->
+<section class="stackly-student-grades-hero" data-aos="fade-up">
+
+    <div class="stackly-student-grades-hero-content">
+
+        <span class="stackly-student-grades-eyebrow">
+            <i class="fa-solid fa-award"></i>
+            ACADEMIC PERFORMANCE
+        </span>
+
+        <h2>Your Progress.<br>
+            Your Potential. Your Future.</h2>
+
+        <p>
+            Celebrate your achievements, explore your subject scores,
+            and discover new opportunities to reach your academic goals.
+        </p>
+
+        <div class="stackly-student-grades-hero-actions">
+            <a href="404-student.html"
+               class="stackly-student-grades-primary-btn">
+                Explore My Results
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <a href="404-student.html"
+               class="stackly-student-grades-secondary-btn">
+                View Performance
+            </a>
+        </div>
+
+        <div class="stackly-student-grades-hero-note">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Every improvement is a step toward your goals.</span>
+        </div>
+
+    </div>
+
+    <div class="stackly-student-grades-hero-visual">
+
+        <div class="stackly-student-grades-hero-orbit orbit-one"></div>
+        <div class="stackly-student-grades-hero-orbit orbit-two"></div>
+
+        <div class="stackly-student-grades-score-card">
+
+            <div class="stackly-student-grades-score-top">
+                <div class="stackly-student-grades-score-icon">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+
+                <span>OVERALL PERFORMANCE</span>
+            </div>
+
+            <div class="stackly-student-grades-score-main">
+                <strong>88.5<small>%</small></strong>
+                <span>Excellent Progress</span>
+            </div>
+
+            <div class="stackly-student-grades-score-track">
+                <span></span>
+            </div>
+
+            <div class="stackly-student-grades-score-bottom">
+                <span><i class="fa-solid fa-star"></i> Grade A</span>
+                <span>Current Term</span>
+            </div>
+
+        </div>
+
+        <div class="stackly-student-grades-floating-card grade-badge-top">
+            <i class="fa-solid fa-trophy"></i>
+            <div>
+                <strong>Great Work!</strong>
+                <span>Keep improving</span>
+            </div>
+        </div>
+
+        <div class="stackly-student-grades-floating-card grade-badge-bottom">
+            <i class="fa-solid fa-chart-line"></i>
+            <div>
+                <strong>+6.5%</strong>
+                <span>Score improvement</span>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PERFORMANCE OVERVIEW -->
+<section class="stackly-student-grades-stats" data-aos="fade-up">
+
+    <article class="stackly-student-grades-stat-card">
+        <div class="stackly-student-grades-stat-icon orange">
+            <i class="fa-solid fa-file-circle-check"></i>
+        </div>
+
+        <div>
+            <span>Exams Completed</span>
+            <h3>08</h3>
+            <p>Across all subjects</p>
+        </div>
+    </article>
+
+    <article class="stackly-student-grades-stat-card">
+        <div class="stackly-student-grades-stat-icon green">
+            <i class="fa-solid fa-chart-simple"></i>
+        </div>
+
+        <div>
+            <span>Average Score</span>
+            <h3>88.5%</h3>
+            <p>Current term average</p>
+        </div>
+    </article>
+
+    <article class="stackly-student-grades-stat-card">
+        <div class="stackly-student-grades-stat-icon purple">
+            <i class="fa-solid fa-medal"></i>
+        </div>
+
+        <div>
+            <span>Top Grade</span>
+            <h3>A+</h3>
+            <p>Excellent achievement</p>
+        </div>
+    </article>
+
+    <article class="stackly-student-grades-stat-card">
+        <div class="stackly-student-grades-stat-icon blue">
+            <i class="fa-solid fa-bullseye"></i>
+        </div>
+
+        <div>
+            <span>Learning Goal</span>
+            <h3>95%</h3>
+            <p>Target score this term</p>
+        </div>
+    </article>
+
+</section>
+
+
+<!-- SUBJECT-WISE RESULTS -->
+<section class="stackly-student-grades-subjects"
+         id="stacklyStudentGradesSubjects"
+         data-aos="fade-up">
+
+    <div class="stackly-student-grades-section-heading">
+        <div>
+            <span class="stackly-student-grades-section-label">
+                KNOW YOUR STRENGTHS
+            </span>
+
+            <h2>Subject-wise Results</h2>
+
+            <p>
+                Review your marks and identify areas where you can improve.
+            </p>
+        </div>
+
+        <span class="stackly-student-grades-term-badge">
+            <i class="fa-solid fa-calendar-check"></i>
+            Term 2 · 2026
+        </span>
+    </div>
+
+    <div class="stackly-student-grades-subject-grid">
+
+        <!-- PHYSICS -->
+        <article class="stackly-student-grades-subject-card">
+
+            <div class="stackly-student-grades-subject-top">
+                <div class="stackly-student-grades-subject-icon orange">
+                    <i class="fa-solid fa-atom"></i>
+                </div>
+
+                <span class="stackly-student-grades-grade-chip grade-a">
+                    A
+                </span>
+            </div>
+
+            <h3>Physics</h3>
+            <p>Science & Experiments</p>
+
+            <div class="stackly-student-grades-mark-row">
+                <strong>92<span>/100</span></strong>
+                <span>92%</span>
+            </div>
+
+            <div class="stackly-student-grades-subject-progress">
+                <span style="--subject-score: 92%;"></span>
+            </div>
+
+            <div class="stackly-student-grades-subject-footer">
+                <span><i class="fa-solid fa-arrow-trend-up"></i> Strong result</span>
+                <span>Excellent</span>
+            </div>
+
+        </article>
+
+
+        <!-- MATHEMATICS -->
+        <article class="stackly-student-grades-subject-card">
+
+            <div class="stackly-student-grades-subject-top">
+                <div class="stackly-student-grades-subject-icon purple">
+                    <i class="fa-solid fa-square-root-variable"></i>
+                </div>
+
+                <span class="stackly-student-grades-grade-chip grade-a-plus">
+                    A+
+                </span>
+            </div>
+
+            <h3>Mathematics</h3>
+            <p>Numbers & Problem Solving</p>
+
+            <div class="stackly-student-grades-mark-row">
+                <strong>96<span>/100</span></strong>
+                <span>96%</span>
+            </div>
+
+            <div class="stackly-student-grades-subject-progress">
+                <span style="--subject-score: 96%;"></span>
+            </div>
+
+            <div class="stackly-student-grades-subject-footer">
+                <span><i class="fa-solid fa-trophy"></i> Best subject</span>
+                <span>Outstanding</span>
+            </div>
+
+        </article>
+
+
+        <!-- ENGLISH -->
+        <article class="stackly-student-grades-subject-card">
+
+            <div class="stackly-student-grades-subject-top">
+                <div class="stackly-student-grades-subject-icon blue">
+                    <i class="fa-solid fa-language"></i>
+                </div>
+
+                <span class="stackly-student-grades-grade-chip grade-b">
+                    B+
+                </span>
+            </div>
+
+            <h3>English</h3>
+            <p>Language & Communication</p>
+
+            <div class="stackly-student-grades-mark-row">
+                <strong>84<span>/100</span></strong>
+                <span>84%</span>
+            </div>
+
+            <div class="stackly-student-grades-subject-progress">
+                <span style="--subject-score: 84%;"></span>
+            </div>
+
+            <div class="stackly-student-grades-subject-footer">
+                <span><i class="fa-solid fa-book-open"></i> Keep practicing</span>
+                <span>Good</span>
+            </div>
+
+        </article>
+
+
+        <!-- COMPUTER SCIENCE -->
+        <article class="stackly-student-grades-subject-card">
+
+            <div class="stackly-student-grades-subject-top">
+                <div class="stackly-student-grades-subject-icon green">
+                    <i class="fa-solid fa-laptop-code"></i>
+                </div>
+
+                <span class="stackly-student-grades-grade-chip grade-a">
+                    A
+                </span>
+            </div>
+
+            <h3>Computer Science</h3>
+            <p>Technology & Programming</p>
+
+            <div class="stackly-student-grades-mark-row">
+                <strong>88<span>/100</span></strong>
+                <span>88%</span>
+            </div>
+
+            <div class="stackly-student-grades-subject-progress">
+                <span style="--subject-score: 88%;"></span>
+            </div>
+
+            <div class="stackly-student-grades-subject-footer">
+                <span><i class="fa-solid fa-code"></i> Good progress</span>
+                <span>Very Good</span>
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- PERFORMANCE REPORT -->
+<section class="stackly-student-grades-report"
+         id="stacklyStudentGradesReport"
+         data-aos="fade-up">
+
+    <div class="stackly-student-grades-section-heading">
+        <div>
+            <span class="stackly-student-grades-section-label">
+                TRACK YOUR GROWTH
+            </span>
+
+            <h2>Performance Report</h2>
+
+            <p>Compare your results with your previous assessments.</p>
+        </div>
+    </div>
+
+    <div class="stackly-student-grades-report-grid">
+
+        <div class="stackly-student-grades-chart-panel">
+
+            <div class="stackly-student-grades-panel-heading">
+                <div>
+                    <h3>Exam Score Progress</h3>
+                    <p>Your performance across recent assessments</p>
+                </div>
+
+                <span class="stackly-student-grades-chart-label">
+                    <i class="fa-solid fa-circle"></i>
+                    Score %
+                </span>
+            </div>
+
+            <div class="stackly-student-grades-chart">
+
+                <div class="stackly-student-grades-chart-y-axis">
+                    <span>100</span>
+                    <span>75</span>
+                    <span>50</span>
+                    <span>25</span>
+                    <span>0</span>
+                </div>
+
+                <div class="stackly-student-grades-chart-plot">
+
+                    <div class="stackly-student-grades-chart-grid-lines">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <div class="stackly-student-grades-chart-bars">
+
+                        <div class="stackly-student-grades-chart-bar-item">
+                            <span class="chart-value">72%</span>
+                            <div class="chart-bar">
+                                <span style="--bar-height: 72%;"></span>
+                            </div>
+                            <span class="chart-month">Test 1</span>
+                        </div>
+
+                        <div class="stackly-student-grades-chart-bar-item">
+                            <span class="chart-value">78%</span>
+                            <div class="chart-bar">
+                                <span style="--bar-height: 78%;"></span>
+                            </div>
+                            <span class="chart-month">Test 2</span>
+                        </div>
+
+                        <div class="stackly-student-grades-chart-bar-item">
+                            <span class="chart-value">82%</span>
+                            <div class="chart-bar">
+                                <span style="--bar-height: 82%;"></span>
+                            </div>
+                            <span class="chart-month">Test 3</span>
+                        </div>
+
+                        <div class="stackly-student-grades-chart-bar-item">
+                            <span class="chart-value">85%</span>
+                            <div class="chart-bar">
+                                <span style="--bar-height: 85%;"></span>
+                            </div>
+                            <span class="chart-month">Test 4</span>
+                        </div>
+
+                        <div class="stackly-student-grades-chart-bar-item highlight">
+                            <span class="chart-value">92%</span>
+                            <div class="chart-bar">
+                                <span style="--bar-height: 92%;"></span>
+                            </div>
+                            <span class="chart-month">Latest</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="stackly-student-grades-chart-insight">
+                <i class="fa-solid fa-lightbulb"></i>
+                <p>
+                    <strong>Keep going!</strong>
+                    Your sample scores show steady improvement across assessments.
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- ACHIEVEMENT SUMMARY -->
+        <aside class="stackly-student-grades-achievement-panel">
+
+            <div class="stackly-student-grades-achievement-icon">
+                <i class="fa-solid fa-trophy"></i>
+            </div>
+
+            <span class="stackly-student-grades-achievement-label">
+                YOUR ACHIEVEMENT
+            </span>
+
+            <h3>You're Making Progress!</h3>
+
+            <p>
+                Your sample results show consistent effort.
+                Keep building your knowledge and aiming higher.
+            </p>
+
+            <div class="stackly-student-grades-achievement-divider"></div>
+
+            <div class="stackly-student-grades-achievement-item">
+                <span>Overall average</span>
+                <strong>88.5%</strong>
+            </div>
+
+            <div class="stackly-student-grades-achievement-item">
+                <span>Target score</span>
+                <strong>95%</strong>
+            </div>
+
+            <div class="stackly-student-grades-achievement-item">
+                <span>Improvement needed</span>
+                <strong>6.5%</strong>
+            </div>
+
+            <a href="404-student.html"
+               class="stackly-student-grades-achievement-link">
+                View Learning Goals
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </aside>
+
+    </div>
+
+</section>
+
+
+<!-- EXAM RESULTS TABLE -->
+<section class="stackly-student-grades-exams" data-aos="fade-up">
+
+    <div class="stackly-student-grades-section-heading">
+        <div>
+            <span class="stackly-student-grades-section-label">
+                ASSESSMENT HISTORY
+            </span>
+
+            <h2>Recent Exam Results</h2>
+
+            <p>Review your recent assessment scores and grades.</p>
+        </div>
+    </div>
+
+    <div class="stackly-student-grades-exams-panel">
+
+        <div class="stackly-student-grades-exams-header">
+            <span>ASSESSMENT</span>
+            <span>DATE</span>
+            <span>MARKS</span>
+            <span>GRADE</span>
+            <span>RESULT</span>
+        </div>
+
+        <article class="stackly-student-grades-exam-row">
+
+            <div class="stackly-student-grades-exam-name">
+                <div class="exam-icon orange">
+                    <i class="fa-solid fa-file-lines"></i>
+                </div>
+
+                <div>
+                    <h3>Mid-Term Examination</h3>
+                    <p>All major subjects</p>
+                </div>
+            </div>
+
+            <span class="stackly-student-grades-exam-date">
+                Oct 20, 2026
+            </span>
+
+            <strong class="stackly-student-grades-exam-marks">
+                442/500
+            </strong>
+
+            <span class="stackly-student-grades-exam-grade">A</span>
+
+            <span class="stackly-student-grades-exam-result passed">
+                <i class="fa-solid fa-circle-check"></i>
+                Passed
+            </span>
+
+        </article>
+
+
+        <article class="stackly-student-grades-exam-row">
+
+            <div class="stackly-student-grades-exam-name">
+                <div class="exam-icon purple">
+                    <i class="fa-solid fa-calculator"></i>
+                </div>
+
+                <div>
+                    <h3>Mathematics Assessment</h3>
+                    <p>Problem solving & formulas</p>
+                </div>
+            </div>
+
+            <span class="stackly-student-grades-exam-date">
+                Oct 14, 2026
+            </span>
+
+            <strong class="stackly-student-grades-exam-marks">
+                96/100
+            </strong>
+
+            <span class="stackly-student-grades-exam-grade">A+</span>
+
+            <span class="stackly-student-grades-exam-result passed">
+                <i class="fa-solid fa-circle-check"></i>
+                Passed
+            </span>
+
+        </article>
+
+
+        <article class="stackly-student-grades-exam-row">
+
+            <div class="stackly-student-grades-exam-name">
+                <div class="exam-icon green">
+                    <i class="fa-solid fa-flask"></i>
+                </div>
+
+                <div>
+                    <h3>Science Practical</h3>
+                    <p>Practical knowledge & lab work</p>
+                </div>
+            </div>
+
+            <span class="stackly-student-grades-exam-date">
+                Oct 08, 2026
+            </span>
+
+            <strong class="stackly-student-grades-exam-marks">
+                45/50
+            </strong>
+
+            <span class="stackly-student-grades-exam-grade">A</span>
+
+            <span class="stackly-student-grades-exam-result passed">
+                <i class="fa-solid fa-circle-check"></i>
+                Passed
+            </span>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- LEARNING GOALS -->
+<section class="stackly-student-grades-goals"
+         id="stacklyStudentGradesGoals"
+         data-aos="fade-up">
+
+    <div class="stackly-student-grades-goals-icon">
+        <i class="fa-solid fa-bullseye"></i>
+    </div>
+
+    <div class="stackly-student-grades-goals-content">
+
+        <span>YOUR NEXT MILESTONE</span>
+
+        <h2>Turn Your Goals Into Achievements.</h2>
+
+        <p>
+            You are building a strong foundation. Focus on steady practice,
+            review challenging topics, and take your next assessment with confidence.
+        </p>
+
+        <div class="stackly-student-grades-goals-list">
+
+            <div>
+                <i class="fa-solid fa-check"></i>
+                <span>Target an overall score of 95%</span>
+            </div>
+
+            <div>
+                <i class="fa-solid fa-check"></i>
+                <span>Practice challenging questions daily</span>
+            </div>
+
+            <div>
+                <i class="fa-solid fa-check"></i>
+                <span>Review feedback after every exam</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="stackly-student-grades-goals-decoration">
+        <i class="fa-solid fa-graduation-cap"></i>
+    </div>
+
+</section>
+
+</main>
+
+</div>
+
+    <!-- ==========================================
+         SCRIPTS
+    ========================================== -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="student.js"></script>
+
+</body>
+</html>

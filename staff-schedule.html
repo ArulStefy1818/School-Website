@@ -1,0 +1,821 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Staff Dashboard | Stackly Education</title>
+
+    <meta name="description" content="Stackly Education Staff Dashboard for managing students, classes, attendance, assignments, and teaching schedules.">
+    <meta name="theme-color" content="#ff9f16">
+
+    <link rel="icon" href="Stackly-logo-Blue.webp" type="image/webp">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <!-- Staff Dashboard CSS -->
+    <link rel="stylesheet" href="staff.css">
+</head>
+
+<body>
+
+    <!-- ==========================================
+         MOBILE SIDEBAR OVERLAY
+    ========================================== -->
+
+    <div
+        class="stackly-admin-overlay"
+        id="stacklyAdminOverlay"
+        aria-hidden="true"
+        hidden
+    ></div>
+
+    <!-- ==========================================
+         STAFF SIDEBAR
+    ========================================== -->
+
+    <aside
+        class="stackly-admin-sidebar"
+        id="stacklyAdminSidebar"
+        aria-label="Staff dashboard navigation"
+        aria-hidden="false"
+    >
+
+        <!-- Logo and Mobile Close Button -->
+        <div class="stackly-admin-logo">
+
+            <a href="staff.html" aria-label="Stackly Education home">
+                <img
+                    src="Stackly-logo-Blue.webp"
+                    alt="Stackly Education logo"
+                    width="165"
+                    height="58"
+                >
+            </a>
+
+            <button
+                type="button"
+                class="stackly-staff-sidebar-exit"
+                id="stacklyAdminSidebarClose"
+                aria-label="Close navigation menu"
+                aria-controls="stacklyAdminSidebar"
+            >
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+
+        </div>
+
+        <!-- Main Navigation -->
+        <div class="stackly-admin-sidebar-heading">
+            <span>Staff Workspace</span>
+        </div>
+
+        <nav class="stackly-admin-sidebar-nav" aria-label="Main navigation">
+
+            <a
+                href="staff.html"
+                class="stackly-admin-nav-link active"
+                aria-current="page"
+            >
+                <i class="fa-solid fa-chart-pie" aria-hidden="true"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="staff-students.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-user-graduate" aria-hidden="true"></i>
+                <span>My Students</span>
+            </a>
+
+            <a href="staff-classes.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i>
+                <span>My Classes</span>
+            </a>
+
+            <a href="staff-attendance.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+                <span>Attendance</span>
+            </a>
+
+            <a href="staff-assignments.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+                <span>Assignments</span>
+            </a>
+
+            <a href="staff-schedule.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+                <span>My Schedule</span>
+            </a>
+
+            <a href="staff-resources.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-folder-open" aria-hidden="true"></i>
+                <span>Learning Resources</span>
+            </a>
+
+        </nav>
+
+        <!-- Account Navigation -->
+        <div class="stackly-admin-sidebar-divider"></div>
+
+        <div class="stackly-admin-sidebar-heading">
+            <span>Account</span>
+        </div>
+
+        <nav class="stackly-admin-sidebar-nav" aria-label="Account navigation">
+
+            <a href="staff-profile.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-user" aria-hidden="true"></i>
+                <span>My Profile</span>
+            </a>
+
+            <a href="index.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
+                <span>Logout</span>
+            </a>
+
+        </nav>
+
+        <!-- Sidebar Support Card -->
+        <div class="stackly-admin-sidebar-bottom">
+
+            <div class="stackly-admin-sidebar-help-icon">
+                <i class="fa-solid fa-headset" aria-hidden="true"></i>
+            </div>
+
+            <div class="stackly-admin-sidebar-help-content">
+                <h4>Need assistance?</h4>
+
+                <p>We're here to help you with your work.</p>
+
+                <a href="404-staff.html">
+                    Get Support
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+            </div>
+
+        </div>
+
+    </aside>
+
+    <!-- ==========================================
+         MAIN DASHBOARD AREA
+    ========================================== -->
+
+    <div class="stackly-admin-main">
+
+        <!-- ======================================
+             TOP HEADER
+        ======================================= -->
+
+        <header class="stackly-admin-header stackly-staff-topbar">
+
+            <div class="stackly-staff-topbar-left">
+
+                <!-- Mobile Hamburger -->
+                <button
+                    type="button"
+                    class="stackly-staff-mobile-toggle stackly-admin-icon-button"
+                    id="stacklyAdminMenuToggle"
+                    aria-label="Open navigation menu"
+                    aria-controls="stacklyAdminSidebar"
+                    aria-expanded="false"
+                >
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                </button>
+
+                <div class="stackly-staff-page-label">
+                    <h1>Staff Dashboard</h1>
+                    <p>Welcome to your teaching workspace.</p>
+                </div>
+
+            </div>
+
+            <!-- Right Side Header -->
+            <div class="stackly-staff-header-right">
+
+                <!-- Staff Email -->
+                <div class="stackly-staff-header-email">
+
+                    <div class="stackly-staff-email-icon">
+                        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="stackly-staff-email-details">
+    <span class="stackly-staff-email-label">
+        Staff Account
+    </span>
+
+    <span
+        class="stackly-staff-email-address"
+        id="stacklyStaffEmailAddress"
+    >
+        Loading email...
+    </span>
+</div>
+
+                </div>
+
+                <!-- Account Button -->
+                <button
+                    type="button"
+                    class="stackly-staff-account-button stackly-admin-icon-button"
+                    id="stacklyAdminAccountMenu"
+                    aria-label="Staff account"
+                    title="Staff account"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                >
+                    <i class="fa-solid fa-user" aria-hidden="true"></i>
+                </button>
+
+            </div>
+
+        </header>
+
+<!-- ==========================================
+     STACKLY EDUCATION - STAFF SCHEDULE PAGE
+========================================== -->
+
+<main class="stackly-staff-schedule-page">
+
+    <!-- SCHEDULE HERO -->
+    <section class="stackly-schedule-hero" data-aos="fade-up">
+
+        <div class="stackly-schedule-hero-content">
+            <span class="stackly-schedule-eyebrow">
+                <i class="fa-solid fa-calendar-week"></i>
+                YOUR TEACHING PLANNER
+            </span>
+
+            <h2>Plan Your Day.<br><span>Inspire Every Class.</span></h2>
+
+            <p>
+                Stay organized, prepare for upcoming lessons, and make
+                every teaching hour count with your personalized schedule.
+            </p>
+
+            <div class="stackly-schedule-hero-actions">
+                <a href="404-staff.html" class="stackly-schedule-btn-primary">
+                    <i class="fa-solid fa-calendar-day"></i>
+                    View Today's Classes
+                </a>
+
+                <a href="404-staff.html" class="stackly-schedule-btn-secondary">
+                    <i class="fa-solid fa-calendar-week"></i>
+                    Weekly Timetable
+                </a>
+            </div>
+
+            <div class="stackly-schedule-hero-note">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Stay prepared. Teach with confidence.</span>
+            </div>
+        </div>
+
+        <div class="stackly-schedule-hero-visual">
+            <div class="stackly-schedule-visual-circle"></div>
+
+            <div class="stackly-schedule-visual-card">
+                <div class="stackly-schedule-visual-card-top">
+                    <span><i class="fa-regular fa-calendar-check"></i> Today's Plan</span>
+                    <span class="stackly-schedule-live-dot"></span>
+                </div>
+
+                <div class="stackly-schedule-visual-date">
+                    <strong>28</strong>
+                    <div>
+                        <span>OCTOBER</span>
+                        <p>Wednesday · 2026</p>
+                    </div>
+                </div>
+
+                <div class="stackly-schedule-visual-divider"></div>
+
+                <div class="stackly-schedule-visual-class">
+                    <span class="stackly-schedule-visual-class-icon">
+                        <i class="fa-solid fa-atom"></i>
+                    </span>
+                    <div>
+                        <strong>Physics</strong>
+                        <p>Grade 10-A · 09:00 AM</p>
+                    </div>
+                    <a href="404-staff.html">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+
+                <div class="stackly-schedule-visual-class">
+                    <span class="stackly-schedule-visual-class-icon green">
+                        <i class="fa-solid fa-flask"></i>
+                    </span>
+                    <div>
+                        <strong>Science Lab</strong>
+                        <p>Grade 9-B · 11:00 AM</p>
+                    </div>
+                    <a href="404-staff.html">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+
+                <div class="stackly-schedule-visual-progress">
+                    <div>
+                        <span>Daily preparation</span>
+                        <strong>80%</strong>
+                    </div>
+                    <div class="stackly-schedule-visual-progress-track">
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stackly-schedule-floating-badge">
+                <span><i class="fa-solid fa-bolt"></i></span>
+                <div>
+                    <strong>Stay Ahead</strong>
+                    <small>Your day, organized</small>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- WEEKLY OVERVIEW -->
+    <section class="stackly-schedule-stats" aria-label="Weekly schedule overview">
+
+        <article class="stackly-schedule-stat-card" data-aos="fade-up" data-aos-delay="50">
+            <div class="stackly-schedule-stat-top">
+                <span class="stackly-schedule-stat-icon orange">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                </span>
+                <span class="stackly-schedule-stat-trend">This week</span>
+            </div>
+            <h3>24</h3>
+            <p>Scheduled Classes</p>
+            <div class="stackly-schedule-stat-bottom">
+                <span>Across assigned grades</span>
+                <a href="404-staff.html"><i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </article>
+
+        <article class="stackly-schedule-stat-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="stackly-schedule-stat-top">
+                <span class="stackly-schedule-stat-icon green">
+                    <i class="fa-solid fa-clock"></i>
+                </span>
+                <span class="stackly-schedule-stat-trend green">Weekly target</span>
+            </div>
+            <h3>18.5 <small>hrs</small></h3>
+            <p>Teaching Hours</p>
+            <div class="stackly-schedule-stat-bottom">
+                <span>Classroom teaching time</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </div>
+        </article>
+
+        <article class="stackly-schedule-stat-card" data-aos="fade-up" data-aos-delay="150">
+            <div class="stackly-schedule-stat-top">
+                <span class="stackly-schedule-stat-icon blue">
+                    <i class="fa-solid fa-book-open"></i>
+                </span>
+                <span class="stackly-schedule-stat-trend blue">Preparation</span>
+            </div>
+            <h3>06</h3>
+            <p>Lessons to Prepare</p>
+            <div class="stackly-schedule-stat-bottom">
+                <span>Upcoming lesson plans</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </div>
+        </article>
+
+        <article class="stackly-schedule-stat-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="stackly-schedule-stat-top">
+                <span class="stackly-schedule-stat-icon purple">
+                    <i class="fa-solid fa-mug-hot"></i>
+                </span>
+                <span class="stackly-schedule-stat-trend purple">Daily breaks</span>
+            </div>
+            <h3>05</h3>
+            <p>Free Periods</p>
+            <div class="stackly-schedule-stat-bottom">
+                <span>Available planning slots</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </div>
+        </article>
+
+    </section>
+
+
+    <!-- TODAY'S TIMETABLE -->
+    <section class="stackly-schedule-today" id="stacklyScheduleToday" data-aos="fade-up">
+
+        <div class="stackly-schedule-section-heading">
+            <div>
+                <span class="stackly-schedule-section-label">YOUR DAILY PLAN</span>
+                <h3>Today's Timetable</h3>
+                <p>See your classes, breaks, and preparation periods at a glance.</p>
+            </div>
+
+            <span class="stackly-schedule-day-pill">
+                <i class="fa-regular fa-calendar"></i>
+                Wednesday, Oct 28
+            </span>
+        </div>
+
+        <div class="stackly-schedule-timeline">
+
+            <article class="stackly-schedule-timeline-item">
+                <div class="stackly-schedule-time">
+                    <strong>09:00</strong>
+                    <span>09:45 AM</span>
+                </div>
+                <div class="stackly-schedule-timeline-marker orange-marker">
+                    <i class="fa-solid fa-atom"></i>
+                </div>
+                <div class="stackly-schedule-class-card orange-card">
+                    <div class="stackly-schedule-class-card-content">
+                        <span class="stackly-schedule-subject-label">PHYSICS</span>
+                        <h4>Motion and Force</h4>
+                        <p><i class="fa-solid fa-users"></i> Grade 10-A <span>•</span> Room 204</p>
+                    </div>
+                    <span class="stackly-schedule-class-type">Regular Class</span>
+                </div>
+            </article>
+
+            <article class="stackly-schedule-timeline-item">
+                <div class="stackly-schedule-time">
+                    <strong>09:45</strong>
+                    <span>10:00 AM</span>
+                </div>
+                <div class="stackly-schedule-timeline-marker break-marker">
+                    <i class="fa-solid fa-mug-hot"></i>
+                </div>
+                <div class="stackly-schedule-class-card break-card">
+                    <div class="stackly-schedule-class-card-content">
+                        <span class="stackly-schedule-subject-label">BREAK TIME</span>
+                        <h4>Morning Break</h4>
+                        <p><i class="fa-regular fa-clock"></i> 15 minutes to recharge</p>
+                    </div>
+                    <span class="stackly-schedule-class-type">Free Period</span>
+                </div>
+            </article>
+
+            <article class="stackly-schedule-timeline-item">
+                <div class="stackly-schedule-time">
+                    <strong>10:00</strong>
+                    <span>10:45 AM</span>
+                </div>
+                <div class="stackly-schedule-timeline-marker green-marker">
+                    <i class="fa-solid fa-flask"></i>
+                </div>
+                <div class="stackly-schedule-class-card green-card">
+                    <div class="stackly-schedule-class-card-content">
+                        <span class="stackly-schedule-subject-label">SCIENCE</span>
+                        <h4>Practical Learning Session</h4>
+                        <p><i class="fa-solid fa-users"></i> Grade 9-B <span>•</span> Science Lab</p>
+                    </div>
+                    <span class="stackly-schedule-class-type">Lab Session</span>
+                </div>
+            </article>
+
+            <article class="stackly-schedule-timeline-item">
+                <div class="stackly-schedule-time">
+                    <strong>11:00</strong>
+                    <span>11:45 AM</span>
+                </div>
+                <div class="stackly-schedule-timeline-marker blue-marker">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+                <div class="stackly-schedule-class-card blue-card">
+                    <div class="stackly-schedule-class-card-content">
+                        <span class="stackly-schedule-subject-label">PHYSICS</span>
+                        <h4>Revision and Problem Solving</h4>
+                        <p><i class="fa-solid fa-users"></i> Grade 10-B <span>•</span> Room 206</p>
+                    </div>
+                    <span class="stackly-schedule-class-type">Revision</span>
+                </div>
+            </article>
+
+            <article class="stackly-schedule-timeline-item">
+                <div class="stackly-schedule-time">
+                    <strong>12:00</strong>
+                    <span>12:45 PM</span>
+                </div>
+                <div class="stackly-schedule-timeline-marker purple-marker">
+                    <i class="fa-solid fa-clipboard-check"></i>
+                </div>
+                <div class="stackly-schedule-class-card purple-card">
+                    <div class="stackly-schedule-class-card-content">
+                        <span class="stackly-schedule-subject-label">PLANNING</span>
+                        <h4>Assessment Review</h4>
+                        <p><i class="fa-solid fa-location-dot"></i> Staff Room</p>
+                    </div>
+                    <span class="stackly-schedule-class-type">Preparation</span>
+                </div>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- WEEKLY TIMETABLE -->
+    <section class="stackly-schedule-week" id="stacklyScheduleWeek" data-aos="fade-up">
+
+        <div class="stackly-schedule-section-heading">
+            <div>
+                <span class="stackly-schedule-section-label">YOUR WEEK AT A GLANCE</span>
+                <h3>Weekly Teaching Schedule</h3>
+                <p>Plan ahead and balance your teaching workload throughout the week.</p>
+            </div>
+
+            <div class="stackly-schedule-week-legend">
+                <span><i class="legend-dot orange-dot"></i> Physics</span>
+                <span><i class="legend-dot green-dot"></i> Science</span>
+                <span><i class="legend-dot blue-dot"></i> Planning</span>
+            </div>
+        </div>
+
+        <div class="stackly-schedule-week-grid">
+
+            <article class="stackly-schedule-day-column">
+                <div class="stackly-schedule-day-heading">
+                    <span>MON</span>
+                    <strong>26</strong>
+                </div>
+                <div class="stackly-schedule-week-class orange-week-class">
+                    <small>09:00 AM</small>
+                    <strong>Physics</strong>
+                    <span>Grade 10-A</span>
+                </div>
+                <div class="stackly-schedule-week-class green-week-class">
+                    <small>11:00 AM</small>
+                    <strong>Science</strong>
+                    <span>Grade 9-B</span>
+                </div>
+                <div class="stackly-schedule-week-class blue-week-class">
+                    <small>01:00 PM</small>
+                    <strong>Planning</strong>
+                    <span>Staff Room</span>
+                </div>
+            </article>
+
+            <article class="stackly-schedule-day-column">
+                <div class="stackly-schedule-day-heading">
+                    <span>TUE</span>
+                    <strong>27</strong>
+                </div>
+                <div class="stackly-schedule-week-class blue-week-class">
+                    <small>09:00 AM</small>
+                    <strong>Lesson Prep</strong>
+                    <span>Staff Room</span>
+                </div>
+                <div class="stackly-schedule-week-class orange-week-class">
+                    <small>10:00 AM</small>
+                    <strong>Physics</strong>
+                    <span>Grade 10-B</span>
+                </div>
+                <div class="stackly-schedule-week-class green-week-class">
+                    <small>12:00 PM</small>
+                    <strong>Science</strong>
+                    <span>Grade 9-A</span>
+                </div>
+            </article>
+
+            <article class="stackly-schedule-day-column current-day">
+                <div class="stackly-schedule-day-heading">
+                    <span>WED</span>
+                    <strong>28</strong>
+                </div>
+                <div class="stackly-schedule-week-class orange-week-class">
+                    <small>09:00 AM</small>
+                    <strong>Physics</strong>
+                    <span>Grade 10-A</span>
+                </div>
+                <div class="stackly-schedule-week-class green-week-class">
+                    <small>10:00 AM</small>
+                    <strong>Science Lab</strong>
+                    <span>Grade 9-B</span>
+                </div>
+                <div class="stackly-schedule-week-class blue-week-class">
+                    <small>12:00 PM</small>
+                    <strong>Assessment</strong>
+                    <span>Staff Room</span>
+                </div>
+            </article>
+
+            <article class="stackly-schedule-day-column">
+                <div class="stackly-schedule-day-heading">
+                    <span>THU</span>
+                    <strong>29</strong>
+                </div>
+                <div class="stackly-schedule-week-class green-week-class">
+                    <small>09:00 AM</small>
+                    <strong>Science</strong>
+                    <span>Grade 9-A</span>
+                </div>
+                <div class="stackly-schedule-week-class orange-week-class">
+                    <small>11:00 AM</small>
+                    <strong>Physics</strong>
+                    <span>Grade 10-B</span>
+                </div>
+                <div class="stackly-schedule-week-class blue-week-class">
+                    <small>01:00 PM</small>
+                    <strong>Planning</strong>
+                    <span>Staff Room</span>
+                </div>
+            </article>
+
+            <article class="stackly-schedule-day-column">
+                <div class="stackly-schedule-day-heading">
+                    <span>FRI</span>
+                    <strong>30</strong>
+                </div>
+                <div class="stackly-schedule-week-class orange-week-class">
+                    <small>09:00 AM</small>
+                    <strong>Physics</strong>
+                    <span>Grade 10-A</span>
+                </div>
+                <div class="stackly-schedule-week-class green-week-class">
+                    <small>10:00 AM</small>
+                    <strong>Science Lab</strong>
+                    <span>Grade 9-B</span>
+                </div>
+                <div class="stackly-schedule-week-class blue-week-class">
+                    <small>12:00 PM</small>
+                    <strong>Weekly Review</strong>
+                    <span>Staff Room</span>
+                </div>
+            </article>
+
+        </div>
+
+        <div class="stackly-schedule-week-footer">
+            <i class="fa-solid fa-circle-info"></i>
+            <span>Use this overview to prepare lesson materials before each class.</span>
+        </div>
+
+    </section>
+
+
+    <!-- NEXT CLASSES + TEACHING WORKLOAD -->
+    <section class="stackly-schedule-bottom-grid">
+
+        <!-- NEXT CLASSES -->
+        <article class="stackly-schedule-upcoming" data-aos="fade-right">
+
+            <div class="stackly-schedule-section-heading compact">
+                <div>
+                    <span class="stackly-schedule-section-label">COMING UP</span>
+                    <h3>Next Classes</h3>
+                </div>
+                <span class="stackly-schedule-small-icon">
+                    <i class="fa-solid fa-forward"></i>
+                </span>
+            </div>
+
+            <div class="stackly-schedule-upcoming-list">
+
+                <div class="stackly-schedule-upcoming-item">
+                    <span class="stackly-schedule-upcoming-icon orange">
+                        <i class="fa-solid fa-atom"></i>
+                    </span>
+                    <div class="stackly-schedule-upcoming-info">
+                        <h4>Physics — Motion and Force</h4>
+                        <p>Grade 10-A · Room 204</p>
+                        <span><i class="fa-regular fa-clock"></i> 09:00–09:45 AM</span>
+                    </div>
+                    <span class="stackly-schedule-upcoming-status">Scheduled</span>
+                </div>
+
+                <div class="stackly-schedule-upcoming-item">
+                    <span class="stackly-schedule-upcoming-icon green">
+                        <i class="fa-solid fa-flask"></i>
+                    </span>
+                    <div class="stackly-schedule-upcoming-info">
+                        <h4>Science Practical</h4>
+                        <p>Grade 9-B · Science Lab</p>
+                        <span><i class="fa-regular fa-clock"></i> 10:00–10:45 AM</span>
+                    </div>
+                    <span class="stackly-schedule-upcoming-status">Scheduled</span>
+                </div>
+
+                <div class="stackly-schedule-upcoming-item">
+                    <span class="stackly-schedule-upcoming-icon blue">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                    </span>
+                    <div class="stackly-schedule-upcoming-info">
+                        <h4>Assessment Review</h4>
+                        <p>Staff Room</p>
+                        <span><i class="fa-regular fa-clock"></i> 12:00–12:45 PM</span>
+                    </div>
+                    <span class="stackly-schedule-upcoming-status preparation">
+                        Preparation
+                    </span>
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- WORKLOAD -->
+        <article class="stackly-schedule-workload" data-aos="fade-left">
+
+            <div class="stackly-schedule-section-heading compact">
+                <div>
+                    <span class="stackly-schedule-section-label">WEEKLY BALANCE</span>
+                    <h3>Teaching Workload</h3>
+                </div>
+                <span class="stackly-schedule-small-icon">
+                    <i class="fa-solid fa-chart-pie"></i>
+                </span>
+            </div>
+
+            <div class="stackly-schedule-workload-main">
+                <div class="stackly-schedule-workload-ring">
+                    <div>
+                        <strong>74%</strong>
+                        <span>Capacity</span>
+                    </div>
+                </div>
+
+                <div class="stackly-schedule-workload-summary">
+                    <h4>Well Balanced</h4>
+                    <p>Your teaching hours are distributed across the week.</p>
+                </div>
+            </div>
+
+            <div class="stackly-schedule-workload-metrics">
+                <div>
+                    <span><i class="workload-dot orange-dot"></i> Teaching</span>
+                    <strong>18.5 hrs</strong>
+                </div>
+                <div>
+                    <span><i class="workload-dot green-dot"></i> Preparation</span>
+                    <strong>4.0 hrs</strong>
+                </div>
+                <div>
+                    <span><i class="workload-dot blue-dot"></i> Free periods</span>
+                    <strong>5 slots</strong>
+                </div>
+            </div>
+
+            <div class="stackly-schedule-workload-note">
+                <i class="fa-solid fa-lightbulb"></i>
+                <p>Use free periods to review assignments and prepare learning resources.</p>
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <!-- SCHEDULE PREPARATION REMINDER -->
+    <section class="stackly-schedule-reminder" data-aos="fade-up">
+
+        <div class="stackly-schedule-reminder-icon">
+            <i class="fa-solid fa-lightbulb"></i>
+        </div>
+
+        <div class="stackly-schedule-reminder-content">
+            <span>YOUR NEXT STEP</span>
+            <h3>A little preparation makes a big difference.</h3>
+            <p>
+                Review your upcoming lessons, organize learning materials,
+                and arrive ready to inspire your students.
+            </p>
+        </div>
+
+        <a href="404-staff.html" class="stackly-schedule-reminder-btn">
+            <i class="fa-solid fa-folder-open"></i>
+            Learning Resources
+        </a>
+
+    </section>
+
+</main>
+
+    </div>
+
+    <!-- ==========================================
+         SCRIPTS
+    ========================================== -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="staff.js"></script>
+
+    <!-- Dashboard functionality -->
+    
+
+</body>
+</html>

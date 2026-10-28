@@ -1,0 +1,1013 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Dashboard | Stackly Education</title>
+
+    <meta name="description" content="Stackly Education Student Dashboard to manage courses, assignments, attendance, grades, and class schedules.">
+    <meta name="theme-color" content="#ff9f16">
+
+    <!-- Favicon -->
+    <link rel="icon" href="Stackly-logo-Blue.webp" type="image/webp">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <!-- Student Dashboard CSS -->
+    <link rel="stylesheet" href="student.css">
+</head>
+
+<body>
+
+    <!-- ==========================================
+         MOBILE SIDEBAR OVERLAY
+    ========================================== -->
+
+    <div
+        class="stackly-student-overlay"
+        id="stacklyStudentOverlay"
+        aria-hidden="true"
+        hidden
+    ></div>
+
+    <!-- ==========================================
+         STUDENT SIDEBAR
+    ========================================== -->
+
+    <aside
+        class="stackly-student-sidebar"
+        id="stacklyStudentSidebar"
+        aria-label="Student dashboard navigation"
+        aria-hidden="false"
+    >
+
+        <!-- Logo -->
+        <div class="stackly-student-logo">
+
+            <a href="student.html" aria-label="Stackly Education student home">
+                <img
+                    src="Stackly-logo-Blue.webp"
+                    alt="Stackly Education logo"
+                    width="165"
+                    height="58"
+                >
+            </a>
+
+            <!-- Mobile Exit Button -->
+            <button
+                type="button"
+                class="stackly-student-sidebar-exit"
+                id="stacklyStudentSidebarClose"
+                aria-label="Close navigation menu"
+                aria-controls="stacklyStudentSidebar"
+            >
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+
+        </div>
+
+        <!-- Main Navigation -->
+        <div class="stackly-student-sidebar-heading">
+            <span>Student Workspace</span>
+        </div>
+
+        <nav class="stackly-student-sidebar-nav"
+             aria-label="Main navigation">
+
+            <a href="student.html"
+               class="stackly-student-nav-link active"
+               aria-current="page">
+                <i class="fa-solid fa-chart-pie" aria-hidden="true"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="student-courses.html" class="stackly-student-nav-link">
+                <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+                <span>My Courses</span>
+            </a>
+
+            <a href="student-assignments.html" class="stackly-student-nav-link">
+                <i class="fa-solid fa-file-pen" aria-hidden="true"></i>
+                <span>Assignments</span>
+            </a>
+
+            <a href="student-attendance.html" class="stackly-student-nav-link">
+                <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+                <span>My Attendance</span>
+            </a>
+
+            <a href="student-grades.html" class="stackly-student-nav-link">
+                <i class="fa-solid fa-chart-column" aria-hidden="true"></i>
+                <span>Grades & Results</span>
+            </a>
+
+            <a href="student-schedule.html" class="stackly-student-nav-link">
+                <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+                <span>Class Schedule</span>
+            </a>
+
+            <a href="student-resources.html" class="stackly-student-nav-link">
+                <i class="fa-solid fa-folder-open" aria-hidden="true"></i>
+                <span>Learning Resources</span>
+            </a>
+
+        </nav>
+
+        <!-- Account Navigation -->
+        <div class="stackly-student-sidebar-divider"></div>
+
+        <div class="stackly-student-sidebar-heading">
+            <span>My Account</span>
+        </div>
+
+        <nav class="stackly-student-sidebar-nav"
+             aria-label="Account navigation">
+
+            <a href="student-profile.html" class="stackly-student-nav-link">
+                <i class="fa-solid fa-user" aria-hidden="true"></i>
+                <span>My Profile</span>
+            </a>
+
+            <a href="index.html"
+               class="stackly-student-nav-link"
+               id="stacklyStudentLogout">
+                <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
+                <span>Logout</span>
+            </a>
+
+        </nav>
+
+        <!-- Sidebar Support Card -->
+        <div class="stackly-student-sidebar-bottom">
+
+            <div class="stackly-student-help-icon">
+                <i class="fa-solid fa-headset" aria-hidden="true"></i>
+            </div>
+
+            <div class="stackly-student-help-content">
+                <h4>Need some help?</h4>
+
+                <p>We're here to support your learning journey.</p>
+
+                <a href="404-student.html">
+                    Get Support
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+            </div>
+
+        </div>
+
+    </aside>
+
+    <!-- ==========================================
+         MAIN DASHBOARD AREA
+    ========================================== -->
+
+    <div class="stackly-student-main">
+
+        <!-- TOP HEADER -->
+        <header class="stackly-student-header">
+
+            <div class="stackly-student-header-left">
+
+                <!-- Mobile Hamburger -->
+                <button
+                    type="button"
+                    class="stackly-student-mobile-toggle"
+                    id="stacklyStudentMenuToggle"
+                    aria-label="Open navigation menu"
+                    aria-controls="stacklyStudentSidebar"
+                    aria-expanded="false"
+                >
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                </button>
+
+                <div class="stackly-student-page-label">
+                    <h1>Student Dashboard</h1>
+                    <p>Welcome back! Ready to learn something new?</p>
+                </div>
+
+            </div>
+
+            <!-- Header Right -->
+            <div class="stackly-student-header-right">
+
+                <!-- Notifications -->
+                <a
+                    href="404-student.html"
+                    class="stackly-student-header-icon"
+                    aria-label="Notifications"
+                    title="Notifications"
+                >
+                    <i class="fa-regular fa-bell" aria-hidden="true"></i>
+                    <span class="stackly-student-notification-dot"></span>
+                </a>
+
+                <!-- Student Email -->
+                <div class="stackly-student-header-email">
+
+                    <div class="stackly-student-email-icon">
+                        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="stackly-student-email-details">
+                        <span class="stackly-student-email-label">
+                            Student Account
+                        </span>
+
+                        <span
+                            class="stackly-student-email-address"
+                            id="stacklyStudentEmailAddress"
+                            title="Student email address"
+                        >
+                            Loading email...
+                        </span>
+                    </div>
+
+                </div>
+
+                <!-- Account Button -->
+                <a
+                    href="404-student.html"
+                    class="stackly-student-account-button"
+                    aria-label="My profile"
+                    title="My profile"
+                >
+                    <i class="fa-solid fa-user" aria-hidden="true"></i>
+                </a>
+
+            </div>
+
+        </header>
+
+        
+<!-- ==========================================
+     STACKLY EDUCATION - LEARNING RESOURCES
+     Modern Student Learning Library
+========================================== -->
+
+<main class="stackly-student-content">
+
+<!-- ==========================================
+     1. LEARNING RESOURCES HERO
+========================================== -->
+
+<section class="stackly-student-resources-hero" data-aos="fade-up">
+
+    <div class="stackly-student-resources-hero-content">
+
+        <span class="stackly-student-resources-eyebrow">
+            <i class="fa-solid fa-graduation-cap"></i>
+            YOUR PERSONAL LEARNING LIBRARY
+        </span>
+
+        <h2>
+            Discover More.
+            <span>Learn Beyond Limits.</span>
+        </h2>
+
+        <p>
+            Explore study materials, digital guides, practice worksheets,
+            and curated learning resources designed to help you learn
+            smarter and achieve your academic goals.
+        </p>
+
+        <div class="stackly-student-resources-hero-actions">
+
+            <a href="404-student.html"
+               class="stackly-student-resources-primary-btn">
+                Explore Resources
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <a href="404-student.html"
+               class="stackly-student-resources-secondary-btn">
+                Browse Subjects
+            </a>
+
+        </div>
+
+        <div class="stackly-student-resources-hero-trust">
+
+            <div class="stackly-student-resources-avatar-stack">
+                <span><i class="fa-solid fa-book-open"></i></span>
+                <span><i class="fa-solid fa-flask"></i></span>
+                <span><i class="fa-solid fa-laptop-code"></i></span>
+            </div>
+
+            <p>
+                <strong>Learn at your own pace</strong>
+                <span>Knowledge starts with curiosity.</span>
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="stackly-student-resources-hero-visual">
+
+        <div class="stackly-student-resources-orbit orbit-one"></div>
+        <div class="stackly-student-resources-orbit orbit-two"></div>
+
+        <div class="stackly-student-resources-hero-book">
+
+            <div class="stackly-student-resources-book-icon">
+                <i class="fa-solid fa-book-open-reader"></i>
+            </div>
+
+            <span class="stackly-student-resources-book-label">
+                YOUR NEXT CHAPTER
+            </span>
+
+            <h3>Knowledge is your superpower.</h3>
+
+            <p>
+                Read. Practice. Discover. Repeat.
+            </p>
+
+            <div class="stackly-student-resources-book-progress">
+
+                <div>
+                    <span>Learning journey</span>
+                    <strong>Keep growing</strong>
+                </div>
+
+                <div class="stackly-student-resources-progress-track">
+                    <span></span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="stackly-student-resources-floating-card floating-book">
+            <i class="fa-solid fa-file-pdf"></i>
+            <div>
+                <strong>Study Guides</strong>
+                <span>Learn with clarity</span>
+            </div>
+        </div>
+
+        <div class="stackly-student-resources-floating-card floating-video">
+            <i class="fa-solid fa-circle-play"></i>
+            <div>
+                <strong>Video Lessons</strong>
+                <span>Visual learning</span>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     2. RESOURCE STATISTICS
+========================================== -->
+
+<section class="stackly-student-resources-stats"
+         data-aos="fade-up">
+
+    <article class="stackly-student-resources-stat-card">
+
+        <div class="stackly-student-resources-stat-icon orange">
+            <i class="fa-solid fa-book-open"></i>
+        </div>
+
+        <div>
+            <span>Study Materials</span>
+            <h3>120+</h3>
+            <p>Resources to explore</p>
+        </div>
+
+    </article>
+
+    <article class="stackly-student-resources-stat-card">
+
+        <div class="stackly-student-resources-stat-icon green">
+            <i class="fa-solid fa-circle-play"></i>
+        </div>
+
+        <div>
+            <span>Video Lessons</span>
+            <h3>48</h3>
+            <p>Learn visually</p>
+        </div>
+
+    </article>
+
+    <article class="stackly-student-resources-stat-card">
+
+        <div class="stackly-student-resources-stat-icon purple">
+            <i class="fa-solid fa-file-circle-check"></i>
+        </div>
+
+        <div>
+            <span>Practice Sheets</span>
+            <h3>36</h3>
+            <p>Build your skills</p>
+        </div>
+
+    </article>
+
+    <article class="stackly-student-resources-stat-card">
+
+        <div class="stackly-student-resources-stat-icon blue">
+            <i class="fa-solid fa-layer-group"></i>
+        </div>
+
+        <div>
+            <span>Subject Collections</span>
+            <h3>06</h3>
+            <p>Organized for you</p>
+        </div>
+
+    </article>
+
+</section>
+
+
+<!-- ==========================================
+     3. FEATURED LEARNING RESOURCES
+========================================== -->
+
+<section class="stackly-student-resources-featured"
+         id="stacklyStudentResourcesFeatured"
+         data-aos="fade-up">
+
+    <div class="stackly-student-resources-section-heading">
+
+        <div>
+            <span class="stackly-student-resources-section-label">
+                START LEARNING
+            </span>
+
+            <h2>Featured Resources</h2>
+
+            <p>
+                Handpicked learning materials to help you understand
+                concepts and strengthen your knowledge.
+            </p>
+        </div>
+
+        <a href="404-student.html"
+           class="stackly-student-resources-text-link">
+            View Recent Resources
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+    </div>
+
+    <div class="stackly-student-resources-featured-grid">
+
+        <!-- RESOURCE 1 -->
+
+        <article class="stackly-student-resources-featured-card">
+
+            <div class="stackly-student-resources-resource-cover physics">
+
+                <span class="stackly-student-resources-resource-type">
+                    STUDY GUIDE
+                </span>
+
+                <div class="stackly-student-resources-cover-art">
+                    <i class="fa-solid fa-atom"></i>
+                </div>
+
+                <span class="stackly-student-resources-cover-caption">
+                    PHYSICS
+                </span>
+
+            </div>
+
+            <div class="stackly-student-resources-resource-body">
+
+                <div class="stackly-student-resources-resource-meta">
+                    <span>
+                        <i class="fa-regular fa-file-pdf"></i>
+                        PDF Guide
+                    </span>
+
+                    <span>12 pages</span>
+                </div>
+
+                <h3>Fundamentals of Physics Essentials</h3>
+
+                <p>
+                    Review core physics concepts, essential formulas,
+                    and important principles for your next lesson.
+                </p>
+
+                <div class="stackly-student-resources-resource-footer">
+
+                    <span class="stackly-student-resources-subject-chip orange">
+                        Science
+                    </span>
+
+                    <a href="404-student.html"
+                       class="stackly-student-resources-open-btn"
+                       aria-label="Open Fundamentals of Physics resource">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- RESOURCE 2 -->
+
+        <article class="stackly-student-resources-featured-card">
+
+            <div class="stackly-student-resources-resource-cover mathematics">
+
+                <span class="stackly-student-resources-resource-type">
+                    PRACTICE SET
+                </span>
+
+                <div class="stackly-student-resources-cover-art">
+                    <i class="fa-solid fa-square-root-variable"></i>
+                </div>
+
+                <span class="stackly-student-resources-cover-caption">
+                    MATHEMATICS
+                </span>
+
+            </div>
+
+            <div class="stackly-student-resources-resource-body">
+
+                <div class="stackly-student-resources-resource-meta">
+                    <span>
+                        <i class="fa-solid fa-file-lines"></i>
+                        Worksheet
+                    </span>
+
+                    <span>25 questions</span>
+                </div>
+
+                <h3>Mathematics Practice Workbook</h3>
+
+                <p>
+                    Improve your problem-solving ability with guided
+                    exercises and essential mathematical techniques.
+                </p>
+
+                <div class="stackly-student-resources-resource-footer">
+
+                    <span class="stackly-student-resources-subject-chip purple">
+                        Mathematics
+                    </span>
+
+                    <a href="404-student.html"
+                       class="stackly-student-resources-open-btn"
+                       aria-label="Open Mathematics Practice Workbook">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- RESOURCE 3 -->
+
+        <article class="stackly-student-resources-featured-card">
+
+            <div class="stackly-student-resources-resource-cover technology">
+
+                <span class="stackly-student-resources-resource-type">
+                    VIDEO COURSE
+                </span>
+
+                <div class="stackly-student-resources-cover-art">
+                    <i class="fa-solid fa-laptop-code"></i>
+                </div>
+
+                <span class="stackly-student-resources-cover-caption">
+                    TECHNOLOGY
+                </span>
+
+            </div>
+
+            <div class="stackly-student-resources-resource-body">
+
+                <div class="stackly-student-resources-resource-meta">
+                    <span>
+                        <i class="fa-solid fa-circle-play"></i>
+                        Video lessons
+                    </span>
+
+                    <span>6 lessons</span>
+                </div>
+
+                <h3>Introduction to Computer Science</h3>
+
+                <p>
+                    Explore programming fundamentals, computational
+                    thinking, and the basics of computer systems.
+                </p>
+
+                <div class="stackly-student-resources-resource-footer">
+
+                    <span class="stackly-student-resources-subject-chip pink">
+                        Technology
+                    </span>
+
+                    <a href="404-student.html"
+                       class="stackly-student-resources-open-btn"
+                       aria-label="Open Introduction to Computer Science">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     4. BROWSE BY SUBJECT
+========================================== -->
+
+<section class="stackly-student-resources-categories"
+         id="stacklyStudentResourcesCategories"
+         data-aos="fade-up">
+
+    <div class="stackly-student-resources-section-heading">
+
+        <div>
+            <span class="stackly-student-resources-section-label">
+                FIND YOUR INTEREST
+            </span>
+
+            <h2>Explore by Subject</h2>
+
+            <p>
+                Discover relevant materials grouped by your learning areas.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="stackly-student-resources-category-grid">
+
+        <a href="404-student.html"
+           class="stackly-student-resources-category-card">
+
+            <div class="stackly-student-resources-category-icon orange">
+                <i class="fa-solid fa-atom"></i>
+            </div>
+
+            <div class="stackly-student-resources-category-info">
+                <h3>Physics & Science</h3>
+                <p>Concepts, experiments, and study notes</p>
+                <span>24 resources</span>
+            </div>
+
+            <i class="fa-solid fa-arrow-right stackly-student-resources-category-arrow"></i>
+
+        </a>
+
+
+        <a href="404-student.html"
+           class="stackly-student-resources-category-card">
+
+            <div class="stackly-student-resources-category-icon purple">
+                <i class="fa-solid fa-square-root-variable"></i>
+            </div>
+
+            <div class="stackly-student-resources-category-info">
+                <h3>Mathematics</h3>
+                <p>Formulas, worksheets, and exercises</p>
+                <span>20 resources</span>
+            </div>
+
+            <i class="fa-solid fa-arrow-right stackly-student-resources-category-arrow"></i>
+
+        </a>
+
+
+        <a href="404-student.html"
+           class="stackly-student-resources-category-card">
+
+            <div class="stackly-student-resources-category-icon blue">
+                <i class="fa-solid fa-language"></i>
+            </div>
+
+            <div class="stackly-student-resources-category-info">
+                <h3>English & Languages</h3>
+                <p>Grammar, vocabulary, and communication</p>
+                <span>18 resources</span>
+            </div>
+
+            <i class="fa-solid fa-arrow-right stackly-student-resources-category-arrow"></i>
+
+        </a>
+
+
+        <a href="404-student.html"
+           class="stackly-student-resources-category-card">
+
+            <div class="stackly-student-resources-category-icon pink">
+                <i class="fa-solid fa-laptop-code"></i>
+            </div>
+
+            <div class="stackly-student-resources-category-info">
+                <h3>Computer Science</h3>
+                <p>Programming and digital skills</p>
+                <span>22 resources</span>
+            </div>
+
+            <i class="fa-solid fa-arrow-right stackly-student-resources-category-arrow"></i>
+
+        </a>
+
+
+        <a href="404-student.html"
+           class="stackly-student-resources-category-card">
+
+            <div class="stackly-student-resources-category-icon green">
+                <i class="fa-solid fa-flask"></i>
+            </div>
+
+            <div class="stackly-student-resources-category-info">
+                <h3>Practical Learning</h3>
+                <p>Lab activities and experiment guides</p>
+                <span>16 resources</span>
+            </div>
+
+            <i class="fa-solid fa-arrow-right stackly-student-resources-category-arrow"></i>
+
+        </a>
+
+
+        <a href="404-student.html"
+           class="stackly-student-resources-category-card">
+
+            <div class="stackly-student-resources-category-icon yellow">
+                <i class="fa-solid fa-lightbulb"></i>
+            </div>
+
+            <div class="stackly-student-resources-category-info">
+                <h3>Exam Preparation</h3>
+                <p>Revision notes and mock assessments</p>
+                <span>20 resources</span>
+            </div>
+
+            <i class="fa-solid fa-arrow-right stackly-student-resources-category-arrow"></i>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     5. RECENTLY ADDED RESOURCES
+========================================== -->
+
+<section class="stackly-student-resources-recent"
+         id="stacklyStudentResourcesRecent"
+         data-aos="fade-up">
+
+    <div class="stackly-student-resources-section-heading">
+
+        <div>
+            <span class="stackly-student-resources-section-label">
+                FRESH FOR YOUR STUDIES
+            </span>
+
+            <h2>Recently Added</h2>
+
+            <p>
+                Discover new materials to support your ongoing lessons.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="stackly-student-resources-recent-list">
+
+        <article class="stackly-student-resources-recent-item">
+
+            <div class="stackly-student-resources-recent-icon orange">
+                <i class="fa-solid fa-file-pdf"></i>
+            </div>
+
+            <div class="stackly-student-resources-recent-details">
+                <h3>Physics Formula Revision Sheet</h3>
+                <p>Science · Revision notes · PDF document</p>
+            </div>
+
+            <span class="stackly-student-resources-new-label">NEW</span>
+
+            <a href="404-student.html"
+               class="stackly-student-resources-download-link"
+               aria-label="Open Physics Formula Revision Sheet">
+                <i class="fa-solid fa-arrow-down-to-line"></i>
+            </a>
+
+        </article>
+
+
+        <article class="stackly-student-resources-recent-item">
+
+            <div class="stackly-student-resources-recent-icon purple">
+                <i class="fa-solid fa-file-lines"></i>
+            </div>
+
+            <div class="stackly-student-resources-recent-details">
+                <h3>Algebra Practice Questions</h3>
+                <p>Mathematics · Practice worksheet · 25 questions</p>
+            </div>
+
+            <span class="stackly-student-resources-new-label">NEW</span>
+
+            <a href="404-student.html"
+               class="stackly-student-resources-download-link"
+               aria-label="Open Algebra Practice Questions">
+                <i class="fa-solid fa-arrow-down-to-line"></i>
+            </a>
+
+        </article>
+
+
+        <article class="stackly-student-resources-recent-item">
+
+            <div class="stackly-student-resources-recent-icon blue">
+                <i class="fa-solid fa-circle-play"></i>
+            </div>
+
+            <div class="stackly-student-resources-recent-details">
+                <h3>Effective Communication Skills</h3>
+                <p>Languages · Video lesson · Learning series</p>
+            </div>
+
+            <span class="stackly-student-resources-new-label">NEW</span>
+
+            <a href="404-student.html"
+               class="stackly-student-resources-download-link"
+               aria-label="Open Effective Communication Skills">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     6. SMART STUDY TIPS
+========================================== -->
+
+<section class="stackly-student-resources-tips"
+         data-aos="fade-up">
+
+    <div class="stackly-student-resources-tips-heading">
+
+        <span class="stackly-student-resources-section-label">
+            STUDY SMARTER
+        </span>
+
+        <h2>Small Habits. Big Progress.</h2>
+
+        <p>
+            Make every study session more effective with simple,
+            consistent learning habits.
+        </p>
+
+    </div>
+
+    <div class="stackly-student-resources-tips-grid">
+
+        <article class="stackly-student-resources-tip-card">
+
+            <div class="stackly-student-resources-tip-number">01</div>
+
+            <div class="stackly-student-resources-tip-icon orange">
+                <i class="fa-solid fa-bullseye"></i>
+            </div>
+
+            <h3>Set a Clear Goal</h3>
+
+            <p>
+                Choose one specific topic or skill to 
+                focus on before starting your study session.
+            </p>
+
+        </article>
+
+
+        <article class="stackly-student-resources-tip-card">
+
+            <div class="stackly-student-resources-tip-number">02</div>
+
+            <div class="stackly-student-resources-tip-icon green">
+                <i class="fa-solid fa-book-open-reader"></i>
+            </div>
+
+            <h3>Learn Actively</h3>
+
+            <p>
+                Take notes, solve practice questions, and explain
+                important concepts in your own words.
+            </p>
+
+        </article>
+
+
+        <article class="stackly-student-resources-tip-card">
+
+            <div class="stackly-student-resources-tip-number">03</div>
+
+            <div class="stackly-student-resources-tip-icon purple">
+                <i class="fa-solid fa-rotate"></i>
+            </div>
+
+            <h3>Review Regularly</h3>
+
+            <p>
+                Revisit previous lessons and test your understanding
+                to reinforce what you have learned.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     7. LEARNING INSPIRATION BANNER
+========================================== -->
+
+<section class="stackly-student-resources-inspiration"
+         data-aos="fade-up">
+
+    <div class="stackly-student-resources-inspiration-icon">
+        <i class="fa-solid fa-lightbulb"></i>
+    </div>
+
+    <div class="stackly-student-resources-inspiration-content">
+
+        <span>YOUR NEXT BIG IDEA STARTS HERE</span>
+
+        <h2>Stay Curious. Keep Exploring.</h2>
+
+        <p>
+            Every page you read, every problem you solve, and every
+            question you ask brings you one step closer to your goals.
+            Make today a new opportunity to learn something meaningful.
+        </p>
+
+        <a href="404-student.html"
+           class="stackly-student-resources-inspiration-btn">
+            Start Exploring
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+    </div>
+
+    <div class="stackly-student-resources-inspiration-decoration">
+        <i class="fa-solid fa-graduation-cap"></i>
+    </div>
+
+</section>
+</main>
+
+</div>
+
+    <!-- ==========================================
+         SCRIPTS
+    ========================================== -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="student.js"></script>
+
+</body>
+</html>

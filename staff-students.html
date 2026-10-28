@@ -1,0 +1,880 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Staff Dashboard | Stackly Education</title>
+
+    <meta name="description" content="Stackly Education Staff Dashboard for managing students, classes, attendance, assignments, and teaching schedules.">
+    <meta name="theme-color" content="#ff9f16">
+
+    <link rel="icon" href="Stackly-logo-Blue.webp" type="image/webp">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <!-- Staff Dashboard CSS -->
+    <link rel="stylesheet" href="staff.css">
+</head>
+
+<body>
+
+    <!-- ==========================================
+         MOBILE SIDEBAR OVERLAY
+    ========================================== -->
+
+    <div
+        class="stackly-admin-overlay"
+        id="stacklyAdminOverlay"
+        aria-hidden="true"
+        hidden
+    ></div>
+
+    <!-- ==========================================
+         STAFF SIDEBAR
+    ========================================== -->
+
+    <aside
+        class="stackly-admin-sidebar"
+        id="stacklyAdminSidebar"
+        aria-label="Staff dashboard navigation"
+        aria-hidden="false"
+    >
+
+        <!-- Logo and Mobile Close Button -->
+        <div class="stackly-admin-logo">
+
+            <a href="staff.html" aria-label="Stackly Education home">
+                <img
+                    src="Stackly-logo-Blue.webp"
+                    alt="Stackly Education logo"
+                    width="165"
+                    height="58"
+                >
+            </a>
+
+            <button
+                type="button"
+                class="stackly-staff-sidebar-exit"
+                id="stacklyAdminSidebarClose"
+                aria-label="Close navigation menu"
+                aria-controls="stacklyAdminSidebar"
+            >
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+
+        </div>
+
+        <!-- Main Navigation -->
+        <div class="stackly-admin-sidebar-heading">
+            <span>Staff Workspace</span>
+        </div>
+
+        <nav class="stackly-admin-sidebar-nav" aria-label="Main navigation">
+
+            <a
+                href="staff.html"
+                class="stackly-admin-nav-link active"
+                aria-current="page"
+            >
+                <i class="fa-solid fa-chart-pie" aria-hidden="true"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="staff-students.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-user-graduate" aria-hidden="true"></i>
+                <span>My Students</span>
+            </a>
+
+            <a href="staff-classes.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i>
+                <span>My Classes</span>
+            </a>
+
+            <a href="staff-attendance.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+                <span>Attendance</span>
+            </a>
+
+            <a href="staff-assignments.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+                <span>Assignments</span>
+            </a>
+
+            <a href="staff-schedule.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+                <span>My Schedule</span>
+            </a>
+
+            <a href="staff-resources.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-folder-open" aria-hidden="true"></i>
+                <span>Learning Resources</span>
+            </a>
+
+        </nav>
+
+        <!-- Account Navigation -->
+        <div class="stackly-admin-sidebar-divider"></div>
+
+        <div class="stackly-admin-sidebar-heading">
+            <span>Account</span>
+        </div>
+
+        <nav class="stackly-admin-sidebar-nav" aria-label="Account navigation">
+
+            <a href="staff-profile.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-user" aria-hidden="true"></i>
+                <span>My Profile</span>
+            </a>
+
+            <a href="index.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
+                <span>Logout</span>
+            </a>
+
+        </nav>
+
+        <!-- Sidebar Support Card -->
+        <div class="stackly-admin-sidebar-bottom">
+
+            <div class="stackly-admin-sidebar-help-icon">
+                <i class="fa-solid fa-headset" aria-hidden="true"></i>
+            </div>
+
+            <div class="stackly-admin-sidebar-help-content">
+                <h4>Need assistance?</h4>
+
+                <p>We're here to help you with your work.</p>
+
+                <a href="404-staff.html">
+                    Get Support
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+            </div>
+
+        </div>
+
+    </aside>
+
+    <!-- ==========================================
+         MAIN DASHBOARD AREA
+    ========================================== -->
+
+    <div class="stackly-admin-main">
+
+        <!-- ======================================
+             TOP HEADER
+        ======================================= -->
+
+        <header class="stackly-admin-header stackly-staff-topbar">
+
+            <div class="stackly-staff-topbar-left">
+
+                <!-- Mobile Hamburger -->
+                <button
+                    type="button"
+                    class="stackly-staff-mobile-toggle stackly-admin-icon-button"
+                    id="stacklyAdminMenuToggle"
+                    aria-label="Open navigation menu"
+                    aria-controls="stacklyAdminSidebar"
+                    aria-expanded="false"
+                >
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                </button>
+
+                <div class="stackly-staff-page-label">
+                    <h1>Staff Dashboard</h1>
+                    <p>Welcome to your teaching workspace.</p>
+                </div>
+
+            </div>
+
+            <!-- Right Side Header -->
+            <div class="stackly-staff-header-right">
+
+                <!-- Staff Email -->
+                <div class="stackly-staff-header-email">
+
+                    <div class="stackly-staff-email-icon">
+                        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="stackly-staff-email-details">
+    <span class="stackly-staff-email-label">
+        Staff Account
+    </span>
+
+    <span
+        class="stackly-staff-email-address"
+        id="stacklyStaffEmailAddress"
+    >
+        Loading email...
+    </span>
+</div>
+
+                </div>
+
+                <!-- Account Button -->
+                <button
+                    type="button"
+                    class="stackly-staff-account-button stackly-admin-icon-button"
+                    id="stacklyAdminAccountMenu"
+                    aria-label="Staff account"
+                    title="Staff account"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                >
+                    <i class="fa-solid fa-user" aria-hidden="true"></i>
+                </button>
+
+            </div>
+
+        </header>
+
+        <!-- ==========================================
+     STACKLY EDUCATION - MY STUDENTS PAGE
+     CONTENT SECTIONS ONLY
+========================================== -->
+
+<!-- MY STUDENTS PAGE CONTENT -->
+<div class="stackly-students-page">
+
+    <!-- ======================================
+         1. STUDENTS HERO SECTION
+    ======================================= -->
+    <section class="stackly-students-hero" data-aos="fade-up">
+
+        <div class="stackly-students-hero-content">
+            <span class="stackly-students-eyebrow">
+                <i class="fa-solid fa-graduation-cap"></i>
+                STUDENT MANAGEMENT
+            </span>
+
+            <h2>
+                Every Student Has a
+                <span>Bright Future.</span>
+            </h2>
+
+            <p>
+                Track student progress, celebrate achievements, and
+                provide the right guidance to help every learner succeed.
+            </p>
+
+            <div class="stackly-students-hero-actions">
+                <a href="404-staff.html" class="stackly-students-primary-btn">
+                    <i class="fa-solid fa-users"></i>
+                    View My Students
+                </a>
+
+                <a href="404-staff.html" class="stackly-students-secondary-btn">
+                    <i class="fa-solid fa-chart-line"></i>
+                    Student Progress
+                </a>
+            </div>
+        </div>
+
+        <div class="stackly-students-hero-visual">
+            <div class="stackly-students-hero-orbit"></div>
+
+            <div class="stackly-students-hero-icon">
+                <i class="fa-solid fa-user-graduate"></i>
+            </div>
+
+            <div class="stackly-students-floating-card stackly-students-card-top">
+                <span class="stackly-students-floating-icon">
+                    <i class="fa-solid fa-trophy"></i>
+                </span>
+                <div>
+                    <strong>Great Progress!</strong>
+                    <small>Keep inspiring learners</small>
+                </div>
+            </div>
+
+            <div class="stackly-students-floating-card stackly-students-card-bottom">
+                <span class="stackly-students-online-dot"></span>
+                <div>
+                    <strong>Learning in Action</strong>
+                    <small>Building brighter futures</small>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+         2. STUDENT OVERVIEW STATISTICS
+    ======================================= -->
+    <section class="stackly-students-stats" data-aos="fade-up">
+
+        <div class="stackly-students-section-heading">
+            <div>
+                <span class="stackly-students-section-label">AT A GLANCE</span>
+                <h2>Your Student Overview</h2>
+                <p>A quick snapshot of your classroom community.</p>
+            </div>
+        </div>
+
+        <div class="stackly-students-stats-grid">
+
+            <article class="stackly-students-stat-card">
+                <div class="stackly-students-stat-top">
+                    <span class="stackly-students-stat-icon orange">
+                        <i class="fa-solid fa-users"></i>
+                    </span>
+                    <span class="stackly-students-stat-badge">
+                        <i class="fa-solid fa-arrow-up"></i> Learning
+                    </span>
+                </div>
+                <h3>128</h3>
+                <p>Total Students</p>
+                <div class="stackly-students-stat-footer">
+                    <span>Across your assigned classes</span>
+                </div>
+            </article>
+
+            <article class="stackly-students-stat-card">
+                <div class="stackly-students-stat-top">
+                    <span class="stackly-students-stat-icon green">
+                        <i class="fa-solid fa-user-check"></i>
+                    </span>
+                    <span class="stackly-students-stat-badge green-text">
+                        Active
+                    </span>
+                </div>
+                <h3>116</h3>
+                <p>Active Learners</p>
+                <div class="stackly-students-stat-footer">
+                    <span>Currently participating in learning</span>
+                </div>
+            </article>
+
+            <article class="stackly-students-stat-card">
+                <div class="stackly-students-stat-top">
+                    <span class="stackly-students-stat-icon blue">
+                        <i class="fa-solid fa-chart-simple"></i>
+                    </span>
+                    <span class="stackly-students-stat-badge blue-text">
+                        Performance
+                    </span>
+                </div>
+                <h3>87%</h3>
+                <p>Average Performance</p>
+                <div class="stackly-students-stat-footer">
+                    <span>Overall learning progress</span>
+                </div>
+            </article>
+
+            <article class="stackly-students-stat-card">
+                <div class="stackly-students-stat-top">
+                    <span class="stackly-students-stat-icon purple">
+                        <i class="fa-solid fa-medal"></i>
+                    </span>
+                    <span class="stackly-students-stat-badge purple-text">
+                        Achievements
+                    </span>
+                </div>
+                <h3>24</h3>
+                <p>Top Performers</p>
+                <div class="stackly-students-stat-footer">
+                    <span>Students achieving excellent results</span>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+
+    <!-- ======================================
+         3. STUDENT DIRECTORY
+    ======================================= -->
+    <section
+        class="stackly-students-directory"
+        id="stacklyStudentDirectory"
+        data-aos="fade-up"
+    >
+
+        <div class="stackly-students-section-heading stackly-students-directory-heading">
+            <div>
+                <span class="stackly-students-section-label">YOUR CLASSROOM</span>
+                <h2>Meet Your Students</h2>
+                <p>Find students quickly and review their current learning status.</p>
+            </div>
+
+            <button type="button" class="stackly-students-export-btn" id="stacklyStudentsExport">
+                <i class="fa-solid fa-download"></i>
+                Export List
+            </button>
+        </div>
+
+        <!-- Search and Filters -->
+        <div class="stackly-students-toolbar">
+
+            <div class="stackly-students-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input
+                    type="search"
+                    id="stacklyStudentsSearch"
+                    placeholder="Search by student name or ID..."
+                    aria-label="Search students"
+                >
+            </div>
+
+            
+<!-- CUSTOM CLASS DROPDOWN -->
+<div class="stackly-students-custom-dropdown"
+     data-dropdown="class">
+
+    <button
+        type="button"
+        class="stackly-students-dropdown-trigger"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+    >
+        <span class="stackly-students-dropdown-current">
+            All Classes
+        </span>
+
+        <i class="fa-solid fa-chevron-down stackly-students-dropdown-arrow"></i>
+    </button>
+
+    <div class="stackly-students-dropdown-menu"
+         role="listbox"
+         aria-label="Filter by class"
+         hidden>
+
+        <button type="button"
+                class="stackly-students-dropdown-option selected"
+                data-value="all"
+                role="option"
+                aria-selected="true">
+            <span>All Classes</span>
+            <i class="fa-solid fa-check"></i>
+        </button>
+
+        <button type="button"
+                class="stackly-students-dropdown-option"
+                data-value="10-A"
+                role="option"
+                aria-selected="false">
+            <span>Class 10-A</span>
+            <i class="fa-solid fa-check"></i>
+        </button>
+
+        <button type="button"
+                class="stackly-students-dropdown-option"
+                data-value="10-B"
+                role="option"
+                aria-selected="false">
+            <span>Class 10-B</span>
+            <i class="fa-solid fa-check"></i>
+        </button>
+
+        <button type="button"
+                class="stackly-students-dropdown-option"
+                data-value="9-A"
+                role="option"
+                aria-selected="false">
+            <span>Class 9-A</span>
+            <i class="fa-solid fa-check"></i>
+        </button>
+
+    </div>
+</div>
+
+
+<!-- CUSTOM STATUS DROPDOWN -->
+<div class="stackly-students-custom-dropdown"
+     data-dropdown="status">
+
+    <button
+        type="button"
+        class="stackly-students-dropdown-trigger"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+    >
+        <span class="stackly-students-dropdown-current">
+            All Statuses
+        </span>
+
+        <i class="fa-solid fa-chevron-down stackly-students-dropdown-arrow"></i>
+    </button>
+
+    <div class="stackly-students-dropdown-menu"
+         role="listbox"
+         aria-label="Filter by student status"
+         hidden>
+
+        <button type="button"
+                class="stackly-students-dropdown-option selected"
+                data-value="all"
+                role="option"
+                aria-selected="true">
+            <span>All Statuses</span>
+            <i class="fa-solid fa-check"></i>
+        </button>
+
+        <button type="button"
+                class="stackly-students-dropdown-option"
+                data-value="Excellent"
+                role="option"
+                aria-selected="false">
+            <span>
+                <span class="stackly-students-dropdown-status-dot excellent-dot"></span>
+                Excellent
+            </span>
+            <i class="fa-solid fa-check"></i>
+        </button>
+
+        <button type="button"
+                class="stackly-students-dropdown-option"
+                data-value="Good"
+                role="option"
+                aria-selected="false">
+            <span>
+                <span class="stackly-students-dropdown-status-dot good-dot"></span>
+                Good
+            </span>
+            <i class="fa-solid fa-check"></i>
+        </button>
+
+        <button type="button"
+                class="stackly-students-dropdown-option"
+                data-value="Needs Support"
+                role="option"
+                aria-selected="false">
+            <span>
+                <span class="stackly-students-dropdown-status-dot support-dot"></span>
+                Needs Support
+            </span>
+            <i class="fa-solid fa-check"></i>
+        </button>
+
+    </div>
+</div>
+
+        </div>
+
+        <!-- Student Cards -->
+        <div class="stackly-students-directory-grid" id="stacklyStudentsGrid">
+
+            <article
+                class="stackly-students-profile-card"
+                data-student-name="Aarav Sharma"
+                data-student-id="STU-1001"
+                data-student-class="10-A"
+                data-student-status="Excellent"
+            >
+                <div class="stackly-students-profile-top">
+                    <span class="stackly-students-student-avatar avatar-orange">AS</span>
+                    <span class="stackly-students-status excellent">
+                        <i class="fa-solid fa-circle-check"></i> Excellent
+                    </span>
+                </div>
+                <h3>Aarav Sharma</h3>
+                <p class="stackly-students-student-id">Student ID: STU-1001</p>
+                <div class="stackly-students-profile-details">
+                    <span><i class="fa-solid fa-school"></i> Class 10-A</span>
+                    <span><i class="fa-solid fa-book-open"></i> Mathematics</span>
+                </div>
+                <div class="stackly-students-progress-info">
+                    <span>Academic Progress</span>
+                    <strong>94%</strong>
+                </div>
+                <div class="stackly-students-progress-track">
+                    <span style="width: 94%"></span>
+                </div>
+                <a href="404-staff.html" class="stackly-students-profile-link">
+                    View Student <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </article>
+
+            <article
+                class="stackly-students-profile-card"
+                data-student-name="Priya Kumar"
+                data-student-id="STU-1002"
+                data-student-class="10-B"
+                data-student-status="Good"
+            >
+                <div class="stackly-students-profile-top">
+                    <span class="stackly-students-student-avatar avatar-green">PK</span>
+                    <span class="stackly-students-status good">
+                        <i class="fa-solid fa-circle-check"></i> Good
+                    </span>
+                </div>
+                <h3>Priya Kumar</h3>
+                <p class="stackly-students-student-id">Student ID: STU-1002</p>
+                <div class="stackly-students-profile-details">
+                    <span><i class="fa-solid fa-school"></i> Class 10-B</span>
+                    <span><i class="fa-solid fa-book-open"></i> Science</span>
+                </div>
+                <div class="stackly-students-progress-info">
+                    <span>Academic Progress</span>
+                    <strong>86%</strong>
+                </div>
+                <div class="stackly-students-progress-track">
+                    <span style="width: 86%"></span>
+                </div>
+                <a href="404-staff.html" class="stackly-students-profile-link">
+                    View Student <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </article>
+
+            <article
+                class="stackly-students-profile-card"
+                data-student-name="Daniel Wilson"
+                data-student-id="STU-1003"
+                data-student-class="9-A"
+                data-student-status="Needs Support"
+            >
+                <div class="stackly-students-profile-top">
+                    <span class="stackly-students-student-avatar avatar-blue">DW</span>
+                    <span class="stackly-students-status support">
+                        <i class="fa-solid fa-heart"></i> Needs Support
+                    </span>
+                </div>
+                <h3>Daniel Wilson</h3>
+                <p class="stackly-students-student-id">Student ID: STU-1003</p>
+                <div class="stackly-students-profile-details">
+                    <span><i class="fa-solid fa-school"></i> Class 9-A</span>
+                    <span><i class="fa-solid fa-book-open"></i> English</span>
+                </div>
+                <div class="stackly-students-progress-info">
+                    <span>Academic Progress</span>
+                    <strong>62%</strong>
+                </div>
+                <div class="stackly-students-progress-track">
+                    <span style="width: 62%"></span>
+                </div>
+                <a href="404-staff.html" class="stackly-students-profile-link">
+                    View Student <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </article>
+
+            <article
+                class="stackly-students-profile-card"
+                data-student-name="Meera Patel"
+                data-student-id="STU-1004"
+                data-student-class="10-A"
+                data-student-status="Excellent"
+            >
+                <div class="stackly-students-profile-top">
+                    <span class="stackly-students-student-avatar avatar-purple">MP</span>
+                    <span class="stackly-students-status excellent">
+                        <i class="fa-solid fa-circle-check"></i> Excellent
+                    </span>
+                </div>
+                <h3>Meera Patel</h3>
+                <p class="stackly-students-student-id">Student ID: STU-1004</p>
+                <div class="stackly-students-profile-details">
+                    <span><i class="fa-solid fa-school"></i> Class 10-A</span>
+                    <span><i class="fa-solid fa-book-open"></i> Mathematics</span>
+                </div>
+                <div class="stackly-students-progress-info">
+                    <span>Academic Progress</span>
+                    <strong>97%</strong>
+                </div>
+                <div class="stackly-students-progress-track">
+                    <span style="width: 97%"></span>
+                </div>
+                <a href="404-staff.html" class="stackly-students-profile-link">
+                    View Student <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </article>
+
+        </div>
+
+        <p class="stackly-students-empty-state" id="stacklyStudentsEmpty" hidden>
+            <i class="fa-solid fa-magnifying-glass"></i>
+            No students match your search. Try another name or filter.
+        </p>
+
+    </section>
+
+
+    <!-- ======================================
+         4. STUDENT LEARNING PROGRESS
+    ======================================= -->
+    <section
+        class="stackly-students-progress-section"
+        id="stacklyStudentProgress"
+        data-aos="fade-up"
+    >
+
+        <div class="stackly-students-section-heading">
+            <div>
+                <span class="stackly-students-section-label">LEARNING INSIGHTS</span>
+                <h2>Progress That Inspires</h2>
+                <p>Identify strengths and discover where students may need guidance.</p>
+            </div>
+        </div>
+
+        <div class="stackly-students-insights-grid">
+
+            <article class="stackly-students-insight-card">
+                <div class="stackly-students-insight-icon">
+                    <i class="fa-solid fa-bullseye"></i>
+                </div>
+                <div class="stackly-students-insight-copy">
+                    <span>Learning Goal Completion</span>
+                    <h3>82%</h3>
+                    <p>Most students are progressing toward their learning goals.</p>
+                </div>
+                <div class="stackly-students-insight-bar">
+                    <span style="width: 82%"></span>
+                </div>
+            </article>
+
+            <article class="stackly-students-insight-card">
+                <div class="stackly-students-insight-icon green">
+                    <i class="fa-solid fa-calendar-check"></i>
+                </div>
+                <div class="stackly-students-insight-copy">
+                    <span>Class Participation</span>
+                    <h3>91%</h3>
+                    <p>Encourage consistent participation and classroom engagement.</p>
+                </div>
+                <div class="stackly-students-insight-bar green-bar">
+                    <span style="width: 91%"></span>
+                </div>
+            </article>
+
+            <article class="stackly-students-insight-card">
+                <div class="stackly-students-insight-icon purple">
+                    <i class="fa-solid fa-lightbulb"></i>
+                </div>
+                <div class="stackly-students-insight-copy">
+                    <span>Assignment Completion</span>
+                    <h3>78%</h3>
+                    <p>Follow up with learners who have outstanding assignments.</p>
+                </div>
+                <div class="stackly-students-insight-bar purple-bar">
+                    <span style="width: 78%"></span>
+                </div>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+         5. STUDENTS NEEDING ATTENTION
+    ======================================= -->
+    <section class="stackly-students-attention" data-aos="fade-up">
+
+        <div class="stackly-students-attention-heading">
+            <div class="stackly-students-attention-icon">
+                <i class="fa-solid fa-hand-holding-heart"></i>
+            </div>
+            <div>
+                <span class="stackly-students-section-label">PERSONALIZED SUPPORT</span>
+                <h2>Students Who May Need You</h2>
+                <p>A little extra guidance can make a big difference.</p>
+            </div>
+        </div>
+
+        <div class="stackly-students-attention-list">
+
+            <div class="stackly-students-attention-item">
+                <span class="stackly-students-student-avatar avatar-blue">DW</span>
+                <div class="stackly-students-attention-details">
+                    <strong>Daniel Wilson</strong>
+                    <span>Class 9-A · English</span>
+                </div>
+                <span class="stackly-students-attention-reason">
+                    <i class="fa-solid fa-book"></i> Review assignments
+                </span>
+                <a href="404-staff.html" aria-label="Review Daniel Wilson's student record">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="stackly-students-attention-item">
+                <span class="stackly-students-student-avatar avatar-purple">RK</span>
+                <div class="stackly-students-attention-details">
+                    <strong>Riya Kapoor</strong>
+                    <span>Class 10-B · Science</span>
+                </div>
+                <span class="stackly-students-attention-reason">
+                    <i class="fa-solid fa-calendar-xmark"></i> Check attendance
+                </span>
+                <a href="404-staff.html" aria-label="Review Riya Kapoor's student record">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="stackly-students-attention-item">
+                <span class="stackly-students-student-avatar avatar-orange">AM</span>
+                <div class="stackly-students-attention-details">
+                    <strong>Arjun Mehta</strong>
+                    <span>Class 9-A · Mathematics</span>
+                </div>
+                <span class="stackly-students-attention-reason">
+                    <i class="fa-solid fa-chart-line"></i> Review progress
+                </span>
+                <a href="404-staff.html" aria-label="Review Arjun Mehta's student record">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+         6. TEACHER INSPIRATION BANNER
+    ======================================= -->
+    <section class="stackly-students-inspiration" data-aos="zoom-in">
+
+        <div class="stackly-students-inspiration-decoration">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-book-open"></i>
+            <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+
+        <div class="stackly-students-inspiration-content">
+            <span>YOUR IMPACT MATTERS</span>
+            <h2>Great Teachers Inspire Great Futures.</h2>
+            <p>
+                Every lesson, every encouraging word, and every small achievement
+                helps your students move closer to their dreams.
+            </p>
+        </div>
+
+        <a href="404-staff.html" class="stackly-students-inspiration-btn">
+            Explore My Classes
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+    </section>
+
+</div>
+
+</main>
+
+    </div>
+
+    <!-- ==========================================
+         SCRIPTS
+    ========================================== -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="staff.js"></script>
+
+    <!-- Dashboard functionality -->
+    
+
+</body>
+</html>

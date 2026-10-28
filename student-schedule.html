@@ -1,0 +1,1113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Dashboard | Stackly Education</title>
+
+    <meta name="description" content="Stackly Education Student Dashboard to manage courses, assignments, attendance, grades, and class schedules.">
+    <meta name="theme-color" content="#ff9f16">
+
+    <!-- Favicon -->
+    <link rel="icon" href="Stackly-logo-Blue.webp" type="image/webp">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <!-- Student Dashboard CSS -->
+    <link rel="stylesheet" href="student.css">
+</head>
+
+<body>
+
+    <!-- ==========================================
+         MOBILE SIDEBAR OVERLAY
+    ========================================== -->
+
+    <div
+        class="stackly-student-overlay"
+        id="stacklyStudentOverlay"
+        aria-hidden="true"
+        hidden
+    ></div>
+
+    <!-- ==========================================
+         STUDENT SIDEBAR
+    ========================================== -->
+
+    <aside
+        class="stackly-student-sidebar"
+        id="stacklyStudentSidebar"
+        aria-label="Student dashboard navigation"
+        aria-hidden="false"
+    >
+
+        <!-- Logo -->
+        <div class="stackly-student-logo">
+
+            <a href="student.html" aria-label="Stackly Education student home">
+                <img
+                    src="Stackly-logo-Blue.webp"
+                    alt="Stackly Education logo"
+                    width="165"
+                    height="58"
+                >
+            </a>
+
+            <!-- Mobile Exit Button -->
+            <button
+                type="button"
+                class="stackly-student-sidebar-exit"
+                id="stacklyStudentSidebarClose"
+                aria-label="Close navigation menu"
+                aria-controls="stacklyStudentSidebar"
+            >
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+
+        </div>
+
+        <!-- Main Navigation -->
+        <div class="stackly-student-sidebar-heading">
+            <span>Student Workspace</span>
+        </div>
+
+        <nav class="stackly-student-sidebar-nav"
+             aria-label="Main navigation">
+
+            <a href="student.html"
+               class="stackly-student-nav-link active"
+               aria-current="page">
+                <i class="fa-solid fa-chart-pie" aria-hidden="true"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="student-courses.html" class="stackly-student-nav-link">
+                <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+                <span>My Courses</span>
+            </a>
+
+            <a href="student-assignments.html" class="stackly-student-nav-link">
+                <i class="fa-solid fa-file-pen" aria-hidden="true"></i>
+                <span>Assignments</span>
+            </a>
+
+            <a href="student-attendance.html" class="stackly-student-nav-link">
+                <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+                <span>My Attendance</span>
+            </a>
+
+            <a href="student-grades.html" class="stackly-student-nav-link">
+                <i class="fa-solid fa-chart-column" aria-hidden="true"></i>
+                <span>Grades & Results</span>
+            </a>
+
+            <a href="student-schedule.html" class="stackly-student-nav-link">
+                <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+                <span>Class Schedule</span>
+            </a>
+
+            <a href="student-resources.html" class="stackly-student-nav-link">
+                <i class="fa-solid fa-folder-open" aria-hidden="true"></i>
+                <span>Learning Resources</span>
+            </a>
+
+        </nav>
+
+        <!-- Account Navigation -->
+        <div class="stackly-student-sidebar-divider"></div>
+
+        <div class="stackly-student-sidebar-heading">
+            <span>My Account</span>
+        </div>
+
+        <nav class="stackly-student-sidebar-nav"
+             aria-label="Account navigation">
+
+            <a href="student-profile.html" class="stackly-student-nav-link">
+                <i class="fa-solid fa-user" aria-hidden="true"></i>
+                <span>My Profile</span>
+            </a>
+
+            <a href="index.html"
+               class="stackly-student-nav-link"
+               id="stacklyStudentLogout">
+                <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
+                <span>Logout</span>
+            </a>
+
+        </nav>
+
+        <!-- Sidebar Support Card -->
+        <div class="stackly-student-sidebar-bottom">
+
+            <div class="stackly-student-help-icon">
+                <i class="fa-solid fa-headset" aria-hidden="true"></i>
+            </div>
+
+            <div class="stackly-student-help-content">
+                <h4>Need some help?</h4>
+
+                <p>We're here to support your learning journey.</p>
+
+                <a href="404-student.html">
+                    Get Support
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+            </div>
+
+        </div>
+
+    </aside>
+
+    <!-- ==========================================
+         MAIN DASHBOARD AREA
+    ========================================== -->
+
+    <div class="stackly-student-main">
+
+        <!-- TOP HEADER -->
+        <header class="stackly-student-header">
+
+            <div class="stackly-student-header-left">
+
+                <!-- Mobile Hamburger -->
+                <button
+                    type="button"
+                    class="stackly-student-mobile-toggle"
+                    id="stacklyStudentMenuToggle"
+                    aria-label="Open navigation menu"
+                    aria-controls="stacklyStudentSidebar"
+                    aria-expanded="false"
+                >
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                </button>
+
+                <div class="stackly-student-page-label">
+                    <h1>Student Dashboard</h1>
+                    <p>Welcome back! Ready to learn something new?</p>
+                </div>
+
+            </div>
+
+            <!-- Header Right -->
+            <div class="stackly-student-header-right">
+
+                <!-- Notifications -->
+                <a
+                    href="404-student.html"
+                    class="stackly-student-header-icon"
+                    aria-label="Notifications"
+                    title="Notifications"
+                >
+                    <i class="fa-regular fa-bell" aria-hidden="true"></i>
+                    <span class="stackly-student-notification-dot"></span>
+                </a>
+
+                <!-- Student Email -->
+                <div class="stackly-student-header-email">
+
+                    <div class="stackly-student-email-icon">
+                        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="stackly-student-email-details">
+                        <span class="stackly-student-email-label">
+                            Student Account
+                        </span>
+
+                        <span
+                            class="stackly-student-email-address"
+                            id="stacklyStudentEmailAddress"
+                            title="Student email address"
+                        >
+                            Loading email...
+                        </span>
+                    </div>
+
+                </div>
+
+                <!-- Account Button -->
+                <a
+                    href="404-student.html"
+                    class="stackly-student-account-button"
+                    aria-label="My profile"
+                    title="My profile"
+                >
+                    <i class="fa-solid fa-user" aria-hidden="true"></i>
+                </a>
+
+            </div>
+
+        </header>
+
+        <main class="stackly-student-content">
+
+            <!-- ==========================================
+     STACKLY EDUCATION - CLASS SCHEDULE
+     Modern Student Timetable Page
+========================================== -->
+
+<!-- SCHEDULE HERO -->
+<section class="stackly-student-schedule-hero" data-aos="fade-up">
+
+    <div class="stackly-student-schedule-hero-content">
+
+        <span class="stackly-student-schedule-eyebrow">
+            <i class="fa-solid fa-calendar-check"></i>
+            YOUR LEARNING PLANNER
+        </span>
+
+        <h2>Make Every Class Count.</h2>
+
+        <p>
+            Stay organized, prepare for your lessons, and make the most
+            of every learning opportunity with your weekly class planner.
+        </p>
+
+        <div class="stackly-student-schedule-hero-info">
+
+            <div>
+                <i class="fa-solid fa-book-open"></i>
+                <span><strong>06</strong> Subjects</span>
+            </div>
+
+            <div>
+                <i class="fa-solid fa-clock"></i>
+                <span><strong>24</strong> Weekly Hours</span>
+            </div>
+
+        </div>
+
+        <a href="404-student.html"
+           class="stackly-student-schedule-hero-btn">
+            Explore Weekly Timetable
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+    </div>
+
+    <div class="stackly-student-schedule-hero-visual">
+
+        <div class="stackly-student-schedule-hero-circle circle-one"></div>
+        <div class="stackly-student-schedule-hero-circle circle-two"></div>
+
+        <div class="stackly-student-schedule-calendar-card">
+
+            <div class="stackly-student-schedule-calendar-top">
+                <div>
+                    <span>YOUR ACADEMIC WEEK</span>
+                    <h3>Stay on Track</h3>
+                </div>
+
+                <div class="stackly-student-schedule-calendar-icon">
+                    <i class="fa-solid fa-calendar-days"></i>
+                </div>
+            </div>
+
+            <div class="stackly-student-schedule-mini-week">
+
+                <div>
+                    <span>MON</span>
+                    <strong>26</strong>
+                </div>
+
+                <div>
+                    <span>TUE</span>
+                    <strong>27</strong>
+                </div>
+
+                <div class="current-day">
+                    <span>WED</span>
+                    <strong>28</strong>
+                </div>
+
+                <div>
+                    <span>THU</span>
+                    <strong>29</strong>
+                </div>
+
+                <div>
+                    <span>FRI</span>
+                    <strong>30</strong>
+                </div>
+
+            </div>
+
+            <div class="stackly-student-schedule-next-class">
+
+                <div class="stackly-student-schedule-next-icon">
+                    <i class="fa-solid fa-atom"></i>
+                </div>
+
+                <div class="stackly-student-schedule-next-details">
+                    <span>NEXT CLASS</span>
+                    <strong>Physics Laboratory</strong>
+                    <small>
+                        <i class="fa-regular fa-clock"></i>
+                        10:30 AM – 11:30 AM
+                    </small>
+                </div>
+
+                <span class="stackly-student-schedule-live-dot"></span>
+
+            </div>
+
+        </div>
+
+        <div class="stackly-student-schedule-floating-note">
+            <i class="fa-solid fa-circle-check"></i>
+            <div>
+                <strong>Stay Prepared</strong>
+                <span>One class at a time</span>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- QUICK SCHEDULE OVERVIEW -->
+<section class="stackly-student-schedule-overview" data-aos="fade-up">
+
+    <article class="stackly-student-schedule-overview-card">
+
+        <div class="stackly-student-schedule-overview-icon orange">
+            <i class="fa-solid fa-calendar-day"></i>
+        </div>
+
+        <div>
+            <span>Today's Classes</span>
+            <h3>05</h3>
+            <p>Lessons scheduled today</p>
+        </div>
+
+    </article>
+
+    <article class="stackly-student-schedule-overview-card">
+
+        <div class="stackly-student-schedule-overview-icon green">
+            <i class="fa-solid fa-clock"></i>
+        </div>
+
+        <div>
+            <span>Learning Hours</span>
+            <h3>04.5</h3>
+            <p>Planned study time today</p>
+        </div>
+
+    </article>
+
+    <article class="stackly-student-schedule-overview-card">
+
+        <div class="stackly-student-schedule-overview-icon purple">
+            <i class="fa-solid fa-flask"></i>
+        </div>
+
+        <div>
+            <span>Practical Sessions</span>
+            <h3>02</h3>
+            <p>Lab and activity sessions</p>
+        </div>
+
+    </article>
+
+    <article class="stackly-student-schedule-overview-card">
+
+        <div class="stackly-student-schedule-overview-icon blue">
+            <i class="fa-solid fa-book"></i>
+        </div>
+
+        <div>
+            <span>Weekly Subjects</span>
+            <h3>06</h3>
+            <p>Subjects on your timetable</p>
+        </div>
+
+    </article>
+
+</section>
+
+
+<!-- TODAY'S TIMETABLE -->
+<section class="stackly-student-schedule-today" data-aos="fade-up">
+
+    <div class="stackly-student-schedule-section-heading">
+
+        <div>
+            <span class="stackly-student-schedule-section-label">
+                YOUR DAILY PLAN
+            </span>
+
+            <h2>Today's Timetable</h2>
+
+            <p>Know what's coming up and prepare for your next lesson.</p>
+        </div>
+
+        <span class="stackly-student-schedule-day-badge">
+            <i class="fa-regular fa-calendar"></i>
+            Wednesday, Oct 28
+        </span>
+
+    </div>
+
+    <div class="stackly-student-schedule-today-panel">
+
+        <!-- CLASS 1 -->
+        <article class="stackly-student-schedule-today-row">
+
+            <div class="stackly-student-schedule-time">
+                <strong>08:30</strong>
+                <span>09:30 AM</span>
+            </div>
+
+            <div class="stackly-student-schedule-time-line">
+                <span></span>
+            </div>
+
+            <div class="stackly-student-schedule-class-icon orange">
+                <i class="fa-solid fa-atom"></i>
+            </div>
+
+            <div class="stackly-student-schedule-class-details">
+                <span class="stackly-student-schedule-subject-tag orange">
+                    SCIENCE
+                </span>
+
+                <h3>Physics</h3>
+
+                <p>
+                    <i class="fa-solid fa-user-tie"></i>
+                    Mr. Arun Kumar
+                </p>
+            </div>
+
+            <div class="stackly-student-schedule-class-location">
+                <i class="fa-solid fa-location-dot"></i>
+                Room 204
+            </div>
+
+            <span class="stackly-student-schedule-class-status completed">
+                Completed
+            </span>
+
+        </article>
+
+
+        <!-- CLASS 2 -->
+        <article class="stackly-student-schedule-today-row">
+
+            <div class="stackly-student-schedule-time">
+                <strong>09:30</strong>
+                <span>10:30 AM</span>
+            </div>
+
+            <div class="stackly-student-schedule-time-line">
+                <span></span>
+            </div>
+
+            <div class="stackly-student-schedule-class-icon purple">
+                <i class="fa-solid fa-square-root-variable"></i>
+            </div>
+
+            <div class="stackly-student-schedule-class-details">
+                <span class="stackly-student-schedule-subject-tag purple">
+                    MATHEMATICS
+                </span>
+
+                <h3>Advanced Mathematics</h3>
+
+                <p>
+                    <i class="fa-solid fa-user-tie"></i>
+                    Mrs. Priya Sharma
+                </p>
+            </div>
+
+            <div class="stackly-student-schedule-class-location">
+                <i class="fa-solid fa-location-dot"></i>
+                Room 108
+            </div>
+
+            <span class="stackly-student-schedule-class-status completed">
+                Completed
+            </span>
+
+        </article>
+
+
+        <!-- CLASS 3 -->
+        <article class="stackly-student-schedule-today-row upcoming">
+
+            <div class="stackly-student-schedule-time">
+                <strong>10:30</strong>
+                <span>11:30 AM</span>
+            </div>
+
+            <div class="stackly-student-schedule-time-line">
+                <span></span>
+            </div>
+
+            <div class="stackly-student-schedule-class-icon green">
+                <i class="fa-solid fa-flask"></i>
+            </div>
+
+            <div class="stackly-student-schedule-class-details">
+                <span class="stackly-student-schedule-subject-tag green">
+                    PRACTICAL
+                </span>
+
+                <h3>Physics Laboratory</h3>
+
+                <p>
+                    <i class="fa-solid fa-user-tie"></i>
+                    Mr. Arun Kumar
+                </p>
+            </div>
+
+            <div class="stackly-student-schedule-class-location">
+                <i class="fa-solid fa-location-dot"></i>
+                Lab 02
+            </div>
+
+            <span class="stackly-student-schedule-class-status next">
+                <i class="fa-solid fa-circle"></i>
+                Next Class
+            </span>
+
+        </article>
+
+
+        <!-- CLASS 4 -->
+        <article class="stackly-student-schedule-today-row">
+
+            <div class="stackly-student-schedule-time">
+                <strong>11:45</strong>
+                <span>12:45 PM</span>
+            </div>
+
+            <div class="stackly-student-schedule-time-line">
+                <span></span>
+            </div>
+
+            <div class="stackly-student-schedule-class-icon blue">
+                <i class="fa-solid fa-language"></i>
+            </div>
+
+            <div class="stackly-student-schedule-class-details">
+                <span class="stackly-student-schedule-subject-tag blue">
+                    LANGUAGE
+                </span>
+
+                <h3>English Communication</h3>
+
+                <p>
+                    <i class="fa-solid fa-user-tie"></i>
+                    Mrs. Meena Joseph
+                </p>
+            </div>
+
+            <div class="stackly-student-schedule-class-location">
+                <i class="fa-solid fa-location-dot"></i>
+                Room 305
+            </div>
+
+            <span class="stackly-student-schedule-class-status scheduled">
+                Scheduled
+            </span>
+
+        </article>
+
+
+        <!-- CLASS 5 -->
+        <article class="stackly-student-schedule-today-row">
+
+            <div class="stackly-student-schedule-time">
+                <strong>01:30</strong>
+                <span>02:30 PM</span>
+            </div>
+
+            <div class="stackly-student-schedule-time-line">
+                <span></span>
+            </div>
+
+            <div class="stackly-student-schedule-class-icon pink">
+                <i class="fa-solid fa-laptop-code"></i>
+            </div>
+
+            <div class="stackly-student-schedule-class-details">
+                <span class="stackly-student-schedule-subject-tag pink">
+                    TECHNOLOGY
+                </span>
+
+                <h3>Computer Science</h3>
+
+                <p>
+                    <i class="fa-solid fa-user-tie"></i>
+                    Mr. Daniel Raj
+                </p>
+            </div>
+
+            <div class="stackly-student-schedule-class-location">
+                <i class="fa-solid fa-location-dot"></i>
+                Computer Lab
+            </div>
+
+            <span class="stackly-student-schedule-class-status scheduled">
+                Scheduled
+            </span>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- WEEKLY TIMETABLE -->
+<section class="stackly-student-schedule-weekly"
+         id="stacklyStudentScheduleWeekly"
+         data-aos="fade-up">
+
+    <div class="stackly-student-schedule-section-heading">
+
+        <div>
+            <span class="stackly-student-schedule-section-label">
+                PLAN YOUR WEEK
+            </span>
+
+            <h2>Weekly Class Schedule</h2>
+
+            <p>Get a clear overview of your subjects throughout the week.</p>
+        </div>
+
+        <span class="stackly-student-schedule-week-badge">
+            <i class="fa-solid fa-calendar-week"></i>
+            Week at a glance
+        </span>
+
+    </div>
+
+    <div class="stackly-student-schedule-week-panel">
+
+        <div class="stackly-student-schedule-week-grid">
+
+            <!-- TIME COLUMN -->
+            <div class="stackly-student-schedule-week-day time-column">
+
+                <div class="stackly-student-schedule-week-day-heading">
+                    <i class="fa-regular fa-clock"></i>
+                    TIME
+                </div>
+
+                <div class="stackly-student-schedule-week-time">08:30</div>
+                <div class="stackly-student-schedule-week-time">09:30</div>
+                <div class="stackly-student-schedule-week-time">10:30</div>
+                <div class="stackly-student-schedule-week-time">11:30</div>
+                <div class="stackly-student-schedule-week-time">12:30</div>
+
+            </div>
+
+
+            <!-- MONDAY -->
+            <div class="stackly-student-schedule-week-day">
+
+                <div class="stackly-student-schedule-week-day-heading">
+                    MON
+                    <strong>26</strong>
+                </div>
+
+                <div class="stackly-student-schedule-week-cell orange">
+                    <strong>Physics</strong>
+                    <span>08:30–09:30</span>
+                </div>
+
+                <div class="stackly-student-schedule-week-cell purple">
+                    <strong>Maths</strong>
+                    <span>09:30–10:30</span>
+                </div>
+
+                <div class="stackly-student-schedule-week-cell green">
+                    <strong>Lab</strong>
+                    <span>10:30–11:30</span>
+                </div>
+
+                <div class="stackly-student-schedule-week-cell blue">
+                    <strong>English</strong>
+                    <span>11:30–12:30</span>
+                </div>
+
+                <div class="stackly-student-schedule-week-cell pink">
+                    <strong>Computer</strong>
+                    <span>12:30–01:30</span>
+                </div>
+
+            </div>
+
+
+            <!-- TUESDAY -->
+            <div class="stackly-student-schedule-week-day">
+
+                <div class="stackly-student-schedule-week-day-heading">
+                    TUE
+                    <strong>27</strong>
+                </div>
+
+                <div class="stackly-student-schedule-week-cell purple">
+                    <strong>Maths</strong>
+                    <span>08:30–09:30</span>
+                </div>
+
+                <div class="stackly-student-schedule-week-cell blue">
+                    <strong>English</strong>
+                    <span>09:30–10:30</span>
+                </div>
+
+                <div class="stackly-student-schedule-week-cell orange">
+                    <strong>Physics</strong>
+                    <span>10:30–11:30</span>
+                </div>
+
+                <div class="stackly-student-schedule-week-cell pink">
+                    <strong>Computer</strong>
+                    <span>11:30–12:30</span>
+                </div>
+
+                <div class="stackly-student-schedule-week-cell green">
+                    <strong>Practical</strong>
+                    <span>12:30–01:30</span>
+                </div>
+
+            </div>
+
+
+            <!-- WEDNESDAY -->
+            <div class="stackly-student-schedule-week-day today">
+
+                <div class="stackly-student-schedule-week-day-heading">
+                    WED
+                    <strong>28</strong>
+                </div>
+
+                <div class="stackly-student-schedule-week-cell orange">
+                    <strong>Physics</strong>
+                    <span>08:30–09:30</span>
+                </div>
+
+                <div class="stackly-student-schedule-week-cell purple">
+                    <strong>Maths</strong>
+                    <span>09:30–10:30</span>
+                </div>
+
+                <div class="stackly-student-schedule-week-cell green">
+                    <strong>Lab</strong>
+                    <span>10:30–11:30</span>
+                </div>
+
+                <div class="stackly-student-schedule-week-cell blue">
+                    <strong>English</strong>
+                    <span>11:30–12:30</span>
+                </div>
+
+                <div class="stackly-student-schedule-week-cell pink">
+                    <strong>Computer</strong>
+                    <span>12:30–01:30</span>
+                </div>
+
+            </div>
+
+
+            <!-- THURSDAY -->
+            <div class="stackly-student-schedule-week-day">
+
+                <div class="stackly-student-schedule-week-day-heading">
+                    THU
+                    <strong>29</strong>
+                </div>
+
+                <div class="stackly-student-schedule-week-cell blue">
+                    <strong>English</strong>
+                    <span>08:30–09:30</span>
+                </div>
+
+                <div class="stackly-student-schedule-week-cell green">
+                    <strong>Practical</strong>
+                    <span>09:30–10:30</span>
+                </div>
+
+                <div class="stackly-student-schedule-week-cell purple">
+                    <strong>Maths</strong>
+                    <span>10:30–11:30</span>
+                </div>
+
+                <div class="stackly-student-schedule-week-cell pink">
+                    <strong>Computer</strong>
+                    <span>11:30–12:30</span>
+                </div>
+
+                <div class="stackly-student-schedule-week-cell orange">
+                    <strong>Physics</strong>
+                    <span>12:30–01:30</span>
+                </div>
+
+            </div>
+
+
+            <!-- FRIDAY -->
+            <div class="stackly-student-schedule-week-day">
+
+                <div class="stackly-student-schedule-week-day-heading">
+                    FRI
+                    <strong>30</strong>
+                </div>
+
+                <div class="stackly-student-schedule-week-cell green">
+                    <strong>Practical</strong>
+                    <span>08:30–09:30</span>
+                </div>
+
+                <div class="stackly-student-schedule-week-cell orange">
+                    <strong>Physics</strong>
+                    <span>09:30–10:30</span>
+                </div>
+
+                <div class="stackly-student-schedule-week-cell blue">
+                    <strong>English</strong>
+                    <span>10:30–11:30</span>
+                </div>
+
+                <div class="stackly-student-schedule-week-cell purple">
+                    <strong>Maths</strong>
+                    <span>11:30–12:30</span>
+                </div>
+
+                <div class="stackly-student-schedule-week-cell pink">
+                    <strong>Computer</strong>
+                    <span>12:30–01:30</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="stackly-student-schedule-week-legend">
+
+            <span><i class="orange"></i> Science</span>
+            <span><i class="purple"></i> Mathematics</span>
+            <span><i class="blue"></i> Languages</span>
+            <span><i class="green"></i> Practical</span>
+            <span><i class="pink"></i> Technology</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- UPCOMING CLASSES -->
+<section class="stackly-student-schedule-upcoming" data-aos="fade-up">
+
+    <div class="stackly-student-schedule-section-heading">
+
+        <div>
+            <span class="stackly-student-schedule-section-label">
+                WHAT'S NEXT
+            </span>
+
+            <h2>Upcoming Classes</h2>
+
+            <p>Prepare ahead for the next lessons on your timetable.</p>
+        </div>
+
+    </div>
+
+    <div class="stackly-student-schedule-upcoming-grid">
+
+        <article class="stackly-student-schedule-upcoming-card">
+
+            <div class="stackly-student-schedule-upcoming-top">
+                <span class="stackly-student-schedule-upcoming-date">
+                    TODAY · 10:30 AM
+                </span>
+
+                <div class="stackly-student-schedule-class-icon green">
+                    <i class="fa-solid fa-flask"></i>
+                </div>
+            </div>
+
+            <h3>Physics Laboratory</h3>
+
+            <p>Explore practical concepts and complete your lab activities.</p>
+
+            <div class="stackly-student-schedule-upcoming-meta">
+                <span>
+                    <i class="fa-solid fa-user-tie"></i>
+                    Mr. Arun Kumar
+                </span>
+
+                <span>
+                    <i class="fa-solid fa-location-dot"></i>
+                    Lab 02
+                </span>
+            </div>
+
+            <div class="stackly-student-schedule-upcoming-footer">
+                <span class="upcoming-status">Upcoming</span>
+                <a href="404-student.html">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+        </article>
+
+
+        <article class="stackly-student-schedule-upcoming-card">
+
+            <div class="stackly-student-schedule-upcoming-top">
+                <span class="stackly-student-schedule-upcoming-date">
+                    TODAY · 11:45 AM
+                </span>
+
+                <div class="stackly-student-schedule-class-icon blue">
+                    <i class="fa-solid fa-language"></i>
+                </div>
+            </div>
+
+            <h3>English Communication</h3>
+
+            <p>Build confidence in speaking, writing, and communication.</p>
+
+            <div class="stackly-student-schedule-upcoming-meta">
+                <span>
+                    <i class="fa-solid fa-user-tie"></i>
+                    Mrs. Meena Joseph
+                </span>
+
+                <span>
+                    <i class="fa-solid fa-location-dot"></i>
+                    Room 305
+                </span>
+            </div>
+
+            <div class="stackly-student-schedule-upcoming-footer">
+                <span class="upcoming-status">Upcoming</span>
+                <a href="404-student.html">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+        </article>
+
+
+        <article class="stackly-student-schedule-upcoming-card">
+
+            <div class="stackly-student-schedule-upcoming-top">
+                <span class="stackly-student-schedule-upcoming-date">
+                    TODAY · 01:30 PM
+                </span>
+
+                <div class="stackly-student-schedule-class-icon pink">
+                    <i class="fa-solid fa-laptop-code"></i>
+                </div>
+            </div>
+
+            <h3>Computer Science</h3>
+
+            <p>Practice programming concepts and strengthen technical skills.</p>
+
+            <div class="stackly-student-schedule-upcoming-meta">
+                <span>
+                    <i class="fa-solid fa-user-tie"></i>
+                    Mr. Daniel Raj
+                </span>
+
+                <span>
+                    <i class="fa-solid fa-location-dot"></i>
+                    Computer Lab
+                </span>
+            </div>
+
+            <div class="stackly-student-schedule-upcoming-footer">
+                <span class="upcoming-status">Upcoming</span>
+                <a href="404-student.html">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- STUDY PREPARATION BANNER -->
+<section class="stackly-student-schedule-prep" data-aos="fade-up">
+
+    <div class="stackly-student-schedule-prep-icon">
+        <i class="fa-solid fa-lightbulb"></i>
+    </div>
+
+    <div class="stackly-student-schedule-prep-content">
+
+        <span>YOUR DAILY STUDY TIP</span>
+
+        <h2>Arrive Ready. Learn With Confidence.</h2>
+
+        <p>
+            Review your notes before class, keep your materials ready,
+            and take a few minutes after each lesson to summarize what
+            you learned.
+        </p>
+
+        <div class="stackly-student-schedule-prep-list">
+
+            <span>
+                <i class="fa-solid fa-check"></i>
+                Review lesson notes
+            </span>
+
+            <span>
+                <i class="fa-solid fa-check"></i>
+                Prepare learning materials
+            </span>
+
+            <span>
+                <i class="fa-solid fa-check"></i>
+                Note upcoming assignments
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="stackly-student-schedule-prep-decoration">
+        <i class="fa-solid fa-graduation-cap"></i>
+    </div>
+
+</section>
+
+        </main>
+
+</div>
+
+    <!-- ==========================================
+         SCRIPTS
+    ========================================== -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="student.js"></script>
+
+</body>
+</html>

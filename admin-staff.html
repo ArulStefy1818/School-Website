@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | Stackly Education</title>
+
+    <meta name="description"
+          content="Manage students, staff, courses, and academic activities from the Stackly Education Admin Dashboard.">
+
+    <link rel="icon" type="image/webp" href="Stackly-logo-Blue.webp">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <!-- Admin Dashboard CSS -->
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body class="stackly-admin-body">
+
+    <!-- Mobile Sidebar Overlay -->
+    <div class="stackly-admin-overlay"
+         id="stacklyAdminOverlay"
+         aria-hidden="true"></div>
+
+    <!-- ==========================================
+         SIDEBAR
+    =========================================== -->
+    <aside class="stackly-admin-sidebar" id="stacklyAdminSidebar">
+
+        <!-- Sidebar Header -->
+        <div class="stackly-admin-sidebar-header">
+
+            <a href="admin.html"
+               class="stackly-admin-logo"
+               aria-label="Stackly Education Home">
+
+                <img src="Stackly-logo-Blue.webp"
+                     alt="Stackly Education Logo">
+            </a>
+
+            <!-- Mobile Exit Button -->
+            <button class="stackly-admin-sidebar-close"
+                    id="stacklyAdminSidebarClose"
+                    type="button"
+                    aria-label="Close navigation menu">
+
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+        <!-- Sidebar Navigation -->
+        <nav class="stackly-admin-navigation"
+             aria-label="Admin navigation">
+
+            <p class="stackly-admin-nav-label">MAIN MENU</p>
+
+            <a href="admin.html"
+               class="stackly-admin-nav-link active"
+               aria-current="page">
+
+                <i class="fa-solid fa-chart-pie"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="admin-students.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-user-graduate"></i>
+                <span>Students</span>
+            </a>
+
+            <a href="admin-staff.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-chalkboard-user"></i>
+                <span>Staff Members</span>
+            </a>
+
+
+            <a href="admin-classes.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-school"></i>
+                <span>Classes</span>
+            </a>
+
+            <a href="admin-attendance.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>Attendance</span>
+            </a>
+
+            <a href="admin-examinations.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-file-circle-check"></i>
+                <span>Examinations</span>
+            </a>
+
+
+            <p class="stackly-admin-nav-label stackly-admin-nav-spaced">
+                MANAGEMENT
+            </p>
+
+            <a href="admin-announcements.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-bullhorn"></i>
+                <span>Announcements</span>
+            </a>
+
+            <a href="admin-messages.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-envelope"></i>
+                <span>Messages</span>
+            </a>
+
+        </nav>
+
+        <!-- Sidebar Bottom -->
+        <div class="stackly-admin-sidebar-bottom">
+
+            <div class="stackly-admin-sidebar-help">
+                <div class="stackly-admin-help-icon">
+                    <i class="fa-solid fa-headset"></i>
+                </div>
+
+                <div class="stackly-admin-help-text">
+                    <h4>Need Help?</h4>
+                    <p>Contact support</p>
+                </div>
+
+                <a href="404-admin.html"
+                   class="stackly-admin-help-link"
+                   aria-label="Contact support">
+
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+            <a href="index.html"
+               class="stackly-admin-nav-link stackly-admin-logout-link">
+
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <span>Logout</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+    <!-- ==========================================
+         MAIN CONTENT AREA
+    =========================================== -->
+    <main class="stackly-admin-main">
+
+        <!-- Top Header -->
+        <header class="stackly-admin-topbar">
+
+            <div class="stackly-admin-topbar-left">
+
+                <!-- Mobile Hamburger -->
+                <button class="stackly-admin-menu-toggle"
+                        id="stacklyAdminMenuToggle"
+                        type="button"
+                        aria-label="Open navigation menu"
+                        aria-controls="stacklyAdminSidebar"
+                        aria-expanded="false">
+
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="stackly-admin-page-heading">
+                    <span class="stackly-admin-breadcrumb">
+                        Stackly Education / Admin
+                    </span>
+
+                    <h1>Admin Dashboard</h1>
+                </div>
+
+            </div>
+
+            <!-- Top Right Actions -->
+            <div class="stackly-admin-topbar-right">
+
+                <a href="404-admin.html"><button class="stackly-admin-icon-button"
+                        type="button"
+                        aria-label="Notifications">
+
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="stackly-admin-notification-dot"></span>
+                </button></a>
+
+                <div class="stackly-admin-header-divider"></div>
+
+                <!-- Admin Email -->
+                <div class="stackly-admin-account">
+
+                    <div class="stackly-admin-avatar">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+
+                    <div class="stackly-admin-account-info">
+                        <span class="stackly-admin-account-name">
+                            Administrator
+                        </span>
+
+                        <span class="stackly-admin-account-email"
+                              id="stacklyAdminEmail">
+                            admin@stacklyeducation.com
+                        </span>
+                    </div>
+
+                    <button class="stackly-admin-account-menu"
+                            id="stacklyAdminAccountMenu"
+                            type="button"
+                            aria-label="Account options">
+
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </header>
+<!-- ==========================================
+     STACKLY EDUCATION — STAFF MEMBERS PAGE
+     ADDITIONAL SECTIONS HTML
+========================================== -->
+
+<div class="stackly-admin-staff-page">
+
+    <!-- ==========================================
+         1. STAFF HERO / WELCOME SECTION
+    =========================================== -->
+    <section class="stackly-admin-staff-hero" data-aos="fade-up">
+
+        <div class="stackly-admin-staff-hero-content">
+
+            <span class="stackly-admin-staff-eyebrow">
+                <i class="fa-solid fa-people-group"></i>
+                STAFF MANAGEMENT CENTER
+            </span>
+
+            <h2>
+                Empower Your
+                <span>Teaching Team.</span>
+            </h2>
+
+            <p>
+                Manage educators, recognize achievements, monitor
+                workloads, and build a stronger academic community.
+            </p>
+
+            <div class="stackly-admin-staff-hero-actions">
+
+                <a href="404-admin.html"
+                   class="stackly-admin-staff-primary-btn">
+                    <i class="fa-solid fa-user-plus"></i>
+                    Add New Staff
+                </a>
+
+                <a href="404-admin.html"
+                   class="stackly-admin-staff-secondary-btn">
+                    <i class="fa-solid fa-users"></i>
+                    Explore Team
+                </a>
+
+            </div>
+
+            <div class="stackly-admin-staff-hero-note">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Supporting excellence in every classroom</span>
+            </div>
+
+        </div>
+
+        <div class="stackly-admin-staff-hero-visual">
+
+            <div class="stackly-admin-staff-hero-icon">
+                <i class="fa-solid fa-chalkboard-user"></i>
+            </div>
+
+            <div class="stackly-admin-staff-floating-card staff-float-top">
+                <div class="stackly-admin-staff-floating-icon">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div>
+                    <strong>Teaching Excellence</strong>
+                    <span>Growing together</span>
+                </div>
+            </div>
+
+            <div class="stackly-admin-staff-floating-card staff-float-bottom">
+                <div class="stackly-admin-staff-online-indicator"></div>
+                <div>
+                    <strong>Team Collaboration</strong>
+                    <span>One team, one vision</span>
+                </div>
+            </div>
+
+            <div class="stackly-admin-staff-hero-decoration staff-decoration-one"></div>
+            <div class="stackly-admin-staff-hero-decoration staff-decoration-two"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         2. STAFF OVERVIEW STATISTICS
+    =========================================== -->
+    <section class="stackly-admin-staff-stats" data-aos="fade-up">
+
+        <div class="stackly-admin-staff-stat-card">
+
+            <div class="stackly-admin-staff-stat-top">
+                <span>Total Staff</span>
+                <div class="stackly-admin-staff-stat-icon staff-stat-orange">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+            </div>
+
+            <div class="stackly-admin-staff-stat-value">
+                <h3 data-count="86">86</h3>
+                <span class="stackly-admin-staff-stat-trend">
+                    <i class="fa-solid fa-arrow-up"></i>
+                    8.4%
+                </span>
+            </div>
+
+            <p>Across all departments</p>
+
+            <div class="stackly-admin-staff-stat-progress">
+                <span style="width: 84%;"></span>
+            </div>
+
+        </div>
+
+
+        <div class="stackly-admin-staff-stat-card">
+
+            <div class="stackly-admin-staff-stat-top">
+                <span>Present Today</span>
+                <div class="stackly-admin-staff-stat-icon staff-stat-green">
+                    <i class="fa-solid fa-user-check"></i>
+                </div>
+            </div>
+
+            <div class="stackly-admin-staff-stat-value">
+                <h3 data-count="78">78</h3>
+                <span class="stackly-admin-staff-stat-positive">
+                    On campus
+                </span>
+            </div>
+
+            <p>Staff attendance overview</p>
+
+            <div class="stackly-admin-staff-stat-progress">
+                <span style="width: 91%;"></span>
+            </div>
+
+        </div>
+
+
+        <div class="stackly-admin-staff-stat-card">
+
+            <div class="stackly-admin-staff-stat-top">
+                <span>On Leave</span>
+                <div class="stackly-admin-staff-stat-icon staff-stat-purple">
+                    <i class="fa-solid fa-calendar-minus"></i>
+                </div>
+            </div>
+
+            <div class="stackly-admin-staff-stat-value">
+                <h3 data-count="5">5</h3>
+                <span class="stackly-admin-staff-stat-neutral">
+                    Today
+                </span>
+            </div>
+
+            <p>Approved staff leave</p>
+
+            <div class="stackly-admin-staff-stat-progress">
+                <span style="width: 22%;"></span>
+            </div>
+
+        </div>
+
+
+        <div class="stackly-admin-staff-stat-card">
+
+            <div class="stackly-admin-staff-stat-top">
+                <span>Open Positions</span>
+                <div class="stackly-admin-staff-stat-icon staff-stat-blue">
+                    <i class="fa-solid fa-briefcase"></i>
+                </div>
+            </div>
+
+            <div class="stackly-admin-staff-stat-value">
+                <h3 data-count="3">3</h3>
+                <span class="stackly-admin-staff-stat-neutral">
+                    Recruitment
+                </span>
+            </div>
+
+            <p>Positions to be filled</p>
+
+            <div class="stackly-admin-staff-stat-progress">
+                <span style="width: 35%;"></span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         3. STAFF SPOTLIGHT
+    =========================================== -->
+    <section class="stackly-admin-staff-spotlight" data-aos="fade-up">
+
+        <div class="stackly-admin-staff-section-heading">
+
+            <div>
+                <span class="stackly-admin-staff-section-label">
+                    PEOPLE WHO INSPIRE
+                </span>
+
+                <h2>Staff Spotlight</h2>
+
+                <p>
+                    Celebrate the educators who make a difference
+                    every single day.
+                </p>
+            </div>
+
+            <a href="404-admin.html"
+               class="stackly-admin-staff-text-link">
+                View Recognition
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+
+        <div class="stackly-admin-staff-spotlight-grid">
+
+            <article class="stackly-admin-staff-featured-card">
+
+                <div class="stackly-admin-staff-featured-top">
+                    <span class="stackly-admin-staff-featured-badge">
+                        <i class="fa-solid fa-award"></i>
+                        EDUCATOR OF THE MONTH
+                    </span>
+
+                    <i class="fa-solid fa-quote-right stackly-admin-staff-quote-icon"></i>
+                </div>
+
+                <div class="stackly-admin-staff-featured-profile">
+
+                    <div class="stackly-admin-staff-featured-avatar staff-avatar-one">
+                        AM
+                    </div>
+
+                    <div>
+                        <h3>Ananya Mehta</h3>
+                        <span>Senior Mathematics Teacher</span>
+                        <div class="stackly-admin-staff-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span>Outstanding contribution</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <p class="stackly-admin-staff-featured-description">
+                    Recognized for innovative teaching methods,
+                    student mentorship, and dedication to academic growth.
+                </p>
+
+                <div class="stackly-admin-staff-featured-footer">
+                    <span>
+                        <i class="fa-solid fa-book-open"></i>
+                        Mathematics
+                    </span>
+
+                    <a href="404-admin.html" aria-label="View Ananya Mehta's profile">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+
+            </article>
+
+
+            <article class="stackly-admin-staff-recognition-card">
+
+                <div class="stackly-admin-staff-recognition-icon">
+                    <i class="fa-solid fa-lightbulb"></i>
+                </div>
+
+                <span class="stackly-admin-staff-recognition-label">
+                    INNOVATION AWARD
+                </span>
+
+                <h3>Creative Teaching</h3>
+
+                <p>
+                    Recognizing educators who bring new ideas,
+                    engaging activities, and interactive learning
+                    into the classroom.
+                </p>
+
+                <a href="404-admin.html">
+                    Explore Achievements
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </article>
+
+
+            <article class="stackly-admin-staff-recognition-card staff-recognition-green">
+
+                <div class="stackly-admin-staff-recognition-icon">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+
+                <span class="stackly-admin-staff-recognition-label">
+                    TEAM EXCELLENCE
+                </span>
+
+                <h3>Stronger Together</h3>
+
+                <p>
+                    Highlighting collaboration, peer mentoring,
+                    and the shared commitment to student success.
+                </p>
+
+                <a href="404-admin.html">
+                    Meet Our Team
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         4. DEPARTMENT DISTRIBUTION
+    =========================================== -->
+    <section class="stackly-admin-staff-departments" data-aos="fade-up">
+
+        <div class="stackly-admin-staff-section-heading">
+
+            <div>
+                <span class="stackly-admin-staff-section-label">
+                    ACADEMIC STRUCTURE
+                </span>
+
+                <h2>Departments & Expertise</h2>
+
+                <p>
+                    Explore staff distribution across key academic
+                    and administrative departments.
+                </p>
+            </div>
+
+            <a href="404-admin.html"
+               class="stackly-admin-staff-text-link">
+                Manage Departments
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+
+        <div class="stackly-admin-staff-department-grid">
+
+            <article class="stackly-admin-staff-department-card">
+
+                <div class="stackly-admin-staff-department-icon staff-dept-orange">
+                    <i class="fa-solid fa-calculator"></i>
+                </div>
+
+                <div class="stackly-admin-staff-department-info">
+                    <h3>Mathematics</h3>
+                    <p>Numbers, logic and problem-solving</p>
+                </div>
+
+                <div class="stackly-admin-staff-department-count">
+                    <strong>12</strong>
+                    <span>Members</span>
+                </div>
+
+                <div class="stackly-admin-staff-department-bar">
+                    <span style="width: 78%;"></span>
+                </div>
+
+                <a href="404-admin.html" aria-label="View Mathematics department">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+
+            </article>
+
+
+            <article class="stackly-admin-staff-department-card">
+
+                <div class="stackly-admin-staff-department-icon staff-dept-green">
+                    <i class="fa-solid fa-flask"></i>
+                </div>
+
+                <div class="stackly-admin-staff-department-info">
+                    <h3>Science</h3>
+                    <p>Discovery, research and experimentation</p>
+                </div>
+
+                <div class="stackly-admin-staff-department-count">
+                    <strong>18</strong>
+                    <span>Members</span>
+                </div>
+
+                <div class="stackly-admin-staff-department-bar">
+                    <span style="width: 90%;"></span>
+                </div>
+
+                <a href="404-admin.html" aria-label="View Science department">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+
+            </article>
+
+
+            <article class="stackly-admin-staff-department-card">
+
+                <div class="stackly-admin-staff-department-icon staff-dept-purple">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+
+                <div class="stackly-admin-staff-department-info">
+                    <h3>Languages</h3>
+                    <p>Communication and literacy development</p>
+                </div>
+
+                <div class="stackly-admin-staff-department-count">
+                    <strong>14</strong>
+                    <span>Members</span>
+                </div>
+
+                <div class="stackly-admin-staff-department-bar">
+                    <span style="width: 68%;"></span>
+                </div>
+
+                <a href="404-admin.html" aria-label="View Languages department">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+
+            </article>
+
+
+            <article class="stackly-admin-staff-department-card">
+
+                <div class="stackly-admin-staff-department-icon staff-dept-blue">
+                    <i class="fa-solid fa-laptop-code"></i>
+                </div>
+
+                <div class="stackly-admin-staff-department-info">
+                    <h3>Technology</h3>
+                    <p>Digital learning and technical support</p>
+                </div>
+
+                <div class="stackly-admin-staff-department-count">
+                    <strong>9</strong>
+                    <span>Members</span>
+                </div>
+
+                <div class="stackly-admin-staff-department-bar">
+                    <span style="width: 55%;"></span>
+                </div>
+
+                <a href="404-admin.html" aria-label="View Technology department">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         5. STAFF DEVELOPMENT & TRAINING
+    =========================================== -->
+    <section class="stackly-admin-staff-development" data-aos="fade-up">
+
+        <div class="stackly-admin-staff-development-content">
+
+            <span class="stackly-admin-staff-section-label">
+                GROWTH & PROFESSIONAL LEARNING
+            </span>
+
+            <h2>
+                Invest in the people
+                <span>who inspire learning.</span>
+            </h2>
+
+            <p>
+                Encourage continuous improvement through professional
+                development, collaborative workshops, and new teaching
+                opportunities.
+            </p>
+
+            <a href="404-admin.html"
+               class="stackly-admin-staff-primary-btn">
+                <i class="fa-solid fa-calendar-plus"></i>
+                Explore Training Programs
+            </a>
+
+        </div>
+
+
+        <div class="stackly-admin-staff-training-list">
+
+            <article class="stackly-admin-staff-training-item">
+
+                <div class="stackly-admin-staff-training-icon">
+                    <i class="fa-solid fa-chalkboard"></i>
+                </div>
+
+                <div class="stackly-admin-staff-training-info">
+                    <span>WORKSHOP 01</span>
+                    <h3>Modern Teaching Strategies</h3>
+                    <p>
+                        Interactive lessons and student-centered learning
+                    </p>
+                </div>
+
+                <a href="404-admin.html" 
+                class="stackly-admin-staff-training-link" 
+                aria-label="View training details">
+                    <i class="fa-solid fa-arrow-up-right-from-square 
+                    stackly-admin-staff-training-arrow" aria-hidden="true"></i>
+                </a>
+
+            </article>
+
+
+            <article class="stackly-admin-staff-training-item">
+
+                <div class="stackly-admin-staff-training-icon">
+                    <i class="fa-solid fa-laptop"></i>
+                </div>
+
+                <div class="stackly-admin-staff-training-info">
+                    <span>WORKSHOP 02</span>
+                    <h3>Digital Classroom Skills</h3>
+                    <p>
+                        Technology tools for effective instruction
+                    </p>
+                </div>
+
+                <a href="404-admin.html" 
+                class="stackly-admin-staff-training-link" 
+                aria-label="View training details">
+                    <i class="fa-solid fa-arrow-up-right-from-square 
+                    stackly-admin-staff-training-arrow" aria-hidden="true"></i>
+                </a>
+            </article>
+
+
+            <article class="stackly-admin-staff-training-item">
+
+                <div class="stackly-admin-staff-training-icon">
+                    <i class="fa-solid fa-people-arrows-left-right"></i>
+                </div>
+
+                <div class="stackly-admin-staff-training-info">
+                    <span>WORKSHOP 03</span>
+                    <h3>Mentoring & Collaboration</h3>
+                    <p>
+                        Share knowledge and support fellow educators
+                    </p>
+                </div>
+
+                <a href="404-admin.html" 
+                class="stackly-admin-staff-training-link" 
+                aria-label="View training details">
+                    <i class="fa-solid fa-arrow-up-right-from-square 
+                    stackly-admin-staff-training-arrow" aria-hidden="true"></i>
+                </a>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         6. STAFF ANNOUNCEMENTS & QUICK ACTIONS
+    =========================================== -->
+    <section class="stackly-admin-staff-bottom-grid" data-aos="fade-up">
+
+        <!-- ANNOUNCEMENTS -->
+        <div class="stackly-admin-staff-announcements">
+
+            <div class="stackly-admin-staff-section-heading">
+
+                <div>
+                    <span class="stackly-admin-staff-section-label">
+                        KEEP EVERYONE INFORMED
+                    </span>
+
+                    <h2>Staff Updates</h2>
+                </div>
+
+                <a href="404-admin.html"
+                   class="stackly-admin-staff-small-link">
+                    View All
+                </a>
+
+            </div>
+
+
+            <article class="stackly-admin-staff-update-item">
+
+                <div class="stackly-admin-staff-update-date">
+                    <span>OCT</span>
+                    <strong>30</strong>
+                </div>
+
+                <div class="stackly-admin-staff-update-content">
+                    <span class="staff-update-tag staff-update-orange">
+                        MEETING
+                    </span>
+
+                    <h3>Monthly Academic Review</h3>
+
+                    <p>
+                        Department coordinators review progress
+                        and upcoming academic priorities.
+                    </p>
+                </div>
+
+                <a href="404-admin.html" aria-label="Open admin page">
+                    <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                </a>
+
+            </article>
+
+
+            <article class="stackly-admin-staff-update-item">
+
+                <div class="stackly-admin-staff-update-date">
+                    <span>NOV</span>
+                    <strong>04</strong>
+                </div>
+
+                <div class="stackly-admin-staff-update-content">
+                    <span class="staff-update-tag staff-update-green">
+                        TRAINING
+                    </span>
+
+                    <h3>Educator Development Session</h3>
+
+                    <p>
+                        A collaborative session focused on
+                        classroom innovation and teaching practices.
+                    </p>
+                </div>
+
+                <a href="404-admin.html" aria-label="Open admin page">
+                    <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                </a>
+            </article>
+
+
+            <article class="stackly-admin-staff-update-item">
+
+                <div class="stackly-admin-staff-update-date">
+                    <span>NOV</span>
+                    <strong>08</strong>
+                </div>
+
+                <div class="stackly-admin-staff-update-content">
+                    <span class="staff-update-tag staff-update-purple">
+                        DEADLINE
+                    </span>
+
+                    <h3>Submit Department Reports</h3>
+
+                    <p>
+                        Ensure departmental records are ready
+                        for the upcoming administration review.
+                    </p>
+                </div>
+
+                <a href="404-admin.html" aria-label="Open admin page">
+                    <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                </a>
+
+            </article>
+
+        </div>
+
+
+        <!-- QUICK ACTIONS -->
+        <div class="stackly-admin-staff-quick-actions">
+
+            <div class="stackly-admin-staff-section-heading">
+
+                <div>
+                    <span class="stackly-admin-staff-section-label">
+                        WORK SMARTER
+                    </span>
+
+                    <h2>Quick Actions</h2>
+                </div>
+
+            </div>
+
+
+            <a href="404-admin.html"
+               class="stackly-admin-staff-quick-action">
+
+                <div class="stackly-admin-staff-quick-icon staff-quick-orange">
+                    <i class="fa-solid fa-user-plus"></i>
+                </div>
+
+                <div>
+                    <h3>Add Staff Member</h3>
+                    <p>Create a new staff profile</p>
+                </div>
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+
+            <a href="404-admin.html"
+               class="stackly-admin-staff-quick-action">
+
+                <div class="stackly-admin-staff-quick-icon staff-quick-green">
+                    <i class="fa-solid fa-calendar-check"></i>
+                </div>
+
+                <div>
+                    <h3>Review Attendance</h3>
+                    <p>Check daily attendance records</p>
+                </div>
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+
+            <a href="404-admin.html"
+               class="stackly-admin-staff-quick-action">
+
+                <div class="stackly-admin-staff-quick-icon staff-quick-purple">
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+
+                <div>
+                    <h3>Contact Staff</h3>
+                    <p>Connect with your teaching team</p>
+                </div>
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+
+            <a href="404-admin.html"
+               class="stackly-admin-staff-quick-action">
+
+                <div class="stackly-admin-staff-quick-icon staff-quick-blue">
+                    <i class="fa-solid fa-file-export"></i>
+                </div>
+
+                <div>
+                    <h3>Staff Reports</h3>
+                    <p>Access staff-related reports</p>
+                </div>
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+</main>
+
+    <!-- AOS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <!-- Admin Dashboard JavaScript -->
+    <script src="admin.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,506 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Staff Dashboard | Stackly Education</title>
+
+    <meta name="description" content="Stackly Education Staff Dashboard for managing students, classes, attendance, assignments, and teaching schedules.">
+    <meta name="theme-color" content="#ff9f16">
+
+    <link rel="icon" href="Stackly-logo-Blue.webp" type="image/webp">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <!-- Staff Dashboard CSS -->
+    <link rel="stylesheet" href="staff.css">
+</head>
+
+<body>
+
+    <!-- ==========================================
+         MOBILE SIDEBAR OVERLAY
+    ========================================== -->
+
+    <div
+        class="stackly-admin-overlay"
+        id="stacklyAdminOverlay"
+        aria-hidden="true"
+        hidden
+    ></div>
+
+    <!-- ==========================================
+         STAFF SIDEBAR
+    ========================================== -->
+
+    <aside
+        class="stackly-admin-sidebar"
+        id="stacklyAdminSidebar"
+        aria-label="Staff dashboard navigation"
+        aria-hidden="false"
+    >
+
+        <!-- Logo and Mobile Close Button -->
+        <div class="stackly-admin-logo">
+
+            <a href="staff.html" aria-label="Stackly Education home">
+                <img
+                    src="Stackly-logo-Blue.webp"
+                    alt="Stackly Education logo"
+                    width="165"
+                    height="58"
+                >
+            </a>
+
+            <button
+                type="button"
+                class="stackly-staff-sidebar-exit"
+                id="stacklyAdminSidebarClose"
+                aria-label="Close navigation menu"
+                aria-controls="stacklyAdminSidebar"
+            >
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+
+        </div>
+
+        <!-- Main Navigation -->
+        <div class="stackly-admin-sidebar-heading">
+            <span>Staff Workspace</span>
+        </div>
+
+        <nav class="stackly-admin-sidebar-nav" aria-label="Main navigation">
+
+            <a
+                href="staff.html"
+                class="stackly-admin-nav-link active"
+                aria-current="page"
+            >
+                <i class="fa-solid fa-chart-pie" aria-hidden="true"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="staff-students.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-user-graduate" aria-hidden="true"></i>
+                <span>My Students</span>
+            </a>
+
+            <a href="staff-classes.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i>
+                <span>My Classes</span>
+            </a>
+
+            <a href="staff-attendance.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+                <span>Attendance</span>
+            </a>
+
+            <a href="staff-assignments.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+                <span>Assignments</span>
+            </a>
+
+            <a href="staff-schedule.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+                <span>My Schedule</span>
+            </a>
+
+            <a href="staff-resources.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-folder-open" aria-hidden="true"></i>
+                <span>Learning Resources</span>
+            </a>
+
+        </nav>
+
+        <!-- Account Navigation -->
+        <div class="stackly-admin-sidebar-divider"></div>
+
+        <div class="stackly-admin-sidebar-heading">
+            <span>Account</span>
+        </div>
+
+        <nav class="stackly-admin-sidebar-nav" aria-label="Account navigation">
+
+            <a href="staff-profile.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-user" aria-hidden="true"></i>
+                <span>My Profile</span>
+            </a>
+
+            <a href="index.html" class="stackly-admin-nav-link">
+                <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
+                <span>Logout</span>
+            </a>
+
+        </nav>
+
+        <!-- Sidebar Support Card -->
+        <div class="stackly-admin-sidebar-bottom">
+
+            <div class="stackly-admin-sidebar-help-icon">
+                <i class="fa-solid fa-headset" aria-hidden="true"></i>
+            </div>
+
+            <div class="stackly-admin-sidebar-help-content">
+                <h4>Need assistance?</h4>
+
+                <p>We're here to help you with your work.</p>
+
+                <a href="404-staff.html">
+                    Get Support
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+            </div>
+
+        </div>
+
+    </aside>
+
+    <!-- ==========================================
+         MAIN DASHBOARD AREA
+    ========================================== -->
+
+    <div class="stackly-admin-main">
+
+        <!-- ======================================
+             TOP HEADER
+        ======================================= -->
+
+        <header class="stackly-admin-header stackly-staff-topbar">
+
+            <div class="stackly-staff-topbar-left">
+
+                <!-- Mobile Hamburger -->
+                <button
+                    type="button"
+                    class="stackly-staff-mobile-toggle stackly-admin-icon-button"
+                    id="stacklyAdminMenuToggle"
+                    aria-label="Open navigation menu"
+                    aria-controls="stacklyAdminSidebar"
+                    aria-expanded="false"
+                >
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                </button>
+
+                <div class="stackly-staff-page-label">
+                    <h1>Staff Dashboard</h1>
+                    <p>Welcome to your teaching workspace.</p>
+                </div>
+
+            </div>
+
+            <!-- Right Side Header -->
+            <div class="stackly-staff-header-right">
+
+                <!-- Staff Email -->
+                <div class="stackly-staff-header-email">
+
+                    <div class="stackly-staff-email-icon">
+                        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="stackly-staff-email-details">
+    <span class="stackly-staff-email-label">
+        Staff Account
+    </span>
+
+    <span
+        class="stackly-staff-email-address"
+        id="stacklyStaffEmailAddress"
+    >
+        Loading email...
+    </span>
+</div>
+
+                </div>
+
+                <!-- Account Button -->
+                <button
+                    type="button"
+                    class="stackly-staff-account-button stackly-admin-icon-button"
+                    id="stacklyAdminAccountMenu"
+                    aria-label="Staff account"
+                    title="Staff account"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                >
+                    <i class="fa-solid fa-user" aria-hidden="true"></i>
+                </button>
+
+            </div>
+
+        </header>
+
+
+<!-- ==========================================
+     STACKLY EDUCATION - STAFF PROFILE PAGE
+========================================== -->
+
+<main class="stackly-staff-profile-page">
+
+    <!-- PAGE INTRO -->
+    <section class="stackly-profile-intro" data-aos="fade-up">
+        <div>
+            <span class="stackly-profile-eyebrow">YOUR ACCOUNT</span>
+            <h2>My Profile</h2>
+            <p>Manage your personal details and professional information.</p>
+        </div>
+
+        <a href="404-staff.html" class="stackly-profile-edit-btn">
+            <i class="fa-solid fa-pen-to-square"></i>
+            Edit Profile
+        </a>
+    </section>
+
+    <!-- PROFILE OVERVIEW -->
+    <section class="stackly-profile-overview" data-aos="fade-up">
+
+        <div class="stackly-profile-cover"></div>
+
+        <div class="stackly-profile-overview-content">
+
+            <div class="stackly-profile-avatar">
+                <i class="fa-solid fa-user-tie"></i>
+            </div>
+
+            <div class="stackly-profile-identity">
+                <span class="stackly-profile-status">
+                    <span></span> Active Staff
+                </span>
+                <h3 id="stacklyStaffProfileName">Staff Member</h3>
+                <p>Senior Teacher · Science Department</p>
+
+                <div class="stackly-profile-meta">
+                    <span>
+                        <i class="fa-solid fa-location-dot"></i>
+                        Chennai, India
+                    </span>
+                    <span>
+                        <i class="fa-solid fa-calendar-check"></i>
+                        Joined January 2023
+                    </span>
+                </div>
+            </div>
+
+            <div class="stackly-profile-id">
+                <span>STAFF ID</span>
+                <strong>STF-1024</strong>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PROFILE STATISTICS -->
+    <section class="stackly-profile-stats" data-aos="fade-up">
+
+        <article class="stackly-profile-stat-card">
+            <div class="stackly-profile-stat-icon orange">
+                <i class="fa-solid fa-user-graduate"></i>
+            </div>
+            <div>
+                <span>Students</span>
+                <h3>124</h3>
+                <p>Currently assigned</p>
+            </div>
+        </article>
+
+        <article class="stackly-profile-stat-card">
+            <div class="stackly-profile-stat-icon green">
+                <i class="fa-solid fa-chalkboard-user"></i>
+            </div>
+            <div>
+                <span>Classes</span>
+                <h3>08</h3>
+                <p>Teaching this term</p>
+            </div>
+        </article>
+
+        <article class="stackly-profile-stat-card">
+            <div class="stackly-profile-stat-icon blue">
+                <i class="fa-solid fa-book-open"></i>
+            </div>
+            <div>
+                <span>Assignments</span>
+                <h3>32</h3>
+                <p>Created this month</p>
+            </div>
+        </article>
+
+    </section>
+
+    <!-- PROFILE DETAILS GRID -->
+    <section class="stackly-profile-details-grid">
+
+        <!-- PERSONAL INFORMATION -->
+        <article class="stackly-profile-panel" data-aos="fade-up">
+
+            <div class="stackly-profile-panel-heading">
+                <div>
+                    <span class="stackly-profile-panel-label">ABOUT YOU</span>
+                    <h3>Personal Information</h3>
+                </div>
+                <i class="fa-solid fa-address-card"></i>
+            </div>
+
+            <div class="stackly-profile-info-list">
+
+                <div class="stackly-profile-info-row">
+                    <span>Full Name</span>
+                    <strong>Alexandra Morgan</strong>
+                </div>
+
+                <div class="stackly-profile-info-row">
+                    <span>Email Address</span>
+                    <strong>alexandra@stackly.edu</strong>
+                </div>
+
+                <div class="stackly-profile-info-row">
+                    <span>Phone Number</span>
+                    <strong>+91 98765 43210</strong>
+                </div>
+
+                <div class="stackly-profile-info-row">
+                    <span>Department</span>
+                    <strong>Science</strong>
+                </div>
+
+                <div class="stackly-profile-info-row">
+                    <span>Designation</span>
+                    <strong>Senior Teacher</strong>
+                </div>
+
+            </div>
+
+        </article>
+
+        <!-- PROFESSIONAL INFORMATION -->
+        <article class="stackly-profile-panel" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="stackly-profile-panel-heading">
+                <div>
+                    <span class="stackly-profile-panel-label">YOUR CAREER</span>
+                    <h3>Professional Details</h3>
+                </div>
+                <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+
+            <div class="stackly-profile-info-list">
+
+                <div class="stackly-profile-info-row">
+                    <span>Qualification</span>
+                    <strong>M.Sc. Science</strong>
+                </div>
+
+                <div class="stackly-profile-info-row">
+                    <span>Experience</span>
+                    <strong>6 Years</strong>
+                </div>
+
+                <div class="stackly-profile-info-row">
+                    <span>Specialization</span>
+                    <strong>Physics & Science</strong>
+                </div>
+
+                <div class="stackly-profile-info-row">
+                    <span>Employment Type</span>
+                    <strong>Full-Time</strong>
+                </div>
+
+                <div class="stackly-profile-info-row">
+                    <span>Work Location</span>
+                    <strong>Main Campus</strong>
+                </div>
+
+            </div>
+
+        </article>
+
+    </section>
+
+    <!-- ACCOUNT SETTINGS -->
+    <section class="stackly-profile-panel stackly-profile-settings"
+             data-aos="fade-up">
+
+        <div class="stackly-profile-panel-heading">
+            <div>
+                <span class="stackly-profile-panel-label">ACCOUNT PREFERENCES</span>
+                <h3>Account Settings</h3>
+                <p>Manage your account and access important settings.</p>
+            </div>
+            <i class="fa-solid fa-gear"></i>
+        </div>
+
+        <div class="stackly-profile-setting-row">
+            <div class="stackly-profile-setting-icon">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+            <div class="stackly-profile-setting-text">
+                <h4>Password & Security</h4>
+                <p>Keep your account secure with updated credentials.</p>
+            </div>
+            <a href="404-staff.html" aria-label="Manage password and security">
+                <i class="fa-solid fa-chevron-right"></i>
+            </a>
+        </div>
+
+        <div class="stackly-profile-setting-row">
+            <div class="stackly-profile-setting-icon">
+                <i class="fa-solid fa-bell"></i>
+            </div>
+            <div class="stackly-profile-setting-text">
+                <h4>Notifications</h4>
+                <p>Manage reminders for classes and assignments.</p>
+            </div>
+            <a href="404-staff.html" aria-label="Manage notifications">
+                <i class="fa-solid fa-chevron-right"></i>
+            </a>
+        </div>
+
+        <div class="stackly-profile-setting-row">
+            <div class="stackly-profile-setting-icon">
+                <i class="fa-solid fa-circle-question"></i>
+            </div>
+            <div class="stackly-profile-setting-text">
+                <h4>Help & Support</h4>
+                <p>Get assistance with your staff account.</p>
+            </div>
+            <a href="404-staff.html" aria-label="Open help and support">
+                <i class="fa-solid fa-chevron-right"></i>
+            </a>
+        </div>
+
+    </section>
+
+    <!-- PROFILE FOOTER NOTE -->
+    <div class="stackly-profile-footer-note">
+        <i class="fa-solid fa-shield-halved"></i>
+        Your professional information should be kept accurate and up to date.
+    </div>
+
+</main>
+
+
+    </div>
+
+    <!-- ==========================================
+         SCRIPTS
+    ========================================== -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="staff.js"></script>
+
+    <!-- Dashboard functionality -->
+    
+
+</body>
+</html>

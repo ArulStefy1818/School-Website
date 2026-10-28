@@ -1,0 +1,618 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login & Sign Up | Stackly Education</title>
+
+    <meta name="description"
+          content="Access your Stackly Education account as an administrator, staff member, or student.">
+
+    <link rel="icon" href="Stackly-logo-Blue.webp" type="image/webp">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+
+    <main class="stackly-auth-page">
+
+        <!-- BACKGROUND DECORATION -->
+        <div class="stackly-auth-decoration stackly-auth-decoration-one"></div>
+        <div class="stackly-auth-decoration stackly-auth-decoration-two"></div>
+
+        <!-- TOP NAVIGATION -->
+        <header class="stackly-auth-header">
+
+            <a href="index.html"
+               class="stackly-auth-logo"
+               aria-label="Stackly Education Home">
+
+                <img src="Stackly-logo-Blue.webp"
+                     alt="Stackly Education Logo">
+
+                 
+            </a>
+
+            <a href="index.html" class="stackly-auth-home-link">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Go Back Home</span>
+            </a>
+
+        </header>
+
+        <!-- AUTHENTICATION CONTENT -->
+        <section class="stackly-auth-main">
+
+            <!-- LEFT WELCOME PANEL -->
+            <aside class="stackly-auth-welcome">
+
+                <div class="stackly-auth-welcome-content">
+
+                    <span class="stackly-auth-welcome-badge">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        YOUR LEARNING JOURNEY
+                    </span>
+
+                    <h1>
+                        Welcome to a
+                        <span>World of Learning.</span>
+                    </h1>
+
+                    <p>
+                        One account. Endless opportunities.
+                        Sign in to continue learning, teaching,
+                        and making a difference with Stackly Education.
+                    </p>
+
+                    <div class="stackly-auth-benefits">
+
+                        <div class="stackly-auth-benefit">
+                            <span class="stackly-auth-benefit-icon">
+                                <i class="fa-solid fa-book-open"></i>
+                            </span>
+
+                            <div>
+                                <h3>Learn & Grow</h3>
+                                <p>Access your educational journey.</p>
+                            </div>
+                        </div>
+
+                        <div class="stackly-auth-benefit">
+                            <span class="stackly-auth-benefit-icon">
+                                <i class="fa-solid fa-users"></i>
+                            </span>
+
+                            <div>
+                                <h3>One Learning Community</h3>
+                                <p>Connect with your school community.</p>
+                            </div>
+                        </div>
+
+                        <div class="stackly-auth-benefit">
+                            <span class="stackly-auth-benefit-icon">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </span>
+
+                            <div>
+                                <h3>Your Account, Your Access</h3>
+                                <p>Choose the role that fits your needs.</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="stackly-auth-welcome-footer">
+                    <i class="fa-solid fa-sparkles"></i>
+                    Empowering minds. Inspiring futures.
+                </div>
+
+            </aside>
+
+            <!-- RIGHT FORM PANEL -->
+            <div class="stackly-auth-form-panel">
+
+                <div class="stackly-auth-card">
+
+                    <!-- FORM SWITCHER -->
+                    <div class="stackly-auth-tabs" role="tablist"
+                         aria-label="Account access">
+
+                        <button type="button"
+                                class="stackly-auth-tab is-active"
+                                id="stacklyLoginTab"
+                                role="tab"
+                                aria-selected="true"
+                                aria-controls="stacklyLoginForm"
+                                data-auth-tab="login">
+                            Login
+                        </button>
+
+                        <button type="button"
+                                class="stackly-auth-tab"
+                                id="stacklySignupTab"
+                                role="tab"
+                                aria-selected="false"
+                                aria-controls="stacklySignupForm"
+                                data-auth-tab="signup">
+                            Sign Up
+                        </button>
+
+                        <span class="stackly-auth-tab-indicator"></span>
+                    </div>
+
+                    <!-- STATUS MESSAGE -->
+                    <div class="stackly-auth-message"
+                         id="stacklyAuthMessage"
+                         role="status"
+                         aria-live="polite"
+                         hidden></div>
+
+                    <!-- ==================================
+                         LOGIN FORM
+                    =================================== -->
+                    <form class="stackly-auth-form is-active"
+                          id="stacklyLoginForm"
+                          novalidate>
+
+                        <div class="stackly-auth-form-heading">
+                            <span class="stackly-auth-form-icon">
+                                <i class="fa-solid fa-right-to-bracket"></i>
+                            </span>
+
+                            <h2>Welcome Back!</h2>
+
+                            <p>
+                                Enter your details to access your account.
+                            </p>
+                        </div>
+
+                        <!-- LOGIN ROLE -->
+                        <div class="stackly-auth-field">
+
+                            <label for="stacklyLoginRole">
+                                Login As <span>*</span>
+                            </label>
+
+                            <div class="stackly-auth-select-wrap">
+
+                                <input type="hidden"
+                                       id="stacklyLoginRole"
+                                       name="role"
+                                       value="">
+
+                                <button type="button"
+                                        class="stackly-auth-select"
+                                        data-role-trigger="stacklyLoginRole"
+                                        aria-expanded="false"
+                                        aria-haspopup="listbox">
+
+                                    <span class="stackly-auth-select-value">
+                                        Select your role
+                                    </span>
+
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </button>
+
+                                <div class="stackly-auth-dropdown"
+                                     role="listbox"
+                                     aria-label="Login role"
+                                     hidden>
+
+                                    <button type="button"
+                                            role="option"
+                                            data-role-value="admin">
+                                        <i class="fa-solid fa-user-shield"></i>
+                                        <span>Admin</span>
+                                        <i class="fa-solid fa-check stackly-auth-option-check"></i>
+                                    </button>
+
+                                    <button type="button"
+                                            role="option"
+                                            data-role-value="staff">
+                                        <i class="fa-solid fa-chalkboard-user"></i>
+                                        <span>Staff</span>
+                                        <i class="fa-solid fa-check stackly-auth-option-check"></i>
+                                    </button>
+
+                                    <button type="button"
+                                            role="option"
+                                            data-role-value="student">
+                                        <i class="fa-solid fa-user-graduate"></i>
+                                        <span>Student</span>
+                                        <i class="fa-solid fa-check stackly-auth-option-check"></i>
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- EMAIL -->
+                        <div class="stackly-auth-field">
+
+                            <label for="stacklyLoginEmail">
+                                Email Address <span>*</span>
+                            </label>
+
+                            <div class="stackly-auth-input-wrap">
+                                <i class="fa-regular fa-envelope stackly-auth-input-icon"></i>
+
+                                <input type="email"
+                                       id="stacklyLoginEmail"
+                                       name="email"
+                                       placeholder="Enter your email address"
+                                       autocomplete="email"
+                                       required>
+                            </div>
+
+                        </div>
+
+                        <!-- PASSWORD -->
+                        <div class="stackly-auth-field">
+
+                            <div class="stackly-auth-label-row">
+                                <label for="stacklyLoginPassword">
+                                    Password <span>*</span>
+                                </label>
+
+                                <button type="button"
+                                        class="stackly-auth-forgot"
+                                        data-auth-tab="forgot">
+                                    Forgot Password?
+                                </button>
+                            </div>
+
+                            <div class="stackly-auth-input-wrap">
+                                <i class="fa-solid fa-lock stackly-auth-input-icon"></i>
+
+                                <input type="password"
+                                       id="stacklyLoginPassword"
+                                       name="password"
+                                       placeholder="Enter your password"
+                                       autocomplete="current-password"
+                                       required>
+
+                                <button type="button"
+                                        class="stackly-auth-eye"
+                                        data-password-toggle="stacklyLoginPassword"
+                                        aria-label="Show password"
+                                        aria-pressed="false">
+                                    <i class="fa-regular fa-eye"></i>
+                                </button>
+                            </div>
+
+                        </div>
+
+                        <!-- REMEMBER ME -->
+                        <div class="stackly-auth-options">
+
+                            <label class="stackly-auth-checkbox">
+                                <input type="checkbox"
+                                       id="stacklyRememberMe"
+                                       name="remember">
+
+                                <span class="stackly-auth-checkmark">
+                                    <i class="fa-solid fa-check"></i>
+                                </span>
+
+                                <span>Remember me</span>
+                            </label>
+
+                        </div>
+
+                        <button type="submit" class="stackly-auth-submit">
+                            <span>Login to Account</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+
+                        <p class="stackly-auth-switch">
+                            Don't have an account?
+
+                            <button type="button"
+                                    data-auth-tab="signup">
+                                Create Account
+                            </button>
+                        </p>
+
+                    </form>
+
+                    <!-- ==================================
+                         SIGN UP FORM
+                    =================================== -->
+                    <form class="stackly-auth-form"
+                          id="stacklySignupForm"
+                          novalidate
+                          hidden>
+
+                        <div class="stackly-auth-form-heading">
+                            <span class="stackly-auth-form-icon">
+                                <i class="fa-solid fa-user-plus"></i>
+                            </span>
+
+                            <h2>Create Your Account</h2>
+
+                            <p>
+                                Join Stackly Education and get started today.
+                            </p>
+                        </div>
+
+                        <!-- FULL NAME -->
+                        <div class="stackly-auth-field">
+
+                            <label for="stacklySignupName">
+                                Full Name <span>*</span>
+                            </label>
+
+                            <div class="stackly-auth-input-wrap">
+                                <i class="fa-regular fa-user stackly-auth-input-icon"></i>
+
+                                <input type="text"
+                                       id="stacklySignupName"
+                                       name="name"
+                                       placeholder="Enter your full name"
+                                       autocomplete="name"
+                                       required>
+                            </div>
+
+                        </div>
+
+                        <!-- SIGN UP ROLE -->
+                        <div class="stackly-auth-field">
+
+                            <label for="stacklySignupRole">
+                                Select Your Role <span>*</span>
+                            </label>
+
+                            <div class="stackly-auth-select-wrap">
+
+                                <input type="hidden"
+                                       id="stacklySignupRole"
+                                       name="role"
+                                       value="">
+
+                                <button type="button"
+                                        class="stackly-auth-select"
+                                        data-role-trigger="stacklySignupRole"
+                                        aria-expanded="false"
+                                        aria-haspopup="listbox">
+
+                                    <span class="stackly-auth-select-value">
+                                        Choose Admin, Staff or Student
+                                    </span>
+
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </button>
+
+                                <div class="stackly-auth-dropdown"
+                                     role="listbox"
+                                     aria-label="Account role"
+                                     hidden>
+
+                                    <button type="button"
+                                            role="option"
+                                            data-role-value="admin">
+                                        <i class="fa-solid fa-user-shield"></i>
+                                        <span>Admin</span>
+                                        <i class="fa-solid fa-check stackly-auth-option-check"></i>
+                                    </button>
+
+                                    <button type="button"
+                                            role="option"
+                                            data-role-value="staff">
+                                        <i class="fa-solid fa-chalkboard-user"></i>
+                                        <span>Staff</span>
+                                        <i class="fa-solid fa-check stackly-auth-option-check"></i>
+                                    </button>
+
+                                    <button type="button"
+                                            role="option"
+                                            data-role-value="student">
+                                        <i class="fa-solid fa-user-graduate"></i>
+                                        <span>Student</span>
+                                        <i class="fa-solid fa-check stackly-auth-option-check"></i>
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- EMAIL -->
+                        <div class="stackly-auth-field">
+
+                            <label for="stacklySignupEmail">
+                                Email Address <span>*</span>
+                            </label>
+
+                            <div class="stackly-auth-input-wrap">
+                                <i class="fa-regular fa-envelope stackly-auth-input-icon"></i>
+
+                                <input type="email"
+                                       id="stacklySignupEmail"
+                                       name="email"
+                                       placeholder="Enter your email address"
+                                       autocomplete="email"
+                                       required>
+                            </div>
+
+                        </div>
+
+                        <!-- PASSWORD -->
+                        <div class="stackly-auth-field">
+
+                            <label for="stacklySignupPassword">
+                                Create Password <span>*</span>
+                            </label>
+
+                            <div class="stackly-auth-input-wrap">
+                                <i class="fa-solid fa-lock stackly-auth-input-icon"></i>
+
+                                <input type="password"
+                                       id="stacklySignupPassword"
+                                       name="password"
+                                       placeholder="Create a password (min. 8 characters)"
+                                       autocomplete="new-password"
+                                       minlength="8"
+                                       required>
+
+                                <button type="button"
+                                        class="stackly-auth-eye"
+                                        data-password-toggle="stacklySignupPassword"
+                                        aria-label="Show password"
+                                        aria-pressed="false">
+                                    <i class="fa-regular fa-eye"></i>
+                                </button>
+                            </div>
+
+                        </div>
+
+                        <!-- CONFIRM PASSWORD -->
+                        <div class="stackly-auth-field">
+
+                            <label for="stacklyConfirmPassword">
+                                Confirm Password <span>*</span>
+                            </label>
+
+                            <div class="stackly-auth-input-wrap">
+                                <i class="fa-solid fa-lock stackly-auth-input-icon"></i>
+
+                                <input type="password"
+                                       id="stacklyConfirmPassword"
+                                       name="confirmPassword"
+                                       placeholder="Re-enter your password"
+                                       autocomplete="new-password"
+                                       minlength="8"
+                                       required>
+
+                                <button type="button"
+                                        class="stackly-auth-eye"
+                                        data-password-toggle="stacklyConfirmPassword"
+                                        aria-label="Show password"
+                                        aria-pressed="false">
+                                    <i class="fa-regular fa-eye"></i>
+                                </button>
+                            </div>
+
+                        </div>
+
+                        <!-- TERMS -->
+                        <label class="stackly-auth-checkbox stackly-auth-terms">
+                            <input type="checkbox"
+                                   id="stacklyTerms"
+                                   name="terms"
+                                   required>
+
+                            <span class="stackly-auth-checkmark">
+                                <i class="fa-solid fa-check"></i>
+                            </span>
+
+                            <span>
+                                I agree to the school's terms and privacy policy.
+                            </span>
+                        </label>
+
+                        <button type="submit" class="stackly-auth-submit">
+                            <span>Create Account</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+
+                        <p class="stackly-auth-switch">
+                            Already have an account?
+
+                            <button type="button"
+                                    data-auth-tab="login">
+                                Login Here
+                            </button>
+                        </p>
+
+                    </form>
+
+                    <!-- ==================================
+                         FORGOT PASSWORD FORM
+                    =================================== -->
+                    <form class="stackly-auth-form"
+                          id="stacklyForgotForm"
+                          novalidate
+                          hidden>
+
+                        <div class="stackly-auth-form-heading">
+                            <span class="stackly-auth-form-icon">
+                                <i class="fa-solid fa-key"></i>
+                            </span>
+
+                            <h2>Forgot Password?</h2>
+
+                            <p>
+                                Enter your registered email to begin
+                                the password recovery process.
+                            </p>
+                        </div>
+
+                        <div class="stackly-auth-field">
+
+                            <label for="stacklyForgotEmail">
+                                Email Address <span>*</span>
+                            </label>
+
+                            <div class="stackly-auth-input-wrap">
+                                <i class="fa-regular fa-envelope stackly-auth-input-icon"></i>
+
+                                <input type="email"
+                                       id="stacklyForgotEmail"
+                                       name="email"
+                                       placeholder="Enter your registered email"
+                                       autocomplete="email"
+                                       required>
+                            </div>
+
+                        </div>
+
+                        <button type="submit" class="stackly-auth-submit">
+                            <span>Reset Password</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+
+                        <p class="stackly-auth-switch">
+                            Remember your password?
+
+                            <button type="button"
+                                    data-auth-tab="login">
+                                Back to Login
+                            </button>
+                        </p>
+
+                    </form>
+
+                </div>
+
+                <p class="stackly-auth-copyright">
+                    &copy; <span id="stacklyAuthYear"></span>
+                    Stackly Education. All rights reserved.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="login.js"></script>
+
+</body>
+</html>

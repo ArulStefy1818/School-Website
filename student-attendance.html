@@ -1,0 +1,753 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Dashboard | Stackly Education</title>
+
+    <meta name="description" content="Stackly Education Student Dashboard to manage courses, assignments, attendance, grades, and class schedules.">
+    <meta name="theme-color" content="#ff9f16">
+
+    <!-- Favicon -->
+    <link rel="icon" href="Stackly-logo-Blue.webp" type="image/webp">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <!-- Student Dashboard CSS -->
+    <link rel="stylesheet" href="student.css">
+</head>
+
+<body>
+
+    <!-- ==========================================
+         MOBILE SIDEBAR OVERLAY
+    ========================================== -->
+
+    <div
+        class="stackly-student-overlay"
+        id="stacklyStudentOverlay"
+        aria-hidden="true"
+        hidden
+    ></div>
+
+    <!-- ==========================================
+         STUDENT SIDEBAR
+    ========================================== -->
+
+    <aside
+        class="stackly-student-sidebar"
+        id="stacklyStudentSidebar"
+        aria-label="Student dashboard navigation"
+        aria-hidden="false"
+    >
+
+        <!-- Logo -->
+        <div class="stackly-student-logo">
+
+            <a href="student.html" aria-label="Stackly Education student home">
+                <img
+                    src="Stackly-logo-Blue.webp"
+                    alt="Stackly Education logo"
+                    width="165"
+                    height="58"
+                >
+            </a>
+
+            <!-- Mobile Exit Button -->
+            <button
+                type="button"
+                class="stackly-student-sidebar-exit"
+                id="stacklyStudentSidebarClose"
+                aria-label="Close navigation menu"
+                aria-controls="stacklyStudentSidebar"
+            >
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+
+        </div>
+
+        <!-- Main Navigation -->
+        <div class="stackly-student-sidebar-heading">
+            <span>Student Workspace</span>
+        </div>
+
+        <nav class="stackly-student-sidebar-nav"
+             aria-label="Main navigation">
+
+            <a href="student.html"
+               class="stackly-student-nav-link active"
+               aria-current="page">
+                <i class="fa-solid fa-chart-pie" aria-hidden="true"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="student-courses.html" class="stackly-student-nav-link">
+                <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+                <span>My Courses</span>
+            </a>
+
+            <a href="student-assignments.html" class="stackly-student-nav-link">
+                <i class="fa-solid fa-file-pen" aria-hidden="true"></i>
+                <span>Assignments</span>
+            </a>
+
+            <a href="student-attendance.html" class="stackly-student-nav-link">
+                <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+                <span>My Attendance</span>
+            </a>
+
+            <a href="student-grades.html" class="stackly-student-nav-link">
+                <i class="fa-solid fa-chart-column" aria-hidden="true"></i>
+                <span>Grades & Results</span>
+            </a>
+
+            <a href="student-schedule.html" class="stackly-student-nav-link">
+                <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+                <span>Class Schedule</span>
+            </a>
+
+            <a href="student-resources.html" class="stackly-student-nav-link">
+                <i class="fa-solid fa-folder-open" aria-hidden="true"></i>
+                <span>Learning Resources</span>
+            </a>
+
+        </nav>
+
+        <!-- Account Navigation -->
+        <div class="stackly-student-sidebar-divider"></div>
+
+        <div class="stackly-student-sidebar-heading">
+            <span>My Account</span>
+        </div>
+
+        <nav class="stackly-student-sidebar-nav"
+             aria-label="Account navigation">
+
+            <a href="student-profile.html" class="stackly-student-nav-link">
+                <i class="fa-solid fa-user" aria-hidden="true"></i>
+                <span>My Profile</span>
+            </a>
+
+            <a href="index.html"
+               class="stackly-student-nav-link"
+               id="stacklyStudentLogout">
+                <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
+                <span>Logout</span>
+            </a>
+
+        </nav>
+
+        <!-- Sidebar Support Card -->
+        <div class="stackly-student-sidebar-bottom">
+
+            <div class="stackly-student-help-icon">
+                <i class="fa-solid fa-headset" aria-hidden="true"></i>
+            </div>
+
+            <div class="stackly-student-help-content">
+                <h4>Need some help?</h4>
+
+                <p>We're here to support your learning journey.</p>
+
+                <a href="404-student.html">
+                    Get Support
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+            </div>
+
+        </div>
+
+    </aside>
+
+    <!-- ==========================================
+         MAIN DASHBOARD AREA
+    ========================================== -->
+
+    <div class="stackly-student-main">
+
+        <!-- TOP HEADER -->
+        <header class="stackly-student-header">
+
+            <div class="stackly-student-header-left">
+
+                <!-- Mobile Hamburger -->
+                <button
+                    type="button"
+                    class="stackly-student-mobile-toggle"
+                    id="stacklyStudentMenuToggle"
+                    aria-label="Open navigation menu"
+                    aria-controls="stacklyStudentSidebar"
+                    aria-expanded="false"
+                >
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                </button>
+
+                <div class="stackly-student-page-label">
+                    <h1>Student Dashboard</h1>
+                    <p>Welcome back! Ready to learn something new?</p>
+                </div>
+
+            </div>
+
+            <!-- Header Right -->
+            <div class="stackly-student-header-right">
+
+                <!-- Notifications -->
+                <a
+                    href="404-student.html"
+                    class="stackly-student-header-icon"
+                    aria-label="Notifications"
+                    title="Notifications"
+                >
+                    <i class="fa-regular fa-bell" aria-hidden="true"></i>
+                    <span class="stackly-student-notification-dot"></span>
+                </a>
+
+                <!-- Student Email -->
+                <div class="stackly-student-header-email">
+
+                    <div class="stackly-student-email-icon">
+                        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="stackly-student-email-details">
+                        <span class="stackly-student-email-label">
+                            Student Account
+                        </span>
+
+                        <span
+                            class="stackly-student-email-address"
+                            id="stacklyStudentEmailAddress"
+                            title="Student email address"
+                        >
+                            Loading email...
+                        </span>
+                    </div>
+
+                </div>
+
+                <!-- Account Button -->
+                <a
+                    href="404-student.html"
+                    class="stackly-student-account-button"
+                    aria-label="My profile"
+                    title="My profile"
+                >
+                    <i class="fa-solid fa-user" aria-hidden="true"></i>
+                </a>
+
+            </div>
+
+        </header>
+
+<!-- ==========================================
+     STACKLY EDUCATION - MY ATTENDANCE PAGE
+     Modern Student Attendance Sections
+========================================== -->
+<main class="stackly-student-content">
+
+<!-- ATTENDANCE HERO -->
+<section class="stackly-student-attendance-hero" data-aos="fade-up">
+
+    <div class="stackly-student-attendance-hero-content">
+
+        <span class="stackly-student-attendance-eyebrow">
+            <i class="fa-solid fa-calendar-check"></i>
+            MY ATTENDANCE
+        </span>
+
+        <h2>Every Class Counts.<br>
+            Every Day Matters.</h2>
+
+        <p>
+            Track your attendance, stay consistent with your classes,
+            and build the habits that lead to academic success.
+        </p>
+
+        <div class="stackly-student-attendance-hero-actions">
+            <a href="404-student.html"
+               class="stackly-student-attendance-primary-btn">
+                View Attendance Calendar
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <a href="404-student.html"
+               class="stackly-student-attendance-secondary-btn">
+                Recent Records
+            </a>
+        </div>
+
+        <div class="stackly-student-attendance-hero-note">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Consistency today creates opportunities tomorrow.</span>
+        </div>
+
+    </div>
+
+    <div class="stackly-student-attendance-hero-visual">
+
+        <div class="stackly-student-attendance-orbit orbit-one"></div>
+        <div class="stackly-student-attendance-orbit orbit-two"></div>
+
+        <div class="stackly-student-attendance-hero-calendar">
+            <div class="stackly-student-attendance-calendar-top">
+                <i class="fa-solid fa-calendar-days"></i>
+                <span>ATTENDANCE TRACKER</span>
+            </div>
+
+            <div class="stackly-student-attendance-calendar-number">
+                <strong>85%</strong>
+                <span>Attendance Rate</span>
+            </div>
+
+            <div class="stackly-student-attendance-calendar-progress">
+                <span></span>
+            </div>
+
+            <div class="stackly-student-attendance-calendar-status">
+                <span>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Keep it consistent
+                </span>
+                <i class="fa-solid fa-arrow-trend-up"></i>
+            </div>
+        </div>
+
+        <div class="stackly-student-attendance-floating-badge badge-top">
+            <i class="fa-solid fa-check"></i>
+            Class Attended
+        </div>
+
+        <div class="stackly-student-attendance-floating-badge badge-bottom">
+            <i class="fa-solid fa-fire"></i>
+            Build Your Streak
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ATTENDANCE STATISTICS -->
+<section class="stackly-student-attendance-stats" data-aos="fade-up">
+
+    <article class="stackly-student-attendance-stat-card">
+        <div class="stackly-student-attendance-stat-icon orange">
+            <i class="fa-solid fa-calendar-check"></i>
+        </div>
+
+        <div>
+            <span>Total Classes</span>
+            <h3>120</h3>
+            <p>Classes scheduled</p>
+        </div>
+    </article>
+
+    <article class="stackly-student-attendance-stat-card">
+        <div class="stackly-student-attendance-stat-icon green">
+            <i class="fa-solid fa-user-check"></i>
+        </div>
+
+        <div>
+            <span>Classes Attended</span>
+            <h3>102</h3>
+            <p>Classes completed</p>
+        </div>
+    </article>
+
+    <article class="stackly-student-attendance-stat-card">
+        <div class="stackly-student-attendance-stat-icon red">
+            <i class="fa-solid fa-calendar-xmark"></i>
+        </div>
+
+        <div>
+            <span>Classes Missed</span>
+            <h3>18</h3>
+            <p>Review missed lessons</p>
+        </div>
+    </article>
+
+    <article class="stackly-student-attendance-stat-card">
+        <div class="stackly-student-attendance-stat-icon purple">
+            <i class="fa-solid fa-chart-line"></i>
+        </div>
+
+        <div>
+            <span>Attendance Rate</span>
+            <h3>85%</h3>
+            <p>Based on 120 classes</p>
+        </div>
+    </article>
+
+</section>
+
+
+<!-- WEEKLY ATTENDANCE TRACKER -->
+<section class="stackly-student-attendance-weekly" data-aos="fade-up">
+
+    <div class="stackly-student-attendance-section-heading">
+        <div>
+            <span class="stackly-student-attendance-section-label">
+                YOUR WEEK AT A GLANCE
+            </span>
+            <h2>Weekly Attendance</h2>
+            <p>See how consistently you have been attending classes.</p>
+        </div>
+
+        <div class="stackly-student-attendance-weekly-badge">
+            <i class="fa-solid fa-calendar-week"></i>
+            Sample Week
+        </div>
+    </div>
+
+    <div class="stackly-student-attendance-week-grid">
+
+        <article class="stackly-student-attendance-day attended">
+            <span class="stackly-student-attendance-day-name">MON</span>
+            <div class="stackly-student-attendance-day-icon">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <strong>12</strong>
+            <span class="stackly-student-attendance-day-status">Present</span>
+        </article>
+
+        <article class="stackly-student-attendance-day attended">
+            <span class="stackly-student-attendance-day-name">TUE</span>
+            <div class="stackly-student-attendance-day-icon">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <strong>13</strong>
+            <span class="stackly-student-attendance-day-status">Present</span>
+        </article>
+
+        <article class="stackly-student-attendance-day absent">
+            <span class="stackly-student-attendance-day-name">WED</span>
+            <div class="stackly-student-attendance-day-icon">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <strong>14</strong>
+            <span class="stackly-student-attendance-day-status">Absent</span>
+        </article>
+
+        <article class="stackly-student-attendance-day attended">
+            <span class="stackly-student-attendance-day-name">THU</span>
+            <div class="stackly-student-attendance-day-icon">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <strong>15</strong>
+            <span class="stackly-student-attendance-day-status">Present</span>
+        </article>
+
+        <article class="stackly-student-attendance-day attended">
+            <span class="stackly-student-attendance-day-name">FRI</span>
+            <div class="stackly-student-attendance-day-icon">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <strong>16</strong>
+            <span class="stackly-student-attendance-day-status">Present</span>
+        </article>
+
+        <article class="stackly-student-attendance-day weekend">
+            <span class="stackly-student-attendance-day-name">SAT</span>
+            <div class="stackly-student-attendance-day-icon">
+                <i class="fa-solid fa-minus"></i>
+            </div>
+            <strong>17</strong>
+            <span class="stackly-student-attendance-day-status">No Class</span>
+        </article>
+
+        <article class="stackly-student-attendance-day weekend">
+            <span class="stackly-student-attendance-day-name">SUN</span>
+            <div class="stackly-student-attendance-day-icon">
+                <i class="fa-solid fa-minus"></i>
+            </div>
+            <strong>18</strong>
+            <span class="stackly-student-attendance-day-status">No Class</span>
+        </article>
+
+    </div>
+
+    <div class="stackly-student-attendance-week-legend">
+        <span><i class="legend-present"></i> Present</span>
+        <span><i class="legend-absent"></i> Absent</span>
+        <span><i class="legend-no-class"></i> No Class</span>
+    </div>
+
+</section>
+
+
+<!-- MONTHLY ATTENDANCE CALENDAR -->
+<section class="stackly-student-attendance-calendar-section"
+         id="stacklyStudentAttendanceCalendar"
+         data-aos="fade-up">
+
+    <div class="stackly-student-attendance-section-heading">
+        <div>
+            <span class="stackly-student-attendance-section-label">
+                YOUR ATTENDANCE HISTORY
+            </span>
+            <h2>Monthly Calendar</h2>
+            <p>Review your attendance day by day.</p>
+        </div>
+
+        <div class="stackly-student-attendance-month-label">
+            <i class="fa-regular fa-calendar"></i>
+            October 2026
+        </div>
+    </div>
+
+    <div class="stackly-student-attendance-calendar-panel">
+
+        <div class="stackly-student-attendance-calendar-legend">
+            <span><i class="legend-present"></i> Present</span>
+            <span><i class="legend-absent"></i> Absent</span>
+            <span><i class="legend-no-class"></i> No Class</span>
+        </div>
+
+        <div class="stackly-student-attendance-month-grid">
+
+            <span class="calendar-weekday">MON</span>
+            <span class="calendar-weekday">TUE</span>
+            <span class="calendar-weekday">WED</span>
+            <span class="calendar-weekday">THU</span>
+            <span class="calendar-weekday">FRI</span>
+            <span class="calendar-weekday">SAT</span>
+            <span class="calendar-weekday">SUN</span>
+
+            <!-- October 2026 starts on Thursday -->
+            <span class="calendar-empty"></span>
+            <span class="calendar-empty"></span>
+            <span class="calendar-empty"></span>
+
+            <span class="calendar-day present-day">1</span>
+            <span class="calendar-day present-day">2</span>
+            <span class="calendar-day no-class-day">3</span>
+            <span class="calendar-day no-class-day">4</span>
+
+            <span class="calendar-day present-day">5</span>
+            <span class="calendar-day present-day">6</span>
+            <span class="calendar-day absent-day">7</span>
+            <span class="calendar-day present-day">8</span>
+            <span class="calendar-day present-day">9</span>
+            <span class="calendar-day no-class-day">10</span>
+            <span class="calendar-day no-class-day">11</span>
+
+            <span class="calendar-day present-day">12</span>
+            <span class="calendar-day present-day">13</span>
+            <span class="calendar-day absent-day">14</span>
+            <span class="calendar-day present-day">15</span>
+            <span class="calendar-day present-day">16</span>
+            <span class="calendar-day no-class-day">17</span>
+            <span class="calendar-day no-class-day">18</span>
+
+            <span class="calendar-day present-day">19</span>
+            <span class="calendar-day present-day">20</span>
+            <span class="calendar-day present-day">21</span>
+            <span class="calendar-day present-day">22</span>
+            <span class="calendar-day absent-day">23</span>
+            <span class="calendar-day no-class-day">24</span>
+            <span class="calendar-day no-class-day">25</span>
+
+            <span class="calendar-day present-day">26</span>
+            <span class="calendar-day present-day">27</span>
+            <span class="calendar-day present-day today-day" aria-current="date">28</span>
+            <span class="calendar-day upcoming-day">29</span>
+            <span class="calendar-day upcoming-day">30</span>
+            <span class="calendar-day no-class-day">31</span>
+            <span class="calendar-empty"></span>
+
+        </div>
+
+        <div class="stackly-student-attendance-calendar-note">
+            <i class="fa-solid fa-circle-info"></i>
+            <p>
+                This calendar displays example attendance records.
+                Connect it to your actual attendance data for accurate results.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- RECENT ATTENDANCE RECORDS -->
+<section class="stackly-student-attendance-records"
+         id="stacklyStudentAttendanceRecords"
+         data-aos="fade-up">
+
+    <div class="stackly-student-attendance-section-heading">
+        <div>
+            <span class="stackly-student-attendance-section-label">
+                CLASS HISTORY
+            </span>
+            <h2>Recent Attendance Records</h2>
+            <p>Check your latest class attendance entries.</p>
+        </div>
+    </div>
+
+    <div class="stackly-student-attendance-records-panel">
+
+        <div class="stackly-student-attendance-records-header">
+            <span>CLASS DETAILS</span>
+            <span>DATE</span>
+            <span>STATUS</span>
+        </div>
+
+        <article class="stackly-student-attendance-record">
+            <div class="stackly-student-attendance-record-class">
+                <div class="record-subject-icon orange">
+                    <i class="fa-solid fa-atom"></i>
+                </div>
+                <div>
+                    <h3>Physics Fundamentals</h3>
+                    <p><i class="fa-regular fa-clock"></i> 09:00 AM – 10:00 AM</p>
+                </div>
+            </div>
+
+            <span class="stackly-student-attendance-record-date">
+                Oct 28, 2026
+            </span>
+
+            <span class="stackly-student-attendance-status present">
+                <i class="fa-solid fa-circle-check"></i>
+                Present
+            </span>
+        </article>
+
+        <article class="stackly-student-attendance-record">
+            <div class="stackly-student-attendance-record-class">
+                <div class="record-subject-icon purple">
+                    <i class="fa-solid fa-square-root-variable"></i>
+                </div>
+                <div>
+                    <h3>Advanced Mathematics</h3>
+                    <p><i class="fa-regular fa-clock"></i> 10:30 AM – 11:30 AM</p>
+                </div>
+            </div>
+
+            <span class="stackly-student-attendance-record-date">
+                Oct 27, 2026
+            </span>
+
+            <span class="stackly-student-attendance-status present">
+                <i class="fa-solid fa-circle-check"></i>
+                Present
+            </span>
+        </article>
+
+        <article class="stackly-student-attendance-record">
+            <div class="stackly-student-attendance-record-class">
+                <div class="record-subject-icon green">
+                    <i class="fa-solid fa-laptop-code"></i>
+                </div>
+                <div>
+                    <h3>Web Development</h3>
+                    <p><i class="fa-regular fa-clock"></i> 01:00 PM – 02:00 PM</p>
+                </div>
+            </div>
+
+            <span class="stackly-student-attendance-record-date">
+                Oct 26, 2026
+            </span>
+
+            <span class="stackly-student-attendance-status absent">
+                <i class="fa-solid fa-circle-xmark"></i>
+                Absent
+            </span>
+        </article>
+
+        <article class="stackly-student-attendance-record">
+            <div class="stackly-student-attendance-record-class">
+                <div class="record-subject-icon blue">
+                    <i class="fa-solid fa-language"></i>
+                </div>
+                <div>
+                    <h3>English Communication</h3>
+                    <p><i class="fa-regular fa-clock"></i> 02:30 PM – 03:30 PM</p>
+                </div>
+            </div>
+
+            <span class="stackly-student-attendance-record-date">
+                Oct 23, 2026
+            </span>
+
+            <span class="stackly-student-attendance-status present">
+                <i class="fa-solid fa-circle-check"></i>
+                Present
+            </span>
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- ATTENDANCE IMPROVEMENT SECTION -->
+<section class="stackly-student-attendance-improvement" data-aos="fade-up">
+
+    <div class="stackly-student-attendance-improvement-icon">
+        <i class="fa-solid fa-bullseye"></i>
+    </div>
+
+    <div class="stackly-student-attendance-improvement-content">
+
+        <span>YOUR NEXT GOAL</span>
+
+        <h2>Make Every Class a Step Forward.</h2>
+
+        <p>
+            Build a consistent routine, arrive on time, and stay engaged.
+            Small daily habits can make a meaningful difference.
+        </p>
+
+        <div class="stackly-student-attendance-tips">
+
+            <div>
+                <i class="fa-solid fa-check"></i>
+                <span>Prepare your materials in advance</span>
+            </div>
+
+            <div>
+                <i class="fa-solid fa-check"></i>
+                <span>Set reminders before each class</span>
+            </div>
+
+            <div>
+                <i class="fa-solid fa-check"></i>
+                <span>Review lessons you have missed</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="stackly-student-attendance-improvement-decoration">
+        <i class="fa-solid fa-graduation-cap"></i>
+    </div>
+
+</section>
+</main>
+
+</div>
+
+    <!-- ==========================================
+         SCRIPTS
+    ========================================== -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="student.js"></script>
+
+</body>
+</html>

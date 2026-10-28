@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | Stackly Education</title>
+
+    <meta name="description"
+          content="Manage students, staff, courses, and academic activities from the Stackly Education Admin Dashboard.">
+
+    <link rel="icon" type="image/webp" href="Stackly-logo-Blue.webp">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <!-- Admin Dashboard CSS -->
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body class="stackly-admin-body">
+
+    <!-- Mobile Sidebar Overlay -->
+    <div class="stackly-admin-overlay"
+         id="stacklyAdminOverlay"
+         aria-hidden="true"></div>
+
+    <!-- ==========================================
+         SIDEBAR
+    =========================================== -->
+    <aside class="stackly-admin-sidebar" id="stacklyAdminSidebar">
+
+        <!-- Sidebar Header -->
+        <div class="stackly-admin-sidebar-header">
+
+            <a href="admin.html"
+               class="stackly-admin-logo"
+               aria-label="Stackly Education Home">
+
+                <img src="Stackly-logo-Blue.webp"
+                     alt="Stackly Education Logo">
+            </a>
+
+            <!-- Mobile Exit Button -->
+            <button class="stackly-admin-sidebar-close"
+                    id="stacklyAdminSidebarClose"
+                    type="button"
+                    aria-label="Close navigation menu">
+
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+        <!-- Sidebar Navigation -->
+        <nav class="stackly-admin-navigation"
+             aria-label="Admin navigation">
+
+            <p class="stackly-admin-nav-label">MAIN MENU</p>
+
+            <a href="admin.html"
+               class="stackly-admin-nav-link active"
+               aria-current="page">
+
+                <i class="fa-solid fa-chart-pie"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="admin-students.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-user-graduate"></i>
+                <span>Students</span>
+            </a>
+
+            <a href="admin-staff.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-chalkboard-user"></i>
+                <span>Staff Members</span>
+            </a>
+
+
+            <a href="admin-classes.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-school"></i>
+                <span>Classes</span>
+            </a>
+
+            <a href="admin-attendance.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>Attendance</span>
+            </a>
+
+            <a href="admin-examinations.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-file-circle-check"></i>
+                <span>Examinations</span>
+            </a>
+
+
+            <p class="stackly-admin-nav-label stackly-admin-nav-spaced">
+                MANAGEMENT
+            </p>
+
+            <a href="admin-announcements.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-bullhorn"></i>
+                <span>Announcements</span>
+            </a>
+
+            <a href="admin-messages.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-envelope"></i>
+                <span>Messages</span>
+            </a>
+
+        </nav>
+
+        <!-- Sidebar Bottom -->
+        <div class="stackly-admin-sidebar-bottom">
+
+            <div class="stackly-admin-sidebar-help">
+                <div class="stackly-admin-help-icon">
+                    <i class="fa-solid fa-headset"></i>
+                </div>
+
+                <div class="stackly-admin-help-text">
+                    <h4>Need Help?</h4>
+                    <p>Contact support</p>
+                </div>
+
+                <a href="404-admin.html"
+                   class="stackly-admin-help-link"
+                   aria-label="Contact support">
+
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+            <a href="index.html"
+               class="stackly-admin-nav-link stackly-admin-logout-link">
+
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <span>Logout</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+    <!-- ==========================================
+         MAIN CONTENT AREA
+    =========================================== -->
+    <main class="stackly-admin-main">
+
+        <!-- Top Header -->
+        <header class="stackly-admin-topbar">
+
+            <div class="stackly-admin-topbar-left">
+
+                <!-- Mobile Hamburger -->
+                <button class="stackly-admin-menu-toggle"
+                        id="stacklyAdminMenuToggle"
+                        type="button"
+                        aria-label="Open navigation menu"
+                        aria-controls="stacklyAdminSidebar"
+                        aria-expanded="false">
+
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="stackly-admin-page-heading">
+                    <span class="stackly-admin-breadcrumb">
+                        Stackly Education / Admin
+                    </span>
+
+                    <h1>Admin Dashboard</h1>
+                </div>
+
+            </div>
+
+            <!-- Top Right Actions -->
+            <div class="stackly-admin-topbar-right">
+
+                <a href="404-admin.html"><button class="stackly-admin-icon-button"
+                        type="button"
+                        aria-label="Notifications">
+
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="stackly-admin-notification-dot"></span>
+                </button></a>
+
+                <div class="stackly-admin-header-divider"></div>
+
+                <!-- Admin Email -->
+                <div class="stackly-admin-account">
+
+                    <div class="stackly-admin-avatar">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+
+                    <div class="stackly-admin-account-info">
+                        <span class="stackly-admin-account-name">
+                            Administrator
+                        </span>
+
+                        <span class="stackly-admin-account-email"
+                              id="stacklyAdminEmail">
+                            admin@stacklyeducation.com
+                        </span>
+                    </div>
+
+                    <button class="stackly-admin-account-menu"
+                            id="stacklyAdminAccountMenu"
+                            type="button"
+                            aria-label="Account options">
+
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+<!-- ==========================================
+     STACKLY EDUCATION - ADMIN CLASSES PAGE
+     Modern Classes Management Dashboard
+========================================== -->
+
+
+<div class="stackly-admin-classes-page">
+
+    <!-- CLASSES HERO -->
+    <section class="stackly-classes-hero" data-aos="fade-up">
+
+        <div class="stackly-classes-hero-content">
+            <span class="stackly-classes-eyebrow">
+                <i class="fa-solid fa-graduation-cap"></i>
+                ACADEMIC MANAGEMENT
+            </span>
+
+            <h2>Every Class. Every Goal.
+                <span>One Dashboard.</span>
+            </h2>
+
+            <p>
+                Organize classrooms, manage teaching schedules, monitor
+                class performance, and create better learning experiences
+                for every student.
+            </p>
+
+            <div class="stackly-classes-hero-actions">
+                <a href="404-admin.html"
+                   class="stackly-classes-btn-primary">
+                    <i class="fa-solid fa-plus"></i>
+                    Create New Class
+                </a>
+
+                <a href="404-admin.html"
+                   class="stackly-classes-btn-secondary">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    View Timetable
+                </a>
+            </div>
+
+            <div class="stackly-classes-hero-note">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Keep every classroom organized and on schedule.</span>
+            </div>
+        </div>
+
+        <div class="stackly-classes-hero-visual">
+            <div class="stackly-classes-hero-orbit orbit-one"></div>
+            <div class="stackly-classes-hero-orbit orbit-two"></div>
+
+            <div class="stackly-classes-hero-main-icon">
+                <i class="fa-solid fa-school"></i>
+            </div>
+
+            <div class="stackly-classes-floating-card classes-float-top">
+                <div class="stackly-classes-float-icon">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+                <div>
+                    <strong>Learning in Progress</strong>
+                    <span>Interactive classrooms</span>
+                </div>
+            </div>
+
+            <div class="stackly-classes-floating-card classes-float-bottom">
+                <div class="stackly-classes-float-icon green">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+                <div>
+                    <strong>32 Classrooms</strong>
+                    <span>Across all grades</span>
+                </div>
+            </div>
+
+            <div class="stackly-classes-hero-decoration decoration-one">
+                <i class="fa-solid fa-shapes"></i>
+            </div>
+
+            <div class="stackly-classes-hero-decoration decoration-two">
+                <i class="fa-solid fa-star"></i>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- CLASS STATISTICS -->
+    <section class="stackly-classes-stats" data-aos="fade-up">
+
+        <article class="stackly-classes-stat-card">
+            <div class="stackly-classes-stat-top">
+                <span class="stackly-classes-stat-label">Total Classes</span>
+                <div class="stackly-classes-stat-icon orange">
+                    <i class="fa-solid fa-school"></i>
+                </div>
+            </div>
+            <h3>32</h3>
+            <p><i class="fa-solid fa-layer-group"></i> Across all grades</p>
+            <div class="stackly-classes-stat-progress">
+                <span style="width: 85%"></span>
+            </div>
+        </article>
+
+        <article class="stackly-classes-stat-card">
+            <div class="stackly-classes-stat-top">
+                <span class="stackly-classes-stat-label">Total Students</span>
+                <div class="stackly-classes-stat-icon green">
+                    <i class="fa-solid fa-user-graduate"></i>
+                </div>
+            </div>
+            <h3>1,248</h3>
+            <p><i class="fa-solid fa-users"></i> Enrolled in classes</p>
+            <div class="stackly-classes-stat-progress green-bar">
+                <span style="width: 76%"></span>
+            </div>
+        </article>
+
+        <article class="stackly-classes-stat-card">
+            <div class="stackly-classes-stat-top">
+                <span class="stackly-classes-stat-label">Assigned Teachers</span>
+                <div class="stackly-classes-stat-icon purple">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                </div>
+            </div>
+            <h3>48</h3>
+            <p><i class="fa-solid fa-user-check"></i> Teaching assignments</p>
+            <div class="stackly-classes-stat-progress purple-bar">
+                <span style="width: 91%"></span>
+            </div>
+        </article>
+
+        <article class="stackly-classes-stat-card">
+            <div class="stackly-classes-stat-top">
+                <span class="stackly-classes-stat-label">Room Availability</span>
+                <div class="stackly-classes-stat-icon blue">
+                    <i class="fa-solid fa-door-open"></i>
+                </div>
+            </div>
+            <h3>08</h3>
+            <p><i class="fa-solid fa-circle-check"></i> Rooms available</p>
+            <div class="stackly-classes-stat-progress blue-bar">
+                <span style="width: 40%"></span>
+            </div>
+        </article>
+
+    </section>
+
+
+    <!-- FEATURED CLASSROOMS -->
+    <section class="stackly-classes-featured" data-aos="fade-up">
+
+        <div class="stackly-classes-section-heading">
+            <div>
+                <span class="stackly-classes-section-label">
+                    CLASSROOM OVERVIEW
+                </span>
+                <h2>Explore Your Classrooms</h2>
+                <p>Quickly review grade levels, class sizes, and assigned teachers.</p>
+            </div>
+
+            <a href="404-admin.html" class="stackly-classes-text-link">
+                Manage All Classes
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="stackly-classes-featured-grid">
+
+            <!-- CLASS 1 -->
+            <article class="stackly-classroom-card" data-aos="fade-up">
+                <div class="stackly-classroom-card-banner classroom-orange">
+                    <div class="stackly-classroom-grade">GRADE 10</div>
+                    <div class="stackly-classroom-banner-icon">
+                        <i class="fa-solid fa-atom"></i>
+                    </div>
+                    <span class="stackly-classroom-status">
+                        <i class="fa-solid fa-circle"></i> Active
+                    </span>
+                </div>
+
+                <div class="stackly-classroom-card-body">
+                    <span class="stackly-classroom-category">SCIENCE STREAM</span>
+                    <h3>Class X - A</h3>
+                    <p>Building strong foundations in science and mathematics.</p>
+
+                    <div class="stackly-classroom-details">
+                        <span>
+                            <i class="fa-solid fa-users"></i>
+                            42 Students
+                        </span>
+                        <span>
+                            <i class="fa-solid fa-door-closed"></i>
+                            Room 101
+                        </span>
+                    </div>
+
+                    <div class="stackly-classroom-teacher">
+                        <div class="stackly-classroom-teacher-avatar orange-avatar">
+                            AM
+                        </div>
+                        <div>
+                            <strong>Arun Mathew</strong>
+                            <span>Class Teacher</span>
+                        </div>
+                        <a href="404-admin.html" aria-label="View Class X A">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- CLASS 2 -->
+            <article class="stackly-classroom-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="stackly-classroom-card-banner classroom-green">
+                    <div class="stackly-classroom-grade">GRADE 9</div>
+                    <div class="stackly-classroom-banner-icon">
+                        <i class="fa-solid fa-flask"></i>
+                    </div>
+                    <span class="stackly-classroom-status">
+                        <i class="fa-solid fa-circle"></i> Active
+                    </span>
+                </div>
+
+                <div class="stackly-classroom-card-body">
+                    <span class="stackly-classroom-category">GENERAL STUDIES</span>
+                    <h3>Class IX - B</h3>
+                    <p>Encouraging curiosity, collaboration, and creative thinking.</p>
+
+                    <div class="stackly-classroom-details">
+                        <span>
+                            <i class="fa-solid fa-users"></i>
+                            38 Students
+                        </span>
+                        <span>
+                            <i class="fa-solid fa-door-closed"></i>
+                            Room 204
+                        </span>
+                    </div>
+
+                    <div class="stackly-classroom-teacher">
+                        <div class="stackly-classroom-teacher-avatar green-avatar">
+                            SK
+                        </div>
+                        <div>
+                            <strong>Sarah Kumar</strong>
+                            <span>Class Teacher</span>
+                        </div>
+                        <a href="404-admin.html" aria-label="View Class IX B">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- CLASS 3 -->
+            <article class="stackly-classroom-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="stackly-classroom-card-banner classroom-purple">
+                    <div class="stackly-classroom-grade">GRADE 8</div>
+                    <div class="stackly-classroom-banner-icon">
+                        <i class="fa-solid fa-calculator"></i>
+                    </div>
+                    <span class="stackly-classroom-status">
+                        <i class="fa-solid fa-circle"></i> Active
+                    </span>
+                </div>
+
+                <div class="stackly-classroom-card-body">
+                    <span class="stackly-classroom-category">MATHEMATICS</span>
+                    <h3>Class VIII - A</h3>
+                    <p>Developing problem-solving skills through active learning.</p>
+
+                    <div class="stackly-classroom-details">
+                        <span>
+                            <i class="fa-solid fa-users"></i>
+                            40 Students
+                        </span>
+                        <span>
+                            <i class="fa-solid fa-door-closed"></i>
+                            Room 305
+                        </span>
+                    </div>
+
+                    <div class="stackly-classroom-teacher">
+                        <div class="stackly-classroom-teacher-avatar purple-avatar">
+                            DL
+                        </div>
+                        <div>
+                            <strong>Daniel Lewis</strong>
+                            <span>Class Teacher</span>
+                        </div>
+                        <a href="404-admin.html" aria-label="View Class VIII A">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+
+    <!-- WEEKLY TIMETABLE -->
+    <section class="stackly-classes-timetable" data-aos="fade-up">
+
+        <div class="stackly-classes-section-heading">
+            <div>
+                <span class="stackly-classes-section-label">SCHEDULE PLANNER</span>
+                <h2>Today's Class Schedule</h2>
+                <p>A quick look at the upcoming lessons and classroom allocations.</p>
+            </div>
+
+            <a href="404-admin.html" class="stackly-classes-text-link">
+                Full Timetable
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="stackly-classes-schedule-card">
+
+            <div class="stackly-classes-schedule-header">
+                <div>
+                    <h3>Wednesday's Overview</h3>
+                    <span>Sample daily schedule</span>
+                </div>
+                <div class="stackly-classes-schedule-date">
+                    <i class="fa-regular fa-calendar"></i>
+                    Academic Week
+                </div>
+            </div>
+
+            <div class="stackly-classes-schedule-list">
+
+                <article class="stackly-classes-schedule-item">
+                    <div class="stackly-classes-schedule-time">
+                        <strong>09:00</strong>
+                        <span>09:45 AM</span>
+                    </div>
+                    <div class="stackly-classes-schedule-marker orange-marker"></div>
+                    <div class="stackly-classes-schedule-info">
+                        <span class="schedule-subject orange-text">PHYSICS</span>
+                        <h4>Introduction to Motion</h4>
+                        <p><i class="fa-solid fa-school"></i> Class X - A · Room 101</p>
+                    </div>
+                    <div class="stackly-classes-schedule-teacher">
+                        <div class="schedule-teacher-avatar">AM</div>
+                        <span>Arun Mathew</span>
+                    </div>
+                    <span class="stackly-classes-schedule-status">Scheduled</span>
+                </article>
+
+                <article class="stackly-classes-schedule-item">
+                    <div class="stackly-classes-schedule-time">
+                        <strong>10:00</strong>
+                        <span>10:45 AM</span>
+                    </div>
+                    <div class="stackly-classes-schedule-marker green-marker"></div>
+                    <div class="stackly-classes-schedule-info">
+                        <span class="schedule-subject green-text">MATHEMATICS</span>
+                        <h4>Algebra and Equations</h4>
+                        <p><i class="fa-solid fa-school"></i> Class IX - B · Room 204</p>
+                    </div>
+                    <div class="stackly-classes-schedule-teacher">
+                        <div class="schedule-teacher-avatar green-avatar">SK</div>
+                        <span>Sarah Kumar</span>
+                    </div>
+                    <span class="stackly-classes-schedule-status">Scheduled</span>
+                </article>
+
+                <article class="stackly-classes-schedule-item">
+                    <div class="stackly-classes-schedule-time">
+                        <strong>11:15</strong>
+                        <span>12:00 PM</span>
+                    </div>
+                    <div class="stackly-classes-schedule-marker purple-marker"></div>
+                    <div class="stackly-classes-schedule-info">
+                        <span class="schedule-subject purple-text">CHEMISTRY</span>
+                        <h4>Elements and Compounds</h4>
+                        <p><i class="fa-solid fa-school"></i> Class VIII - A · Room 305</p>
+                    </div>
+                    <div class="stackly-classes-schedule-teacher">
+                        <div class="schedule-teacher-avatar purple-avatar">DL</div>
+                        <span>Daniel Lewis</span>
+                    </div>
+                    <span class="stackly-classes-schedule-status">Scheduled</span>
+                </article>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- CLASSROOM INSIGHTS -->
+    <section class="stackly-classes-insights" data-aos="fade-up">
+
+        <div class="stackly-classes-insight-content">
+            <span class="stackly-classes-section-label">CLASSROOM INSIGHTS</span>
+            <h2>Better Planning Creates Better Learning.</h2>
+            <p>
+                Keep an eye on class capacity, teacher assignments, and
+                classroom availability to help every lesson run smoothly.
+            </p>
+
+            <a href="404-admin.html" class="stackly-classes-btn-primary">
+                Explore Class Insights
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="stackly-classes-insight-metrics">
+
+            <div class="stackly-classes-insight-metric">
+                <div class="stackly-classes-insight-icon orange">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+                <div>
+                    <span>Average Class Size</span>
+                    <strong>39 Students</strong>
+                    <small>Across featured classes</small>
+                </div>
+            </div>
+
+            <div class="stackly-classes-insight-metric">
+                <div class="stackly-classes-insight-icon green">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                </div>
+                <div>
+                    <span>Teacher Assignments</span>
+                    <strong>48 Assigned</strong>
+                    <small>Review staff allocations regularly</small>
+                </div>
+            </div>
+
+            <div class="stackly-classes-insight-metric">
+                <div class="stackly-classes-insight-icon purple">
+                    <i class="fa-solid fa-door-open"></i>
+                </div>
+                <div>
+                    <span>Available Classrooms</span>
+                    <strong>08 Rooms</strong>
+                    <small>Ready for scheduling</small>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- BOTTOM GRID -->
+    <section class="stackly-classes-bottom-grid" data-aos="fade-up">
+
+        <!-- UPCOMING EVENTS -->
+        <div class="stackly-classes-panel">
+            <div class="stackly-classes-panel-heading">
+                <div>
+                    <span class="stackly-classes-section-label">WHAT'S NEXT</span>
+                    <h2>Academic Activities</h2>
+                </div>
+                <a href="404-admin.html" aria-label="View all academic activities">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+            <div class="stackly-classes-event-list">
+
+                <article class="stackly-classes-event-item">
+                    <div class="stackly-classes-event-date orange-event-date">
+                        <strong>12</strong>
+                        <span>NOV</span>
+                    </div>
+                    <div class="stackly-classes-event-info">
+                        <h3>Classroom Assessment</h3>
+                        <p>Grade 10 · Academic evaluation</p>
+                    </div>
+                     
+                </article>
+
+                <article class="stackly-classes-event-item">
+                    <div class="stackly-classes-event-date green-event-date">
+                        <strong>15</strong>
+                        <span>NOV</span>
+                    </div>
+                    <div class="stackly-classes-event-info">
+                        <h3>Science Demonstration</h3>
+                        <p>Grade 9 · Practical learning</p>
+                    </div>
+                     
+                </article>
+
+                <article class="stackly-classes-event-item">
+                    <div class="stackly-classes-event-date purple-event-date">
+                        <strong>19</strong>
+                        <span>NOV</span>
+                    </div>
+                    <div class="stackly-classes-event-info">
+                        <h3>Teacher Planning Meeting</h3>
+                        <p>All grades · Staff coordination</p>
+                    </div>
+                     
+                </article>
+
+            </div>
+        </div>
+
+
+        <!-- QUICK ACTIONS -->
+        <div class="stackly-classes-panel stackly-classes-actions-panel">
+            <div class="stackly-classes-panel-heading">
+                <div>
+                    <span class="stackly-classes-section-label">QUICK ACCESS</span>
+                    <h2>Class Management</h2>
+                </div>
+                <div class="stackly-classes-panel-heading-icon">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+            </div>
+
+            <div class="stackly-classes-quick-actions">
+
+                <a href="404-admin.html" class="stackly-classes-quick-action">
+                    <div class="quick-action-icon orange">
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <div>
+                        <strong>Create a Class</strong>
+                        <span>Set up a new classroom</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-right quick-action-arrow"></i>
+                </a>
+
+                <a href="404-admin.html" class="stackly-classes-quick-action">
+                    <div class="quick-action-icon green">
+                        <i class="fa-solid fa-user-plus"></i>
+                    </div>
+                    <div>
+                        <strong>Assign a Teacher</strong>
+                        <span>Update teaching assignments</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-right quick-action-arrow"></i>
+                </a>
+
+                <a href="404-admin.html" class="stackly-classes-quick-action">
+                    <div class="quick-action-icon purple">
+                        <i class="fa-solid fa-calendar-plus"></i>
+                    </div>
+                    <div>
+                        <strong>Plan a Timetable</strong>
+                        <span>Organize classroom schedules</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-right quick-action-arrow"></i>
+                </a>
+
+                <a href="404-admin.html" class="stackly-classes-quick-action">
+                    <div class="quick-action-icon blue">
+                        <i class="fa-solid fa-chart-column"></i>
+                    </div>
+                    <div>
+                        <strong>View Class Reports</strong>
+                        <span>Review academic summaries</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-right quick-action-arrow"></i>
+                </a>
+
+            </div>
+        </div>
+
+    </section>
+
+</div>
+
+</main>
+
+    <!-- AOS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <!-- Admin Dashboard JavaScript -->
+    <script src="admin.js"></script>
+
+</body>
+</html>

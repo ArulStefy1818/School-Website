@@ -1,0 +1,728 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Dashboard | Stackly Education</title>
+
+    <meta name="description" content="Stackly Education Student Dashboard to manage courses, assignments, attendance, grades, and class schedules.">
+    <meta name="theme-color" content="#ff9f16">
+
+    <!-- Favicon -->
+    <link rel="icon" href="Stackly-logo-Blue.webp" type="image/webp">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <!-- Student Dashboard CSS -->
+    <link rel="stylesheet" href="student.css">
+</head>
+
+<body>
+
+    <!-- ==========================================
+         MOBILE SIDEBAR OVERLAY
+    ========================================== -->
+
+    <div
+        class="stackly-student-overlay"
+        id="stacklyStudentOverlay"
+        aria-hidden="true"
+        hidden
+    ></div>
+
+    <!-- ==========================================
+         STUDENT SIDEBAR
+    ========================================== -->
+
+    <aside
+        class="stackly-student-sidebar"
+        id="stacklyStudentSidebar"
+        aria-label="Student dashboard navigation"
+        aria-hidden="false"
+    >
+
+        <!-- Logo -->
+        <div class="stackly-student-logo">
+
+            <a href="student.html" aria-label="Stackly Education student home">
+                <img
+                    src="Stackly-logo-Blue.webp"
+                    alt="Stackly Education logo"
+                    width="165"
+                    height="58"
+                >
+            </a>
+
+            <!-- Mobile Exit Button -->
+            <button
+                type="button"
+                class="stackly-student-sidebar-exit"
+                id="stacklyStudentSidebarClose"
+                aria-label="Close navigation menu"
+                aria-controls="stacklyStudentSidebar"
+            >
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+
+        </div>
+
+        <!-- Main Navigation -->
+        <div class="stackly-student-sidebar-heading">
+            <span>Student Workspace</span>
+        </div>
+
+        <nav class="stackly-student-sidebar-nav"
+             aria-label="Main navigation">
+
+            <a href="student.html"
+               class="stackly-student-nav-link active"
+               aria-current="page">
+                <i class="fa-solid fa-chart-pie" aria-hidden="true"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="student-courses.html" class="stackly-student-nav-link">
+                <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+                <span>My Courses</span>
+            </a>
+
+            <a href="student-assignments.html" class="stackly-student-nav-link">
+                <i class="fa-solid fa-file-pen" aria-hidden="true"></i>
+                <span>Assignments</span>
+            </a>
+
+            <a href="student-attendance.html" class="stackly-student-nav-link">
+                <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+                <span>My Attendance</span>
+            </a>
+
+            <a href="student-grades.html" class="stackly-student-nav-link">
+                <i class="fa-solid fa-chart-column" aria-hidden="true"></i>
+                <span>Grades & Results</span>
+            </a>
+
+            <a href="student-schedule.html" class="stackly-student-nav-link">
+                <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+                <span>Class Schedule</span>
+            </a>
+
+            <a href="student-resources.html" class="stackly-student-nav-link">
+                <i class="fa-solid fa-folder-open" aria-hidden="true"></i>
+                <span>Learning Resources</span>
+            </a>
+
+        </nav>
+
+        <!-- Account Navigation -->
+        <div class="stackly-student-sidebar-divider"></div>
+
+        <div class="stackly-student-sidebar-heading">
+            <span>My Account</span>
+        </div>
+
+        <nav class="stackly-student-sidebar-nav"
+             aria-label="Account navigation">
+
+            <a href="student-profile.html" class="stackly-student-nav-link">
+                <i class="fa-solid fa-user" aria-hidden="true"></i>
+                <span>My Profile</span>
+            </a>
+
+            <a href="index.html"
+               class="stackly-student-nav-link"
+               id="stacklyStudentLogout">
+                <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
+                <span>Logout</span>
+            </a>
+
+        </nav>
+
+        <!-- Sidebar Support Card -->
+        <div class="stackly-student-sidebar-bottom">
+
+            <div class="stackly-student-help-icon">
+                <i class="fa-solid fa-headset" aria-hidden="true"></i>
+            </div>
+
+            <div class="stackly-student-help-content">
+                <h4>Need some help?</h4>
+
+                <p>We're here to support your learning journey.</p>
+
+                <a href="404-student.html">
+                    Get Support
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+            </div>
+
+        </div>
+
+    </aside>
+
+    <!-- ==========================================
+         MAIN DASHBOARD AREA
+    ========================================== -->
+
+    <div class="stackly-student-main">
+
+        <!-- TOP HEADER -->
+        <header class="stackly-student-header">
+
+            <div class="stackly-student-header-left">
+
+                <!-- Mobile Hamburger -->
+                <button
+                    type="button"
+                    class="stackly-student-mobile-toggle"
+                    id="stacklyStudentMenuToggle"
+                    aria-label="Open navigation menu"
+                    aria-controls="stacklyStudentSidebar"
+                    aria-expanded="false"
+                >
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                </button>
+
+                <div class="stackly-student-page-label">
+                    <h1>Student Dashboard</h1>
+                    <p>Welcome back! Ready to learn something new?</p>
+                </div>
+
+            </div>
+
+            <!-- Header Right -->
+            <div class="stackly-student-header-right">
+
+                <!-- Notifications -->
+                <a
+                    href="404-student.html"
+                    class="stackly-student-header-icon"
+                    aria-label="Notifications"
+                    title="Notifications"
+                >
+                    <i class="fa-regular fa-bell" aria-hidden="true"></i>
+                    <span class="stackly-student-notification-dot"></span>
+                </a>
+
+                <!-- Student Email -->
+                <div class="stackly-student-header-email">
+
+                    <div class="stackly-student-email-icon">
+                        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="stackly-student-email-details">
+                        <span class="stackly-student-email-label">
+                            Student Account
+                        </span>
+
+                        <span
+                            class="stackly-student-email-address"
+                            id="stacklyStudentEmailAddress"
+                            title="Student email address"
+                        >
+                            Loading email...
+                        </span>
+                    </div>
+
+                </div>
+
+                <!-- Account Button -->
+                <a
+                    href="404-student.html"
+                    class="stackly-student-account-button"
+                    aria-label="My profile"
+                    title="My profile"
+                >
+                    <i class="fa-solid fa-user" aria-hidden="true"></i>
+                </a>
+
+            </div>
+
+        </header>
+
+        <!-- ==========================================
+     STACKLY EDUCATION - MY COURSES PAGE
+     ATTRACTIVE COURSE SECTIONS
+========================================== -->
+
+<main class="stackly-student-content">
+
+<!-- MY COURSES WELCOME SECTION -->
+<section class="stackly-student-courses-hero" data-aos="fade-up">
+
+    <div class="stackly-student-courses-hero-content">
+        <span class="stackly-student-courses-eyebrow">
+            <i class="fa-solid fa-graduation-cap"></i>
+            YOUR LEARNING SPACE
+        </span>
+
+        <h2>Learn Today, Lead Tomorrow.</h2>
+
+        <p>
+            Explore your courses, track your progress, and keep moving
+            closer to your academic goals with every lesson.
+        </p>
+
+        <div class="stackly-student-courses-hero-actions">
+            <a href="404-student.html" class="stackly-student-course-primary-btn">
+                Explore My Courses
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <a href="404-student.html" class="stackly-student-course-secondary-btn">
+                View My Progress
+            </a>
+        </div>
+    </div>
+
+    <div class="stackly-student-courses-hero-visual">
+        <div class="stackly-student-courses-visual-circle">
+            <i class="fa-solid fa-book-open-reader"></i>
+        </div>
+
+        <div class="stackly-student-courses-floating-card stackly-student-courses-floating-top">
+            <i class="fa-solid fa-circle-check"></i>
+            <div>
+                <strong>Keep Going!</strong>
+                <span>Every lesson counts</span>
+            </div>
+        </div>
+
+        <div class="stackly-student-courses-floating-card stackly-student-courses-floating-bottom">
+            <i class="fa-solid fa-bullseye"></i>
+            <div>
+                <strong>Your Goals</strong>
+                <span>Progress starts here</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="stackly-student-courses-hero-decoration"></div>
+
+</section>
+
+
+<!-- COURSE OVERVIEW STATS -->
+<section class="stackly-student-course-stats" data-aos="fade-up">
+
+    <article class="stackly-student-course-stat-card">
+        <div class="stackly-student-course-stat-icon orange">
+            <i class="fa-solid fa-book-open"></i>
+        </div>
+
+        <div class="stackly-student-course-stat-info">
+            <span>Enrolled Courses</span>
+            <h3>06</h3>
+            <p>Courses in your learning plan</p>
+        </div>
+    </article>
+
+    <article class="stackly-student-course-stat-card">
+        <div class="stackly-student-course-stat-icon green">
+            <i class="fa-solid fa-circle-check"></i>
+        </div>
+
+        <div class="stackly-student-course-stat-info">
+            <span>Completed Courses</span>
+            <h3>02</h3>
+            <p>Achievements unlocked</p>
+        </div>
+    </article>
+
+    <article class="stackly-student-course-stat-card">
+        <div class="stackly-student-course-stat-icon purple">
+            <i class="fa-solid fa-clock"></i>
+        </div>
+
+        <div class="stackly-student-course-stat-info">
+            <span>Learning Hours</span>
+            <h3>28.5</h3>
+            <p>Time invested in learning</p>
+        </div>
+    </article>
+
+    <article class="stackly-student-course-stat-card">
+        <div class="stackly-student-course-stat-icon blue">
+            <i class="fa-solid fa-chart-line"></i>
+        </div>
+
+        <div class="stackly-student-course-stat-info">
+            <span>Overall Progress</span>
+            <h3>68%</h3>
+            <p>Across your enrolled courses</p>
+        </div>
+    </article>
+
+</section>
+
+
+<!-- MY COURSES SECTION -->
+<section class="stackly-student-my-courses" id="stacklyStudentMyCourses">
+
+    <div class="stackly-student-section-heading" data-aos="fade-up">
+        <div>
+            <span class="stackly-student-section-eyebrow">YOUR CLASSROOM</span>
+            <h2>My Learning Journey</h2>
+            <p>Pick up where you left off and make progress today.</p>
+        </div>
+
+        <a href="404-student.html" class="stackly-student-view-all-link">
+            View All Courses
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+    </div>
+
+    <div class="stackly-student-course-grid">
+
+        <!-- COURSE 1 -->
+        <article class="stackly-student-course-card" data-aos="fade-up">
+
+            <div class="stackly-student-course-card-top stackly-student-course-theme-orange">
+                <span class="stackly-student-course-category">SCIENCE</span>
+
+                <div class="stackly-student-course-card-icon">
+                    <i class="fa-solid fa-atom"></i>
+                </div>
+
+                <span class="stackly-student-course-number">01</span>
+            </div>
+
+            <div class="stackly-student-course-card-body">
+
+                <div class="stackly-student-course-status">
+                    <span class="stackly-student-course-status-dot"></span>
+                    In Progress
+                </div>
+
+                <h3>Physics Fundamentals</h3>
+
+                <p>
+                    Explore motion, energy, forces, and the principles
+                    that explain how our world works.
+                </p>
+
+                <div class="stackly-student-course-meta">
+                    <span><i class="fa-solid fa-book"></i> 12 Lessons</span>
+                    <span><i class="fa-solid fa-clock"></i> 8 Hours</span>
+                </div>
+
+                <div class="stackly-student-course-progress-info">
+                    <span>Course Progress</span>
+                    <strong>75%</strong>
+                </div>
+
+                <div class="stackly-student-course-progress-track">
+                    <div class="stackly-student-course-progress-fill orange-fill"
+                         style="width: 75%;"></div>
+                </div>
+
+                <a href="404-student.html" class="stackly-student-course-continue">
+                    Continue Learning
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+        </article>
+
+
+        <!-- COURSE 2 -->
+        <article class="stackly-student-course-card" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="stackly-student-course-card-top stackly-student-course-theme-green">
+                <span class="stackly-student-course-category">MATHEMATICS</span>
+
+                <div class="stackly-student-course-card-icon">
+                    <i class="fa-solid fa-square-root-variable"></i>
+                </div>
+
+                <span class="stackly-student-course-number">02</span>
+            </div>
+
+            <div class="stackly-student-course-card-body">
+
+                <div class="stackly-student-course-status">
+                    <span class="stackly-student-course-status-dot"></span>
+                    In Progress
+                </div>
+
+                <h3>Advanced Mathematics</h3>
+
+                <p>
+                    Strengthen your analytical thinking through algebra,
+                    equations, and problem-solving exercises.
+                </p>
+
+                <div class="stackly-student-course-meta">
+                    <span><i class="fa-solid fa-book"></i> 16 Lessons</span>
+                    <span><i class="fa-solid fa-clock"></i> 10 Hours</span>
+                </div>
+
+                <div class="stackly-student-course-progress-info">
+                    <span>Course Progress</span>
+                    <strong>60%</strong>
+                </div>
+
+                <div class="stackly-student-course-progress-track">
+                    <div class="stackly-student-course-progress-fill green-fill"
+                         style="width: 60%;"></div>
+                </div>
+
+                <a href="404-student.html" class="stackly-student-course-continue">
+                    Continue Learning
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+        </article>
+
+
+        <!-- COURSE 3 -->
+        <article class="stackly-student-course-card" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="stackly-student-course-card-top stackly-student-course-theme-purple">
+                <span class="stackly-student-course-category">COMPUTER SCIENCE</span>
+
+                <div class="stackly-student-course-card-icon">
+                    <i class="fa-solid fa-laptop-code"></i>
+                </div>
+
+                <span class="stackly-student-course-number">03</span>
+            </div>
+
+            <div class="stackly-student-course-card-body">
+
+                <div class="stackly-student-course-status">
+                    <span class="stackly-student-course-status-dot"></span>
+                    In Progress
+                </div>
+
+                <h3>Web Development Basics</h3>
+
+                <p>
+                    Discover HTML, CSS, and JavaScript while building
+                    your first interactive web experiences.
+                </p>
+
+                <div class="stackly-student-course-meta">
+                    <span><i class="fa-solid fa-book"></i> 10 Lessons</span>
+                    <span><i class="fa-solid fa-clock"></i> 6 Hours</span>
+                </div>
+
+                <div class="stackly-student-course-progress-info">
+                    <span>Course Progress</span>
+                    <strong>45%</strong>
+                </div>
+
+                <div class="stackly-student-course-progress-track">
+                    <div class="stackly-student-course-progress-fill purple-fill"
+                         style="width: 45%;"></div>
+                </div>
+
+                <a href="404-student.html" class="stackly-student-course-continue">
+                    Continue Learning
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+        </article>
+
+
+        <!-- COURSE 4 -->
+        <article class="stackly-student-course-card" data-aos="fade-up">
+
+            <div class="stackly-student-course-card-top stackly-student-course-theme-blue">
+                <span class="stackly-student-course-category">ENGLISH</span>
+
+                <div class="stackly-student-course-card-icon">
+                    <i class="fa-solid fa-language"></i>
+                </div>
+
+                <span class="stackly-student-course-number">04</span>
+            </div>
+
+            <div class="stackly-student-course-card-body">
+
+                <div class="stackly-student-course-status">
+                    <span class="stackly-student-course-status-dot"></span>
+                    In Progress
+                </div>
+
+                <h3>English Communication</h3>
+
+                <p>
+                    Improve your vocabulary, writing skills, and confidence
+                    in everyday and academic communication.
+                </p>
+
+                <div class="stackly-student-course-meta">
+                    <span><i class="fa-solid fa-book"></i> 14 Lessons</span>
+                    <span><i class="fa-solid fa-clock"></i> 7 Hours</span>
+                </div>
+
+                <div class="stackly-student-course-progress-info">
+                    <span>Course Progress</span>
+                    <strong>80%</strong>
+                </div>
+
+                <div class="stackly-student-course-progress-track">
+                    <div class="stackly-student-course-progress-fill blue-fill"
+                         style="width: 80%;"></div>
+                </div>
+
+                <a href="404-student.html" class="stackly-student-course-continue">
+                    Continue Learning
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- LEARNING PROGRESS SECTION -->
+<section class="stackly-student-course-progress-section"
+         id="stacklyStudentCourseProgress"
+         data-aos="fade-up">
+
+    <div class="stackly-student-section-heading">
+        <div>
+            <span class="stackly-student-section-eyebrow">YOUR ACHIEVEMENTS</span>
+            <h2>Progress That Matters</h2>
+            <p>See how your effort is turning into meaningful progress.</p>
+        </div>
+    </div>
+
+    <div class="stackly-student-progress-layout">
+
+        <div class="stackly-student-progress-highlight">
+
+            <div class="stackly-student-progress-highlight-icon">
+                <i class="fa-solid fa-trophy"></i>
+            </div>
+
+            <span class="stackly-student-progress-highlight-label">
+                YOUR LEARNING SCORE
+            </span>
+
+            <h3>68%</h3>
+
+            <p>
+                You're building a strong learning habit. Keep showing up
+                and take the next step toward your goals.
+            </p>
+
+            <div class="stackly-student-progress-highlight-footer">
+                <i class="fa-solid fa-fire"></i>
+                Small steps lead to big achievements.
+            </div>
+
+        </div>
+
+        <div class="stackly-student-progress-breakdown">
+
+            <div class="stackly-student-progress-item">
+                <div class="stackly-student-progress-item-heading">
+                    <span><i class="fa-solid fa-atom"></i> Physics Fundamentals</span>
+                    <strong>75%</strong>
+                </div>
+
+                <div class="stackly-student-course-progress-track">
+                    <div class="stackly-student-course-progress-fill orange-fill"
+                         style="width: 75%;"></div>
+                </div>
+            </div>
+
+            <div class="stackly-student-progress-item">
+                <div class="stackly-student-progress-item-heading">
+                    <span><i class="fa-solid fa-square-root-variable"></i> Advanced Mathematics</span>
+                    <strong>60%</strong>
+                </div>
+
+                <div class="stackly-student-course-progress-track">
+                    <div class="stackly-student-course-progress-fill green-fill"
+                         style="width: 60%;"></div>
+                </div>
+            </div>
+
+            <div class="stackly-student-progress-item">
+                <div class="stackly-student-progress-item-heading">
+                    <span><i class="fa-solid fa-laptop-code"></i> Web Development Basics</span>
+                    <strong>45%</strong>
+                </div>
+
+                <div class="stackly-student-course-progress-track">
+                    <div class="stackly-student-course-progress-fill purple-fill"
+                         style="width: 45%;"></div>
+                </div>
+            </div>
+
+            <div class="stackly-student-progress-item">
+                <div class="stackly-student-progress-item-heading">
+                    <span><i class="fa-solid fa-language"></i> English Communication</span>
+                    <strong>80%</strong>
+                </div>
+
+                <div class="stackly-student-course-progress-track">
+                    <div class="stackly-student-course-progress-fill blue-fill"
+                         style="width: 80%;"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- COURSE DISCOVERY CTA -->
+<section class="stackly-student-course-discovery" data-aos="zoom-in">
+
+    <div class="stackly-student-course-discovery-icon">
+        <i class="fa-solid fa-lightbulb"></i>
+    </div>
+
+    <div class="stackly-student-course-discovery-content">
+        <span>KEEP EXPLORING</span>
+        <h2>Curiosity Is Your Superpower.</h2>
+
+        <p>
+            Discover new topics, explore useful learning materials,
+            and find more ways to grow your knowledge.
+        </p>
+    </div>
+
+    <a href="404-student.html" class="stackly-student-course-discovery-btn">
+        Explore Resources
+        <i class="fa-solid fa-arrow-right"></i>
+    </a>
+
+</section>
+
+</main>
+
+</div>
+
+    <!-- ==========================================
+         SCRIPTS
+    ========================================== -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="student.js"></script>
+
+</body>
+</html>

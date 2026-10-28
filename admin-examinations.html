@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | Stackly Education</title>
+
+    <meta name="description"
+          content="Manage students, staff, courses, and academic activities from the Stackly Education Admin Dashboard.">
+
+    <link rel="icon" type="image/webp" href="Stackly-logo-Blue.webp">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <!-- Admin Dashboard CSS -->
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body class="stackly-admin-body">
+
+    <!-- Mobile Sidebar Overlay -->
+    <div class="stackly-admin-overlay"
+         id="stacklyAdminOverlay"
+         aria-hidden="true"></div>
+
+    <!-- ==========================================
+         SIDEBAR
+    =========================================== -->
+    <aside class="stackly-admin-sidebar" id="stacklyAdminSidebar">
+
+        <!-- Sidebar Header -->
+        <div class="stackly-admin-sidebar-header">
+
+            <a href="admin.html"
+               class="stackly-admin-logo"
+               aria-label="Stackly Education Home">
+
+                <img src="Stackly-logo-Blue.webp"
+                     alt="Stackly Education Logo">
+            </a>
+
+            <!-- Mobile Exit Button -->
+            <button class="stackly-admin-sidebar-close"
+                    id="stacklyAdminSidebarClose"
+                    type="button"
+                    aria-label="Close navigation menu">
+
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+        <!-- Sidebar Navigation -->
+        <nav class="stackly-admin-navigation"
+             aria-label="Admin navigation">
+
+            <p class="stackly-admin-nav-label">MAIN MENU</p>
+
+            <a href="admin.html"
+               class="stackly-admin-nav-link active"
+               aria-current="page">
+
+                <i class="fa-solid fa-chart-pie"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="admin-students.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-user-graduate"></i>
+                <span>Students</span>
+            </a>
+
+            <a href="admin-staff.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-chalkboard-user"></i>
+                <span>Staff Members</span>
+            </a>
+
+
+            <a href="admin-classes.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-school"></i>
+                <span>Classes</span>
+            </a>
+
+            <a href="admin-attendance.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>Attendance</span>
+            </a>
+
+            <a href="admin-examinations.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-file-circle-check"></i>
+                <span>Examinations</span>
+            </a>
+
+
+            <p class="stackly-admin-nav-label stackly-admin-nav-spaced">
+                MANAGEMENT
+            </p>
+
+            <a href="admin-announcements.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-bullhorn"></i>
+                <span>Announcements</span>
+            </a>
+
+            <a href="admin-messages.html"
+               class="stackly-admin-nav-link">
+
+                <i class="fa-solid fa-envelope"></i>
+                <span>Messages</span>
+            </a>
+
+        </nav>
+
+        <!-- Sidebar Bottom -->
+        <div class="stackly-admin-sidebar-bottom">
+
+            <div class="stackly-admin-sidebar-help">
+                <div class="stackly-admin-help-icon">
+                    <i class="fa-solid fa-headset"></i>
+                </div>
+
+                <div class="stackly-admin-help-text">
+                    <h4>Need Help?</h4>
+                    <p>Contact support</p>
+                </div>
+
+                <a href="404-admin.html"
+                   class="stackly-admin-help-link"
+                   aria-label="Contact support">
+
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+            <a href="index.html"
+               class="stackly-admin-nav-link stackly-admin-logout-link">
+
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <span>Logout</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+    <!-- ==========================================
+         MAIN CONTENT AREA
+    =========================================== -->
+    <main class="stackly-admin-main">
+
+        <!-- Top Header -->
+        <header class="stackly-admin-topbar">
+
+            <div class="stackly-admin-topbar-left">
+
+                <!-- Mobile Hamburger -->
+                <button class="stackly-admin-menu-toggle"
+                        id="stacklyAdminMenuToggle"
+                        type="button"
+                        aria-label="Open navigation menu"
+                        aria-controls="stacklyAdminSidebar"
+                        aria-expanded="false">
+
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="stackly-admin-page-heading">
+                    <span class="stackly-admin-breadcrumb">
+                        Stackly Education / Admin
+                    </span>
+
+                    <h1>Admin Dashboard</h1>
+                </div>
+
+            </div>
+
+            <!-- Top Right Actions -->
+            <div class="stackly-admin-topbar-right">
+
+                <a href="404-admin.html"><button class="stackly-admin-icon-button"
+                        type="button"
+                        aria-label="Notifications">
+
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="stackly-admin-notification-dot"></span>
+                </button></a>
+
+                <div class="stackly-admin-header-divider"></div>
+
+                <!-- Admin Email -->
+                <div class="stackly-admin-account">
+
+                    <div class="stackly-admin-avatar">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+
+                    <div class="stackly-admin-account-info">
+                        <span class="stackly-admin-account-name">
+                            Administrator
+                        </span>
+
+                        <span class="stackly-admin-account-email"
+                              id="stacklyAdminEmail">
+                            admin@stacklyeducation.com
+                        </span>
+                    </div>
+
+                    <button class="stackly-admin-account-menu"
+                            id="stacklyAdminAccountMenu"
+                            type="button"
+                            aria-label="Account options">
+
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        
+<!-- ==========================================
+     STACKLY EDUCATION - ADMIN EXAMINATIONS
+     Modern Academic Examination Dashboard
+========================================== -->
+
+<div class="stackly-exam-page">
+
+    <!-- ======================================
+         1. EXAMINATION HERO
+    ======================================= -->
+
+    <section class="stackly-exam-hero" data-aos="fade-up">
+
+        <div class="stackly-exam-hero-content">
+
+            <span class="stackly-exam-eyebrow">
+                <i class="fa-solid fa-graduation-cap"></i>
+                ACADEMIC EXAMINATION CENTER
+            </span>
+
+            <h2>
+                Measure Progress.
+                <span>Celebrate Potential.</span>
+            </h2>
+
+            <p>
+                Organize examinations, monitor academic performance,
+                coordinate schedules, and create a smoother examination
+                experience for every student.
+            </p>
+
+            <div class="stackly-exam-hero-actions">
+
+                <a href="404-admin.html"
+                   class="stackly-exam-primary-btn">
+
+                    <i class="fa-solid fa-plus"></i>
+                    Create Examination
+                </a>
+
+                <a href="404-admin.html"
+                   class="stackly-exam-secondary-btn">
+
+                    <i class="fa-solid fa-chart-line"></i>
+                    View Results
+                </a>
+
+            </div>
+
+            <div class="stackly-exam-hero-note">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Plan effectively. Assess fairly. Improve continuously.</span>
+            </div>
+
+        </div>
+
+        <!-- HERO VISUAL -->
+
+        <div class="stackly-exam-hero-visual">
+
+            <div class="stackly-exam-visual-ring exam-ring-one"></div>
+            <div class="stackly-exam-visual-ring exam-ring-two"></div>
+
+            <div class="stackly-exam-hero-illustration">
+                <div class="stackly-exam-illustration-top">
+                    <i class="fa-solid fa-file-circle-check"></i>
+                </div>
+
+                <div class="stackly-exam-illustration-lines">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <div class="stackly-exam-illustration-check">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+            </div>
+
+            <div class="stackly-exam-float-card exam-float-calendar">
+                <div class="stackly-exam-float-icon orange">
+                    <i class="fa-solid fa-calendar-days"></i>
+                </div>
+
+                <div>
+                    <strong>Exam Schedule</strong>
+                    <span>Organized and ready</span>
+                </div>
+            </div>
+
+            <div class="stackly-exam-float-card exam-float-result">
+                <div class="stackly-exam-float-icon green">
+                    <i class="fa-solid fa-chart-simple"></i>
+                </div>
+
+                <div>
+                    <strong>92% Pass Rate</strong>
+                    <span>Illustrative result</span>
+                </div>
+            </div>
+
+            <div class="stackly-exam-decoration exam-decoration-one">
+                <i class="fa-solid fa-star"></i>
+            </div>
+
+            <div class="stackly-exam-decoration exam-decoration-two">
+                <i class="fa-solid fa-book-open"></i>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+         2. EXAMINATION STATISTICS
+    ======================================= -->
+
+    <section class="stackly-exam-stats" data-aos="fade-up">
+
+        <article class="stackly-exam-stat-card">
+
+            <div class="stackly-exam-stat-top">
+                <span>Total Examinations</span>
+
+                <div class="stackly-exam-stat-icon orange">
+                    <i class="fa-solid fa-file-lines"></i>
+                </div>
+            </div>
+
+            <h3>24</h3>
+
+            <p>
+                <i class="fa-solid fa-calendar-check"></i>
+                Academic year schedule
+            </p>
+
+            <div class="stackly-exam-stat-footer">
+                <span>Planned examinations</span>
+                <i class="fa-solid fa-arrow-up-right-dots"></i>
+            </div>
+
+        </article>
+
+        <article class="stackly-exam-stat-card">
+
+            <div class="stackly-exam-stat-top">
+                <span>Upcoming Exams</span>
+
+                <div class="stackly-exam-stat-icon purple">
+                    <i class="fa-solid fa-calendar-day"></i>
+                </div>
+            </div>
+
+            <h3>06</h3>
+
+            <p>
+                <i class="fa-solid fa-clock"></i>
+                Awaiting examination dates
+            </p>
+
+            <div class="stackly-exam-stat-footer">
+                <span>Upcoming assessments</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </div>
+
+        </article>
+
+        <article class="stackly-exam-stat-card">
+
+            <div class="stackly-exam-stat-top">
+                <span>Results Published</span>
+
+                <div class="stackly-exam-stat-icon green">
+                    <i class="fa-solid fa-square-poll-vertical"></i>
+                </div>
+            </div>
+
+            <h3>18</h3>
+
+            <p>
+                <i class="fa-solid fa-circle-check"></i>
+                Completed assessments
+            </p>
+
+            <div class="stackly-exam-stat-footer">
+                <span>Results available</span>
+                <i class="fa-solid fa-arrow-up-right-dots"></i>
+            </div>
+
+        </article>
+
+        <article class="stackly-exam-stat-card">
+
+            <div class="stackly-exam-stat-top">
+                <span>Registered Students</span>
+
+                <div class="stackly-exam-stat-icon blue">
+                    <i class="fa-solid fa-user-graduate"></i>
+                </div>
+            </div>
+
+            <h3>1,248</h3>
+
+            <p>
+                <i class="fa-solid fa-users"></i>
+                School-wide enrollment
+            </p>
+
+            <div class="stackly-exam-stat-footer">
+                <span>Illustrative enrollment</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <!-- ======================================
+         3. UPCOMING EXAMINATION SCHEDULE
+    ======================================= -->
+
+    <section class="stackly-exam-schedule" data-aos="fade-up">
+
+        <div class="stackly-exam-section-heading">
+
+            <div>
+                <span class="stackly-exam-section-label">
+                    EXAMINATION PLANNER
+                </span>
+
+                <h2>Upcoming Examinations</h2>
+
+                <p>
+                    Keep track of important assessments and upcoming
+                    academic milestones.
+                </p>
+            </div>
+
+            <a href="404-admin.html"
+               class="stackly-exam-text-link">
+
+                View Full Schedule
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+        <div class="stackly-exam-schedule-grid">
+
+            <!-- EXAM ONE -->
+
+            <article class="stackly-exam-schedule-card"
+                     data-aos="fade-up">
+
+                <div class="stackly-exam-date">
+                    <span>OCT</span>
+                    <strong>29</strong>
+                    <small>2026</small>
+                </div>
+
+                <div class="stackly-exam-schedule-info">
+
+                    <span class="stackly-exam-type type-orange">
+                        MIDTERM
+                    </span>
+
+                    <h3>Mathematics Examination</h3>
+
+                    <p>
+                        <i class="fa-solid fa-users"></i>
+                        Grade 10 · Sections A and B
+                    </p>
+
+                    <p>
+                        <i class="fa-solid fa-clock"></i>
+                        09:00 AM – 12:00 PM
+                    </p>
+
+                </div>
+
+                <div class="stackly-exam-schedule-status">
+                    <span class="exam-status scheduled">
+                        <i class="fa-solid fa-circle"></i>
+                        Scheduled
+                    </span>
+
+                    <a href="404-admin.html"
+                       aria-label="View mathematics examination">
+
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+
+            </article>
+
+
+            <!-- EXAM TWO -->
+
+            <article class="stackly-exam-schedule-card"
+                     data-aos="fade-up"
+                     data-aos-delay="100">
+
+                <div class="stackly-exam-date green-date">
+                    <span>NOV</span>
+                    <strong>02</strong>
+                    <small>2026</small>
+                </div>
+
+                <div class="stackly-exam-schedule-info">
+
+                    <span class="stackly-exam-type type-green">
+                        SCIENCE
+                    </span>
+
+                    <h3>Physics Assessment</h3>
+
+                    <p>
+                        <i class="fa-solid fa-users"></i>
+                        Grade 9 · Sections A and B
+                    </p>
+
+                    <p>
+                        <i class="fa-solid fa-clock"></i>
+                        10:00 AM – 01:00 PM
+                    </p>
+
+                </div>
+
+                <div class="stackly-exam-schedule-status">
+                    <span class="exam-status scheduled">
+                        <i class="fa-solid fa-circle"></i>
+                        Scheduled
+                    </span>
+
+                    <a href="404-admin.html"
+                       aria-label="View physics examination">
+
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+
+            </article>
+
+
+            <!-- EXAM THREE -->
+
+            <article class="stackly-exam-schedule-card"
+                     data-aos="fade-up"
+                     data-aos-delay="200">
+
+                <div class="stackly-exam-date purple-date">
+                    <span>NOV</span>
+                    <strong>05</strong>
+                    <small>2026</small>
+                </div>
+
+                <div class="stackly-exam-schedule-info">
+
+                    <span class="stackly-exam-type type-purple">
+                        LANGUAGE
+                    </span>
+
+                    <h3>English Language Test</h3>
+
+                    <p>
+                        <i class="fa-solid fa-users"></i>
+                        Grade 8 · Sections A and B
+                    </p>
+
+                    <p>
+                        <i class="fa-solid fa-clock"></i>
+                        09:30 AM – 11:30 AM
+                    </p>
+
+                </div>
+
+                <div class="stackly-exam-schedule-status">
+                    <span class="exam-status preparation">
+                        <i class="fa-solid fa-circle"></i>
+                        Preparation
+                    </span>
+
+                    <a href="404-admin.html"
+                       aria-label="View English examination">
+
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+         4. EXAMINATION PREPARATION PROGRESS
+    ======================================= -->
+
+    <section class="stackly-exam-preparation" data-aos="fade-up">
+
+        <div class="stackly-exam-section-heading">
+
+            <div>
+                <span class="stackly-exam-section-label">
+                    READINESS OVERVIEW
+                </span>
+
+                <h2>Examination Preparation</h2>
+
+                <p>
+                    Review preparation indicators before the next
+                    scheduled assessments.
+                </p>
+            </div>
+
+            <a href="404-admin.html"
+               class="stackly-exam-text-link">
+
+                Manage Preparation
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+        <div class="stackly-exam-preparation-grid">
+
+            <!-- PREPARATION SUMMARY -->
+
+            <article class="stackly-exam-preparation-card">
+
+                <div class="stackly-exam-preparation-heading">
+
+                    <div class="stackly-exam-preparation-icon">
+                        <i class="fa-solid fa-list-check"></i>
+                    </div>
+
+                    <span class="stackly-exam-readiness-badge">
+                        OVERVIEW
+                    </span>
+
+                </div>
+
+                <h3>Overall Readiness</h3>
+
+                <p>
+                    A sample overview of examination planning progress.
+                </p>
+
+                <div class="stackly-exam-readiness-score">
+                    <strong>82%</strong>
+                    <span>Preparation progress</span>
+                </div>
+
+                <div class="stackly-exam-readiness-bar">
+                    <span style="width: 82%"></span>
+                </div>
+
+                <div class="stackly-exam-readiness-footer">
+                    <span>Planning status</span>
+                    <strong>In Progress</strong>
+                </div>
+
+            </article>
+
+
+            <!-- SYLLABUS -->
+
+            <article class="stackly-exam-preparation-card">
+
+                <div class="stackly-exam-preparation-heading">
+
+                    <div class="stackly-exam-preparation-icon green">
+                        <i class="fa-solid fa-book-open"></i>
+                    </div>
+
+                    <span class="stackly-exam-readiness-badge green-badge">
+                        SYLLABUS
+                    </span>
+
+                </div>
+
+                <h3>Syllabus Coverage</h3>
+
+                <p>
+                    Sample coverage tracking across planned examinations.
+                </p>
+
+                <div class="stackly-exam-readiness-score">
+                    <strong>76%</strong>
+                    <span>Coverage completed</span>
+                </div>
+
+                <div class="stackly-exam-readiness-bar green-progress">
+                    <span style="width: 76%"></span>
+                </div>
+
+                <div class="stackly-exam-readiness-footer">
+                    <span>Coverage review</span>
+                    <strong>Ongoing</strong>
+                </div>
+
+            </article>
+
+
+            <!-- EXAM MATERIALS -->
+
+            <article class="stackly-exam-preparation-card">
+
+                <div class="stackly-exam-preparation-heading">
+
+                    <div class="stackly-exam-preparation-icon purple">
+                        <i class="fa-solid fa-file-circle-check"></i>
+                    </div>
+
+                    <span class="stackly-exam-readiness-badge purple-badge">
+                        MATERIALS
+                    </span>
+
+                </div>
+
+                <h3>Exam Materials</h3>
+
+                <p>
+                    Sample readiness tracking for examination materials.
+                </p>
+
+                <div class="stackly-exam-readiness-score">
+                    <strong>91%</strong>
+                    <span>Materials prepared</span>
+                </div>
+
+                <div class="stackly-exam-readiness-bar purple-progress">
+                    <span style="width: 91%"></span>
+                </div>
+
+                <div class="stackly-exam-readiness-footer">
+                    <span>Material verification</span>
+                    <strong>Review</strong>
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+         5. SUBJECT PERFORMANCE
+    ======================================= -->
+
+    <section class="stackly-exam-performance" data-aos="fade-up">
+
+        <div class="stackly-exam-section-heading">
+
+            <div>
+                <span class="stackly-exam-section-label">
+                    ACADEMIC INSIGHTS
+                </span>
+
+                <h2>Subject Performance</h2>
+
+                <p>
+                    Explore sample academic performance indicators
+                    across selected subjects.
+                </p>
+            </div>
+
+            <a href="404-admin.html"
+               class="stackly-exam-text-link">
+
+                Detailed Analytics
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+        <div class="stackly-exam-performance-layout">
+
+            <!-- SUBJECT PERFORMANCE LIST -->
+
+            <div class="stackly-exam-subject-panel">
+
+                <div class="stackly-exam-panel-title">
+                    <div>
+                        <h3>Performance by Subject</h3>
+                        <p>Illustrative average marks</p>
+                    </div>
+
+                    <div class="stackly-exam-panel-title-icon">
+                        <i class="fa-solid fa-chart-column"></i>
+                    </div>
+                </div>
+
+
+                <div class="stackly-exam-subject-row">
+
+                    <div class="stackly-exam-subject-icon orange">
+                        <i class="fa-solid fa-calculator"></i>
+                    </div>
+
+                    <div class="stackly-exam-subject-info">
+                        <div class="stackly-exam-subject-label">
+                            <strong>Mathematics</strong>
+                            <span>86%</span>
+                        </div>
+
+                        <div class="stackly-exam-subject-bar">
+                            <span style="width: 86%"></span>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="stackly-exam-subject-row">
+
+                    <div class="stackly-exam-subject-icon green">
+                        <i class="fa-solid fa-flask"></i>
+                    </div>
+
+                    <div class="stackly-exam-subject-info">
+                        <div class="stackly-exam-subject-label">
+                            <strong>Science</strong>
+                            <span>79%</span>
+                        </div>
+
+                        <div class="stackly-exam-subject-bar green-progress">
+                            <span style="width: 79%"></span>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="stackly-exam-subject-row">
+
+                    <div class="stackly-exam-subject-icon purple">
+                        <i class="fa-solid fa-book"></i>
+                    </div>
+
+                    <div class="stackly-exam-subject-info">
+                        <div class="stackly-exam-subject-label">
+                            <strong>English</strong>
+                            <span>91%</span>
+                        </div>
+
+                        <div class="stackly-exam-subject-bar purple-progress">
+                            <span style="width: 91%"></span>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="stackly-exam-subject-row">
+
+                    <div class="stackly-exam-subject-icon blue">
+                        <i class="fa-solid fa-earth-asia"></i>
+                    </div>
+
+                    <div class="stackly-exam-subject-info">
+                        <div class="stackly-exam-subject-label">
+                            <strong>Social Studies</strong>
+                            <span>83%</span>
+                        </div>
+
+                        <div class="stackly-exam-subject-bar blue-progress">
+                            <span style="width: 83%"></span>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="stackly-exam-subject-note">
+                    <i class="fa-solid fa-circle-info"></i>
+
+                    <span>
+                        These values are examples, not live examination results.
+                    </span>
+                </div>
+
+            </div>
+
+
+            <!-- ACADEMIC INSIGHT -->
+
+            <article class="stackly-exam-insight-panel">
+
+                <div class="stackly-exam-insight-top">
+                    <div class="stackly-exam-insight-icon">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+
+                    <span>ACADEMIC INSIGHT</span>
+                </div>
+
+                <h3>Turn Assessment into Improvement</h3>
+
+                <p>
+                    Use examination results to recognize strengths,
+                    identify learning gaps, and plan focused academic support.
+                </p>
+
+                <div class="stackly-exam-insight-item">
+                    <i class="fa-solid fa-check"></i>
+                    <span>Review subject-wise learning outcomes</span>
+                </div>
+
+                <div class="stackly-exam-insight-item">
+                    <i class="fa-solid fa-check"></i>
+                    <span>Identify students needing extra support</span>
+                </div>
+
+                <div class="stackly-exam-insight-item">
+                    <i class="fa-solid fa-check"></i>
+                    <span>Plan targeted revision sessions</span>
+                </div>
+
+                <a href="404-admin.html"
+                   class="stackly-exam-insight-link">
+
+                    Explore Academic Insights
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+         6. EXAMINATION TIMELINE
+    ======================================= -->
+
+    <section class="stackly-exam-timeline-section" data-aos="fade-up">
+
+        <div class="stackly-exam-section-heading">
+
+            <div>
+                <span class="stackly-exam-section-label">
+                    IMPORTANT MILESTONES
+                </span>
+
+                <h2>Examination Timeline</h2>
+
+                <p>
+                    A sample workflow from examination planning
+                    through result publication.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="stackly-exam-timeline">
+
+            <article class="stackly-exam-timeline-item completed">
+
+                <div class="stackly-exam-timeline-marker">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+
+                <div class="stackly-exam-timeline-content">
+                    <span>STAGE 01</span>
+                    <h3>Examination Planning</h3>
+                    <p>
+                        Establish examination dates and academic requirements.
+                    </p>
+                    <small>
+                        <i class="fa-solid fa-circle-check"></i>
+                        Sample status: Completed
+                    </small>
+                </div>
+
+            </article>
+
+
+            <article class="stackly-exam-timeline-item completed">
+
+                <div class="stackly-exam-timeline-marker">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+
+                <div class="stackly-exam-timeline-content">
+                    <span>STAGE 02</span>
+                    <h3>Schedule Coordination</h3>
+                    <p>
+                        Coordinate classes, invigilators, rooms, and timings.
+                    </p>
+                    <small>
+                        <i class="fa-solid fa-circle-check"></i>
+                        Sample status: Completed
+                    </small>
+                </div>
+
+            </article>
+
+
+            <article class="stackly-exam-timeline-item current">
+
+                <div class="stackly-exam-timeline-marker">
+                    <i class="fa-solid fa-pen"></i>
+                </div>
+
+                <div class="stackly-exam-timeline-content">
+                    <span>STAGE 03</span>
+                    <h3>Examination Preparation</h3>
+                    <p>
+                        Verify required materials and classroom readiness.
+                    </p>
+                    <small>
+                        <i class="fa-solid fa-clock"></i>
+                        Sample status: In Progress
+                    </small>
+                </div>
+
+            </article>
+
+
+            <article class="stackly-exam-timeline-item">
+
+                <div class="stackly-exam-timeline-marker">
+                    <i class="fa-solid fa-flag-checkered"></i>
+                </div>
+
+                <div class="stackly-exam-timeline-content">
+                    <span>STAGE 04</span>
+                    <h3>Results and Review</h3>
+                    <p>
+                        Review marks, publish results, and plan improvements.
+                    </p>
+                    <small>
+                        <i class="fa-regular fa-calendar"></i>
+                        Sample status: Upcoming
+                    </small>
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+         7. QUICK EXAMINATION TOOLS
+    ======================================= -->
+
+    <section class="stackly-exam-tools" data-aos="fade-up">
+
+        <div class="stackly-exam-section-heading">
+
+            <div>
+                <span class="stackly-exam-section-label">
+                    EXAMINATION CONTROL CENTER
+                </span>
+
+                <h2>Quick Management Tools</h2>
+
+                <p>
+                    Access frequently used examination management tasks.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="stackly-exam-tools-grid">
+
+            <a href="404-admin.html"
+               class="stackly-exam-tool-card">
+
+                <div class="stackly-exam-tool-icon orange">
+                    <i class="fa-solid fa-calendar-plus"></i>
+                </div>
+
+                <div>
+                    <h3>Create Exam</h3>
+                    <p>Plan a new assessment</p>
+                </div>
+
+                <i class="fa-solid fa-arrow-right stackly-exam-tool-arrow"></i>
+
+            </a>
+
+
+            <a href="404-admin.html"
+               class="stackly-exam-tool-card">
+
+                <div class="stackly-exam-tool-icon green">
+                    <i class="fa-solid fa-clipboard-list"></i>
+                </div>
+
+                <div>
+                    <h3>Exam Schedule</h3>
+                    <p>Manage dates and timings</p>
+                </div>
+
+                <i class="fa-solid fa-arrow-right stackly-exam-tool-arrow"></i>
+
+            </a>
+
+
+            <a href="404-admin.html"
+               class="stackly-exam-tool-card">
+
+                <div class="stackly-exam-tool-icon purple">
+                    <i class="fa-solid fa-square-poll-vertical"></i>
+                </div>
+
+                <div>
+                    <h3>Publish Results</h3>
+                    <p>Review and release marks</p>
+                </div>
+
+                <i class="fa-solid fa-arrow-right stackly-exam-tool-arrow"></i>
+
+            </a>
+
+
+            <a href="404-admin.html"
+               class="stackly-exam-tool-card">
+
+                <div class="stackly-exam-tool-icon blue">
+                    <i class="fa-solid fa-file-arrow-down"></i>
+                </div>
+
+                <div>
+                    <h3>Exam Reports</h3>
+                    <p>Access academic summaries</p>
+                </div>
+
+                <i class="fa-solid fa-arrow-right stackly-exam-tool-arrow"></i>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+         8. FINAL EXAMINATION REMINDER
+    ======================================= -->
+
+    <section class="stackly-exam-reminder" data-aos="fade-up">
+
+        <div class="stackly-exam-reminder-icon">
+            <i class="fa-solid fa-bell"></i>
+        </div>
+
+        <div class="stackly-exam-reminder-content">
+
+            <span>PLAN AHEAD</span>
+
+            <h2>Every Assessment Is an Opportunity to Grow.</h2>
+
+            <p>
+                Keep examination schedules organized, coordinate
+                academic teams, and prepare students for success.
+            </p>
+
+        </div>
+
+        <a href="404-admin.html"
+           class="stackly-exam-reminder-btn">
+
+            Manage Examinations
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+    </section>
+
+</div>
+
+
+</main>
+
+    <!-- AOS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <!-- Admin Dashboard JavaScript -->
+    <script src="admin.js"></script>
+
+</body>
+</html>

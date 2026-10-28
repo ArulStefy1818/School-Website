@@ -1,0 +1,877 @@
+/* ==========================================
+   STACKLY EDUCATION - 404 ERROR PAGE
+   Modern Design + Animations + Responsive
+   No Scroll + Hover Effects
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+/* ==========================================
+   GLOBAL RESET
+========================================== */
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    overflow: hidden;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    overflow: hidden;
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.stackly-edu-error-page,
+.stackly-edu-error-page * {
+    box-sizing: border-box;
+}
+
+/* ==========================================
+   MAIN PAGE
+========================================== */
+
+.stackly-edu-error-page {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 0;
+
+    padding: 24px;
+    overflow: hidden;
+    isolation: isolate;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(255, 159, 26, 0.10),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 90%,
+            rgba(8, 127, 116, 0.11),
+            transparent 32%
+        ),
+        #f7faf9;
+
+    color: #17263b;
+}
+
+/* ==========================================
+   BACKGROUND DECORATIONS
+========================================== */
+
+.stackly-edu-error-bg-shape {
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    border-radius: 50%;
+    opacity: 0.6;
+}
+
+.stackly-edu-error-bg-shape-one {
+    top: -100px;
+    left: -90px;
+    width: 260px;
+    height: 260px;
+    border: 35px solid rgba(8, 127, 116, 0.08);
+    animation: stacklyEduFloat 8s ease-in-out infinite;
+}
+
+.stackly-edu-error-bg-shape-two {
+    right: -100px;
+    bottom: -110px;
+    width: 300px;
+    height: 300px;
+    border: 40px solid rgba(255, 159, 26, 0.10);
+    animation: stacklyEduFloat 9s ease-in-out infinite reverse;
+}
+
+/* ==========================================
+   MAIN CONTENT CONTAINER
+========================================== */
+
+.stackly-edu-error-container {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    align-items: center;
+    justify-content: center;
+    gap: clamp(30px, 5vw, 75px);
+
+    width: 100%;
+    max-width: 1100px;
+    max-height: 100%;
+    margin: 0 auto;
+}
+
+/* ==========================================
+   ERROR ILLUSTRATION
+========================================== */
+
+.stackly-edu-error-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 330px;
+
+    animation: stacklyEduAppear 0.9s ease both;
+}
+
+.stackly-edu-error-number {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+
+    color: #087f74;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(110px, 16vw, 190px);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -10px;
+
+    text-shadow: 0 12px 25px rgba(8, 127, 116, 0.10);
+    animation: stacklyEduNumberFloat 4s ease-in-out infinite;
+}
+
+.stackly-edu-error-number span {
+    display: inline-block;
+    color: #ff9f1a;
+    transform: translateY(-9px);
+}
+
+/* ==========================================
+   FLOATING EDUCATION ICONS
+========================================== */
+
+.stackly-edu-error-decoration {
+    position: absolute;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 62px;
+    height: 62px;
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+
+    box-shadow: 0 12px 30px rgba(23, 38, 59, 0.10);
+
+    animation: stacklyEduIconFloat 4s ease-in-out infinite;
+}
+
+.stackly-edu-error-decoration i {
+    font-size: 27px;
+}
+
+.stackly-edu-error-decoration-one {
+    top: 12%;
+    left: 8%;
+    color: #ffffff;
+    background: #ff9f1a;
+    transform: rotate(-12deg);
+}
+
+.stackly-edu-error-decoration-two {
+    top: 18%;
+    right: 7%;
+    color: #ffffff;
+    background: #087f74;
+    border-radius: 50%;
+    animation-delay: 0.8s;
+}
+
+.stackly-edu-error-book {
+    position: absolute;
+    right: 10%;
+    bottom: 10%;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 76px;
+    height: 76px;
+
+    color: #087f74;
+    background: #ffffff;
+    border: 2px solid #e0efeb;
+    border-radius: 24px;
+
+    box-shadow: 0 15px 35px rgba(23, 38, 59, 0.10);
+
+    animation: stacklyEduIconFloat 4.5s ease-in-out infinite;
+    animation-delay: 0.4s;
+}
+
+.stackly-edu-error-book i {
+    font-size: 34px;
+}
+
+/* ==========================================
+   TEXT CONTENT
+========================================== */
+
+.stackly-edu-error-content {
+    width: 100%;
+    min-width: 0;
+    animation: stacklyEduContentEnter 0.8s ease both;
+}
+
+.stackly-edu-error-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    margin-bottom: 18px;
+    padding: 9px 15px;
+
+    color: #087f74;
+    background: rgba(8, 127, 116, 0.09);
+    border: 1px solid rgba(8, 127, 116, 0.13);
+    border-radius: 50px;
+
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+}
+
+.stackly-edu-error-label i {
+    color: #ff9f1a;
+    font-size: 16px;
+    animation: stacklyEduPulse 2s ease-in-out infinite;
+}
+
+/* ==========================================
+   MAIN HEADING
+========================================== */
+
+.stackly-edu-error-content h1 {
+    margin: 0 0 18px;
+
+    color: #17263b;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(34px, 4vw, 52px);
+    font-weight: 700;
+    line-height: 1.13;
+    letter-spacing: -1.8px;
+}
+
+.stackly-edu-error-content h1 span {
+    display: block;
+    margin-top: 5px;
+    color: #ff9f1a;
+    transition: color 0.3s ease;
+}
+
+.stackly-edu-error-content h1 span:hover {
+    color: #e98300;
+}
+
+/* ==========================================
+   DESCRIPTION
+========================================== */
+
+.stackly-edu-error-description {
+    max-width: 490px;
+    margin: 0 0 25px;
+
+    color: #64748b;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.85;
+}
+
+/* ==========================================
+   ACTION BUTTONS
+========================================== */
+
+.stackly-edu-error-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 25px;
+}
+
+.stackly-edu-error-btn {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+
+    min-height: 53px;
+    padding: 14px 24px;
+
+    border: 2px solid transparent;
+    border-radius: 9px;
+
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    text-decoration: none;
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.stackly-edu-error-btn i {
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+/* HOME BUTTON */
+
+.stackly-edu-home-btn {
+    color: #ffffff;
+    background: #087f74;
+    box-shadow: 0 8px 20px rgba(8, 127, 116, 0.18);
+}
+
+.stackly-edu-home-btn:hover {
+    color: #ffffff;
+    background: #06695f;
+    transform: translateY(-4px);
+    box-shadow: 0 13px 26px rgba(8, 127, 116, 0.25);
+}
+
+.stackly-edu-home-btn:hover i {
+    transform: translateX(-3px);
+}
+
+/* BACK BUTTON */
+
+.stackly-edu-back-btn {
+    color: #17263b;
+    background: #ffffff;
+    border-color: #dce5e6;
+}
+
+.stackly-edu-back-btn:hover {
+    color: #087f74;
+    background: #eef8f5;
+    border-color: #087f74;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 22px rgba(23, 38, 59, 0.08);
+}
+
+.stackly-edu-back-btn:hover i {
+    transform: translateX(-4px);
+}
+
+/* KEYBOARD FOCUS */
+
+.stackly-edu-error-btn:focus-visible {
+    outline: 3px solid #ff9f1a;
+    outline-offset: 4px;
+}
+
+/* ==========================================
+   HELPFUL MESSAGE
+========================================== */
+
+.stackly-edu-error-help {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+
+    max-width: 470px;
+    padding: 15px 17px;
+
+    background: #ffffff;
+    border-left: 4px solid #ff9f1a;
+    border-radius: 0 10px 10px 0;
+
+    box-shadow: 0 7px 24px rgba(23, 38, 59, 0.045);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.stackly-edu-error-help:hover {
+    transform: translateX(5px);
+    box-shadow: 0 10px 28px rgba(23, 38, 59, 0.08);
+}
+
+.stackly-edu-error-help > i {
+    flex: 0 0 auto;
+    margin-top: 3px;
+    color: #ff9f1a;
+    font-size: 20px;
+}
+
+.stackly-edu-error-help p {
+    margin: 0;
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.7;
+}
+
+/* ==========================================
+   ANIMATIONS
+========================================== */
+
+@keyframes stacklyEduFloat {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-18px) rotate(8deg);
+    }
+}
+
+@keyframes stacklyEduNumberFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes stacklyEduIconFloat {
+    0%,
+    100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -12px;
+    }
+}
+
+@keyframes stacklyEduPulse {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+@keyframes stacklyEduAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.88);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes stacklyEduContentEnter {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================
+   TABLET RESPONSIVE
+========================================== */
+
+@media (max-width: 900px) {
+
+    .stackly-edu-error-page {
+        padding: 22px;
+    }
+
+    .stackly-edu-error-container {
+        grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+        gap: 30px;
+    }
+
+    .stackly-edu-error-visual {
+        min-height: 270px;
+    }
+
+    .stackly-edu-error-number {
+        font-size: clamp(95px, 15vw, 145px);
+        letter-spacing: -7px;
+    }
+
+    .stackly-edu-error-decoration {
+        width: 50px;
+        height: 50px;
+        border-radius: 16px;
+    }
+
+    .stackly-edu-error-decoration i {
+        font-size: 22px;
+    }
+
+    .stackly-edu-error-book {
+        width: 62px;
+        height: 62px;
+        border-radius: 19px;
+    }
+
+    .stackly-edu-error-book i {
+        font-size: 28px;
+    }
+
+    .stackly-edu-error-content h1 {
+        font-size: clamp(32px, 4.5vw, 43px);
+    }
+
+    .stackly-edu-error-description {
+        font-size: 15px;
+        line-height: 1.75;
+    }
+}
+
+/* ==========================================
+   MOBILE RESPONSIVE
+========================================== */
+
+@media (max-width: 600px) {
+
+    .stackly-edu-error-page {
+        padding: 18px;
+    }
+
+    .stackly-edu-error-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+
+        width: 100%;
+        max-width: 440px;
+        margin: auto;
+    }
+
+    .stackly-edu-error-visual {
+        flex: 0 1 auto;
+        width: 100%;
+        min-height: 0;
+        height: clamp(150px, 25dvh, 220px);
+        max-height: 220px;
+    }
+
+    .stackly-edu-error-number {
+        font-size: clamp(100px, 29vw, 150px);
+        letter-spacing: -7px;
+    }
+
+    .stackly-edu-error-number span {
+        transform: translateY(-5px);
+    }
+
+    .stackly-edu-error-decoration {
+        width: 43px;
+        height: 43px;
+        border-radius: 14px;
+    }
+
+    .stackly-edu-error-decoration i {
+        font-size: 19px;
+    }
+
+    .stackly-edu-error-decoration-one {
+        top: 7%;
+        left: 9%;
+    }
+
+    .stackly-edu-error-decoration-two {
+        top: 10%;
+        right: 8%;
+    }
+
+    .stackly-edu-error-book {
+        right: 10%;
+        bottom: 4%;
+        width: 52px;
+        height: 52px;
+        border-radius: 16px;
+    }
+
+    .stackly-edu-error-book i {
+        font-size: 24px;
+    }
+
+    .stackly-edu-error-content {
+        flex: 0 1 auto;
+        text-align: center;
+    }
+
+    .stackly-edu-error-label {
+        gap: 7px;
+        margin-bottom: 12px;
+        padding: 7px 12px;
+        font-size: 11px;
+        letter-spacing: 1px;
+    }
+
+    .stackly-edu-error-label i {
+        font-size: 14px;
+    }
+
+    .stackly-edu-error-content h1 {
+        margin-bottom: 12px;
+        font-size: clamp(29px, 7.5vw, 39px);
+        line-height: 1.15;
+        letter-spacing: -0.9px;
+    }
+
+    .stackly-edu-error-content h1 span {
+        margin-top: 3px;
+    }
+
+    .stackly-edu-error-description {
+        max-width: 400px;
+        margin: 0 auto 17px;
+        font-size: 14px;
+        line-height: 1.65;
+    }
+
+    .stackly-edu-error-actions {
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 17px;
+    }
+
+    .stackly-edu-error-btn {
+        min-height: 46px;
+        gap: 8px;
+        padding: 11px 17px;
+        border-radius: 8px;
+        font-size: 13px;
+    }
+
+    .stackly-edu-error-btn i {
+        font-size: 14px;
+    }
+
+    .stackly-edu-error-help {
+        max-width: 390px;
+        margin: 0 auto;
+        padding: 11px 13px;
+        gap: 9px;
+        text-align: left;
+    }
+
+    .stackly-edu-error-help > i {
+        font-size: 17px;
+    }
+
+    .stackly-edu-error-help p {
+        font-size: 12px;
+        line-height: 1.55;
+    }
+
+    .stackly-edu-error-bg-shape-one {
+        top: -95px;
+        left: -110px;
+        width: 200px;
+        height: 200px;
+    }
+
+    .stackly-edu-error-bg-shape-two {
+        right: -110px;
+        bottom: -110px;
+        width: 220px;
+        height: 220px;
+    }
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 380px) {
+
+    .stackly-edu-error-page {
+        padding: 12px;
+    }
+
+    .stackly-edu-error-container {
+        gap: 0;
+    }
+
+    .stackly-edu-error-visual {
+        height: clamp(125px, 22dvh, 165px);
+    }
+
+    .stackly-edu-error-number {
+        font-size: clamp(88px, 27vw, 112px);
+        letter-spacing: -5px;
+    }
+
+    .stackly-edu-error-decoration {
+        width: 36px;
+        height: 36px;
+    }
+
+    .stackly-edu-error-decoration i {
+        font-size: 16px;
+    }
+
+    .stackly-edu-error-book {
+        width: 44px;
+        height: 44px;
+        border-radius: 13px;
+    }
+
+    .stackly-edu-error-book i {
+        font-size: 20px;
+    }
+
+    .stackly-edu-error-label {
+        margin-bottom: 9px;
+        font-size: 10px;
+    }
+
+    .stackly-edu-error-content h1 {
+        margin-bottom: 9px;
+        font-size: clamp(25px, 7.5vw, 29px);
+        letter-spacing: -0.5px;
+    }
+
+    .stackly-edu-error-description {
+        margin-bottom: 12px;
+        font-size: 12px;
+        line-height: 1.55;
+    }
+
+    .stackly-edu-error-actions {
+        gap: 8px;
+        margin-bottom: 12px;
+    }
+
+    .stackly-edu-error-btn {
+        min-height: 42px;
+        gap: 7px;
+        padding: 9px 12px;
+        font-size: 12px;
+    }
+
+    .stackly-edu-error-help {
+        padding: 9px 10px;
+    }
+
+    .stackly-edu-error-help p {
+        font-size: 11px;
+    }
+}
+
+/* ==========================================
+   SHORT SCREEN / LANDSCAPE
+========================================== */
+
+@media (max-height: 600px) and (min-width: 601px) {
+
+    .stackly-edu-error-page {
+        padding: 12px 24px;
+    }
+
+    .stackly-edu-error-container {
+        gap: 24px;
+    }
+
+    .stackly-edu-error-visual {
+        min-height: 220px;
+    }
+
+    .stackly-edu-error-number {
+        font-size: clamp(90px, 18vh, 135px);
+    }
+
+    .stackly-edu-error-decoration {
+        width: 45px;
+        height: 45px;
+    }
+
+    .stackly-edu-error-book {
+        width: 55px;
+        height: 55px;
+    }
+
+    .stackly-edu-error-content h1 {
+        margin-bottom: 10px;
+        font-size: clamp(29px, 6vh, 39px);
+    }
+
+    .stackly-edu-error-label {
+        margin-bottom: 10px;
+    }
+
+    .stackly-edu-error-description {
+        margin-bottom: 14px;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .stackly-edu-error-actions {
+        margin-bottom: 14px;
+    }
+
+    .stackly-edu-error-help {
+        padding: 10px 13px;
+    }
+}
+
+/* ==========================================
+   REDUCED MOTION ACCESSIBILITY
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .stackly-edu-error-page *,
+    .stackly-edu-error-page *::before,
+    .stackly-edu-error-page *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
